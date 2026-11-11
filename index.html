@@ -581,7 +581,7 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
 <section class="aprender" id="aprender" aria-labelledby="aprender-t">
   <div class="wrap">
     <h2 id="aprender-t">O que você vai aprender</h2>
-    <p class="lead"><strong>O objetivo do curso:</strong> <span data-c="promessa"></span></p>
+    <p class="lead"><strong>O objetivo do curso:</strong> <span data-c="promessa"></span> Tudo apoiado em metodologias ativas, como o ensino híbrido e a sala de aula invertida, e na BNCC Computação.</p>
     <ul class="ganhos">
       <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-plano"/></svg><h3>Planejar com a IA</h3><p>Roteiro de aula e atividades personalizadas, feitos a partir do material que você entrega à IA.</p></li>
       <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-prova"/></svg><h3>Questões por nível de Bloom</h3><p>Múltipla escolha, verdadeiro ou falso, colunas e lacunas, cada questão no nível que você escolher.</p></li>
@@ -594,10 +594,10 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
       <h3>Com a taxonomia de Bloom por trás</h3>
       <p>Um dos temas do curso é o Agente Avaliativo: você configura a IA para criar questões em cada nível da taxonomia de Bloom. É a mesma taxonomia que o <span data-c="professor.nome">Prof. Romário Costa</span> usa para corrigir e para criar atividades novas. São seis níveis, do mais simples ao mais exigente:</p>
       <ol class="bloom-niveis" id="bloom-niveis"></ol>
-      <p class="pequeno">Na demonstração desta página, escolha “Prova com gabarito” para ver o nível de cada questão.</p>
+      <p class="pequeno">Na demonstração desta página, escolha “Prova por nível de Bloom” para ver o nível de cada questão.</p>
     </div>
     <h3>Os dois módulos do curso</h3>
-    <p class="lead" style="margin-bottom:1.25rem">O Módulo 1 dá a base. O Módulo 2 é a Fábrica de Conteúdos: oito temas, do planejamento à música.</p>
+    <p class="lead" style="margin-bottom:1.25rem">O Módulo 1 fundamenta a formação. O Módulo 2 é a Fábrica de Conteúdos, com oito temas.</p>
     <div id="modulos"></div>
   </div>
 </section>
@@ -772,7 +772,7 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
    ===================================================================== */
 const CONFIG = {
   nomeCurso: "IA para Professores",
-  promessa: "Fazer da IA a sua assistente pessoal para planejar, avaliar e criar materiais de aula.",
+  promessa: "Capacitar você a usar tecnologias digitais e IA para criar e personalizar conteúdos, atividades e avaliações para os alunos de hoje.",
 
   // Preço e pagamento
   preco: "R$ 97,00",                 // texto mostrado na página (sempre "à vista")
@@ -785,20 +785,20 @@ const CONFIG = {
   // Temas do curso, tirados do conteúdo programático (sem o que era específico da formação presencial).
   // Formato: { rotulo: "…", titulo: "…", beneficio: "…", aulas: ["…", "…"] }
   modulos: [
-    { rotulo: "Módulo 1", titulo: "Ponto de partida: seus alunos e a BNCC Computação",
+    { rotulo: "Módulo 1", titulo: "Fundamentando o Treinamento",
       beneficio: "Entenda como a Geração Alfa aprende e o que a BNCC Computação pede, para usar a tecnologia com intenção.",
       aulas: ["A Geração Alfa e as novas formas de aprender",
               "BNCC Computação: pensamento computacional, mundo digital e cultura digital"] },
-    { rotulo: "Módulo 2 · Tema 1", titulo: "Aulas em pílulas: microaprendizagem e metodologias ativas",
+    { rotulo: "Módulo 2 · Tema 1", titulo: "Fábrica de Conteúdos: Metodologias Ativas e Microaprendizagem",
       beneficio: "Aprenda a transformar um conteúdo em pílulas curtas e a usar o ensino híbrido e a sala de aula invertida.",
       aulas: ["O que é microaprendizagem",
               "Ensino híbrido e sala de aula invertida",
-              "Versões pagas das ferramentas: quando valem o investimento"] },
-    { rotulo: "Módulo 2 · Tema 2", titulo: "Sua base no Google",
+              "Por que as ferramentas Pro são o braço direito do professor"] },
+    { rotulo: "Módulo 2 · Tema 2", titulo: "Gmail: Ecossistema Google",
       beneficio: "Deixe e-mail, navegador e armazenamento em ordem para trabalhar sem travar.",
       aulas: ["Gmail e Chrome organizados para o trabalho",
               "Como resolver o armazenamento cheio"] },
-    { rotulo: "Módulo 2 · Tema 3", titulo: "Personagens que falam, com o Adobe Express",
+    { rotulo: "Módulo 2 · Tema 3", titulo: "Adobe Express: Criando Personagens Falantes",
       beneficio: "Crie um personagem animado que explica o conteúdo com a sua voz, pelo computador ou pelo celular.",
       aulas: ["Primeiro acesso à plataforma",
               "Seu narrador, com áudio limpo de ruídos",
@@ -806,13 +806,13 @@ const CONFIG = {
               "Como fazer tudo pelo celular",
               "Voz criada pela IA no lugar da sua",
               "Prática: seu primeiro vídeo curto, de 30 segundos a 1 minuto"] },
-    { rotulo: "Módulo 2 · Tema 4", titulo: "Gemini: a IA como colaboradora",
+    { rotulo: "Módulo 2 · Tema 4", titulo: "Gemini: Inteligência Artificial na Prática",
       beneficio: "Aprenda a entregar contexto à IA (textos, fotos, links e documentos) para a resposta sair do seu material, e não genérica.",
       aulas: ["O que o Gemini faz pela rotina do professor",
               "Por dentro da tela: texto, imagens e leitura de documentos",
               "Contexto é rei: a IA colabora, o professor decide",
               "Como enviar textos, fotos, links e PDFs"] },
-    { rotulo: "Módulo 2 · Tema 5", titulo: "Agente Avaliativo: questões com a taxonomia de Bloom",
+    { rotulo: "Módulo 2 · Tema 5", titulo: "Agente Avaliativo: Criando Itens com a Taxonomia de Bloom",
       beneficio: "Configure a IA para criar questões em cada nível de Bloom, do lembrar ao criar, com a justificativa da resposta certa.",
       aulas: ["Por que usar a taxonomia de Bloom para avaliar",
               "A IA como mentora: os seis níveis explicados para a sua disciplina",
@@ -821,7 +821,7 @@ const CONFIG = {
               "Questões a partir de fotos, textos, links e vídeos",
               "O comando pronto que cria o seu Agente Avaliativo",
               "Prática: sua primeira questão por nível"] },
-    { rotulo: "Módulo 2 · Tema 6", titulo: "Imagens autorais para a sala de aula",
+    { rotulo: "Módulo 2 · Tema 6", titulo: "Geração de Imagens Nano Banana: Criando Imagens Autorais para a Sala de Aula",
       beneficio: "Gere ilustrações e desenhos para colorir sobre qualquer tema, em seis estilos.",
       aulas: ["Proporções certas para slide, celular e ficha",
               "Desenhos para colorir",
@@ -829,7 +829,7 @@ const CONFIG = {
               "Ícones e cartazes em estilo simples",
               "Cenas em 3D, anime e desenho realista",
               "Prática: seu kit de imagens em três formatos"] },
-    { rotulo: "Módulo 2 · Tema 7", titulo: "CapCut: seu vídeo do começo ao fim",
+    { rotulo: "Módulo 2 · Tema 7", titulo: "CapCut: O Caldeirão da Produção Educacional",
       beneficio: "Junte roteiro, voz, personagem e cenário em um vídeo curto, pronto para mandar à turma.",
       aulas: ["Instalação no computador e no celular",
               "Projeto organizado, cortes e camadas",
@@ -838,7 +838,7 @@ const CONFIG = {
               "Troca do fundo do vídeo",
               "Como exportar e compartilhar",
               "Projeto final: seu primeiro vídeo curto de aula, em cinco etapas"] },
-    { rotulo: "Módulo 2 · Tema 8", titulo: "Musicalizando a infância",
+    { rotulo: "Módulo 2 · Tema 8", titulo: "Musicalizando a Infância: Criando Músicas para Aprender e Brincar",
       beneficio: "Transforme um conteúdo em canção: a letra nasce no Gemini e a música, na Suno.",
       aulas: ["Música como recurso na Educação Infantil",
               "Conhecendo as ferramentas de música",
@@ -877,8 +877,8 @@ const CONFIG = {
 
   // Respostas do FAQ que dependem de você
   respostaCursosGratuitos: "[PREENCHER]",
-  ferramentasUsadas: "Gemini (Google), Adobe Express, CapCut e Suno",
-  ferramentas: "As aulas também mostram as versões pagas, que ampliam esses limites, para você decidir se o investimento vale a pena.",
+  ferramentasUsadas: "Gemini (Google), Adobe Express, CapCut, Suno e Flow Music",
+  ferramentas: "O curso também mostra as versões pagas, que ampliam esses limites, e explica por que o professor recomenda investir nelas.",
 
   // Rodapé e medição
   cnpj: "[PREENCHER]",
@@ -1020,7 +1020,7 @@ const FAQ = {
         "Na demonstração desta página dá para ver a diferença que um pedido completo faz."] },
   tempo: { p: "Não tenho tempo nem para fazer o curso. Como fica?",
     r: ["As aulas têm de {duracaoAulas}. Cabem em um intervalo ou em uma janela entre duas turmas.",
-        "Você não precisa assistir a tudo para começar: os pedidos prontos já servem na primeira semana."] },
+        "Você não precisa assistir a tudo para começar a usar: os temas de criação trazem pedidos prontos para copiar."] },
   naotermino: { p: "Já comprei curso e não terminei. Por que este seria diferente?",
     r: ["Porque ele foi pensado para quem tem pouco tempo: aulas curtas e pedidos prontos para copiar e adaptar.",
         "Os temas de criação terminam em uma atividade prática. Você sai deles com um material pronto para a sua aula, e ver resultado ajuda a continuar.",
@@ -1102,7 +1102,7 @@ const DEMO = {
     { id: "plano", nome: "Plano de aula", icone: "i-plano",
       revise: "Rascunho da IA. Agora é com você: revise, ajuste à sua turma e decida o que vai para a sala." },
     { id: "prova", nome: "Prova por nível de Bloom", icone: "i-prova",
-      revise: "Rascunho da IA. Confira cada questão e o gabarito antes de aplicar. Na correção, o nível de cada questão ajuda a ver até onde cada aluno chegou." },
+      revise: "Rascunho da IA. Confira cada questão e o gabarito antes de aplicar. Com um nível por questão, a prova mede o que o aluno aprendeu, sem ficar só na decoreba." },
     { id: "roteiro", nome: "Roteiro de vídeo curto", icone: "i-video",
       revise: "Rascunho da IA. Leia em voz alta e ajuste do seu jeito antes de gravar. No curso, esse roteiro vira narração, personagem animado e vídeo editado." },
     { id: "musica", nome: "Letra de música", icone: "i-musica",
@@ -1110,7 +1110,7 @@ const DEMO = {
   ],
   pedido: {
     plano: (d, a, t) => `Dou aula de ${d} para o ${a}. Monte um plano de aula de 50 minutos sobre ${t.tema}, alinhado à habilidade ${t.bncc} da BNCC. ${t.turma} Quero objetivo, materiais, passo a passo com o tempo de cada etapa e uma forma simples de avaliar.`,
-    prova: (d, a, t) => `Crie uma prova de ${d} para o ${a} sobre ${t.tema} (habilidade ${t.bncc} da BNCC). São 4 questões: 2 de múltipla escolha e 2 abertas. Cada uma deve cobrar um nível diferente da taxonomia de Bloom, do mais simples ao mais exigente, com o nível indicado. No final, coloque o gabarito com uma explicação curta de cada resposta.`,
+    prova: (d, a, t) => `Crie uma prova de ${d} para o ${a} sobre ${t.tema} (habilidade ${t.bncc} da BNCC). São 4 questões, uma de cada formato: complete as lacunas, verdadeiro ou falso, relacione as colunas e múltipla escolha. Cada uma deve cobrar um nível diferente da taxonomia de Bloom, do mais simples ao mais exigente, com o nível indicado. No final, coloque o gabarito com a justificativa de cada resposta.`,
     roteiro: (d, a, t) => `Aja como professor de ${d} do ${a}. Crie um roteiro para um vídeo curto, de até 1 minuto, sobre ${t.tema} (habilidade ${t.bncc} da BNCC). São no máximo 5 linhas de narração: saudação, gancho com uma pergunta, explicação breve e despedida. Use palavras que a turma entende.`,
     musica: (d, a, t) => `Componha a letra de uma música educativa sobre ${t.tema} para o ${a}, ligada à habilidade ${t.bncc} da BNCC. Ela vai ser cantada por uma IA de música: marque as partes com [Verso] e [Refrão]. Quero versos curtos, rimas simples e um refrão fácil de repetir. Estilo: ${t.estilo}.`
   },
@@ -1137,17 +1137,19 @@ Cada aluno responde por escrito: "Como você sabe que a raposa queria as uvas?" 
       prova: `# Prova · Leitura de fábula
 > 5º ano · Língua Portuguesa · BNCC EF35LP04
 **Texto:** Um leão dormia quando um ratinho passou correndo sobre ele. O leão acordou e o prendeu com a pata. "Me solte! Um dia eu ajudo você", pediu o ratinho. O leão riu, mas o deixou ir. Dias depois, o leão caiu na rede de um caçador. O ratinho ouviu os rugidos, roeu as cordas e o libertou.
-**1.** [B1] Quem libertou o leão da rede?
-~ a) O caçador | b) O ratinho | c) Outro leão | d) Ninguém
-**2.** [B2] Por que o leão riu do pedido do ratinho?
-~ a) Porque estava de bom humor. | b) Porque não acreditou que um animal tão pequeno pudesse ajudá-lo. | c) Porque queria brincar. | d) Porque tinha medo do caçador.
-**3.** [B3] A fábula mostra que os pequenos também podem ajudar os grandes. Conte uma situação da escola em que isso acontece.
-**4.** [B5] O leão fez bem em soltar o ratinho? Dê sua opinião e explique com um fato da história.
+**1.** [B1] Complete com as palavras do quadro (rede, cordas): "O leão caiu na ____ de um caçador. O ratinho roeu as ____ e o libertou."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) O leão riu porque não acreditou que o ratinho pudesse ajudá-lo. | ( ) O ratinho esqueceu a promessa. | ( ) No fim, o pequeno ajudou o grande.
+**3.** [B4] Relacione cada trecho ao que ele mostra.
+~ (1) "O leão riu, mas o deixou ir." | (2) "roeu as cordas e o libertou"
+~ ( ) O ratinho cumpriu a promessa. | ( ) O leão duvidou do ratinho.
+**4.** [B5] Qual é a melhor moral para a fábula?
+~ a) Leões dormem demais. | b) Não despreze os pequenos: eles também podem ajudar. | c) Caçadores são perigosos. | d) Quem ri por último ri melhor.
 ## Gabarito
-* **1. b)** Está escrito no texto: o ratinho "roeu as cordas e o libertou".
-* **2. b)** O texto não diz, mas o riso logo depois da promessa mostra que ele duvidou.
-* **3.** Resposta pessoal. Vale um exemplo em que alguém menor ou mais novo ajuda alguém maior.
-* **4.** Resposta pessoal. Deve trazer uma opinião e um fato da história que a sustente.`,
+* **1.** rede; cordas. As duas informações estão escritas no texto.
+* **2.** V, F, V. O texto não diz por que o leão riu, mas o riso logo depois da promessa mostra a dúvida.
+* **3.** 2, 1. Cada trecho é a pista de uma ideia que o texto não diz diretamente.
+* **4. b)** É a lição que a história inteira constrói.`,
       roteiro: `# Roteiro de vídeo curto · Ler nas entrelinhas
 > 5º ano · Língua Portuguesa · BNCC EF35LP04 · até 1 minuto de narração
 **Saudação:** Oi, pessoal!
@@ -1188,17 +1190,19 @@ Recolha as frases trocadas. Veja se a dupla justifica a classificação com uma 
       prova: `# Prova · Fato e opinião
 > 7º ano · Língua Portuguesa · BNCC EF67LP04
 **Texto:** A prefeitura inaugurou ontem uma ciclovia de 4 km na avenida central. A obra custou R$ 2 milhões e levou oito meses. Para os moradores ouvidos, a ciclovia é linda, mas chegou tarde demais.
-**1.** [B1] Em uma notícia, fato é:
-~ a) o que o jornalista acha. | b) uma informação que pode ser conferida. | c) o título do texto. | d) a parte mais longa.
-**2.** [B2] Qual trecho apresenta um fato?
-~ a) "a ciclovia é linda" | b) "chegou tarde demais" | c) "A obra custou R$ 2 milhões" | d) nenhum deles
-**3.** [B4] No trecho "a ciclovia é linda, mas chegou tarde demais", que palavras revelam a opinião dos moradores? Explique.
-**4.** [B6] Escreva uma opinião sua sobre ciclovias e sublinhe a palavra que mostra que é opinião.
+**1.** [B1] Complete com as palavras do quadro (fato, opinião): "Uma informação que pode ser conferida é um ____. O que alguém acha sobre o assunto é uma ____."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) "A obra custou R$ 2 milhões" é um fato. | ( ) "A ciclovia é linda" é um fato. | ( ) "Chegou tarde demais" é uma opinião.
+**3.** [B4] Relacione cada trecho à sua classificação.
+~ (1) "ciclovia de 4 km" | (2) "é linda" | (3) "levou oito meses"
+~ ( ) opinião | ( ) fato sobre o tamanho | ( ) fato sobre o tempo da obra
+**4.** [B5] Um colega quer compartilhar a frase "Foi a pior obra da história da cidade" como se fosse notícia. Qual é a melhor avaliação?
+~ a) Pode compartilhar: está escrito, então é fato. | b) É opinião: "pior" é um julgamento e não dá para conferir. | c) É fato, porque fala de uma obra. | d) É fato, porque muita gente concorda.
 ## Gabarito
-* **1. b)** Fato é o que se pode verificar.
-* **2. c)** O custo da obra pode ser conferido em documentos.
-* **3.** "Linda" e "tarde demais": são avaliações de quem fala, não dados que se possam conferir.
-* **4.** Resposta pessoal, com marca de opinião (adjetivo, "acho que", "deveria").`,
+* **1.** fato; opinião. Fato é o que se pode verificar.
+* **2.** V, F, V. "Linda" e "tarde demais" são avaliações de quem fala.
+* **3.** 2, 1, 3. Tamanho e tempo podem ser conferidos; beleza, não.
+* **4. b)** Julgamento não vira fato porque foi publicado ou porque muitos concordam.`,
       roteiro: `# Roteiro de vídeo curto · Fato ou opinião?
 > 7º ano · Língua Portuguesa · BNCC EF67LP04 · até 1 minuto de narração
 **Saudação:** Fala, turma!
@@ -1239,17 +1243,19 @@ No parágrafo final, veja se há posição clara e ao menos um argumento que nã
       prova: `# Prova · Artigo de opinião
 > 9º ano · Língua Portuguesa · BNCC EF89LP04
 **Texto:** Proibir o celular na escola é um erro. O aparelho já faz parte da vida dos jovens e pode ser usado para pesquisar e produzir. É verdade que ele distrai, mas a saída é ensinar o uso responsável, não fingir que o celular não existe.
-**1.** [B2] A tese do texto é:
-~ a) O celular distrai os alunos. | b) Proibir o celular na escola é um erro. | c) Os jovens usam muito o celular. | d) A escola deve comprar celulares.
-**2.** [B4] No texto, o trecho "É verdade que ele distrai" funciona como:
-~ a) a tese. | b) um dado estatístico. | c) um contra-argumento que o autor reconhece. | d) a conclusão.
-**3.** [B5] Qual argumento do autor você considera mais forte? Justifique.
-**4.** [B6] Escreva de 4 a 6 linhas defendendo a sua posição sobre o tema, com pelo menos um argumento.
+**1.** [B1] Complete com as palavras do quadro (tese, argumentos): "A ideia que o autor defende é a ____. As razões usadas para defendê-la são os ____."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) A tese do texto é que proibir o celular na escola é um erro. | ( ) O autor ignora que o celular pode distrair. | ( ) "Pode ser usado para pesquisar e produzir" é um argumento.
+**3.** [B4] Relacione cada trecho à função que ele tem no texto.
+~ (1) "Proibir o celular na escola é um erro." | (2) "já faz parte da vida dos jovens" | (3) "É verdade que ele distrai"
+~ ( ) contra-argumento que o autor reconhece | ( ) tese | ( ) argumento
+**4.** [B5] Qual das frases abaixo seria o contra-argumento mais forte à tese do autor?
+~ a) "Celulares são caros." | b) "A atenção da turma cai quando o aparelho fica sobre a mesa." | c) "Eu não gosto de celular." | d) "Todo mundo tem celular."
 ## Gabarito
-* **1. b)** É a posição que o texto inteiro defende.
-* **2. c)** O autor admite a ideia contrária e responde a ela em seguida.
-* **3.** Resposta pessoal. Deve escolher entre "já faz parte da vida dos jovens" e "pode ser usado para pesquisar e produzir" e explicar a escolha.
-* **4.** Resposta pessoal. Avaliar: posição clara e argumento que a sustente.`,
+* **1.** tese; argumentos.
+* **2.** V, F, V. O autor admite a distração e responde a ela.
+* **3.** 3, 1, 2. Cada trecho cumpre um papel diferente na argumentação.
+* **4. b)** É a única que ataca a ideia central com uma consequência para a aprendizagem.`,
       roteiro: `# Roteiro de vídeo curto · Tese e argumentos
 > 9º ano · Língua Portuguesa · BNCC EF89LP04 · até 1 minuto de narração
 **Saudação:** E aí, turma!
@@ -1290,17 +1296,19 @@ Tiras de papel, barbante, pregadores e cartões com as frações 1/2, 3/4, 5/4, 
 Bilhete de saída: marcar 3/4 e 5/4 em uma reta e explicar a diferença em uma frase.`,
       prova: `# Prova · Frações na reta numérica
 > 5º ano · Matemática · BNCC EF05MA03
-**1.** [B1] Na fração 3/4, o número 4 indica:
-~ a) quantas partes foram pintadas. | b) em quantas partes iguais o inteiro foi dividido. | c) quantos inteiros existem. | d) a parte que sobrou.
-**2.** [B2] Qual destas frações é maior que 1 inteiro?
-~ a) 2/3 | b) 4/4 | c) 5/4 | d) 1/2
-**3.** [B3] Desenhe uma reta de 0 a 2 e marque 1/2 e 3/2.
-**4.** [B4] Caio marcou 5/4 entre o 0 e o 1. Explique por que ele errou e onde a fração deveria ficar.
+**1.** [B1] Complete com as palavras do quadro (numerador, denominador): "Na fração 3/4, o 4 é o ____ e o 3 é o ____."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) 5/4 é maior que 1 inteiro. | ( ) 1/2 fica no meio do caminho entre 0 e 1. | ( ) 3/4 é maior que 1 inteiro.
+**3.** [B3] Relacione cada fração ao lugar dela em uma reta de 0 a 2.
+~ (1) 1/2 | (2) 5/4 | (3) 3/2
+~ ( ) entre 1 e 2, mais perto do 1 | ( ) no meio, entre 0 e 1 | ( ) no meio, entre 1 e 2
+**4.** [B5] Caio marcou 5/4 entre o 0 e o 1. Qual é a melhor avaliação da resposta dele?
+~ a) Está certa, porque 5/4 tem quartos, como 3/4. | b) Está errada: 5/4 é 1 inteiro mais 1/4 e fica depois do 1. | c) Está errada: 5/4 fica exatamente no 2. | d) Está certa, porque 4 é menor que 5.
 ## Gabarito
-* **1. b)** O denominador diz em quantas partes iguais o inteiro foi dividido.
-* **2. c)** Em 5/4, o numerador é maior que o denominador: passa de 1 inteiro.
-* **3.** 1/2 fica no meio entre 0 e 1; 3/2 fica no meio entre 1 e 2.
-* **4.** 5/4 é 1 inteiro mais 1/4. Fica depois do 1, a um quarto do caminho até o 2.`,
+* **1.** denominador; numerador. O denominador diz em quantas partes iguais o inteiro foi dividido.
+* **2.** V, V, F. Em 3/4, o numerador é menor que o denominador: não chega a 1 inteiro.
+* **3.** 2, 1, 3.
+* **4. b)** 5/4 = 4/4 + 1/4, ou seja, 1 inteiro e mais um quarto.`,
       roteiro: `# Roteiro de vídeo curto · Frações maiores que 1
 > 5º ano · Matemática · BNCC EF05MA03 · até 1 minuto de narração
 **Saudação:** Oi, turma!
@@ -1340,17 +1348,19 @@ Quadro, cartões com problemas e o desenho de uma balança de dois pratos.
 Observe se a dupla monta a equação e faz a mesma operação dos dois lados. Recolha um problema resolvido por aluno.`,
       prova: `# Prova · Equações do 1º grau
 > 7º ano · Matemática · BNCC EF07MA18
-**1.** [B2] "O dobro de um número menos 4 é igual a 10." Qual equação representa a frase?
-~ a) 2x + 4 = 10 | b) 2x − 4 = 10 | c) x − 4 = 10 | d) 2(x − 4) = 10
-**2.** [B3] Qual é o valor de x em 3x + 5 = 20?
-~ a) 3 | b) 5 | c) 8 | d) 15
-**3.** [B4] Bia resolveu 4x − 7 = 21 assim: 4x = 21 − 7, 4x = 14, x = 3,5. Encontre o erro e resolva corretamente.
-**4.** [B6] Invente um problema que possa ser resolvido pela equação 3x + 6 = 30 e resolva.
+**1.** [B1] Complete com as palavras do quadro (incógnita, igualdade): "Em 3x + 5 = 20, a letra x é a ____. O sinal = mostra uma ____ entre os dois lados."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) "O dobro de um número menos 4 é igual a 10" pode ser escrito como 2x − 4 = 10. | ( ) Em uma equação, posso somar 3 de um lado só. | ( ) "O triplo de um número" é 3x.
+**3.** [B3] Relacione cada equação à sua solução.
+~ (1) x + 9 = 15 | (2) 2x − 3 = 11 | (3) 3x + 5 = 20
+~ ( ) x = 5 | ( ) x = 6 | ( ) x = 7
+**4.** [B5] Bia resolveu 4x − 7 = 21 assim: 4x = 21 − 7, 4x = 14, x = 3,5. Qual avaliação está correta?
+~ a) A resolução está certa. | b) Ela errou: deveria somar 7 aos dois lados, e o certo é x = 7. | c) Ela errou: deveria dividir por 7, e o certo é x = 3. | d) Ela errou só na divisão, e o certo é x = 4.
 ## Gabarito
-* **1. b)** "O dobro" é 2x; "menos 4" é − 4.
-* **2. b)** 3x = 15, então x = 5.
-* **3.** Ela subtraiu 7 em vez de somar 7 aos dois lados. O certo: 4x = 28, x = 7.
-* **4.** Resposta pessoal, com x = 8. Exemplo: táxi com taxa fixa de R$ 6,00 e R$ 3,00 por quilômetro, total de R$ 30,00.`,
+* **1.** incógnita; igualdade.
+* **2.** V, F, V. O que se faz de um lado, faz-se do outro.
+* **3.** 3, 1, 2.
+* **4. b)** 4x = 28, então x = 7.`,
       roteiro: `# Roteiro de vídeo curto · Equação é uma balança
 > 7º ano · Matemática · BNCC EF07MA18 · até 1 minuto de narração
 **Saudação:** Oi, pessoal!
@@ -1390,17 +1400,19 @@ Trena ou barbante, papel quadriculado e calculadora.
 Recolha um problema por grupo. Veja se identificaram o ângulo reto e a hipotenusa antes de calcular.`,
       prova: `# Prova · Teorema de Pitágoras
 > 9º ano · Matemática · BNCC EF09MA14
-**1.** [B1] Em um triângulo retângulo, a hipotenusa é:
-~ a) o menor lado. | b) o lado oposto ao ângulo reto. | c) qualquer um dos lados. | d) a altura.
-**2.** [B3] Os catetos de um triângulo retângulo medem 6 cm e 8 cm. A hipotenusa mede:
-~ a) 10 cm | b) 12 cm | c) 14 cm | d) 100 cm
-**3.** [B4] Para achar a altura que uma escada de 13 m alcança, com o pé a 5 m do muro, um aluno calculou 13² + 5² = 194. Onde está o erro? Qual é a altura correta?
-**4.** [B6] Crie um problema do dia a dia que se resolva com o teorema de Pitágoras e resolva.
+**1.** [B1] Complete com as palavras do quadro (hipotenusa, catetos): "No triângulo retângulo, o lado oposto ao ângulo reto é a ____. Os outros dois lados são os ____."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) A hipotenusa é sempre o maior lado. | ( ) O teorema vale para qualquer triângulo. | ( ) Em um triângulo retângulo de catetos 3 e 4, a hipotenusa mede 5.
+**3.** [B3] Relacione os catetos à hipotenusa de cada triângulo retângulo.
+~ (1) 6 e 8 | (2) 5 e 12 | (3) 9 e 12
+~ ( ) 13 | ( ) 15 | ( ) 10
+**4.** [B5] Para achar a altura que uma escada de 13 m alcança, com o pé a 5 m do muro, um aluno calculou 13² + 5² = 194. Qual avaliação está correta?
+~ a) Está certo: a altura é √194. | b) Ele errou: a escada é a hipotenusa, então h² = 13² − 5² e h = 12 m. | c) Ele errou: bastava somar 13 + 5. | d) Ele errou: a altura é 13 − 5 = 8 m.
 ## Gabarito
-* **1. b)** É o maior lado, sempre em frente ao ângulo reto.
-* **2. a)** 6² + 8² = 36 + 64 = 100; √100 = 10.
-* **3.** A escada é a hipotenusa, então a conta é de subtração: h² = 13² − 5² = 144; h = 12 m.
-* **4.** Resposta pessoal. Conferir: a situação tem ângulo reto, a hipotenusa está identificada e a conta fecha.`,
+* **1.** hipotenusa; catetos.
+* **2.** V, F, V. O teorema só vale para triângulos retângulos.
+* **3.** 2, 3, 1. Os trios são 6, 8 e 10; 5, 12 e 13; 9, 12 e 15.
+* **4. b)** 169 − 25 = 144, e √144 = 12.`,
       roteiro: `# Roteiro de vídeo curto · Pitágoras e a escada
 > 9º ano · Matemática · BNCC EF09MA14 · até 1 minuto de narração
 **Saudação:** Fala, turma!
@@ -1441,17 +1453,19 @@ Pote transparente, água morna, plástico filme e gelo.
 No desenho, veja se as três etapas aparecem na ordem certa e com setas.`,
       prova: `# Prova · O ciclo da água
 > 5º ano · Ciências · BNCC EF05CI02
-**1.** [B1] Quando a água líquida vira vapor, ocorre a:
-~ a) condensação | b) evaporação | c) solidificação | d) precipitação
-**2.** [B2] As nuvens se formam quando o vapor de água:
-~ a) esquenta e sobe mais. | b) esfria e vira gotinhas. | c) vira gelo no chão. | d) desaparece.
-**3.** [B3] Depois de um banho quente, o espelho do banheiro fica embaçado. Que etapa do ciclo da água explica isso?
-**4.** [B4] Explique por que um período longo sem chuva pode afetar a água que chega às casas.
+**1.** [B1] Complete com as palavras do quadro (evaporação, condensação): "Quando a água líquida vira vapor, acontece a ____. Quando o vapor esfria e vira gotinhas, acontece a ____."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) As nuvens são formadas por gotinhas de água. | ( ) A água da poça some para sempre quando seca. | ( ) A chuva faz parte do ciclo da água.
+**3.** [B3] Relacione cada situação à etapa do ciclo da água.
+~ (1) roupa secando no varal | (2) espelho embaçado depois do banho | (3) chuva caindo
+~ ( ) condensação | ( ) precipitação | ( ) evaporação
+**4.** [B5] Uma cidade passou meses sem chuva. Qual é a melhor explicação para faltar água nas casas?
+~ a) A água do planeta acabou. | b) Sem chuva, rios e reservatórios recebem menos água do que a cidade usa. | c) A evaporação parou de acontecer. | d) As nuvens ficaram pesadas demais.
 ## Gabarito
-* **1. b)** Evaporação é a passagem do líquido para o vapor.
-* **2. b)** Ao esfriar, o vapor condensa em gotinhas.
-* **3.** A condensação: o vapor do banho encontra o espelho frio e volta a ser água líquida.
-* **4.** Sem chuva, rios e reservatórios recebem menos água e o abastecimento diminui.`,
+* **1.** evaporação; condensação.
+* **2.** V, F, V. A água da poça evapora e continua no ciclo.
+* **3.** 2, 3, 1.
+* **4. b)** O reservatório depende da chuva para repor a água que a cidade consome.`,
       roteiro: `# Roteiro de vídeo curto · O caminho da água
 > 5º ano · Ciências · BNCC EF05CI02 · até 1 minuto de narração
 **Saudação:** Oi, turma!
@@ -1491,17 +1505,19 @@ Mapa dos biomas do Brasil, cartões de características e folhas grandes.
 No quadro de cada grupo, veja se a planta e o animal escolhidos combinam com o clima e a água descritos.`,
       prova: `# Prova · Ecossistemas brasileiros
 > 7º ano · Ciências · BNCC EF07CI07
-**1.** [B1] Plantas com espinhos e caules que guardam água são típicas da:
-~ a) Amazônia | b) Caatinga | c) Mata Atlântica | d) região do Pampa
-**2.** [B2] No Cerrado, a casca grossa das árvores ajuda a planta a:
-~ a) crescer mais rápido. | b) resistir ao fogo e à estação seca. | c) atrair mais animais. | d) produzir mais flores.
-**3.** [B3] Um animal vive em uma região que fica alagada durante parte do ano. Em qual bioma ele provavelmente vive? Cite uma característica que o ajudaria a viver ali.
-**4.** [B4] Explique por que uma planta da Caatinga teria dificuldade para viver na Amazônia.
+**1.** [B1] Complete com as palavras do quadro (Caatinga, Pantanal): "Plantas com espinhos e caules que guardam água são típicas da ____. O bioma que fica alagado em parte do ano é o ____."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) Na Amazônia chove muito e a vegetação é densa. | ( ) No Cerrado, a casca grossa das árvores ajuda a resistir ao fogo. | ( ) Na Caatinga chove o ano todo.
+**3.** [B4] Relacione cada bioma a uma característica.
+~ (1) Pampa | (2) Mata Atlântica | (3) Cerrado
+~ ( ) estação seca e estação chuvosa bem marcadas | ( ) campos de vegetação rasteira | ( ) floresta úmida próxima ao litoral
+**4.** [B5] Qual é a melhor explicação para uma planta da Caatinga ter dificuldade de viver na Amazônia?
+~ a) Na Amazônia faz frio demais. | b) Ela é adaptada a pouca água e muito sol, e na floresta há muita umidade e sombra. | c) Na Amazônia não existem outras plantas. | d) O solo da Amazônia não tem água.
 ## Gabarito
-* **1. b)** São adaptações à pouca chuva da Caatinga.
-* **2. b)** A casca grossa protege o interior do tronco do calor e da perda de água.
-* **3.** No Pantanal. Exemplos: nadar bem, ter pernas longas, alimentar-se de peixes.
-* **4.** Ela é adaptada a pouca água e muito sol. Na floresta há muita umidade e sombra.`,
+* **1.** Caatinga; Pantanal.
+* **2.** V, V, F. Na Caatinga chove pouco e de forma irregular.
+* **3.** 3, 1, 2.
+* **4. b)** As adaptações que ajudam na seca atrapalham em um ambiente úmido e sombreado.`,
       roteiro: `# Roteiro de vídeo curto · Cada bioma do seu jeito
 > 7º ano · Ciências · BNCC EF07CI07 · até 1 minuto de narração
 **Saudação:** Fala, pessoal!
@@ -1541,17 +1557,19 @@ Dois copos por dupla, feijões de duas cores e uma tabela de registro.
 Veja se a dupla explica por que o resultado da turma inteira chega mais perto de 3 para 1 do que o de uma dupla só.`,
       prova: `# Prova · Hereditariedade
 > 9º ano · Ciências · BNCC EF09CI09
-**1.** [B1] Para uma característica, cada gameta carrega:
-~ a) os dois fatores | b) apenas um fator | c) nenhum fator | d) quatro fatores
-**2.** [B2] Nas ervilhas de Mendel, a cor amarela (A) é dominante sobre a verde (a). Uma planta Aa tem sementes:
-~ a) verdes | b) amarelas | c) metade de cada cor | d) sem cor
-**3.** [B3] Faça o quadro do cruzamento Aa × Aa e indique a proporção de sementes amarelas e verdes.
-**4.** [B4] Duas plantas de ervilha amarela podem ter uma descendente de ervilha verde? Explique com os fatores.
+**1.** [B1] Complete com as palavras do quadro (dominante, recessivo): "O fator que aparece mesmo em dose única é o ____. O fator que só aparece em dose dupla é o ____."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) Cada gameta carrega apenas um fator de cada característica. | ( ) Se o amarelo (A) é dominante, uma planta Aa tem sementes verdes. | ( ) Uma planta aa tem sementes verdes.
+**3.** [B3] Nas ervilhas, o amarelo (A) domina o verde (a). Relacione cada cruzamento ao resultado esperado.
+~ (1) AA × aa | (2) Aa × Aa | (3) Aa × aa
+~ ( ) metade amarelas, metade verdes | ( ) todas amarelas | ( ) 3 amarelas para 1 verde
+**4.** [B5] Duas plantas de ervilha amarela tiveram uma descendente de ervilha verde. Qual é a melhor explicação?
+~ a) Houve um erro: isso é impossível. | b) As duas plantas eram Aa, e cada uma passou o fator "a". | c) Uma das plantas era aa. | d) O fator verde é dominante.
 ## Gabarito
-* **1. b)** Os fatores se separam na formação dos gametas.
-* **2. b)** Basta um fator dominante (A) para a cor amarela aparecer.
-* **3.** AA, Aa, Aa, aa: 3 amarelas para 1 verde.
-* **4.** Sim, se as duas forem Aa. Cada uma pode passar o fator "a", formando aa.`,
+* **1.** dominante; recessivo.
+* **2.** V, F, V. Em Aa, basta um fator dominante para a semente ser amarela.
+* **3.** 3, 1, 2.
+* **4. b)** Só o par aa dá semente verde, e cada genitora contribui com um fator.`,
       roteiro: `# Roteiro de vídeo curto · As ervilhas de Mendel
 > 9º ano · Ciências · BNCC EF09CI09 · até 1 minuto de narração
 **Saudação:** E aí, turma!
@@ -1592,17 +1610,19 @@ Cartões com situações do cotidiano, papel pardo e canetões.
 Na fala dos grupos, veja se relacionam a situação a um direito e ao respeito às diferenças.`,
       prova: `# Prova · Cidadania e direitos
 > 5º ano · História · BNCC EF05HI04
-**1.** [B1] Ser cidadão é:
-~ a) apenas votar nas eleições. | b) ter direitos e deveres na vida em sociedade. | c) morar em uma cidade grande. | d) ter mais de 18 anos.
-**2.** [B2] Qual atitude mostra respeito à diversidade?
-~ a) Rir do sotaque de um colega. | b) Escolher só os amigos para o grupo. | c) Ouvir e incluir quem pensa ou vive de modo diferente. | d) Ignorar quem chegou agora.
-**3.** [B3] A rampa da escola está bloqueada por caixas. Quem é prejudicado? O que você pode fazer?
-**4.** [B5] Na escolha dos times, o mesmo colega sempre fica por último. Isso é justo? Explique e proponha outra forma de escolher.
+**1.** [B1] Complete com as palavras do quadro (direitos, deveres): "Ser cidadão é ter ____, como estudar e brincar, e também ____, como respeitar os colegas."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) Só os adultos são cidadãos. | ( ) Respeitar quem pensa diferente faz parte da cidadania. | ( ) Cuidar da escola é um dever de todos.
+**3.** [B3] Relacione cada situação ao que ela mostra.
+~ (1) rampa da escola bloqueada por caixas | (2) colega novo incluído na brincadeira | (3) risada do sotaque de alguém
+~ ( ) desrespeito à diversidade | ( ) direito de ir e vir prejudicado | ( ) atitude de acolhimento
+**4.** [B5] Na escolha dos times, o mesmo colega sempre fica por último. Qual é a solução mais justa?
+~ a) Deixar como está, porque sempre foi assim. | b) Sortear os times ou fazer rodízio de quem escolhe. | c) Deixar o colega fora do jogo. | d) Deixar os melhores jogadores escolherem primeiro.
 ## Gabarito
-* **1. b)** Cidadania envolve direitos e deveres, em qualquer idade.
-* **2. c)** Respeitar é ouvir e incluir.
-* **3.** Pessoas que usam cadeira de rodas ou têm dificuldade para andar. Avisar um adulto da escola e pedir a retirada das caixas.
-* **4.** Resposta pessoal. Deve notar que o colega é excluído e propor uma regra que inclua todos, como sorteio ou rodízio.`,
+* **1.** direitos; deveres.
+* **2.** F, V, V. Criança também é cidadã.
+* **3.** 3, 1, 2.
+* **4. b)** É a única opção que inclui todos e trata os colegas da mesma forma.`,
       roteiro: `# Roteiro de vídeo curto · Criança também é cidadã
 > 5º ano · História · BNCC EF05HI04 · até 1 minuto de narração
 **Saudação:** Oi, turma!
@@ -1642,17 +1662,19 @@ Mapa-múndi, imagens de uma caravela e de uma canoa polinésia de casco duplo, q
 No quadro, veja se cada grupo aponta uma semelhança e uma diferença entre as navegações.`,
       prova: `# Prova · Navegações nos séculos XIV a XVI
 > 7º ano · História · BNCC EF07HI06
-**1.** [B1] Um dos principais objetivos das navegações portuguesas no Atlântico era:
-~ a) encontrar uma rota marítima para o comércio de especiarias. | b) fugir do frio da Europa. | c) estudar os animais marinhos. | d) povoar a Antártida.
-**2.** [B2] Por que observar as estrelas era tão importante para os navegadores dos dois oceanos?
-~ a) Porque em alto-mar não há terra à vista para servir de referência. | b) Porque os barcos só navegavam à noite. | c) Porque os mapas eram proibidos. | d) Porque as estrelas mudavam o vento.
-**3.** [B4] Aponte uma semelhança e uma diferença entre as navegações no Atlântico e no Pacífico.
-**4.** [B5] Os livros costumam falar mais dos navegadores europeus do que dos polinésios. Na sua opinião, por quê? Justifique com o que você estudou.
+**1.** [B1] Complete com as palavras do quadro (especiarias, estrelas): "Os portugueses buscavam uma rota marítima para o comércio de ____. Em alto-mar, os navegadores se orientavam pelas ____."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) Só os europeus fizeram longas travessias pelo oceano. | ( ) Os povos polinésios navegavam pelo Pacífico em canoas de casco duplo. | ( ) Os portugueses usaram caravelas no Atlântico.
+**3.** [B4] Relacione cada grupo ao principal objetivo das suas viagens.
+~ (1) portugueses e espanhóis | (2) povos polinésios
+~ ( ) povoamento de ilhas do Pacífico | ( ) comércio e conquista pelo Atlântico
+**4.** [B5] Os livros costumam falar mais dos navegadores europeus do que dos polinésios. Qual é a explicação mais bem fundamentada?
+~ a) Os polinésios não navegavam de verdade. | b) Boa parte dos registros e dos livros foi escrita por europeus. | c) As canoas eram mais lentas que as caravelas. | d) O Pacífico é menor que o Atlântico.
 ## Gabarito
-* **1. a)** A busca por especiarias e novas rotas de comércio moveu as viagens.
-* **2. a)** Sem pontos de referência em terra, o céu era o guia.
-* **3.** Semelhança: longas travessias guiadas pelo conhecimento do céu e do mar. Diferença: os objetivos (comércio e conquista ou povoamento de ilhas) ou o tipo de embarcação.
-* **4.** Resposta pessoal. Avaliar se relaciona a resposta a quem escreveu os registros e os livros.`,
+* **1.** especiarias; estrelas.
+* **2.** F, V, V. Outros povos também atravessaram oceanos.
+* **3.** 2, 1.
+* **4. b)** Quem escreve os registros decide quais viagens ficam mais conhecidas.`,
       roteiro: `# Roteiro de vídeo curto · Dois oceanos, muitos navegadores
 > 7º ano · História · BNCC EF07HI06 · até 1 minuto de narração
 **Saudação:** Fala, turma!
@@ -1692,17 +1714,19 @@ Reprodução da pintura "Proclamação da República", de Benedito Calixto, e a 
 Na resposta final, veja se a dupla usa ao menos uma das fontes como evidência.`,
       prova: `# Prova · A Proclamação da República
 > 9º ano · História · BNCC EF09HI01
-**1.** [B1] A República foi proclamada no Brasil em:
-~ a) 7 de setembro de 1822 | b) 13 de maio de 1888 | c) 15 de novembro de 1889 | d) 15 de novembro de 1930
-**2.** [B2] A abolição da escravidão, em 1888, enfraqueceu o Império porque:
-~ a) agradou a todos os fazendeiros. | b) levou parte dos fazendeiros a deixar de apoiar a Monarquia. | c) aumentou o poder do imperador. | d) acabou com o Exército.
-**3.** [B4] Aristides Lobo escreveu que o povo assistiu à Proclamação "bestializado", sem entender o que acontecia. O que essa frase sugere sobre a participação popular?
-**4.** [B5] "A República foi uma conquista do povo brasileiro." Você concorda com essa afirmação? Justifique com dois fatos estudados.
+**1.** [B1] Complete com as palavras do quadro (1889, Monarquia): "A República foi proclamada em 15 de novembro de ____, pondo fim à ____."
+**2.** [B2] Marque V para verdadeiro ou F para falso.
+~ ( ) Parte do Exército apoiou a queda do imperador. | ( ) A abolição, em 1888, aumentou o apoio dos fazendeiros à Monarquia. | ( ) Cafeicultores estavam entre os apoiadores da República.
+**3.** [B4] Relacione cada grupo ao papel que teve em 1889.
+~ (1) militares | (2) cafeicultores | (3) o povo, segundo Aristides Lobo
+~ ( ) assistiu a tudo sem entender o que acontecia | ( ) conduziram a derrubada do imperador | ( ) apoiaram a mudança de regime
+**4.** [B5] "A República foi uma conquista do povo brasileiro." Qual avaliação dessa frase é a mais bem sustentada pelos fatos estudados?
+~ a) Correta: o povo liderou o movimento. | b) Discutível: a mudança foi conduzida por militares e elites, com pouca participação popular. | c) Correta: houve uma votação nacional. | d) Errada: a República nunca foi proclamada.
 ## Gabarito
-* **1. c)** 15 de novembro de 1889.
-* **2. b)** Sem indenização pela abolição, muitos senhores retiraram o apoio ao imperador.
-* **3.** Sugere que a mudança foi conduzida por um grupo restrito, com pouca participação da população.
-* **4.** Resposta pessoal. Avaliar o uso de fatos, como a ação de militares e cafeicultores e o povo como espectador.`,
+* **1.** 1889; Monarquia.
+* **2.** V, F, V. Sem indenização pela abolição, muitos senhores retiraram o apoio ao imperador.
+* **3.** 3, 1, 2.
+* **4. b)** As fontes mostram o povo como espectador, não como protagonista.`,
       roteiro: `# Roteiro de vídeo curto · Quem fez a República?
 > 9º ano · História · BNCC EF09HI01 · até 1 minuto de narração
 **Saudação:** E aí, pessoal!
