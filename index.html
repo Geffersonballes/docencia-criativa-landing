@@ -228,11 +228,16 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
 .bloom-niveis{display:flex;flex-wrap:wrap;align-items:flex-end;gap:.5rem;margin:0 0 1rem}
 .bloom-niveis li{display:flex;align-items:flex-end;gap:.45rem;padding:.45rem .7rem;background:var(--papel);border:2px solid var(--tinta);border-radius:10px;font-weight:700;font-size:.95rem;line-height:1.5rem}
 .bloom-niveis b{display:grid;place-items:center;flex:none;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--tinta);color:#fff;font-size:.8rem}
-.modulos{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(16rem,100%),1fr))}
+.modulos{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(16rem,100%),1fr));align-items:start}
 .modulo,.modulo-vazio{margin:0;padding:1rem 1.1rem;background:var(--folha);border:2px solid var(--tinta);border-radius:14px}
 .modulo-n{margin:0 0 .2rem;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--vermelho)}
 .modulo h4{font-size:1.1rem;margin-bottom:.3em}
-.modulo p{font-size:.95rem;color:var(--tinta-2);margin-bottom:.6em}
+.modulo p{font-size:.95rem;color:var(--tinta-2);margin-bottom:.3em}
+.modulo summary{display:flex;align-items:center;gap:.5rem;min-height:48px;cursor:pointer;font-weight:700;font-size:.95rem;color:var(--azul);list-style:none}
+.modulo summary::-webkit-details-marker{display:none}
+.modulo summary::before{content:"+";flex:none;display:grid;place-items:center;width:1.5rem;height:1.5rem;border:2px solid var(--azul);border-radius:50%;font-size:1.05rem;line-height:1}
+.modulo details[open] summary::before{content:"−";background:var(--amarelo);border-color:var(--tinta);color:var(--tinta)}
+.modulo details[open] summary{color:var(--tinta)}
 .aulas li{position:relative;padding-left:1.2rem;font-size:.92rem;margin-bottom:.25rem}
 .aulas li::before{content:"";position:absolute;left:.15rem;top:.62em;width:.45rem;height:.45rem;border:2px solid var(--azul);border-radius:50%}
 
@@ -375,6 +380,9 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
     <symbol id="i-prova" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v4h4M9 14l2 2 4-4"/></symbol>
     <symbol id="i-adaptada" viewBox="0 0 24 24"><path d="M4 5h8v8H4z"/><circle cx="15.5" cy="15.5" r="4.5"/></symbol>
     <symbol id="i-relatorio" viewBox="0 0 24 24"><path d="M9 3h6v3H9zM9 4.5H6V21h12V4.5h-3M9 11h6M9 14.5h6M9 18h3.5"/></symbol>
+    <symbol id="i-imagem" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 16l4.5-4.5 3.5 3.5 3-3 5 5"/><circle cx="9" cy="9.5" r="1.4"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><path d="M3 6h13v12H3zM16 10.5l5-3v9l-5-3"/></symbol>
+    <symbol id="i-musica" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></symbol>
     <symbol id="i-fio" viewBox="0 0 24 24"><path d="M5 8h10a4 4 0 0 1 0 8H7M9 13l-3 3 3 3"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
@@ -575,19 +583,20 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
     <h2 id="aprender-t">O que você vai aprender</h2>
     <p class="lead"><strong>O objetivo do curso:</strong> <span data-c="promessa"></span></p>
     <ul class="ganhos">
-      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-plano"/></svg><h3>Plano de aula</h3><p>Sair da folha em branco. A IA monta o rascunho com objetivo, etapas e avaliação. Você ajusta para a sua turma.</p></li>
-      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-prova"/></svg><h3>Prova com gabarito</h3><p>Questões no nível do ano, com gabarito comentado, prontas para você conferir antes de aplicar.</p></li>
-      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-adaptada"/></svg><h3>Atividade adaptada</h3><p>A mesma aula, com uma versão para o estudante que precisa de outro caminho.</p></li>
-      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-relatorio"/></svg><h3>Relatório</h3><p>Suas anotações viram um texto claro, pronto para você revisar e entregar.</p></li>
-      <li class="ganho ganho-fio"><svg class="ico" aria-hidden="true"><use href="#i-fio"/></svg><h3>Pedir bem e revisar</h3><p>O fio que liga tudo: fazer um pedido completo para a IA e revisar com olhar de professor.</p></li>
+      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-plano"/></svg><h3>Planejar com a IA</h3><p>Roteiro de aula e atividades personalizadas, feitos a partir do material que você entrega à IA.</p></li>
+      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-prova"/></svg><h3>Questões por nível de Bloom</h3><p>Múltipla escolha, verdadeiro ou falso, colunas e lacunas, cada questão no nível que você escolher.</p></li>
+      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-imagem"/></svg><h3>Imagens sob medida</h3><p>Ilustrações e desenhos para colorir sobre o tema da sua aula, no estilo que a turma gosta.</p></li>
+      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-video"/></svg><h3>Vídeo curto com personagem</h3><p>Um personagem animado explica o conteúdo, com voz, cenário e trilha sonora.</p></li>
+      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-musica"/></svg><h3>Música para aprender</h3><p>Letra e melodia sobre o conteúdo, para cantar com a turma.</p></li>
+      <li class="ganho ganho-fio"><svg class="ico" aria-hidden="true"><use href="#i-fio"/></svg><h3>Pedir bem e revisar</h3><p>O fio que liga tudo: dar contexto à IA e validar o resultado com olhar de professor.</p></li>
     </ul>
     <div class="bloom">
       <h3>Com a taxonomia de Bloom por trás</h3>
-      <p>O <span data-c="professor.nome">Prof. Romário Costa</span> usa a taxonomia de Bloom para corrigir e para criar atividades novas. Ela organiza a aprendizagem em seis níveis, do mais simples ao mais exigente:</p>
+      <p>Um dos temas do curso é o Agente Avaliativo: você configura a IA para criar questões em cada nível da taxonomia de Bloom. É a mesma taxonomia que o <span data-c="professor.nome">Prof. Romário Costa</span> usa para corrigir e para criar atividades novas. São seis níveis, do mais simples ao mais exigente:</p>
       <ol class="bloom-niveis" id="bloom-niveis"></ol>
       <p class="pequeno">Na demonstração desta página, escolha “Prova com gabarito” para ver o nível de cada questão.</p>
     </div>
-    <h3>Módulos e aulas</h3>
+    <h3>Os temas do curso</h3>
     <div id="modulos"></div>
   </div>
 </section>
@@ -772,8 +781,71 @@ const CONFIG = {
   checkoutUrl: "[PREENCHER]",        // ex.: "https://pay.hotmart.com/XXXXXXXX"
 
   // Conteúdo do curso
-  modulos: "[PREENCHER]",            // ou lista: [{ titulo: "…", beneficio: "…", aulas: ["…", "…"] }]
-  bonus: "[PREENCHER]",              // ou lista: ["Bônus 1", "Bônus 2"]
+  // Temas do curso, tirados do conteúdo programático (sem o que era específico da formação presencial).
+  // Formato: { titulo: "…", beneficio: "…", aulas: ["…", "…"] }
+  modulos: [
+    { titulo: "Ponto de partida: seus alunos e a BNCC Computação",
+      beneficio: "Entenda como a Geração Alfa aprende e o que a BNCC Computação pede, para usar a tecnologia com intenção.",
+      aulas: ["A Geração Alfa e as novas formas de aprender",
+              "BNCC Computação: pensamento computacional, mundo digital e cultura digital"] },
+    { titulo: "Aulas em pílulas: microaprendizagem e metodologias ativas",
+      beneficio: "Aprenda a transformar um conteúdo em pílulas curtas e a usar o ensino híbrido e a sala de aula invertida.",
+      aulas: ["O que é microaprendizagem",
+              "Ensino híbrido e sala de aula invertida",
+              "Versões pagas das ferramentas: quando valem o investimento"] },
+    { titulo: "Sua base no Google",
+      beneficio: "Deixe e-mail, navegador e armazenamento em ordem para trabalhar sem travar.",
+      aulas: ["Gmail e Chrome organizados para o trabalho",
+              "Como resolver o armazenamento cheio"] },
+    { titulo: "Personagens que falam, com o Adobe Express",
+      beneficio: "Crie um personagem animado que explica o conteúdo com a sua voz, pelo computador ou pelo celular.",
+      aulas: ["Primeiro acesso à plataforma",
+              "Seu narrador, com áudio limpo de ruídos",
+              "Fundo verde, para trocar o cenário depois",
+              "Como fazer tudo pelo celular",
+              "Voz criada pela IA no lugar da sua",
+              "Prática: seu primeiro vídeo curto, de 30 segundos a 1 minuto"] },
+    { titulo: "Gemini: a IA como colaboradora",
+      beneficio: "Aprenda a entregar contexto à IA (textos, fotos, links e documentos) para a resposta sair do seu material, e não genérica.",
+      aulas: ["O que o Gemini faz pela rotina do professor",
+              "Por dentro da tela: texto, imagens e leitura de documentos",
+              "Contexto é rei: a IA colabora, o professor decide",
+              "Como enviar textos, fotos, links e PDFs"] },
+    { titulo: "Agente Avaliativo: questões com a taxonomia de Bloom",
+      beneficio: "Configure a IA para criar questões em cada nível de Bloom, do lembrar ao criar, com a justificativa da resposta certa.",
+      aulas: ["Por que usar a taxonomia de Bloom para avaliar",
+              "A IA como mentora: os seis níveis explicados para a sua disciplina",
+              "Como conferir se a IA entendeu a taxonomia",
+              "Que tipo de questão combina com cada nível",
+              "Questões a partir de fotos, textos, links e vídeos",
+              "O comando pronto que cria o seu Agente Avaliativo",
+              "Prática: sua primeira questão por nível"] },
+    { titulo: "Imagens autorais para a sala de aula",
+      beneficio: "Gere ilustrações e desenhos para colorir sobre qualquer tema, em seis estilos.",
+      aulas: ["Proporções certas para slide, celular e ficha",
+              "Desenhos para colorir",
+              "Mascotes e personagens",
+              "Ícones e cartazes em estilo simples",
+              "Cenas em 3D, anime e desenho realista",
+              "Prática: seu kit de imagens em três formatos"] },
+    { titulo: "CapCut: seu vídeo do começo ao fim",
+      beneficio: "Junte roteiro, voz, personagem e cenário em um vídeo curto, pronto para mandar à turma.",
+      aulas: ["Instalação no computador e no celular",
+              "Projeto organizado, cortes e camadas",
+              "Animações, transições e volume da trilha",
+              "Texto que vira narração",
+              "Troca do fundo do vídeo",
+              "Como exportar e compartilhar",
+              "Projeto final: seu primeiro vídeo curto de aula, em cinco etapas"] },
+    { titulo: "Musicalizando a infância",
+      beneficio: "Transforme um conteúdo em canção: a letra nasce no Gemini e a música, na Suno.",
+      aulas: ["Música como recurso na Educação Infantil",
+              "Conhecendo as ferramentas de música",
+              "Da letra à música pronta",
+              "Como pedir canções para crianças bem pequenas",
+              "Prática: sua canção, com a habilidade trabalhada"] }
+  ],
+  bonus: ["O Desafio da Multiplicação: um jogo de tabuada feito no Scratch para usar com a turma na lousa ou na TV, com aulas sobre como operar e personalizar."],
   certificado: "[PREENCHER]",        // ex.: "Certificado de 20 horas, emitido ao concluir as aulas"
   suporte: "[PREENCHER]",            // canal e horário
   duracaoAulas: "10 a 15 minutos",   // veio do briefing; confirme
@@ -782,7 +854,7 @@ const CONFIG = {
   professor: {
     nome: "Prof. Romário Costa",
     instagram: "@prof.romariocosta", // aparece como texto, sem link
-    bio: "[PREENCHER]",
+    bio: "Pedagogo, especialista em Ensino Híbrido e estudante de Tecnologia Educacional pela UFMT (Universidade Federal de Mato Grosso). Para ele, o conhecimento é um lugar, e o professor é o guia que mostra o caminho até lá.",
     foto: "[PREENCHER]",             // endereço da imagem, ex.: "romario.jpg"
     metodo: "Trabalha com a taxonomia de Bloom na correção e na criação de atividades novas."
   },
@@ -804,7 +876,8 @@ const CONFIG = {
 
   // Respostas do FAQ que dependem de você
   respostaCursosGratuitos: "[PREENCHER]",
-  ferramentas: "[PREENCHER]",        // o aluno precisa pagar alguma IA para acompanhar?
+  ferramentasUsadas: "Gemini (Google), Adobe Express, CapCut e Suno",
+  ferramentas: "[PREENCHER]",        // quais delas pedem plano pago para acompanhar o curso?
 
   // Rodapé e medição
   cnpj: "[PREENCHER]",
@@ -942,7 +1015,7 @@ const FAQ = {
         "O curso ensina justamente isso: pedir bem e revisar com olhar de professor."] },
   generica: { p: "Já testei a IA e veio resposta genérica. Vai ser igual?",
     r: ["Resposta genérica quase sempre vem de pedido genérico.",
-        "No curso você aprende a dar contexto: ano, tema, habilidade da BNCC, tempo de aula e perfil da turma. E recebe modelos prontos para começar.",
+        "No curso você aprende a entregar contexto à IA: seus textos, fotos de atividades, links e documentos, além de informações sobre a turma e o objetivo da aula. E recebe pedidos prontos para começar.",
         "Na demonstração desta página dá para ver a diferença que um pedido completo faz."] },
   tempo: { p: "Não tenho tempo nem para fazer o curso. Como fica?",
     r: ["As aulas têm de {duracaoAulas}. Cabem em um intervalo ou em uma janela entre duas turmas.",
@@ -959,8 +1032,8 @@ const FAQ = {
         "Parcelamento: {parcelamento}",
         "E você tem {garantiaDias} dias para pedir o dinheiro de volta, como em toda compra feita pela internet."] },
   complicado: { p: "É complicado demais?",
-    r: ["Não. As aulas mostram a tela gravada: você vê exatamente onde clicar e o que escrever.",
-        "A linguagem é simples, sem termos técnicos. E você pode pausar e repetir cada aula."] },
+    r: ["Não. Cada ferramenta é apresentada do zero, da criação da conta ao resultado final, com a tela gravada: você vê onde clicar e o que escrever.",
+        "Várias aulas mostram o caminho também pelo celular. E você pode pausar e repetir cada uma."] },
   perdida: { p: "E se eu me perder no meio do caminho?",
     r: ["Você não fica sem resposta. O curso tem suporte humano: uma pessoa lê a sua dúvida e responde.",
         "Canal e horário do suporte: {suporte}"] },
@@ -979,12 +1052,13 @@ const FAQ = {
         "Certificado e carga horária: {certificado}"] },
   chatgpt: { p: "Já uso o ChatGPT de graça. O que o curso muda?",
     r: ["A ferramenta você já tem. O que falta é o jeito de professor de usar.",
-        "No curso você aprende a fazer o pedido com ano, tema, habilidade da BNCC e tempo de aula, e a revisar o que volta antes de levar para a sala.",
+        "O curso é feito no Gemini, do Google, e vai além do texto: questões por nível da taxonomia de Bloom, imagens, vídeos curtos com personagem e músicas.",
         "Compare na demonstração: o pedido tem contexto, e o rascunho já chega no formato de aula."] },
   certificado: { p: "O curso dá certificado?",
     r: ["Certificado e carga horária: {certificado}"] },
   ferramentas: { p: "Preciso pagar por alguma ferramenta de IA para acompanhar?",
-    r: ["{ferramentas}"] },
+    r: ["O curso usa estas ferramentas: {ferramentasUsadas}.",
+        "Quais delas pedem plano pago: {ferramentas}"] },
   acesso: { p: "Como recebo o acesso?",
     r: ["Depois da confirmação do pagamento, a Hotmart envia o acesso para o e-mail usado na compra."] },
   garantia: { p: "Como funciona a garantia de {garantiaDias} dias?",
@@ -996,8 +1070,9 @@ const FAQ_ORDEM = ["gratuitos", "substitui", "generica", "tempo", "naotermino", 
 /* O que está incluso (seção da oferta). {chave} puxa do CONFIG. */
 const INCLUSO = [
   "Aulas em vídeo de {duracaoAulas}",
-  "Passo a passo com a tela gravada, em linguagem simples",
-  "Modelos prontos de pedidos para a IA",
+  "Passo a passo com a tela gravada, da criação da conta ao resultado final",
+  "Pedidos prontos para copiar: imagens em seis estilos e o comando do Agente Avaliativo",
+  "Atividade prática em cada tema",
   "Suporte humano. Canal e horário: {suporte}",
   "Certificado e carga horária: {certificado}",
   "{garantiaDias} dias para desistir e receber o dinheiro de volta, como manda a lei"
@@ -1781,14 +1856,16 @@ function montarFixos() {
     ? '<ul class="lista-ok">' + b.map(x => "<li>" + comMarca(x) + "</li>").join("") + "</ul>"
     : "<p>" + comMarca(b) + "</p>";
 
-  // Módulos e aulas
+  // Temas do curso (a lista de aulas de cada tema abre com um toque)
   const m = CONFIG.modulos;
   $("#modulos").innerHTML = Array.isArray(m) && m.length
-    ? '<ol class="modulos">' + m.map((x, i) =>
-        '<li class="modulo"><p class="modulo-n">Módulo ' + (i + 1) + "</p><h4>" + comMarca(x && x.titulo) + "</h4>" +
-        (x && x.beneficio ? "<p>" + comMarca(x.beneficio) + "</p>" : "") +
-        (x && Array.isArray(x.aulas) && x.aulas.length ? '<ul class="aulas">' + x.aulas.map(a => "<li>" + comMarca(a) + "</li>").join("") + "</ul>" : "") +
-        "</li>").join("") + "</ol>"
+    ? '<ol class="modulos">' + m.map(x => {
+        const aulas = x && Array.isArray(x.aulas) ? x.aulas : [];
+        return '<li class="modulo"><h4>' + comMarca(x && x.titulo) + "</h4>" +
+          (x && x.beneficio ? "<p>" + comMarca(x.beneficio) + "</p>" : "") +
+          (aulas.length ? '<details><summary>Ver o que tem neste tema<span class="sr">: ' + comMarca(x.titulo) + '</span></summary><ul class="aulas">' +
+            aulas.map(t => "<li>" + comMarca(t) + "</li>").join("") + "</ul></details>" : "") + "</li>";
+      }).join("") + "</ol>"
     : '<p class="modulo-vazio">' + comMarca(m) + "</p>";
 
   // Depoimentos: a seção só aparece com depoimentos reais
