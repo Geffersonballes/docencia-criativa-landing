@@ -1,0 +1,2182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IA para Professores: a IA como sua assistente pessoal</title>
+<meta name="description" content="Curso online com o Prof. Romário Costa. Deixe com a IA as tarefas repetitivas: plano de aula, prova, atividade e relatório. Ela faz o rascunho, você revisa e decide.">
+<meta name="theme-color" content="#1B2A4E">
+<meta name="color-scheme" content="light">
+
+<!-- Prévia no WhatsApp, Facebook e Instagram -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="IA para Professores">
+<meta property="og:title" content="IA para Professores: a IA como sua assistente pessoal">
+<meta property="og:description" content="Plano de aula, prova, atividade e relatório: a IA faz o rascunho, você revisa e decide. Curso online com o Prof. Romário Costa.">
+<meta name="twitter:card" content="summary_large_image">
+<!-- [PREENCHER] Depois de publicar, tire o comentário das duas linhas abaixo e coloque os endereços completos (com https://).
+     A imagem deve ter 1200 x 630 px e menos de 300 KB para aparecer no WhatsApp.
+<meta property="og:url" content="https://SEU-DOMINIO/">
+<meta property="og:image" content="https://SEU-DOMINIO/previa.jpg">
+-->
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231B2A4E'/%3E%3Cpath d='M16 48l3-11 22-22 8 8-22 22z' fill='%23FFC93C'/%3E%3Cpath d='M16 48l3-11 8 8z' fill='%23FBF5E6'/%3E%3C/svg%3E">
+
+<script>
+/* Marca o perfil antes da primeira pintura, para a versão certa aparecer sem piscar. */
+(function(){try{var p=(new URLSearchParams(location.search).get("perfil")||"").toLowerCase();
+var m={graduando:"graduando",graduanda:"graduando",sobrecarregado:"sobrecarregado",sobrecarregada:"sobrecarregado",experiente:"experiente"};
+document.documentElement.setAttribute("data-perfil",m[p]||"geral");}catch(e){}})();
+</script>
+
+<style>
+/* ========== Base ========== */
+:root{
+  color-scheme:light;
+  --papel:#FBF5E6; --papel-2:#F1E6CB; --folha:#FFFDF6;
+  --tinta:#1B2A4E; --tinta-2:#46527A; --azul:#2348A6; --vermelho:#B93A2B;
+  --amarelo:#FFC93C; --marca:#FFE37A; --verde:#1E6B4A;
+  --quadro:#234B3E; --quadro-2:#1A3A30; --giz:#F7F3E6;
+  --linha:#C5D3EA; --borda:#7D7458;
+  --serifa:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Noto Serif",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --sombra:0 1px 0 rgba(27,42,78,.08),0 14px 24px -16px rgba(27,42,78,.5);
+  --risco:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6Q15 1 30 5T60 5T90 5T118 4' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:112.5%;-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+html[data-letra="1"]{font-size:125%}
+html[data-letra="2"]{font-size:137.5%}
+html[data-letra="3"]{font-size:150%}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:var(--sans);line-height:1.6;overflow-wrap:break-word}
+svg{max-width:100%;height:auto}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,h4{font-family:var(--serifa);font-weight:700;line-height:1.15;margin:0 0 .6em;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(1.5rem,1.15rem + 1.8vw,2.25rem)}
+h2::after{content:"";display:block;width:5.5rem;height:.55rem;margin-top:.4rem;background:var(--cor-risco,var(--vermelho));-webkit-mask:var(--risco) no-repeat 0 0/100% 100%;mask:var(--risco) no-repeat 0 0/100% 100%}
+h3{font-size:1.2rem}
+p{margin:0 0 1em}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+a{color:var(--azul);text-underline-offset:.15em}
+strong{font-weight:700}
+:focus-visible{outline:3px solid var(--azul);outline-offset:3px;border-radius:6px}
+[hidden]{display:none!important}
+section{padding:3rem 0;scroll-margin-top:.5rem}
+.wrap{width:min(100% - 2rem,68rem);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.lead{font-size:1.05rem;color:var(--tinta-2);max-width:38rem}
+.pequeno{font-size:.85rem;color:var(--tinta-2);margin:0}
+.ico{width:1.35em;height:1.35em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.todo{display:inline-block;background:#FFF1A8;color:#7A1F14;border:1.5px dashed #B93A2B;border-radius:4px;padding:0 .3em;font:700 .85em/1.5 ui-monospace,Menlo,Consolas,monospace;font-style:normal;letter-spacing:0;text-transform:none;white-space:nowrap}
+.pular{position:absolute;left:.5rem;top:-5rem;z-index:99;background:var(--amarelo);color:var(--tinta);padding:.8rem 1rem;border-radius:8px;font-weight:700}
+.pular:focus{top:.5rem}
+
+/* ========== Botões ========== */
+.btn-compra{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:3.25rem;padding:.75rem 1.4rem;background:var(--amarelo);color:var(--tinta);border:2px solid var(--tinta);border-radius:14px;box-shadow:0 5px 0 var(--sombra-btn,var(--tinta));font-weight:800;font-size:1.05rem;line-height:1.2;text-decoration:none;text-align:center;transition:transform .12s,box-shadow .12s,background-color .12s}
+@media (hover:hover){.btn-compra:hover{background:#FFD661}.perfil-btn:hover{background:#FFF3C4}.op:hover{background:rgba(247,243,230,.14)}.faq-p:hover{background:#FFF6D6}}
+.btn-compra:active{transform:translateY(3px);box-shadow:0 2px 0 var(--sombra-btn,var(--tinta))}
+.btn-linha{min-height:3rem;padding:.55rem 1rem;background:transparent;border:2px solid currentColor;border-radius:12px;font-weight:700;line-height:1.2}
+.link{background:none;border:0;padding:.25rem 0;min-height:1.5rem;color:var(--azul);font-weight:700;text-decoration:underline;text-underline-offset:.15em}
+
+/* ========== Barra do topo ========== */
+.barra{background:var(--tinta);color:var(--papel)}
+.barra-in{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.3rem 0}
+.marca{margin:0;min-width:0;display:flex;align-items:center;gap:.5rem;font-family:var(--serifa);font-weight:700;font-size:min(1rem,4.6vw);line-height:1.2}
+.marca .ico{color:var(--amarelo)}
+.marca small{display:block;font-family:var(--sans);font-size:min(.72rem,3.4vw);font-weight:600;letter-spacing:.01em;color:#D5DAEA}
+.letra{display:flex;flex:none;gap:.4rem}
+.letra button{min-width:48px;min-height:48px;padding:0 .5rem;background:transparent;color:var(--papel);border:2px solid rgba(251,245,230,.6);border-radius:10px;font-weight:800;font-size:min(1rem,18px)}
+.letra button[aria-disabled="true"]{opacity:.45;cursor:default}
+.letra :focus-visible,.final :focus-visible,.rodape :focus-visible,.demo :focus-visible{outline-color:var(--amarelo)}
+.furos{height:16px;background:radial-gradient(circle at 50% 50%,var(--tinta) 0 4px,transparent 4.6px) center/26px 16px repeat-x}
+
+/* ========== 1. Topo ========== */
+.topo{padding:.35rem 0 2.5rem}
+.topo-grid{display:grid;gap:1.5rem}
+.sobre{display:none;margin:0 0 .5rem;font-size:.8rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--vermelho)}
+h1{font-size:clamp(1.75rem,1.2rem + 3vw,3rem);margin-bottom:.45em}
+h1 mark,.marca-texto{color:inherit;background:linear-gradient(transparent 58%,var(--marca) 58% 94%,transparent 94%);padding:0 .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.sub{font-size:1.05rem;color:var(--tinta-2);max-width:35rem;margin-bottom:0}
+.seletor{margin:.9rem 0 1rem;padding:.6rem .7rem .65rem;background:var(--folha);border:2px solid var(--tinta);border-radius:16px;box-shadow:var(--sombra);max-width:35rem}
+.seletor-rot{margin:0 0 .4rem;font-family:var(--serifa);font-weight:700;font-size:1.1rem;line-height:1.3}
+.seletor-ops{display:grid;gap:.4rem}
+.perfil-btn{display:flex;align-items:center;gap:.6rem;width:100%;min-height:48px;padding:.4rem .6rem;text-align:left;background:var(--papel);border:2px solid var(--borda);border-radius:12px;font-weight:700;font-size:.95rem;line-height:1.25;transition:background-color .12s}
+.perfil-btn[aria-pressed="true"],.perfil-btn[aria-pressed="true"]:hover{background:var(--marca);border-color:var(--tinta);box-shadow:0 3px 0 var(--tinta)}
+.bolha{flex:none;display:grid;place-items:center;width:1.8rem;height:1.8rem;background:#fff;border:2px solid var(--tinta);border-radius:50%;font-size:.8rem;font-weight:800}
+.perfil-btn[aria-pressed="true"] .bolha{background:var(--tinta);color:#fff}
+.acao .btn-compra{width:100%;max-width:35rem}
+@media (max-width:479px){.btn-compra{padding-inline:.6rem;font-size:clamp(.9rem,4.6vw,1.05rem)}.btn-compra [aria-hidden]{display:none}}
+.acao-nota{margin:.8rem 0 .3rem;font-size:.9rem;color:var(--tinta-2)}
+.acao-demo{margin:0;font-size:.95rem;font-weight:700}
+.acao-demo a{display:inline-block;padding:.6rem 0}
+.topo-arte{max-width:17rem;margin:0 auto}
+.topo-arte svg{display:block;width:100%}
+
+/* ========== 2. Dores ========== */
+.dores{background:var(--papel-2)}
+.dores-grid{display:grid;gap:1.75rem;margin:1.5rem 0}
+.fala{margin:0;position:relative;padding:1.35rem 1rem 1.1rem 2.9rem;background-color:var(--folha);background-image:linear-gradient(90deg,transparent 2rem,#E3A096 2rem,#E3A096 calc(2rem + 2px),transparent calc(2rem + 2px)),repeating-linear-gradient(transparent 0,transparent calc(2.3rem - 1px),var(--linha) calc(2.3rem - 1px),var(--linha) 2.3rem);background-position:0 0,0 .9rem;border-radius:4px;box-shadow:var(--sombra);transform:rotate(-.7deg)}
+.fala::before{content:"";position:absolute;left:.7rem;top:1.2rem;bottom:1.2rem;width:.6rem;background:radial-gradient(circle,var(--papel-2) 0 .28rem,transparent .3rem) center top/.6rem 2.3rem repeat-y}
+.fala blockquote{margin:0;font-family:var(--serifa);font-style:italic;font-weight:700;font-size:1.3rem;line-height:2.3rem}
+.fala figcaption{font-size:.9rem;line-height:2.3rem;color:var(--tinta-2)}
+.postits{display:grid;gap:1.1rem .9rem;grid-template-columns:repeat(auto-fit,minmax(min(8.3rem,100%),1fr))}
+.postit{position:relative;padding:1.2rem .8rem .9rem;min-height:6.5rem;font-size:.95rem;font-weight:600;line-height:1.35;box-shadow:2px 8px 10px -6px rgba(27,42,78,.45)}
+.postit::before{content:"";position:absolute;top:-.55rem;left:50%;width:3.4rem;height:1.1rem;margin-left:-1.7rem;background:rgba(255,255,255,.6);box-shadow:0 1px 2px rgba(27,42,78,.15);transform:rotate(-3deg)}
+.postit:nth-child(4n+1){background:#FFE98A;transform:rotate(-1.4deg)}
+.postit:nth-child(4n+2){background:#FFD6C8;transform:rotate(1.1deg)}
+.postit:nth-child(4n+3){background:#CFE8F3;transform:rotate(.8deg)}
+.postit:nth-child(4n+4){background:#D9EDC9;transform:rotate(-1deg)}
+.ponte{max-width:40rem;margin:0;font-family:var(--serifa);font-size:1.2rem;line-height:1.45}
+
+/* ========== 3. Demonstração (quadro) ========== */
+.demo{background:var(--quadro) radial-gradient(ellipse at 15% 0,rgba(255,255,255,.07),transparent 55%);color:var(--giz);border-block:12px solid #7A5230;--cor-risco:var(--amarelo);--sombra-btn:#0D1F19}
+.demo h2{color:#fff}
+.demo-intro{font-size:1.05rem;max-width:38rem}
+.aviso-demo{display:flex;gap:.6rem;align-items:flex-start;max-width:38rem;margin:0 0 1.75rem;padding:.7rem .8rem;border:2px dashed rgba(247,243,230,.7);border-radius:10px;font-size:.9rem;line-height:1.45}
+.aviso-demo .ico{margin-top:.1em;color:var(--amarelo)}
+.demo-grid{display:grid;gap:1.5rem}
+.grupo{margin-bottom:1.1rem}
+.grupo-rot{margin:0 0 .45rem;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.ops{display:flex;flex-wrap:wrap;gap:.5rem}
+.op{display:inline-flex;align-items:center;gap:.45rem;min-height:48px;padding:.4rem .9rem;background:transparent;color:var(--giz);border:2px solid rgba(247,243,230,.7);border-radius:999px;font-weight:700;font-size:.95rem;line-height:1.2;text-align:left;transition:background-color .12s}
+.op[aria-pressed="true"],.op[aria-pressed="true"]:hover{background:var(--giz);color:var(--quadro-2);border-color:var(--giz)}
+.demo-acoes{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.25rem}
+.btn-giz{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;flex:1 1 14rem;min-height:3.25rem;padding:.7rem 1.2rem;background:var(--giz);color:var(--quadro-2);border:2px solid var(--giz);border-radius:14px;box-shadow:0 5px 0 #0D1F19;font-weight:800;font-size:1.05rem;line-height:1.2}
+.btn-giz:active{transform:translateY(3px);box-shadow:0 2px 0 #0D1F19}
+.demo .btn-linha{color:var(--giz)}
+.vazio{margin:0;padding:1.5rem 1rem;border:2px dashed rgba(247,243,230,.45);border-radius:14px;text-align:center;color:#D5E4DA}
+.rot{margin:0 0 .35rem;font-size:.75rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.pedido{margin-bottom:1rem;padding:.85rem 1rem;background:var(--quadro-2);border:2px solid rgba(247,243,230,.4);border-radius:16px 16px 16px 4px;scroll-margin-top:1rem}
+.pedido .rot{color:var(--amarelo)}
+.pedido-txt{margin:0;min-height:5.5em;white-space:pre-wrap}
+.cursor::after{content:"";display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:var(--amarelo);animation:pisca 1s steps(1) infinite}
+@keyframes pisca{50%{opacity:0}}
+.escrevendo{display:flex;align-items:center;gap:.35rem;margin:0 0 1rem;font-size:.95rem}
+.escrevendo i{width:.5rem;height:.5rem;border-radius:50%;background:var(--giz);animation:pula 1s ease-in-out infinite}
+.escrevendo i:nth-child(2){animation-delay:.15s}
+.escrevendo i:nth-child(3){animation-delay:.3s;margin-right:.4rem}
+@keyframes pula{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-.3rem);opacity:1}}
+.folha{position:relative;padding:1.5rem 1rem 1rem;background:var(--folha);color:var(--tinta);border-radius:3px;box-shadow:0 14px 26px -10px rgba(0,0,0,.6);font-size:.95rem;line-height:1.5}
+.folha:focus{outline:3px solid var(--amarelo);outline-offset:3px}
+.folha::before{content:"";position:absolute;top:-.6rem;left:50%;width:5rem;height:1.3rem;margin-left:-2.5rem;background:rgba(255,227,122,.85);transform:rotate(-2deg);box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.folha .rot{color:var(--tinta-2)}
+.r-titulo{font-size:1.25rem;margin:0 0 .2em}
+.r-meta{margin:0 0 .9em;font-size:.85rem;font-weight:700;color:var(--vermelho)}
+.r-sec{margin:1.1em 0 .45em;padding-bottom:.2em;border-bottom:1.5px solid var(--linha);font-family:var(--sans);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--azul)}
+.folha p{margin:0 0 .6em}
+.r-lista li{position:relative;margin-bottom:.5em;padding-left:1.05rem}
+.r-lista li::before{content:"";position:absolute;left:.1rem;top:.6em;width:.4rem;height:.4rem;border-radius:50%;background:var(--vermelho)}
+.alts{display:flex;flex-wrap:wrap;gap:.15rem 1.2rem;margin:-.25em 0 .9em;padding-left:.6rem}
+.revise{display:flex;gap:.5rem;align-items:flex-start;margin:1.1rem 0 0!important;padding:.65rem .7rem;border:2px dashed var(--vermelho);border-radius:8px;font-weight:700;color:#8E2A1E;transform:rotate(-.4deg)}
+.surge{animation:surge .45s both}
+@keyframes surge{from{opacity:0;transform:translateY(.5rem)}}
+.demo-depois{margin-top:2rem;padding-top:1.5rem;border-top:2px dashed rgba(247,243,230,.4)}
+.demo-depois p{font-size:1.05rem;max-width:40rem}
+.demo-depois-acoes{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.demo-depois-acoes>*{flex:1 1 15rem}
+.demo-depois-acoes .btn-compra{max-width:30rem}
+
+/* Perfil 3: um passo de cada vez, com botões grandes */
+.bolas{display:flex;gap:.5rem;margin-bottom:.8rem}
+.bolas li{width:2.6rem;height:.5rem;border-radius:99px;background:rgba(247,243,230,.3)}
+.bolas li.feito{background:var(--giz)}
+.bolas li.atual{background:var(--amarelo)}
+.passo-rot{margin:0 0 1rem;font-family:var(--serifa);font-weight:700;font-size:1.45rem;line-height:1.25;color:#fff}
+.passo-rot:focus{outline:none}
+.passo-rot:focus-visible{outline:3px solid var(--amarelo);outline-offset:4px}
+.passo-n{display:block;margin-bottom:.2rem;font-family:var(--sans);font-size:.85rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--amarelo)}
+.demo[data-modo="passos"] .grupo-rot{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.demo[data-modo="passos"] .ops{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(13rem,100%),1fr));gap:.7rem}
+.demo[data-modo="passos"] .op{min-height:4rem;padding:.7rem 1.1rem;border-radius:16px;border-width:3px;font-size:1.15rem}
+.demo[data-modo="passos"] .vazio{display:none}
+.resumo{margin:0 0 1rem;padding:.8rem 1rem;border-left:5px solid var(--amarelo);background:rgba(0,0,0,.18);border-radius:0 10px 10px 0;font-weight:700}
+
+/* ========== 4. Calculadora (papel quadriculado) ========== */
+.calc{background-color:var(--papel);background-image:linear-gradient(rgba(125,160,210,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(125,160,210,.3) 1px,transparent 1px);background-size:1.35rem 1.35rem}
+.calc h2,.calc .lead{background:var(--papel);box-shadow:0 0 0 .4rem var(--papel);width:fit-content}
+.calc-grid{display:grid;gap:1.5rem;margin-top:1.75rem}
+.cartao{padding:1.2rem 1.1rem;background:var(--folha);border:2px solid var(--tinta);border-radius:16px;box-shadow:0 5px 0 var(--tinta)}
+.campo{margin-bottom:1rem}
+.campo-topo{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.1rem .75rem}
+.campo label{font-weight:700}
+.campo output{font-weight:800;color:var(--vermelho)}
+input[type=range]{-webkit-appearance:none;appearance:none;display:block;width:100%;height:48px;margin:0;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:12px;border-radius:99px;border:2px solid var(--tinta);background:linear-gradient(90deg,var(--azul) var(--p,0%),#E7E0CC var(--p,0%))}
+input[type=range]::-moz-range-track{height:8px;border-radius:99px;border:2px solid var(--tinta);background:#E7E0CC}
+input[type=range]::-moz-range-progress{height:8px;border-radius:99px;background:var(--azul)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:34px;height:34px;margin-top:-13px;border-radius:50%;background:var(--amarelo);border:2px solid var(--tinta);box-shadow:0 3px 0 var(--tinta)}
+input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--amarelo);border:2px solid var(--tinta);box-shadow:0 3px 0 var(--tinta)}
+input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px;border-radius:10px}
+.rot-res{margin:0 0 .2rem;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-2)}
+.calc-num{margin:0 0 .5rem;font-family:var(--serifa);font-weight:700;line-height:1.05;font-size:clamp(3rem,2.2rem + 4vw,4.2rem);color:var(--vermelho)}
+.calc-un{display:inline-block;font-family:var(--sans);font-size:1.1rem;font-weight:800;color:var(--tinta)}
+.estimativa{margin:1rem 0;padding-top:1rem;border-top:2px dashed var(--borda)}
+.estimativa .calc-num{color:var(--verde)}
+
+/* ========== 5. O que você vai aprender ========== */
+.ganhos{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(14rem,100%),1fr));margin:1.5rem 0 2.5rem}
+.ganho{padding:1.1rem 1rem;background:var(--folha);border-radius:6px;border-top:6px solid var(--vermelho);box-shadow:var(--sombra)}
+.ganho .ico{width:2rem;height:2rem;color:var(--azul);margin-bottom:.4rem}
+.ganho h3{font-size:1.15rem;margin-bottom:.3em}
+.ganho p{margin:0;font-size:.95rem;color:var(--tinta-2)}
+.ganho-fio{border-top-color:var(--amarelo);background:#FFF6D6}
+.modulos{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(16rem,100%),1fr))}
+.modulo,.modulo-vazio{margin:0;padding:1rem 1.1rem;background:var(--folha);border:2px solid var(--tinta);border-radius:14px}
+.modulo-n{margin:0 0 .2rem;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--vermelho)}
+.modulo h4{font-size:1.1rem;margin-bottom:.3em}
+.modulo p{font-size:.95rem;color:var(--tinta-2);margin-bottom:.6em}
+.aulas li{position:relative;padding-left:1.2rem;font-size:.92rem;margin-bottom:.25rem}
+.aulas li::before{content:"";position:absolute;left:.15rem;top:.62em;width:.45rem;height:.45rem;border:2px solid var(--azul);border-radius:50%}
+
+/* ========== 6. Para quem é ========== */
+.para{background:var(--papel-2)}
+.para-grid{display:grid;gap:1.25rem;margin-top:1.5rem}
+.para-col{padding:1.2rem 1.1rem;background:var(--folha);border-radius:14px;border:2px solid var(--tinta)}
+.para-col h3{display:flex;align-items:center;gap:.5rem}
+.para-col li{position:relative;padding:.45rem .5rem .45rem 2.1rem;border-radius:8px}
+.para-col li .ico{position:absolute;left:.3rem;top:.6rem;stroke-width:3}
+.sim .ico{color:var(--verde)} .nao .ico{color:var(--vermelho)}
+.para-col li.meu{background:var(--marca);font-weight:700}
+
+/* ========== 7. Depoimentos ========== */
+.depo-lista{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(16rem,100%),1fr));margin-top:1.5rem}
+.depo{margin:0;padding:1.2rem 1.1rem;background:var(--folha);border-radius:6px;box-shadow:var(--sombra);border-left:6px solid var(--azul)}
+.depo blockquote{margin:0 0 .8rem;font-family:var(--serifa);font-size:1.1rem;line-height:1.5}
+.depo figcaption{font-size:.9rem;color:var(--tinta-2)}
+.depo figcaption strong{display:block;color:var(--tinta)}
+
+/* ========== 8. Quem ensina ========== */
+.prof-grid{display:grid;gap:1.75rem;justify-items:start;margin-top:1.5rem}
+.polaroid{width:min(100%,14rem);padding:.65rem .65rem 2.2rem;background:#fff;box-shadow:var(--sombra);transform:rotate(-2.5deg);position:relative}
+.polaroid::before{content:"";position:absolute;top:-.6rem;left:50%;width:4.5rem;height:1.25rem;margin-left:-2.25rem;background:rgba(255,227,122,.85);transform:rotate(3deg)}
+.foto{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;aspect-ratio:1;background:var(--papel-2);border:2px dashed var(--borda);text-align:center;font-size:.85rem;font-weight:700;padding:.5rem;overflow:hidden}
+.foto.tem{border:0;padding:0}
+.foto img{width:100%;height:100%;object-fit:cover}
+.prof-nome{font-family:var(--serifa);font-size:1.5rem;font-weight:700;margin:0 0 .1em;line-height:1.2}
+.prof-ig{margin:0 0 1rem;font-weight:700;color:var(--azul)}
+
+/* ========== 9. Oferta (prancheta) ========== */
+.oferta{background:var(--papel-2)}
+.prancheta{position:relative;margin-top:2.6rem;padding:2rem .6rem .7rem;background:#B8894F;border-radius:18px;box-shadow:var(--sombra)}
+.prancheta::before{content:"";position:absolute;top:-1.1rem;left:50%;width:8rem;height:2.6rem;margin-left:-4rem;background:linear-gradient(#DDE1E8,#A9B0BD);border:2px solid var(--tinta);border-radius:10px 10px 6px 6px}
+.prancheta-folha{display:grid;gap:1.5rem;padding:1.5rem .8rem 1rem;background:var(--folha);border-radius:6px}
+.lista-ok li{position:relative;padding:.4rem 0 .4rem 2rem;border-bottom:1px solid var(--linha)}
+.lista-ok li .ico,.lista-ok li::before{position:absolute;left:.1rem;top:.55rem;color:var(--verde);stroke-width:3}
+.bonus{margin-top:1.25rem;padding:.9rem 1rem;background:#FFF6D6;border:2px dashed var(--borda);border-radius:10px}
+.bonus h3{font-size:1.05rem;margin-bottom:.3em}
+.bonus p{margin:0}
+.bonus .lista-ok li{border-bottom:0;padding-left:1.2rem}
+.bonus .lista-ok li::before{content:"+";font-weight:800;top:.4rem}
+.preco-bloco{padding:1.2rem .8rem;background:var(--papel);border:2px solid var(--tinta);border-radius:14px;text-align:center;align-self:start}
+.preco{margin:0 0 .3rem;font-family:var(--serifa);font-weight:700;font-size:clamp(2.6rem,2rem + 3vw,3.4rem);line-height:1}
+.preco small{display:block;margin-top:.35rem;font-family:var(--sans);font-size:1rem;font-weight:700;color:var(--tinta-2)}
+.preco-linhas{margin:.8rem 0 1.1rem;font-size:.95rem}
+.preco-linhas p{margin:0 0 .25rem}
+.preco-bloco .btn-compra{width:100%}
+.urgencia{margin:0 0 1rem;padding:.6rem .7rem;background:var(--marca);border-radius:8px;font-size:.95rem}
+.pendente{margin:.8rem 0 0;font-size:.9rem;font-weight:700}
+
+/* ========== 10. Garantia ========== */
+.garantia-grid{display:grid;gap:1.5rem;align-items:center}
+.selo{width:9.5rem;transform:rotate(-9deg);color:var(--vermelho)}
+.selo svg{display:block;width:100%}
+.garantia-grid p{max-width:38rem}
+
+/* ========== 11. FAQ ========== */
+.faq{background:var(--papel-2)}
+.faq-lista{margin-top:1.5rem;background:var(--folha);border:2px solid var(--tinta);border-radius:16px;overflow:hidden;max-width:48rem}
+.faq-item+.faq-item{border-top:1.5px solid var(--linha)}
+.faq-item h3{margin:0;font-family:var(--sans);font-size:1rem;letter-spacing:0;text-wrap:wrap}
+.faq-p{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:100%;min-height:3.5rem;padding:.8rem 1rem;background:none;border:0;text-align:left;font-weight:700;line-height:1.35}
+.faq-p:focus-visible{outline-offset:-3px}
+.mais{flex:none;position:relative;width:1.6rem;height:1.6rem;border:2px solid var(--tinta);border-radius:50%}
+.mais::before,.mais::after{content:"";position:absolute;left:50%;top:50%;width:.7rem;height:2px;margin:-1px 0 0 -.35rem;background:var(--tinta);transition:transform .15s}
+.mais::after{transform:rotate(90deg)}
+.faq-p[aria-expanded="true"] .mais{background:var(--amarelo)}
+.faq-p[aria-expanded="true"] .mais::after{transform:none}
+.faq-r{padding:0 1rem 1rem;max-width:44rem}
+.faq-r p{margin:0 0 .6em}
+.faq-r p:last-child{margin:0}
+
+/* ========== 12. Chamada final e rodapé ========== */
+.final{background:var(--tinta);color:var(--papel);text-align:center;--cor-risco:var(--amarelo);--sombra-btn:#0A1228}
+.final h2{color:#fff;max-width:36rem;margin-inline:auto}
+.final h2::after{margin-inline:auto}
+.final p{max-width:36rem;margin-inline:auto}
+.final .btn-compra{margin:1rem 0 .9rem;width:100%;max-width:30rem;border-color:#0A1228}
+.final .acao-nota{color:#D5DAEA}
+.final .urgencia{color:var(--tinta);margin:1rem auto 0}
+.rodape{background:#131F3D;color:#D5DAEA;padding:2rem 0 2.5rem;font-size:.85rem;line-height:1.6}
+.rodape p{margin:0 0 .5rem}
+.rodape .link{color:#fff;min-height:48px}
+.privacidade{margin-top:.75rem;padding:1rem;background:rgba(255,255,255,.07);border-radius:10px;max-width:44rem}
+.privacidade h2{font-size:1.1rem;color:#fff}
+.privacidade h2::after{display:none}
+.privacidade h3{font-family:var(--sans);font-size:.9rem;margin:1em 0 .2em;color:#fff}
+
+/* ========== Botão fixo no celular ========== */
+.fixo{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;align-items:center;gap:.7rem;padding:.55rem .8rem calc(.55rem + env(safe-area-inset-bottom));background:var(--folha);border-top:2px solid var(--tinta);box-shadow:0 -8px 18px -10px rgba(27,42,78,.5);transform:translateY(110%);visibility:hidden;transition:transform .25s,visibility 0s .25s}
+.fixo.on{transform:none;visibility:visible;transition:transform .25s}
+.fixo-preco{flex:none;margin:0;font-weight:800;font-size:.9rem;line-height:1.15}
+.fixo-preco small{display:block;font-weight:600;font-size:.7rem;color:var(--tinta-2)}
+.fixo .btn-compra{flex:1;min-height:48px;padding:.45rem .7rem;font-size:.95rem;box-shadow:0 3px 0 var(--tinta)}
+@media (max-width:767px){.rodape{padding-bottom:6.5rem}}
+@media (min-width:768px){.fixo{display:none}}
+
+/* ========== Telas maiores ========== */
+@media (min-width:700px){
+  section{padding:4.5rem 0}
+  .topo{padding:1.5rem 0 4rem}
+  .sobre{display:block}
+  .acao .btn-compra{width:auto}
+  .postits{grid-template-columns:1fr 1fr}
+  .para-grid,.calc-grid{grid-template-columns:1fr 1fr}
+  .garantia-grid{grid-template-columns:auto 1fr;gap:2.5rem}
+  .prof-grid{grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
+  .prancheta{padding:2.4rem 1.2rem 1.2rem}
+  .prancheta-folha{padding:2rem 1.75rem}
+  .folha{padding:1.9rem 1.6rem 1.4rem}
+}
+@media (min-width:960px){
+  .topo-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:3rem;align-items:center}
+  .topo-arte{max-width:30rem;width:100%;margin:0;justify-self:center}
+  .dores-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:3rem;align-items:center}
+  .fala blockquote{font-size:1.55rem}
+  .demo-grid{grid-template-columns:minmax(0,21rem) minmax(0,1fr);gap:2.5rem;align-items:start}
+  .demo-controles{position:sticky;top:1rem}
+  .prancheta-folha{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:2.5rem}
+}
+
+/* ========== Menos movimento ========== */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- Ícones (desenhados aqui mesmo, sem arquivos externos) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-lapis" viewBox="0 0 24 24"><path d="M4 20l1.2-4.6L16.5 4.1l3.4 3.4L8.6 18.8zM14 6.6l3.4 3.4"/></symbol>
+    <symbol id="i-plano" viewBox="0 0 24 24"><path d="M5 5h14v15H5zM9 3v4M15 3v4M8 11h8M8 15h5"/></symbol>
+    <symbol id="i-prova" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v4h4M9 14l2 2 4-4"/></symbol>
+    <symbol id="i-adaptada" viewBox="0 0 24 24"><path d="M4 5h8v8H4z"/><circle cx="15.5" cy="15.5" r="4.5"/></symbol>
+    <symbol id="i-relatorio" viewBox="0 0 24 24"><path d="M9 3h6v3H9zM9 4.5H6V21h12V4.5h-3M9 11h6M9 14.5h6M9 18h3.5"/></symbol>
+    <symbol id="i-fio" viewBox="0 0 24 24"><path d="M5 8h10a4 4 0 0 1 0 8H7M9 13l-3 3 3 3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5z"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+  </defs>
+</svg>
+
+<header class="barra">
+  <div class="wrap barra-in">
+    <p class="marca"><svg class="ico" aria-hidden="true"><use href="#i-lapis"/></svg><span><span data-c="nomeCurso">IA para Professores</span><small>com o <span data-c="professor.nome">Prof. Romário Costa</span></small></span></p>
+    <div class="letra" role="group" aria-label="Tamanho da letra">
+      <button type="button" id="letra-menos" aria-label="A− diminuir a letra">A−</button>
+      <button type="button" id="letra-mais" aria-label="A+ aumentar a letra">A+</button>
+    </div>
+  </div>
+</header>
+<div class="furos" aria-hidden="true"></div>
+
+<main id="conteudo">
+
+<!-- 1. TOPO -->
+<section class="topo" id="topo" aria-labelledby="titulo">
+  <div class="wrap topo-grid">
+    <div>
+      <p class="sobre">Curso online para professores</p>
+      <h1 id="titulo" data-t="titulo">A IA como sua <mark>assistente pessoal</mark>. O repetitivo fica com ela.</h1>
+      <p class="sub" data-t="sub">Plano de aula, prova, atividade e relatório: a IA faz o rascunho, você revisa e decide.</p>
+
+      <div class="seletor" role="group" aria-labelledby="seletor-rot">
+        <p class="seletor-rot" id="seletor-rot">Qual é o seu momento?</p>
+        <div class="seletor-ops">
+          <button type="button" class="perfil-btn" data-perfil="graduando" aria-pressed="false"><span class="bolha" aria-hidden="true">A</span><span>Estou na licenciatura</span></button>
+          <button type="button" class="perfil-btn" data-perfil="sobrecarregado" aria-pressed="false"><span class="bolha" aria-hidden="true">B</span><span>Dou aula e falta tempo</span></button>
+          <button type="button" class="perfil-btn" data-perfil="experiente" aria-pressed="false"><span class="bolha" aria-hidden="true">C</span><span>Sei ensinar, só não sei mexer com IA</span></button>
+        </div>
+      </div>
+
+      <div class="acao">
+        <a class="btn-compra" data-compra="topo" href="#oferta"><span data-t="cta">Quero a IA como minha assistente</span> <span aria-hidden="true">→</span></a>
+        <p class="acao-nota">Curso online · <strong data-c="preco">R$ 97,00</strong> à vista · garantia de <span data-c="garantiaDias">7</span> dias · compra pela Hotmart</p>
+        <p class="acao-demo"><a href="#demo">Prefiro ver a IA em ação primeiro</a></p>
+      </div>
+    </div>
+
+    <div class="topo-arte" aria-hidden="true">
+      <svg viewBox="0 0 440 350" focusable="false">
+        <ellipse cx="220" cy="334" rx="185" ry="11" fill="#1B2A4E" opacity=".1"/>
+        <rect x="70" y="42" width="236" height="272" rx="5" fill="#F1E6CB" stroke="#1B2A4E" stroke-width="2.5" transform="rotate(-8 188 178)"/>
+        <rect x="80" y="36" width="236" height="272" rx="5" fill="#fff" stroke="#1B2A4E" stroke-width="2.5" transform="rotate(-3.5 198 172)"/>
+        <g transform="rotate(2 208 168)">
+          <rect x="88" y="30" width="240" height="276" rx="5" fill="#FFFDF6" stroke="#1B2A4E" stroke-width="2.5"/>
+          <path d="M122 32v272" stroke="#E3A096" stroke-width="2"/>
+          <path d="M90 92h236M90 116h236M90 140h236M90 164h236M90 188h236M90 212h236M90 236h236M90 260h236M90 284h236" stroke="#C5D3EA" stroke-width="1.5"/>
+          <g fill="#1B2A4E"><circle cx="105" cy="62" r="4.5"/><circle cx="105" cy="168" r="4.5"/><circle cx="105" cy="274" r="4.5"/></g>
+          <text x="134" y="66" font-family="Georgia,'Times New Roman',serif" font-size="21" font-weight="700" fill="#1B2A4E">Plano de aula</text>
+          <path d="M134 76q32-6 64-1t66-2" fill="none" stroke="#B93A2B" stroke-width="3" stroke-linecap="round"/>
+          <path d="M134 108h128M134 132h150M134 156h96M134 204h138M134 228h110" fill="none" stroke="#2348A6" stroke-width="3.5" stroke-linecap="round" opacity=".85"/>
+          <path d="M292 104l7 8 13-17M292 200l7 8 13-17" fill="none" stroke="#B93A2B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <circle cx="414" cy="92" r="16" fill="#fff" stroke="#1B2A4E" stroke-width="2.5"/>
+        <circle cx="414" cy="92" r="7" fill="#FBF5E6" stroke="#1B2A4E" stroke-width="2.5"/>
+        <circle cx="372" cy="92" r="40" fill="#fff" stroke="#1B2A4E" stroke-width="2.5"/>
+        <circle cx="372" cy="92" r="30" fill="#6B4630" stroke="#1B2A4E" stroke-width="2.5"/>
+        <path d="M354 84q9-10 21-4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+        <g transform="rotate(-5 342 264)">
+          <rect x="262" y="214" width="160" height="100" fill="#FFE37A" stroke="#1B2A4E" stroke-width="2.5"/>
+          <rect x="318" y="204" width="48" height="18" fill="#fff" opacity=".75"/>
+          <text font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="18" font-weight="700" fill="#1B2A4E"><tspan x="278" y="256">IA: rascunho</tspan><tspan x="278" y="288">Você: decide</tspan></text>
+          <path d="M330 296q28-5 58-1" fill="none" stroke="#B93A2B" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <g transform="rotate(-36 96 262)">
+          <rect x="30" y="252" width="118" height="18" fill="#FFC93C" stroke="#1B2A4E" stroke-width="2.5"/>
+          <rect x="12" y="252" width="18" height="18" rx="4" fill="#F4A6A0" stroke="#1B2A4E" stroke-width="2.5"/>
+          <rect x="30" y="252" width="9" height="18" fill="#C9CED8" stroke="#1B2A4E" stroke-width="2.5"/>
+          <path d="M148 252l27 9-27 9z" fill="#F1E6CB" stroke="#1B2A4E" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M166 258l9 3-9 3z" fill="#1B2A4E"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 2. DORES -->
+<section class="dores" id="dores" aria-labelledby="dores-t">
+  <div class="wrap">
+    <h2 id="dores-t" data-t="doresTitulo">Isso soa familiar?</h2>
+    <div class="dores-grid">
+      <figure class="fala">
+        <blockquote data-t="fala">“Eu gosto de dar aula. O que cansa é todo o resto.”</blockquote>
+        <figcaption data-t="falaLegenda">Se você já pensou isso, continue lendo.</figcaption>
+      </figure>
+      <ul class="postits" id="dores-lista"></ul>
+    </div>
+    <p class="ponte" data-t="ponte"></p>
+  </div>
+</section>
+
+<!-- 3. DEMONSTRAÇÃO -->
+<section class="demo" id="demo" aria-labelledby="demo-t" data-modo="livre">
+  <div class="wrap">
+    <h2 id="demo-t" data-t="demoTitulo">Veja a IA fazendo uma tarefa de professor</h2>
+    <p class="demo-intro" data-t="demoIntro"></p>
+    <p class="aviso-demo"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>Demonstração com exemplos prontos. No curso, você faz isso com a IA de verdade.</span></p>
+
+    <div class="demo-grid">
+      <div class="demo-controles" id="demo-controles">
+        <ol class="bolas" id="passo-bolas" aria-hidden="true" hidden><li></li><li></li><li></li></ol>
+        <p class="passo-rot" id="passo-rot" tabindex="-1" hidden></p>
+        <div class="grupo" role="group" aria-labelledby="g-disc" data-passo="1">
+          <p class="grupo-rot" id="g-disc">Disciplina</p>
+          <div class="ops" id="ops-disc"></div>
+        </div>
+        <div class="grupo" role="group" aria-labelledby="g-ano" data-passo="2">
+          <p class="grupo-rot" id="g-ano">Ano</p>
+          <div class="ops" id="ops-ano"></div>
+        </div>
+        <div class="grupo" role="group" aria-labelledby="g-tarefa" data-passo="3">
+          <p class="grupo-rot" id="g-tarefa">Tarefa</p>
+          <div class="ops" id="ops-tarefa"></div>
+        </div>
+        <p class="resumo" id="demo-resumo" tabindex="-1" hidden></p>
+        <div class="demo-acoes">
+          <button type="button" class="btn-giz" id="demo-rodar"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>Ver a IA trabalhar</button>
+          <button type="button" class="btn-linha" id="demo-voltar" hidden>← Voltar um passo</button>
+          <button type="button" class="btn-linha" id="demo-denovo" hidden>Fazer outro pedido</button>
+        </div>
+      </div>
+
+      <div class="demo-saida" id="demo-saida">
+        <p class="vazio" id="demo-vazio">O seu pedido e o rascunho da IA aparecem aqui.</p>
+        <div class="pedido" id="pedido" hidden>
+          <p class="rot">Seu pedido para a IA</p>
+          <p class="pedido-txt" id="pedido-txt" aria-hidden="true"></p>
+          <p class="sr" id="pedido-sr"></p>
+        </div>
+        <p class="escrevendo" id="escrevendo" hidden><i></i><i></i><i></i>A IA está escrevendo o rascunho</p>
+        <article class="folha" id="folha" tabindex="-1" aria-labelledby="folha-rot" hidden>
+          <p class="rot" id="folha-rot">Rascunho da IA</p>
+          <div id="folha-corpo"></div>
+          <p class="revise"><svg class="ico" aria-hidden="true"><use href="#i-lapis"/></svg><span id="revise-txt"></span></p>
+        </article>
+        <p class="sr" role="status" id="demo-status"></p>
+      </div>
+    </div>
+
+    <div class="demo-depois" id="demo-depois" hidden>
+      <p data-t="demoDepois"></p>
+      <div class="demo-depois-acoes">
+        <button type="button" class="btn-linha" id="demo-sugestao" hidden></button>
+        <a class="btn-compra" data-compra="demonstracao" href="#oferta"><span data-t="cta">Quero a IA como minha assistente</span> <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CALCULADORA -->
+<section class="calc" id="calculadora" aria-labelledby="calc-t">
+  <div class="wrap">
+    <h2 id="calc-t">Quanto tempo a escola toma de você fora da sala?</h2>
+    <p class="lead" data-t="calcIntro">Os números abaixo são só um ponto de partida. Arraste para chegar perto da sua semana.</p>
+    <div class="calc-grid">
+      <div class="cartao">
+        <div class="campo">
+          <div class="campo-topo"><label for="h-plan">Planejar aulas</label><output id="o-plan" for="h-plan" aria-live="off"></output></div>
+          <input type="range" id="h-plan" min="0" max="20" step="1" value="4">
+        </div>
+        <div class="campo">
+          <div class="campo-topo"><label for="h-corr">Corrigir provas e atividades</label><output id="o-corr" for="h-corr" aria-live="off"></output></div>
+          <input type="range" id="h-corr" min="0" max="20" step="1" value="4">
+        </div>
+        <div class="campo">
+          <div class="campo-topo"><label for="h-buro">Diários, relatórios e burocracia</label><output id="o-buro" for="h-buro" aria-live="off"></output></div>
+          <input type="range" id="h-buro" min="0" max="20" step="1" value="2">
+        </div>
+        <p class="pequeno">Cada linha vai de 0 a 20 horas por semana.</p>
+      </div>
+      <div class="cartao">
+        <p class="rot-res">Seu total fora da sala</p>
+        <p class="calc-num"><span id="calc-total">40</span> <span class="calc-un" id="calc-un">horas por mês</span></p>
+        <p id="calc-detalhe"></p>
+        <div class="estimativa" id="calc-estimativa" hidden>
+          <p class="rot-res">Estimativa com o curso</p>
+          <p class="calc-num"><span id="calc-com"></span> <span class="calc-un" id="calc-com-un">horas por mês</span></p>
+          <p id="calc-eco"></p>
+          <p class="pequeno" id="calc-aviso"></p>
+        </div>
+        <p class="pequeno">Conta usada: horas por semana × 4 semanas.</p>
+        <p class="sr" role="status" id="calc-status"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. O QUE VOCÊ VAI APRENDER -->
+<section class="aprender" id="aprender" aria-labelledby="aprender-t">
+  <div class="wrap">
+    <h2 id="aprender-t">O que você vai aprender</h2>
+    <p class="lead"><strong>O objetivo do curso:</strong> <span data-c="promessa"></span></p>
+    <ul class="ganhos">
+      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-plano"/></svg><h3>Plano de aula</h3><p>Sair da folha em branco. A IA monta o rascunho com objetivo, etapas e avaliação. Você ajusta para a sua turma.</p></li>
+      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-prova"/></svg><h3>Prova com gabarito</h3><p>Questões no nível do ano, com gabarito comentado, prontas para você conferir antes de aplicar.</p></li>
+      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-adaptada"/></svg><h3>Atividade adaptada</h3><p>A mesma aula, com uma versão para o estudante que precisa de outro caminho.</p></li>
+      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-relatorio"/></svg><h3>Relatório</h3><p>Suas anotações viram um texto claro, pronto para você revisar e entregar.</p></li>
+      <li class="ganho ganho-fio"><svg class="ico" aria-hidden="true"><use href="#i-fio"/></svg><h3>Pedir bem e revisar</h3><p>O fio que liga tudo: fazer um pedido completo para a IA e revisar com olhar de professor.</p></li>
+    </ul>
+    <h3>Módulos e aulas</h3>
+    <div id="modulos"></div>
+  </div>
+</section>
+
+<!-- 6. PARA QUEM É -->
+<section class="para" id="para-quem" aria-labelledby="para-t">
+  <div class="wrap">
+    <h2 id="para-t">Para quem é. E para quem não é.</h2>
+    <div class="para-grid">
+      <div class="para-col sim">
+        <h3>É para você se…</h3>
+        <ul>
+          <li data-para="graduando"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Está na licenciatura e quer chegar ao estágio com plano de aula e atividade na mão.</li>
+          <li data-para="sobrecarregado"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Dá aula e leva trabalho para casa quase toda semana.</li>
+          <li data-para="experiente"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Tem muita experiência de sala e quer usar a IA com segurança, no seu ritmo.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Quer a IA fazendo o rascunho, com você no comando.</li>
+        </ul>
+      </div>
+      <div class="para-col nao">
+        <h3>Não é para você se…</h3>
+        <ul>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Procura uma IA que dê aula no seu lugar. Aqui, quem decide é o professor.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Quer copiar e colar sem ler. Todo rascunho precisa da sua revisão.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Busca um curso técnico de programação. Este é de prática de sala de aula.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. DEPOIMENTOS (só aparece quando CONFIG.depoimentos tiver itens) -->
+<section class="depo-sec" id="depoimentos" aria-labelledby="depo-t" hidden>
+  <div class="wrap">
+    <h2 id="depo-t">O que dizem os professores que fizeram o curso</h2>
+    <div class="depo-lista" id="depo-lista"></div>
+  </div>
+</section>
+
+<!-- 8. QUEM ENSINA -->
+<section class="prof" id="quem-ensina" aria-labelledby="prof-t">
+  <div class="wrap">
+    <h2 id="prof-t">Quem ensina</h2>
+    <div class="prof-grid">
+      <div class="polaroid"><div class="foto" id="prof-foto"><span>Foto do professor</span><mark class="todo">[PREENCHER]</mark></div></div>
+      <div>
+        <p class="prof-nome" data-c="professor.nome">Prof. Romário Costa</p>
+        <p class="prof-ig"><span data-c="professor.instagram">@prof.romariocosta</span> no Instagram</p>
+        <p id="prof-bio"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. OFERTA -->
+<section class="oferta" id="oferta" aria-labelledby="oferta-t">
+  <div class="wrap">
+    <h2 id="oferta-t">O que você recebe</h2>
+    <div class="prancheta">
+      <div class="prancheta-folha">
+        <div>
+          <ul class="lista-ok" id="incluso"></ul>
+          <div class="bonus">
+            <h3>Bônus</h3>
+            <div id="bonus"></div>
+          </div>
+        </div>
+        <div class="preco-bloco">
+          <p class="rot-res"><span data-c="nomeCurso">IA para Professores</span></p>
+          <p class="preco"><span data-c="preco">R$ 97,00</span> <small>à vista</small></p>
+          <div class="preco-linhas">
+            <p><strong>Parcelamento:</strong> <span data-c="parcelamento"></span></p>
+            <p><strong>Formas de pagamento:</strong> <span data-c="formasPagamento"></span></p>
+          </div>
+          <p class="urgencia" hidden></p>
+          <a class="btn-compra" data-compra="oferta" href="#oferta"><span data-t="cta">Quero a IA como minha assistente</span> <span aria-hidden="true">→</span></a>
+          <p class="pendente">Link do checkout Hotmart: <mark class="todo">[PREENCHER]</mark></p>
+          <p class="pequeno" style="margin-top:.9rem">Pagamento processado pela Hotmart · garantia de <span data-c="garantiaDias">7</span> dias</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. GARANTIA -->
+<section class="garantia" id="garantia" aria-labelledby="garantia-t">
+  <div class="wrap garantia-grid">
+    <div class="selo" aria-hidden="true">
+      <svg viewBox="0 0 160 160" focusable="false">
+        <defs><path id="selo-cima" d="M22 80A58 58 0 0 1 138 80"/><path id="selo-baixo" d="M13.5 80A66.5 66.5 0 0 0 146.5 80"/></defs>
+        <circle cx="80" cy="80" r="75" fill="none" stroke="currentColor" stroke-width="4"/>
+        <circle cx="80" cy="80" r="45" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 4"/>
+        <g font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="11" font-weight="800" letter-spacing="1" fill="currentColor" text-anchor="middle">
+          <text><textPath href="#selo-cima" startOffset="50%">DIREITO DO CONSUMIDOR</textPath></text>
+          <text><textPath href="#selo-baixo" startOffset="50%">ART. 49 DO CDC</textPath></text>
+        </g>
+        <circle cx="17.5" cy="84" r="2.5" fill="currentColor"/><circle cx="142.5" cy="84" r="2.5" fill="currentColor"/>
+        <text x="80" y="82" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="40" font-weight="700" fill="currentColor" id="selo-dias">7</text>
+        <text x="80" y="103" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="15" font-weight="800" letter-spacing="2" fill="currentColor">DIAS</text>
+      </svg>
+    </div>
+    <div>
+      <h2 id="garantia-t"><span data-c="garantiaDias">7</span> dias para desistir. É um direito seu.</h2>
+      <p>Toda compra feita pela internet pode ser cancelada em até 7 dias, com devolução do valor pago. Isso está no art. 49 do Código de Defesa do Consumidor e vale para este curso como para qualquer outra compra online.</p>
+      <p>Se nesse prazo você achar que o curso não é para você, peça o reembolso pela Hotmart, onde a compra foi feita.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FAQ -->
+<section class="faq" id="faq" aria-labelledby="faq-t">
+  <div class="wrap">
+    <h2 id="faq-t">Perguntas que você pode estar se fazendo</h2>
+    <div class="faq-lista" id="faq-lista"></div>
+  </div>
+</section>
+
+</main>
+
+<!-- 12. CHAMADA FINAL E RODAPÉ -->
+<section class="final" id="final" aria-labelledby="final-t">
+  <div class="wrap">
+    <h2 id="final-t" data-t="finalTitulo">A aula é sua. O rascunho pode ser da IA.</h2>
+    <p data-t="finalTexto"></p>
+    <a class="btn-compra" data-compra="final" href="#oferta"><span data-t="cta">Quero a IA como minha assistente</span> <span aria-hidden="true">→</span></a>
+    <p class="acao-nota">Curso online · <strong data-c="preco">R$ 97,00</strong> à vista · garantia de <span data-c="garantiaDias">7</span> dias · compra pela Hotmart</p>
+    <p class="urgencia" hidden></p>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="wrap">
+    <p><strong data-c="nomeCurso">IA para Professores</strong> · <span data-c="professor.nome">Prof. Romário Costa</span></p>
+    <p>CNPJ: <span data-c="cnpj"></span> · Contato: <span data-c="email"></span></p>
+    <p>Pagamento e acesso ao curso pela Hotmart.</p>
+    <p><button type="button" class="link" id="priv-btn" aria-expanded="false" aria-controls="priv">Política de privacidade</button></p>
+    <div class="privacidade" id="priv" hidden>
+      <h2>Política de privacidade</h2>
+      <h3>Quem é o responsável</h3>
+      <p><span data-c="professor.nome">Prof. Romário Costa</span>, CNPJ <span data-c="cnpj"></span>. Contato: <span data-c="email"></span>.</p>
+      <h3>O que esta página guarda</h3>
+      <p>Esta página não tem formulário e não pede seus dados. O tamanho de letra que você escolhe fica salvo apenas no seu aparelho.</p>
+      <h3>Medição de anúncios</h3>
+      <p id="priv-pixel"></p>
+      <h3>Códigos de campanha</h3>
+      <p>Se você chegou por um anúncio, os códigos da campanha (utm, src e sck) e o perfil escolhido aqui seguem para a página de pagamento. Eles servem para sabermos qual anúncio levou à compra.</p>
+      <h3>Compra</h3>
+      <p>O cadastro e o pagamento são feitos na Hotmart, que tem sua própria política de privacidade.</p>
+      <h3>Seus direitos</h3>
+      <p>Pela Lei Geral de Proteção de Dados (LGPD), você pode pedir acesso, correção ou exclusão dos seus dados pelo contato acima.</p>
+    </div>
+    <p>© <span id="ano">2026</span> <span data-c="nomeCurso">IA para Professores</span></p>
+    <noscript><p>Esta página usa JavaScript para a demonstração, a calculadora e o botão de compra. Ative o JavaScript no seu navegador.</p></noscript>
+  </div>
+</footer>
+
+<!-- Botão de compra fixo (só no celular, depois da primeira dobra) -->
+<aside class="fixo" id="fixo" aria-label="Compra rápida" aria-hidden="true" inert>
+  <p class="fixo-preco"><span data-c="preco">R$ 97,00</span><small>à vista</small></p>
+  <a class="btn-compra" data-compra="fixo" href="#oferta" tabindex="-1"><span data-t="ctaCurto">Quero a IA como minha assistente</span></a>
+</aside>
+
+<p class="sr" role="status" id="status-geral"></p>
+<script>
+(function () {
+"use strict";
+
+/* =====================================================================
+   1. CONFIG — edite só aqui.
+   Onde estiver "[PREENCHER]", a página mostra o marcador em destaque
+   (ou esconde o bloco, quando indicado) até você colocar o dado real.
+   ===================================================================== */
+const CONFIG = {
+  nomeCurso: "IA para Professores",
+  promessa: "Tornar a IA a sua assistente pessoal e deixar com ela as tarefas repetitivas.",
+
+  // Preço e pagamento
+  preco: "R$ 97,00",                 // texto mostrado na página (sempre "à vista")
+  precoValor: 97,                    // número enviado ao Meta Pixel
+  parcelamento: "[PREENCHER]",       // ex.: "ou 10x de R$ 11,64 no cartão"
+  formasPagamento: "[PREENCHER]",    // ex.: "Pix, cartão de crédito e boleto"
+  checkoutUrl: "[PREENCHER]",        // ex.: "https://pay.hotmart.com/XXXXXXXX"
+
+  // Conteúdo do curso
+  modulos: "[PREENCHER]",            // ou lista: [{ titulo: "…", beneficio: "…", aulas: ["…", "…"] }]
+  bonus: "[PREENCHER]",              // ou lista: ["Bônus 1", "Bônus 2"]
+  certificado: "[PREENCHER]",        // ex.: "Certificado de 20 horas, emitido ao concluir as aulas"
+  suporte: "[PREENCHER]",            // canal e horário
+  duracaoAulas: "10 a 15 minutos",   // veio do briefing; confirme
+
+  // Quem ensina
+  professor: {
+    nome: "Prof. Romário Costa",
+    instagram: "@prof.romariocosta", // aparece como texto, sem link
+    bio: "[PREENCHER]",
+    foto: "[PREENCHER]"              // endereço da imagem, ex.: "romario.jpg"
+  },
+
+  // Depoimentos reais. Enquanto estiver vazio, a seção fica escondida.
+  depoimentos: "[PREENCHER]",        // lista: [{ nome: "…", cargo: "…", texto: "…" }]
+
+  garantiaDias: 7,
+
+  // Urgência: só aparece com uma data real e futura. Ex.: "2026-12-15T23:59:00-03:00"
+  dataEncerramento: "[PREENCHER]",
+
+  // Calculadora: economia de tempo que você pode prometer, em % (só o número). Vazio = mostra só o total.
+  economiaPercentual: "[PREENCHER]",
+
+  // Respostas do FAQ que dependem de você
+  respostaCursosGratuitos: "[PREENCHER]",
+  ferramentas: "[PREENCHER]",        // o aluno precisa pagar alguma IA para acompanhar?
+
+  // Rodapé e medição
+  cnpj: "[PREENCHER]",
+  email: "[PREENCHER]",
+  pixelId: "[PREENCHER]",            // ID do Meta Pixel. Vazio = o Pixel não carrega.
+
+  // Nome do parâmetro que leva o perfil escolhido até o checkout
+  parametroPerfil: "perfil"
+};
+
+/* =====================================================================
+   2. PERFIS — textos que mudam conforme a escolha do visitante.
+   Hipóteses ainda não validadas com pesquisa: ajuste à vontade.
+   {chave} puxa um valor do CONFIG.
+   ===================================================================== */
+const PERFIS = {
+  geral: {
+    nome: "versão geral",
+    titulo: "A IA como sua <mark>assistente pessoal</mark>. O repetitivo fica com ela.",
+    sub: "Plano de aula, prova, atividade e relatório: a IA faz o rascunho, você revisa e decide.",
+    cta: "Quero a IA como minha assistente",
+    ctaCurto: "Quero a IA como minha assistente",
+    doresTitulo: "Isso soa familiar?",
+    fala: "“Eu gosto de dar aula. O que cansa é todo o resto.”",
+    falaLegenda: "Se você já pensou isso, continue lendo.",
+    dores: [
+      "O plano de aula da semana sempre sobra para o domingo à noite.",
+      "A pilha de provas para corrigir não para de crescer.",
+      "Diário, ficha, relatório: a papelada come o tempo da aula.",
+      "Já tentei usar IA, mas a resposta veio genérica demais."
+    ],
+    ponte: "Não é falta de vocação nem de capricho. É tarefa repetitiva demais para uma pessoa só. A IA entra aí: como assistente, não como substituta.",
+    demoTitulo: "Veja a IA fazendo uma tarefa de professor",
+    demoIntro: "Escolha a disciplina, o ano e a tarefa. Depois, acompanhe o pedido e o rascunho que volta.",
+    demo: { disc: "mat", ano: "5", tarefa: "plano" },
+    demoDepois: "Repare no pedido: ele diz o ano, o tema, a habilidade da BNCC e como é a turma. Fazer pedidos assim, e revisar o que volta, é o que você pratica no curso.",
+    sugestao: { tarefa: "prova", rotulo: "Ver também uma prova com gabarito" },
+    calcIntro: "Os números abaixo são só um ponto de partida. Arraste para chegar perto da sua semana.",
+    faq: ["gratuitos", "substitui", "generica", "tempo", "complicado", "dinheiro", "garantia"],
+    finalTitulo: "A aula é sua. O rascunho pode ser da IA.",
+    finalTexto: "Comece pelas tarefas que mais tomam o seu tempo. Você continua no comando de tudo o que vai para a sala."
+  },
+
+  graduando: {
+    nome: "quem está na licenciatura",
+    titulo: "Chegue ao estágio com a IA de assistente e a <mark>aula planejada</mark>.",
+    sub: "A faculdade deu a teoria. Aqui, a IA faz o rascunho do plano de aula e da atividade, e você decide o que entra.",
+    cta: "Quero chegar ao estágio com a IA do meu lado",
+    ctaCurto: "Quero a IA no meu estágio",
+    doresTitulo: "Isso já passou pela sua cabeça?",
+    fala: "“Vou me formar e não sei nem por onde começar a planejar uma aula.”",
+    falaLegenda: "Se você já disse isso, esta página é para você.",
+    dores: [
+      "A faculdade me deu teoria. A sala de aula de verdade, não.",
+      "No estágio, pedem um plano de aula e eu travo na folha em branco.",
+      "Meu currículo é igual ao de todo mundo da turma.",
+      "Uso o ChatGPT, mas não sei se o que sai serve para uma aula real."
+    ],
+    ponte: "Calma: ninguém sai da faculdade sabendo tudo. Com um bom pedido, a IA monta o rascunho. Você entra com o que aprendeu na licenciatura para revisar e decidir.",
+    demoTitulo: "Um plano de aula para o seu estágio, do pedido ao rascunho",
+    demoIntro: "Escolha a disciplina e o ano da turma do estágio. Veja o plano surgir e, depois, peça a atividade.",
+    demo: { disc: "lp", ano: "5", tarefa: "plano" },
+    demoDepois: "Um plano de aula e uma atividade para revisar e levar ao estágio. No curso, você faz isso com a IA de verdade, para a turma que for a sua.",
+    sugestao: { tarefa: "adaptada", rotulo: "Ver agora a atividade" },
+    calcIntro: "Ainda não dá aula? Coloque as horas que o estágio e a faculdade pedem de você hoje.",
+    faq: ["naodouaula", "chatgpt", "dinheiro", "certificado", "ferramentas", "gratuitos"],
+    finalTitulo: "Comece a carreira com uma assistente do seu lado.",
+    finalTexto: "Leve para o estágio um plano de aula e uma atividade feitos por você, com a IA. E conte isso no currículo."
+  },
+
+  sobrecarregado: {
+    nome: "quem dá aula e vive sem tempo",
+    titulo: "Deixe com a IA o trabalho que vem <mark>depois da aula</mark>.",
+    sub: "Plano, prova, atividade e relatório: a IA adianta o rascunho, você revisa e decide. Aulas de {duracaoAulas}.",
+    cta: "Quero parar de levar trabalho para casa",
+    ctaCurto: "Quero minhas noites de volta",
+    doresTitulo: "Sua semana também é assim?",
+    fala: "“Eu amo dar aula, o que me mata é tudo o que vem depois dela.”",
+    falaLegenda: "Se você já disse isso, esta página é para você.",
+    dores: [
+      "Domingo à noite virou dia de plano de aula.",
+      "Levo prova para corrigir em casa. De novo.",
+      "Duas escolas, dois diários, dois sistemas para preencher.",
+      "Relatório de aluno escrito depois que a casa dorme."
+    ],
+    ponte: "Você não precisa de mais força de vontade. Precisa de ajuda com o que se repete. A IA adianta o rascunho. Você revisa, ajusta e decide.",
+    demoTitulo: "Uma tarefa da sua semana, do pedido ao rascunho",
+    demoIntro: "Escolha uma turma e uma tarefa que está na sua lista. Veja quanto do trabalho já chega adiantado.",
+    demo: { disc: "mat", ano: "7", tarefa: "plano" },
+    demoDepois: "Esse foi um plano. A meta do curso é você repetir o caminho para as outras turmas e planejar a semana seguinte inteira em cerca de 1 hora.",
+    sugestao: { tarefa: "prova", rotulo: "Ver também uma prova com gabarito" },
+    calcIntro: "Some as horas que a escola toma de você fora da sala. Arraste para chegar perto da sua semana.",
+    faq: ["tempo", "naotermino", "caro", "generica", "gratuitos", "substitui"],
+    finalTitulo: "O domingo à noite pode voltar a ser seu.",
+    finalTexto: "Aulas de {duracaoAulas} e modelos prontos. Você assiste no intervalo e já usa na primeira semana."
+  },
+
+  experiente: {
+    nome: "quem tem muita sala de aula e quer começar com calma",
+    titulo: "Você já sabe ensinar. A IA pode ser a <mark>sua assistente</mark>.",
+    sub: "Passo a passo calmo, com a tela gravada e palavras simples. A IA executa. Quem decide é você.",
+    cta: "Quero aprender no meu ritmo",
+    ctaCurto: "Quero aprender no meu ritmo",
+    doresTitulo: "Você já se sentiu assim?",
+    fala: "“Eu sei ensinar, só não sei mexer nisso.”",
+    falaLegenda: "Se você já disse isso, esta página é para você.",
+    dores: [
+      "Todo mundo fala de inteligência artificial e eu não sei por onde começar.",
+      "Para cada tarefa no computador, preciso pedir ajuda a alguém.",
+      "Tenho receio de fazer algo errado e perder o que já fiz.",
+      "Queria conseguir por conta própria, no meu tempo."
+    ],
+    ponte: "O mais difícil você já tem: saber o que é uma boa aula. Isso a IA não sabe. Ela só executa o que você pede, e é você quem aprova o resultado.",
+    demoTitulo: "Experimente: uma atividade da sua disciplina",
+    demoIntro: "São só 3 escolhas, uma de cada vez. Pode tocar à vontade: aqui é só um ensaio.",
+    demo: { disc: null, ano: null, tarefa: null },
+    passos: true,
+    ordemTarefas: ["adaptada", "plano", "prova", "relatorio"],
+    demoDepois: "Pronto. Foram 3 escolhas e um pedido para a IA. No curso, você faz o mesmo com a IA de verdade, acompanhando a tela gravada. A meta é criar por conta própria uma atividade da sua disciplina em menos de 10 minutos.",
+    calcIntro: "Em cada linha, arraste o marcador amarelo até o número de horas da sua semana.",
+    faq: ["complicado", "perdida", "paramim", "golpe", "acesso", "garantia", "gratuitos"],
+    finalTitulo: "No seu ritmo, com alguém para ajudar.",
+    finalTexto: "Você assiste, pausa e repete cada aula. Se surgir uma dúvida, tem uma pessoa do outro lado para responder."
+  }
+};
+
+/* =====================================================================
+   3. FAQ — objeções de cada perfil. A ordem muda conforme o perfil.
+   ===================================================================== */
+const FAQ = {
+  gratuitos: { p: "Existem cursos gratuitos de IA para professores. Por que pagar por este?",
+    r: ["{respostaCursosGratuitos}"] },
+  substitui: { p: "A IA vai fazer o meu trabalho por mim?",
+    r: ["Não, e nem deve. A IA faz o rascunho. Você revisa, ajusta à sua turma e decide o que vai para a sala.",
+        "O curso ensina justamente isso: pedir bem e revisar com olhar de professor."] },
+  generica: { p: "Já testei a IA e veio resposta genérica. Vai ser igual?",
+    r: ["Resposta genérica quase sempre vem de pedido genérico.",
+        "No curso você aprende a dar contexto: ano, tema, habilidade da BNCC, tempo de aula e perfil da turma. E recebe modelos prontos para começar.",
+        "Na demonstração desta página dá para ver a diferença que um pedido completo faz."] },
+  tempo: { p: "Não tenho tempo nem para fazer o curso. Como fica?",
+    r: ["As aulas têm de {duracaoAulas}. Cabem em um intervalo ou em uma janela entre duas turmas.",
+        "Você não precisa assistir a tudo para começar: os modelos prontos já servem na primeira semana."] },
+  naotermino: { p: "Já comprei curso e não terminei. Por que este seria diferente?",
+    r: ["Porque ele foi pensado para quem tem pouco tempo: aulas curtas e modelos prontos para copiar e adaptar.",
+        "A ideia é você usar em uma tarefa real da sua semana logo no começo. Ver resultado cedo ajuda a continuar.",
+        "Se mesmo assim não servir, você tem {garantiaDias} dias para pedir o reembolso."] },
+  caro: { p: "O curso é caro?",
+    r: ["Custa {preco} à vista. Parcelamento: {parcelamento}",
+        "Para comparar, use a calculadora desta página: veja quantas horas por mês a escola toma de você fora da sala e pense em quanto vale recuperar parte delas."] },
+  dinheiro: { p: "Não tenho dinheiro agora. Dá para parcelar?",
+    r: ["O curso custa {preco} à vista.",
+        "Parcelamento: {parcelamento}",
+        "E você tem {garantiaDias} dias para pedir o dinheiro de volta, como em toda compra feita pela internet."] },
+  complicado: { p: "É complicado demais?",
+    r: ["Não. As aulas mostram a tela gravada: você vê exatamente onde clicar e o que escrever.",
+        "A linguagem é simples, sem termos técnicos. E você pode pausar e repetir cada aula."] },
+  perdida: { p: "E se eu me perder no meio do caminho?",
+    r: ["Você não fica sem resposta. O curso tem suporte humano: uma pessoa lê a sua dúvida e responde.",
+        "Canal e horário do suporte: {suporte}"] },
+  paramim: { p: "Dou aula há muito tempo do meu jeito. Isso é para mim?",
+    r: ["É. Quem tem muitos anos de sala sabe reconhecer uma boa atividade, e isso a IA não sabe.",
+        "Ela executa o que você pede. Quem escolhe, corrige e aprova é você.",
+        "Você avança no seu ritmo e pode rever cada aula."] },
+  golpe: { p: "Como sei que não é golpe?",
+    r: ["A compra é feita na Hotmart, a plataforma que processa o pagamento e libera o acesso ao curso.",
+        "Quem ensina é o {professor.nome}, que você encontra no Instagram como {professor.instagram}.",
+        "Você tem {garantiaDias} dias para pedir o dinheiro de volta. Esse prazo é um direito seu, previsto no Código de Defesa do Consumidor.",
+        "CNPJ: {cnpj}. Contato: {email}"] },
+  naodouaula: { p: "Ainda não dou aula. Faz sentido fazer agora?",
+    r: ["Faz. No estágio você já precisa entregar plano de aula e atividade, e é aí que o curso ajuda primeiro.",
+        "Também serve para organizar as ideias e revisar o texto do TCC, sempre dentro das regras da sua faculdade.",
+        "Certificado e carga horária: {certificado}"] },
+  chatgpt: { p: "Já uso o ChatGPT de graça. O que o curso muda?",
+    r: ["A ferramenta você já tem. O que falta é o jeito de professor de usar.",
+        "No curso você aprende a fazer o pedido com ano, tema, habilidade da BNCC e tempo de aula, e a revisar o que volta antes de levar para a sala.",
+        "Compare na demonstração: o pedido tem contexto, e o rascunho já chega no formato de aula."] },
+  certificado: { p: "O curso dá certificado?",
+    r: ["Certificado e carga horária: {certificado}"] },
+  ferramentas: { p: "Preciso pagar por alguma ferramenta de IA para acompanhar?",
+    r: ["{ferramentas}"] },
+  acesso: { p: "Como recebo o acesso?",
+    r: ["Depois da confirmação do pagamento, a Hotmart envia o acesso para o e-mail usado na compra."] },
+  garantia: { p: "Como funciona a garantia de {garantiaDias} dias?",
+    r: ["Toda compra feita pela internet pode ser cancelada em até 7 dias, com devolução do valor pago. É o que diz o art. 49 do Código de Defesa do Consumidor.",
+        "Se nesse prazo você achar que o curso não é para você, peça o reembolso pela Hotmart."] }
+};
+const FAQ_ORDEM = ["gratuitos", "substitui", "generica", "tempo", "naotermino", "caro", "dinheiro", "complicado", "perdida", "paramim", "golpe", "naodouaula", "chatgpt", "certificado", "ferramentas", "acesso", "garantia"];
+
+/* O que está incluso (seção da oferta). {chave} puxa do CONFIG. */
+const INCLUSO = [
+  "Aulas em vídeo de {duracaoAulas}",
+  "Passo a passo com a tela gravada, em linguagem simples",
+  "Modelos prontos de pedidos para a IA",
+  "Suporte humano. Canal e horário: {suporte}",
+  "Certificado e carga horária: {certificado}",
+  "{garantiaDias} dias para desistir e receber o dinheiro de volta, como manda a lei"
+];
+
+/* =====================================================================
+   4. DEMO — exemplos prontos, alinhados à BNCC. Nenhuma chamada a API.
+   Marcação dos textos: "# " título · "> " linha de dados · "## " seção
+   "* " item de lista · "~ a) … | b) …" alternativas · **negrito**
+   ===================================================================== */
+const DEMO = {
+  disciplinas: [
+    { id: "lp", nome: "Língua Portuguesa" },
+    { id: "mat", nome: "Matemática" },
+    { id: "cie", nome: "Ciências" },
+    { id: "his", nome: "História" }
+  ],
+  anos: [
+    { id: "5", nome: "5º ano" },
+    { id: "7", nome: "7º ano" },
+    { id: "9", nome: "9º ano" }
+  ],
+  tarefas: [
+    { id: "plano", nome: "Plano de aula", icone: "i-plano",
+      revise: "Rascunho da IA. Agora é com você: revise, ajuste à sua turma e decida o que vai para a sala." },
+    { id: "prova", nome: "Prova com gabarito", icone: "i-prova",
+      revise: "Rascunho da IA. Confira cada questão e o gabarito antes de aplicar." },
+    { id: "adaptada", nome: "Atividade adaptada", icone: "i-adaptada",
+      revise: "Rascunho da IA. Confirme a adaptação com quem acompanha o estudante na escola." },
+    { id: "relatorio", nome: "Relatório", icone: "i-relatorio",
+      revise: "Rascunho da IA, feito só com as suas anotações. Revise antes de entregar e use iniciais no lugar do nome do aluno." }
+  ],
+  pedido: {
+    plano: (d, a, t) => `Dou aula de ${d} para o ${a}. Monte um plano de aula de 50 minutos sobre ${t.tema}, alinhado à habilidade ${t.bncc} da BNCC. ${t.turma} Quero objetivo, materiais, passo a passo com o tempo de cada etapa e uma forma simples de avaliar.`,
+    prova: (d, a, t) => `Crie uma prova de ${d} para o ${a} sobre ${t.tema} (habilidade ${t.bncc} da BNCC). São 4 questões, da mais fácil para a mais difícil: 2 de múltipla escolha e 2 abertas. No final, coloque o gabarito com uma explicação curta de cada resposta.`,
+    adaptada: (d, a, t) => `Crie uma atividade de ${d} para o ${a} sobre ${t.tema} (habilidade ${t.bncc} da BNCC). Depois, faça uma versão adaptada para ${t.para}. Mantenha o mesmo objetivo de aprendizagem e diga o que mudou.`,
+    relatorio: (d, a, t) => `Escreva um relatório com base nas minhas anotações. ${a}, ${d}, tema: ${t.tema}. Anotações: ${t.notas} Use linguagem clara, sem rótulos, e termine com os próximos passos. Por privacidade, uso só iniciais.`
+  },
+  temas: {
+
+    /* ---------------- Língua Portuguesa ---------------- */
+    "lp-5": {
+      tema: "leitura de fábulas", bncc: "EF35LP04",
+      turma: "A turma tem 26 alunos. Eles leem bem em voz alta, mas só respondem o que está escrito no texto.",
+      para: "um estudante que ainda está em processo de alfabetização",
+      notas: "B. lê com fluência; acha fácil a informação que está escrita; trava nas perguntas de \"por quê\"; respostas de uma linha; gosta de ler em voz alta para a turma.",
+      plano: `# Plano de aula · Lendo nas entrelinhas de uma fábula
+> 5º ano · Língua Portuguesa · 50 min · BNCC EF35LP04
+## Objetivo
+Inferir informações que não estão escritas no texto: a intenção das personagens e a moral da história.
+## Materiais
+Cópias da fábula "A raposa e as uvas" e tiras de papel.
+## Passo a passo
+* **Abertura (10 min):** "Você já disse que não queria uma coisa só porque não conseguiu?" Ouça três relatos.
+* **Leitura (15 min):** leitura silenciosa e, depois, em voz alta. Pare antes do final e pergunte: "O que a raposa vai fazer?"
+* **Pistas do texto (15 min):** em duplas, sublinhar o que a raposa diz e escrever na tira o que ela sente de verdade.
+* **Fechamento (10 min):** a turma cria a moral com as próprias palavras e compara com a tradicional.
+## Como avaliar
+Cada aluno responde por escrito: "Como você sabe que a raposa queria as uvas?" Vale a pista do texto usada na resposta.`,
+      prova: `# Prova · Leitura de fábula
+> 5º ano · Língua Portuguesa · BNCC EF35LP04
+**Texto:** Um leão dormia quando um ratinho passou correndo sobre ele. O leão acordou e o prendeu com a pata. "Me solte! Um dia eu ajudo você", pediu o ratinho. O leão riu, mas o deixou ir. Dias depois, o leão caiu na rede de um caçador. O ratinho ouviu os rugidos, roeu as cordas e o libertou.
+**1.** Por que o leão riu do pedido do ratinho?
+~ a) Porque estava de bom humor. | b) Porque não acreditou que um animal tão pequeno pudesse ajudá-lo. | c) Porque queria brincar. | d) Porque tinha medo do caçador.
+**2.** Qual é a ideia principal da fábula?
+~ a) Leões dormem muito. | b) Ratos roem cordas. | c) Os pequenos também podem ajudar os grandes. | d) Caçadores usam redes.
+**3.** Copie o trecho que mostra que o ratinho cumpriu a promessa.
+**4.** O que o leão deve ter pensado depois de ser salvo? Escreva de 2 a 3 linhas.
+## Gabarito
+* **1. b)** O texto não diz, mas o riso logo depois da promessa mostra que ele duvidou.
+* **2. c)** É a lição que a história inteira constrói.
+* **3.** "roeu as cordas e o libertou".
+* **4.** Resposta pessoal. Deve mostrar que o leão mudou de ideia sobre o ratinho.`,
+      adaptada: `# Atividade · Fábula "A raposa e as uvas"
+> 5º ano · Língua Portuguesa · BNCC EF35LP04
+## Versão da turma
+**1.** Leia a fábula e sublinhe a fala da raposa.
+**2.** Por que a raposa disse que as uvas estavam verdes?
+**3.** Escreva outra moral para a história.
+## Versão adaptada
+**1.** Ouça a leitura da fábula. Depois, coloque as 3 imagens na ordem da história.
+**2.** Marque um X: a raposa queria as uvas? ( ) Sim ( ) Não. Conte como você sabe.
+**3.** Complete com as palavras do quadro (alcançou, verdes): "A raposa não ___ as uvas e disse que estavam ___."
+## O que mudou
+* O texto chega pela escuta, com apoio de imagens.
+* Respostas por marcação, fala e banco de palavras.
+* A habilidade é a mesma: perceber o que o texto não diz.`,
+      relatorio: `# Relatório de acompanhamento · B.
+> 5º ano · Língua Portuguesa · leitura de fábulas
+B. lê com fluência e gosta de ler em voz alta para a turma. Localiza com facilidade as informações que estão escritas no texto.
+O próximo desafio é ler nas entrelinhas. Nas perguntas de "por quê", B. costuma repetir um trecho do texto em vez de explicar a intenção da personagem. As respostas escritas ainda são curtas, de uma linha.
+## Próximos passos
+* Perguntas de inferência em toda leitura: "Como você sabe?"
+* Pedir respostas com "porque", em duas linhas ou mais.
+* Aproveitar o gosto pela leitura em voz alta: B. pode ler e fazer as perguntas aos colegas.`
+    },
+
+    "lp-7": {
+      tema: "fato e opinião em notícias", bncc: "EF67LP04",
+      turma: "São 30 alunos. Eles tratam como fato tudo o que leem nas redes sociais.",
+      para: "um estudante com TEA (autismo)",
+      notas: "7º A, 30 alunos; a maioria separa fato e opinião em frases soltas; erram quando os dois vêm na mesma frase; 6 não entregaram a atividade; debate animado sobre notícias de redes sociais.",
+      plano: `# Plano de aula · Fato ou opinião?
+> 7º ano · Língua Portuguesa · 50 min · BNCC EF67LP04
+## Objetivo
+Distinguir, em trechos de textos jornalísticos, o fato da opinião sobre esse fato.
+## Materiais
+Uma notícia curta e um comentário de leitor sobre o mesmo assunto; canetas de duas cores.
+## Passo a passo
+* **Abertura (10 min):** escreva no quadro "Choveu 80 mm ontem" e "Foi a pior chuva do ano". Qual dá para conferir? Como?
+* **Leitura (15 min):** em duplas, ler a notícia e o comentário. Sublinhar fatos com uma cor e opiniões com outra.
+* **Discussão (15 min):** quais palavras denunciam opinião? Liste no quadro: adjetivos, "acho", "deveria", "infelizmente".
+* **Fechamento (10 min):** cada dupla escreve um fato e uma opinião sobre a escola e troca com outra dupla para classificar.
+## Como avaliar
+Recolha as frases trocadas. Veja se a dupla justifica a classificação com uma pista do texto.`,
+      prova: `# Prova · Fato e opinião
+> 7º ano · Língua Portuguesa · BNCC EF67LP04
+**Texto:** A prefeitura inaugurou ontem uma ciclovia de 4 km na avenida central. A obra custou R$ 2 milhões e levou oito meses. Para os moradores ouvidos, a ciclovia é linda, mas chegou tarde demais.
+**1.** Qual trecho apresenta um fato?
+~ a) "a ciclovia é linda" | b) "chegou tarde demais" | c) "A obra custou R$ 2 milhões" | d) nenhum deles
+**2.** A palavra "linda" indica opinião porque:
+~ a) é um dado que se pode medir. | b) mostra um julgamento de quem fala. | c) está no final do texto. | d) foi dita pela prefeitura.
+**3.** Retire do texto dois fatos que podem ser conferidos.
+**4.** Escreva uma opinião sua sobre ciclovias e sublinhe a palavra que mostra que é opinião.
+## Gabarito
+* **1. c)** O custo pode ser verificado em documentos.
+* **2. b)** Adjetivos como "linda" expressam avaliação.
+* **3.** Dois entre: inauguração ontem, 4 km, R$ 2 milhões, oito meses.
+* **4.** Resposta pessoal, com marca de opinião (adjetivo, "acho que", "deveria").`,
+      adaptada: `# Atividade · Fato ou opinião?
+> 7º ano · Língua Portuguesa · BNCC EF67LP04
+## Versão da turma
+**1.** Leia a notícia e sublinhe três fatos e duas opiniões.
+**2.** Reescreva uma opinião do texto como se fosse um fato. O que você precisou mudar?
+## Versão adaptada
+**Regra no topo da folha:** "Fato: dá para conferir. Opinião: é o que alguém acha."
+**1.** Recorte as 6 frases e cole na coluna certa da tabela: FATO ou OPINIÃO.
+**2.** Circule a palavra que mostra a opinião. Exemplo já feito: "A ciclovia é (linda)."
+## O que mudou
+* Regra escrita e um exemplo resolvido antes de começar.
+* Frases soltas e tabela de duas colunas, em vez de texto corrido.
+* Linguagem direta, sem duplo sentido. A habilidade avaliada é a mesma.`,
+      relatorio: `# Relatório da turma · 7º A
+> Língua Portuguesa · fato e opinião · para o conselho de classe
+A turma se envolveu com o tema, principalmente no debate sobre notícias que circulam nas redes sociais.
+A maioria já separa fato de opinião em frases isoladas. A dificuldade aparece quando os dois vêm juntos, como em "a obra, cara demais, ficou pronta em maio".
+Seis estudantes não entregaram a atividade escrita, o que impede avaliar o que aprenderam.
+## Próximos passos
+* Trabalhar frases que misturam fato e opinião.
+* Nova chance de entrega, em sala, para os seis estudantes.
+* Levar manchetes reais para a turma classificar em grupos.`
+    },
+
+    "lp-9": {
+      tema: "tese e argumentos no artigo de opinião", bncc: "EF89LP04",
+      turma: "São 34 alunos. Eles dão opinião com facilidade, mas não sustentam com argumentos.",
+      para: "um estudante surdo, usuário de Libras",
+      notas: "C. tem opinião formada e fala bem nos debates; texto escrito em bloco único, sem parágrafos; argumentos se repetem; não relê; melhora quando faz esquema antes.",
+      plano: `# Plano de aula · Tese e argumentos
+> 9º ano · Língua Portuguesa · 50 min · BNCC EF89LP04
+## Objetivo
+Identificar a tese, os argumentos e um contra-argumento em um artigo de opinião e posicionar-se sobre o tema.
+## Materiais
+Artigo de opinião curto sobre o uso do celular na escola; ficha com três colunas.
+## Passo a passo
+* **Abertura (10 min):** enquete rápida: "Celular na escola: a favor ou contra?" Peça um motivo para cada lado.
+* **Leitura guiada (15 min):** ler o artigo e marcar: onde o autor diz o que defende? Com que razões?
+* **Ficha em trios (15 min):** preencher as colunas tese, argumentos e contra-argumento. Dizer qual argumento é o mais forte, e por quê.
+* **Fechamento (10 min):** cada aluno escreve um parágrafo: concorda ou discorda do autor? Com qual argumento?
+## Como avaliar
+No parágrafo final, veja se há posição clara e ao menos um argumento que não seja só "eu acho".`,
+      prova: `# Prova · Artigo de opinião
+> 9º ano · Língua Portuguesa · BNCC EF89LP04
+**Texto:** Proibir o celular na escola é um erro. O aparelho já faz parte da vida dos jovens e pode ser usado para pesquisar e produzir. É verdade que ele distrai, mas a saída é ensinar o uso responsável, não fingir que o celular não existe.
+**1.** A tese do texto é:
+~ a) O celular distrai os alunos. | b) Proibir o celular na escola é um erro. | c) Os jovens usam muito o celular. | d) A escola deve comprar celulares.
+**2.** "É verdade que ele distrai" é:
+~ a) a tese. | b) um dado estatístico. | c) um contra-argumento que o autor reconhece. | d) a conclusão.
+**3.** Transcreva um argumento usado para defender a tese.
+**4.** Você concorda com o autor? Escreva de 4 a 6 linhas, com pelo menos um argumento.
+## Gabarito
+* **1. b)** É a posição que o texto inteiro defende.
+* **2. c)** O autor admite a ideia contrária e responde a ela em seguida.
+* **3.** "pode ser usado para pesquisar e produzir" ou "já faz parte da vida dos jovens".
+* **4.** Resposta pessoal. Avaliar: posição clara e argumento que a sustente.`,
+      adaptada: `# Atividade · Tese e argumentos
+> 9º ano · Língua Portuguesa · BNCC EF89LP04
+## Versão da turma
+**1.** Leia o artigo e escreva a tese com as suas palavras.
+**2.** Liste dois argumentos do autor.
+**3.** Escreva um contra-argumento.
+## Versão adaptada
+**Antes da leitura:** quadro com 5 palavras-chave do texto (tese, argumento, proibir, distrair, responsável), cada uma com imagem ou exemplo.
+**1.** Texto em frases curtas, na ordem direta. Pinte de amarelo a frase que mostra o que o autor defende.
+**2.** Complete o esquema: TESE → ARGUMENTO 1 → ARGUMENTO 2.
+**3.** Resposta em Libras, com o intérprete, ou por escrito.
+## O que mudou
+* Vocabulário apresentado antes, com apoio visual.
+* Esquema com setas no lugar de respostas longas.
+* Possibilidade de responder em Libras. O objetivo continua o mesmo.`,
+      relatorio: `# Relatório de acompanhamento · C.
+> 9º ano · Língua Portuguesa · artigo de opinião
+C. se posiciona com clareza nos debates e defende bem as ideias oralmente.
+Na escrita, o texto ainda aparece em bloco único, sem parágrafos, e os argumentos se repetem com outras palavras. C. costuma entregar a primeira versão, sem reler.
+Quando faz um esquema antes de escrever, o resultado melhora de forma visível.
+## Próximos passos
+* Esquema obrigatório antes do texto: tese, dois argumentos, conclusão.
+* Roteiro de revisão com três perguntas.
+* Reescrita de um texto anterior, agora em parágrafos.`
+    },
+
+    /* ---------------- Matemática ---------------- */
+    "mat-5": {
+      tema: "frações na reta numérica", bncc: "EF05MA03",
+      turma: "A turma tem 28 alunos e ainda se confunde com frações maiores que 1.",
+      para: "um estudante com discalculia",
+      notas: "L. acerta frações menores que 1 com desenho; erra quando a fração passa de 1; participa bem em dupla; tarefa de casa volta incompleta.",
+      plano: `# Plano de aula · Frações na reta numérica
+> 5º ano · Matemática · 50 min · BNCC EF05MA03
+## Objetivo
+Localizar frações menores e maiores que 1 na reta numérica e relacioná-las a uma divisão.
+## Materiais
+Tiras de papel, barbante, pregadores e cartões com as frações 1/2, 3/4, 5/4, 3/2 e 7/4.
+## Passo a passo
+* **Abertura (10 min):** "Onde fica 1/2 entre 0 e 1?" Cada dupla dobra uma tira de papel e marca a metade e os quartos.
+* **Reta humana (20 min):** estique o barbante no chão, de 0 a 2. Cada aluno recebe um cartão e se posiciona. A turma confere e justifica.
+* **Registro (15 min):** no caderno, desenhar a reta de 0 a 2 e marcar as cinco frações. Destacar quais passam de 1 inteiro.
+* **Fechamento (5 min):** "Como saber, sem desenhar, se uma fração é maior que 1?"
+## Como avaliar
+Bilhete de saída: marcar 3/4 e 5/4 em uma reta e explicar a diferença em uma frase.`,
+      prova: `# Prova · Frações na reta numérica
+> 5º ano · Matemática · BNCC EF05MA03
+**1.** Uma pizza foi dividida em 4 partes iguais e 3 foram comidas. Que fração da pizza foi comida?
+~ a) 1/4 | b) 3/4 | c) 4/3 | d) 3/3
+**2.** Qual destas frações é maior que 1 inteiro?
+~ a) 2/3 | b) 4/4 | c) 5/4 | d) 1/2
+**3.** Desenhe uma reta de 0 a 2 e marque 1/2 e 3/2.
+**4.** Três amigos dividem igualmente 2 barras de chocolate. Que fração de barra cada um recebe? Explique.
+## Gabarito
+* **1. b)** 3 das 4 partes iguais: 3/4.
+* **2. c)** Em 5/4, o numerador é maior que o denominador: passa de 1 inteiro.
+* **3.** 1/2 fica no meio entre 0 e 1; 3/2 fica no meio entre 1 e 2.
+* **4.** 2 ÷ 3 = 2/3 de barra para cada um.`,
+      adaptada: `# Atividade · Frações na reta numérica
+> 5º ano · Matemática · BNCC EF05MA03
+## Versão da turma
+**1.** Marque na reta de 0 a 2 as frações 1/2, 3/4, 5/4 e 3/2.
+**2.** Circule as frações maiores que 1 inteiro.
+**3.** Explique como você descobriu.
+## Versão adaptada
+**1.** A reta já vem dividida em quartos, com 0, 1 e 2 em destaque. Ligue cada cartão (1/2, 3/4, 5/4) ao ponto certo.
+**2.** Pinte de azul a fração que passa do número 1.
+**3.** Explique em voz alta como você pensou. Pode usar as tiras de papel.
+## O que mudou
+* Reta pronta e cartões: menos cópia de números, mais raciocínio.
+* Menos frações por vez e material concreto à mão.
+* Explicação oral no lugar da escrita. O objetivo é o mesmo.`,
+      relatorio: `# Relatório de acompanhamento · L.
+> 5º ano · Matemática · frações na reta numérica
+L. identifica e representa frações menores que 1 com segurança quando usa desenhos ou material concreto. Participa bem das atividades em dupla e explica o próprio raciocínio aos colegas.
+Ainda precisa de apoio para localizar frações maiores que 1 na reta numérica: costuma posicioná-las antes do número 1.
+As tarefas de casa têm voltado incompletas, o que reduz o tempo de prática.
+## Próximos passos
+* Retomar frações maiores que 1 com tiras de papel e a reta no chão.
+* Combinar com a família um horário curto e fixo para a tarefa.
+* Reavaliar em duas semanas com um bilhete de saída.`
+    },
+
+    "mat-7": {
+      tema: "equações do 1º grau", bncc: "EF07MA18",
+      turma: "São 32 alunos. Muitos ainda resolvem no chute, sem usar a igualdade.",
+      para: "um estudante com TDAH",
+      notas: "7º B, 32 alunos; 20 montam e resolvem equações simples; 8 resolvem a equação pronta, mas erram ao montar a partir do problema; 4 com dificuldade nas operações inversas; muita conversa nas duplas.",
+      plano: `# Plano de aula · Equações do 1º grau
+> 7º ano · Matemática · 50 min · BNCC EF07MA18
+## Objetivo
+Resolver problemas com equações do tipo ax + b = c, usando as propriedades da igualdade.
+## Materiais
+Quadro, cartões com problemas e o desenho de uma balança de dois pratos.
+## Passo a passo
+* **Abertura (10 min):** a balança. "Dois sacos iguais mais 3 kg pesam 11 kg. Quanto pesa cada saco?" Deixe a turma tentar.
+* **Sistematização (15 min):** escreva 2x + 3 = 11. Mostre que tirar 3 dos dois lados e dividir os dois por 2 mantém o equilíbrio. x = 4.
+* **Prática em duplas (20 min):** quatro problemas em cartões. Cada dupla escreve a equação antes de resolver e confere o resultado na frase original.
+* **Fechamento (5 min):** uma dupla explica no quadro o problema mais difícil.
+## Como avaliar
+Observe se a dupla monta a equação e faz a mesma operação dos dois lados. Recolha um problema resolvido por aluno.`,
+      prova: `# Prova · Equações do 1º grau
+> 7º ano · Matemática · BNCC EF07MA18
+**1.** Qual é o valor de x em 3x + 5 = 20?
+~ a) 3 | b) 5 | c) 8 | d) 15
+**2.** "O dobro de um número menos 4 é igual a 10." Qual equação representa a frase?
+~ a) 2x + 4 = 10 | b) 2x − 4 = 10 | c) x − 4 = 10 | d) 2(x − 4) = 10
+**3.** Resolva e mostre os passos: 4x − 7 = 21.
+**4.** Uma corrida de táxi custa R$ 6,00 de taxa fixa mais R$ 3,00 por quilômetro. Ana pagou R$ 30,00. Escreva a equação e descubra quantos quilômetros ela percorreu.
+## Gabarito
+* **1. b)** 3x = 15, então x = 5.
+* **2. b)** "O dobro" é 2x; "menos 4" é − 4.
+* **3.** 4x = 28, então x = 7.
+* **4.** 3x + 6 = 30 → 3x = 24 → x = 8 km.`,
+      adaptada: `# Atividade · Equações do 1º grau
+> 7º ano · Matemática · BNCC EF07MA18
+## Versão da turma
+**1.** Resolva: a) x + 9 = 15   b) 2x − 3 = 11   c) 5x + 10 = 45
+**2.** Crie um problema para a equação 3x + 2 = 20 e resolva.
+## Versão adaptada
+**Cartão 1:** x + 9 = 15. Resolva e marque ✓.
+**Cartão 2:** 2x − 3 = 11. Resolva e marque ✓.
+**Cartão 3:** 5x + 10 = 45. Resolva e marque ✓.
+**Cartão 4 (desafio):** invente uma história para 3x + 2 = 20.
+## O que mudou
+* Um exercício por cartão, entregue um de cada vez.
+* Lista de conferência para marcar o que já foi feito.
+* Pausa curta combinada depois do cartão 2. O conteúdo é o mesmo.`,
+      relatorio: `# Relatório da turma · 7º B
+> Matemática · equações do 1º grau · para o conselho de classe
+A turma participou bem das aulas sobre equações do 1º grau, em especial das atividades com a balança.
+Dos 32 estudantes, 20 já montam e resolvem equações simples com autonomia. Outros 8 resolvem a equação pronta, mas se perdem ao transformar o problema em equação. E 4 ainda precisam retomar as operações inversas.
+Nas atividades em duplas, a conversa paralela reduz o tempo de prática.
+## Próximos passos
+* Aula de retomada: do texto do problema para a equação.
+* Grupo de apoio para os 4 estudantes, com operações inversas.
+* Duplas definidas antes da aula e tempo marcado no quadro.`
+    },
+
+    "mat-9": {
+      tema: "o teorema de Pitágoras", bncc: "EF09MA14",
+      turma: "São 30 alunos. Eles decoram a fórmula, mas não sabem quando usar.",
+      para: "um estudante com baixa visão",
+      notas: "R. sabe a fórmula e calcula bem; troca a hipotenusa quando o triângulo aparece virado; não desenha a situação; 3 faltas no mês.",
+      plano: `# Plano de aula · Teorema de Pitágoras
+> 9º ano · Matemática · 50 min · BNCC EF09MA14
+## Objetivo
+Resolver problemas do dia a dia aplicando o teorema de Pitágoras.
+## Materiais
+Trena ou barbante, papel quadriculado e calculadora.
+## Passo a passo
+* **Abertura (10 min):** "Uma escada de 5 m está encostada na parede, com o pé a 3 m dela. Até que altura a escada chega?" Colete palpites.
+* **Retomada (10 min):** no papel quadriculado, desenhar o triângulo de lados 3, 4 e 5 e os quadrados sobre cada lado. Conferir: 9 + 16 = 25.
+* **Problemas em grupos (25 min):** três situações (escada, rampa de acesso e diagonal da quadra). Cada grupo desenha, identifica a hipotenusa e calcula.
+* **Fechamento (5 min):** voltar à escada: 5² = 3² + h², então h = 4 m.
+## Como avaliar
+Recolha um problema por grupo. Veja se identificaram o ângulo reto e a hipotenusa antes de calcular.`,
+      prova: `# Prova · Teorema de Pitágoras
+> 9º ano · Matemática · BNCC EF09MA14
+**1.** Em um triângulo retângulo, os catetos medem 6 cm e 8 cm. A hipotenusa mede:
+~ a) 10 cm | b) 12 cm | c) 14 cm | d) 100 cm
+**2.** Quais medidas formam um triângulo retângulo?
+~ a) 2, 3, 4 | b) 4, 5, 6 | c) 5, 12, 13 | d) 6, 7, 8
+**3.** Uma escada de 13 m está apoiada em um muro. O pé da escada fica a 5 m do muro. Que altura ela alcança? Mostre os cálculos.
+**4.** Um terreno retangular mede 9 m por 12 m. Quantos metros tem a diagonal? Faça um desenho.
+## Gabarito
+* **1. a)** 6² + 8² = 36 + 64 = 100; √100 = 10.
+* **2. c)** 5² + 12² = 25 + 144 = 169 = 13².
+* **3.** h² = 13² − 5² = 169 − 25 = 144; h = 12 m.
+* **4.** d² = 9² + 12² = 81 + 144 = 225; d = 15 m.`,
+      adaptada: `# Atividade · Teorema de Pitágoras
+> 9º ano · Matemática · BNCC EF09MA14
+## Versão da turma
+**1.** Calcule a hipotenusa de um triângulo com catetos de 9 cm e 12 cm.
+**2.** Uma rampa avança 4 m na horizontal e sobe 3 m. Qual é o comprimento da rampa?
+**3.** Desenhe a situação do item 2 e indique o ângulo reto.
+## Versão adaptada
+**1 e 2.** Os mesmos itens, impressos em letra grande, com bom contraste e um item por página.
+**Figuras:** traço grosso e medidas escritas fora do desenho.
+**3.** O estudante monta o triângulo com tiras de papel-cartão, em vez de desenhar.
+## O que mudou
+* O formato, não o conteúdo: letra ampliada, contraste e traço grosso.
+* Material para tocar no lugar do desenho fino.
+* Tempo extra combinado antes de começar.`,
+      relatorio: `# Relatório de acompanhamento · R.
+> 9º ano · Matemática · teorema de Pitágoras
+R. conhece a fórmula do teorema de Pitágoras e faz os cálculos com segurança, inclusive com raiz quadrada.
+A dificuldade aparece antes da conta: quando o triângulo está em outra posição, R. troca a hipotenusa por um cateto. Como não costuma desenhar a situação, o erro passa despercebido.
+As três faltas no mês coincidiram com as aulas de problemas.
+## Próximos passos
+* Pedir sempre o desenho, com o ângulo reto marcado, antes do cálculo.
+* Lista curta com triângulos em posições diferentes.
+* Conversar com a família sobre as faltas e repor os problemas da aula.`
+    },
+
+    /* ---------------- Ciências ---------------- */
+    "cie-5": {
+      tema: "o ciclo da água", bncc: "EF05CI02",
+      turma: "A turma tem 27 alunos e pouca experiência com experimentos.",
+      para: "um estudante com deficiência intelectual",
+      notas: "T. tem muita curiosidade no experimento e faz boas perguntas; desenho do ciclo completo; troca os nomes evaporação e condensação; fala pouco no grupo.",
+      plano: `# Plano de aula · O ciclo da água
+> 5º ano · Ciências · 50 min · BNCC EF05CI02
+## Objetivo
+Explicar o ciclo da água a partir das mudanças de estado físico e relacioná-lo ao abastecimento da cidade.
+## Materiais
+Pote transparente, água morna, plástico filme e gelo.
+## Passo a passo
+* **Abertura (10 min):** "Para onde vai a água da poça quando o sol aparece?" Anote as hipóteses no quadro.
+* **Experimento (20 min):** água morna no pote, plástico filme por cima e gelo sobre o plástico. Observar as gotas se formando e "chovendo".
+* **Registro (15 min):** desenhar o que aconteceu no pote e nomear: evaporação, condensação e precipitação.
+* **Fechamento (5 min):** "O que acontece com o reservatório da cidade se chover pouco?"
+## Como avaliar
+No desenho, veja se as três etapas aparecem na ordem certa e com setas.`,
+      prova: `# Prova · O ciclo da água
+> 5º ano · Ciências · BNCC EF05CI02
+**1.** Quando a água líquida vira vapor, ocorre a:
+~ a) condensação | b) evaporação | c) solidificação | d) precipitação
+**2.** As nuvens se formam quando o vapor de água:
+~ a) esquenta e sobe mais. | b) esfria e vira gotinhas. | c) vira gelo no chão. | d) desaparece.
+**3.** Desenhe o ciclo da água com setas e os nomes de três etapas.
+**4.** Explique por que um período longo sem chuva pode afetar a água que chega às casas.
+## Gabarito
+* **1. b)** Evaporação é a passagem do líquido para o vapor.
+* **2. b)** Ao esfriar, o vapor condensa em gotinhas.
+* **3.** Deve trazer evaporação, condensação e precipitação, nessa ordem.
+* **4.** Sem chuva, rios e reservatórios recebem menos água e o abastecimento diminui.`,
+      adaptada: `# Atividade · O ciclo da água
+> 5º ano · Ciências · BNCC EF05CI02
+## Versão da turma
+**1.** Desenhe o ciclo da água e nomeie as etapas.
+**2.** Explique o que é condensação.
+**3.** Dê um exemplo de evaporação na sua casa.
+## Versão adaptada
+**1.** Observe de novo o pote do experimento. Aponte onde está a água, o vapor e as gotinhas.
+**2.** Coloque em ordem as 3 figuras: sol aquecendo a água, nuvem se formando, chuva caindo.
+**3.** Ligue: "roupa secando no varal" ↔ "a água virou vapor".
+## O que mudou
+* Começa pelo material concreto, não pelo texto.
+* Três figuras para ordenar em vez de desenho livre.
+* Um exemplo do dia a dia para ligar. O tema é o mesmo da turma.`,
+      relatorio: `# Relatório de acompanhamento · T.
+> 5º ano · Ciências · ciclo da água
+T. demonstra curiosidade nas aulas práticas e fez perguntas pertinentes durante o experimento do ciclo da água. O desenho do ciclo está completo, com setas e as três etapas.
+Ainda troca os nomes "evaporação" e "condensação", embora explique corretamente o que acontece em cada uma. No trabalho em grupo, T. fala pouco e deixa as decisões para os colegas.
+## Próximos passos
+* Cartões com nome e figura de cada etapa para fixar o vocabulário.
+* Dar a T. um papel definido no grupo, como registrar ou apresentar.
+* Valorizar as perguntas feitas em aula.`
+    },
+
+    "cie-7": {
+      tema: "ecossistemas brasileiros", bncc: "EF07CI07",
+      turma: "São 31 alunos. Eles conhecem a Amazônia, mas quase nada sobre o bioma da própria região.",
+      para: "um estudante recém-chegado de outro país, que ainda está aprendendo português",
+      notas: "7º C, 31 alunos; quadros dos biomas bem-feitos; na apresentação, leem o cartaz; confundem Cerrado e Caatinga; 2 grupos não terminaram no prazo.",
+      plano: `# Plano de aula · Ecossistemas brasileiros
+> 7º ano · Ciências · 50 min · BNCC EF07CI07
+## Objetivo
+Caracterizar ecossistemas brasileiros pela paisagem, água, solo e temperatura, relacionando essas condições à fauna e à flora.
+## Materiais
+Mapa dos biomas do Brasil, cartões de características e folhas grandes.
+## Passo a passo
+* **Abertura (10 min):** "Em qual bioma fica a nossa cidade?" Localizar no mapa e listar o que a turma já sabe.
+* **Estações (25 min):** seis grupos, um por bioma (Amazônia, Cerrado, Caatinga, Mata Atlântica, Pantanal e Pampa). Cada grupo monta um quadro com clima, água, solo, uma planta e um animal típicos.
+* **Galeria (10 min):** os quadros vão para a parede. Os grupos circulam e anotam uma diferença entre dois biomas.
+* **Fechamento (5 min):** "Por que o mandacaru não vive na Amazônia?"
+## Como avaliar
+No quadro de cada grupo, veja se a planta e o animal escolhidos combinam com o clima e a água descritos.`,
+      prova: `# Prova · Ecossistemas brasileiros
+> 7º ano · Ciências · BNCC EF07CI07
+**1.** Plantas com espinhos e caules que guardam água são típicas da:
+~ a) Amazônia | b) Caatinga | c) Mata Atlântica | d) região do Pampa
+**2.** O Pantanal se destaca por:
+~ a) ter clima frio o ano todo. | b) ficar alagado em parte do ano. | c) não ter animais de grande porte. | d) ser coberto por dunas.
+**3.** Cite duas características do Cerrado e um ser vivo adaptado a ele.
+**4.** Explique por que uma planta da Caatinga teria dificuldade para viver na Amazônia.
+## Gabarito
+* **1. b)** São adaptações à pouca chuva da Caatinga.
+* **2. b)** As cheias periódicas definem a paisagem e a vida no Pantanal.
+* **3.** Exemplos: estação seca e estação chuvosa bem marcadas, árvores de tronco retorcido e casca grossa; lobo-guará, ipê, pequi.
+* **4.** Ela é adaptada a pouca água e muito sol. Na floresta há muita umidade e sombra.`,
+      adaptada: `# Atividade · Ecossistemas brasileiros
+> 7º ano · Ciências · BNCC EF07CI07
+## Versão da turma
+**1.** Escolha dois biomas e compare clima, água e vegetação em um quadro.
+**2.** Explique como um animal de cada bioma está adaptado ao ambiente.
+## Versão adaptada
+**Glossário ilustrado:** 8 palavras (chuva, seca, solo, floresta, espinho, raiz, alagado, frio), com espaço para escrever cada uma na língua do estudante.
+**1.** Ligue cada foto de bioma à sua descrição curta.
+**2.** Complete o quadro com desenhos ou palavras soltas: clima, água, uma planta, um animal.
+**Em dupla:** com um colega que ajuda na leitura.
+## O que mudou
+* Mais imagem e menos texto corrido.
+* Glossário que aproxima as duas línguas.
+* O conteúdo de Ciências é o mesmo. O que se adapta é a língua.`,
+      relatorio: `# Relatório da turma · 7º C
+> Ciências · ecossistemas brasileiros · para o conselho de classe
+A turma realizou o trabalho em grupos sobre os biomas com capricho: os quadros trazem clima, água, solo e exemplos de seres vivos.
+Na apresentação oral, a maior parte dos grupos leu o cartaz, sem explicar com as próprias palavras. Também foi comum confundir Cerrado e Caatinga. Dois grupos não terminaram no prazo.
+## Próximos passos
+* Aula comparando Cerrado e Caatinga com fotos e dados de chuva.
+* Ensaio de apresentação com roteiro de três tópicos, sem leitura.
+* Prazo intermediário de conferência nos próximos trabalhos.`
+    },
+
+    "cie-9": {
+      tema: "hereditariedade e as ideias de Mendel", bncc: "EF09CI09",
+      turma: "São 33 alunos. Eles acham que as características pulam gerações por acaso.",
+      para: "um estudante com altas habilidades, que termina rápido e perde o interesse",
+      notas: "J. monta certo o quadro de cruzamento e calcula bem as proporções; confunde dominante com mais comum; quase não fala nas discussões; entrega tudo no prazo.",
+      plano: `# Plano de aula · As ideias de Mendel
+> 9º ano · Ciências · 50 min · BNCC EF09CI09
+## Objetivo
+Explicar, com as ideias de Mendel, como uma característica passa de pais para filhos e resolver um cruzamento simples.
+## Materiais
+Dois copos por dupla, feijões de duas cores e uma tabela de registro.
+## Passo a passo
+* **Abertura (10 min):** "Por que irmãos dos mesmos pais podem ser tão diferentes?" Registre as explicações da turma.
+* **Mendel e as ervilhas (10 min):** conte o experimento: ervilhas amarelas cruzadas com verdes, e a cor verde que some e reaparece na geração seguinte.
+* **Sorteio de fatores (20 min):** cada copo é um genitor Aa, com um feijão de cada cor. A dupla sorteia um feijão de cada copo, 20 vezes, devolve e anota os pares.
+* **Fechamento (10 min):** somar os resultados da turma e comparar com a proporção esperada: 3 para 1.
+## Como avaliar
+Veja se a dupla explica por que o resultado da turma inteira chega mais perto de 3 para 1 do que o de uma dupla só.`,
+      prova: `# Prova · Hereditariedade
+> 9º ano · Ciências · BNCC EF09CI09
+**1.** Nas ervilhas de Mendel, a cor amarela (A) é dominante sobre a verde (a). Uma planta Aa tem sementes:
+~ a) verdes | b) amarelas | c) metade de cada cor | d) sem cor
+**2.** Para uma característica, cada gameta carrega:
+~ a) os dois fatores | b) apenas um fator | c) nenhum fator | d) quatro fatores
+**3.** Faça o quadro do cruzamento Aa × Aa e indique a proporção de sementes amarelas e verdes.
+**4.** Duas plantas de ervilha amarela podem ter uma descendente de ervilha verde? Explique com os fatores.
+## Gabarito
+* **1. b)** Basta um fator dominante (A) para a cor amarela aparecer.
+* **2. b)** Os fatores se separam na formação dos gametas.
+* **3.** AA, Aa, Aa, aa: 3 amarelas para 1 verde.
+* **4.** Sim, se as duas forem Aa. Cada uma pode passar o fator "a", formando aa.`,
+      adaptada: `# Atividade · Cruzamentos de Mendel
+> 9º ano · Ciências · BNCC EF09CI09
+## Versão da turma
+**1.** Monte o quadro do cruzamento Aa × aa.
+**2.** Qual é a proporção esperada de ervilhas amarelas e verdes?
+**3.** Explique o que é um fator recessivo.
+## Versão adaptada (aprofundamento)
+**1.** Faça o item 1 da turma. Depois, descubra: quais cruzamentos dão 100% de ervilhas amarelas?
+**2.** Em 20 sorteios com feijões, saíram 13 "amarelas" e 7 "verdes". O resultado contradiz Mendel? Argumente.
+**3.** Crie um problema de cruzamento para um colega resolver e escreva o gabarito.
+## O que mudou
+* Menos repetição e mais investigação.
+* Uma pergunta aberta sobre acaso e proporção.
+* O estudante cria um problema, em vez de só resolver. O tema é o mesmo.`,
+      relatorio: `# Relatório de acompanhamento · J.
+> 9º ano · Ciências · hereditariedade
+J. monta corretamente os quadros de cruzamento e calcula as proporções com facilidade. Entrega as atividades no prazo e com organização.
+Ainda associa "dominante" a "mais comum na população", o que leva a erros na interpretação dos resultados. Nas discussões em sala, J. raramente se manifesta, mesmo quando sabe a resposta.
+## Próximos passos
+* Exemplos de características dominantes que são raras.
+* Perguntas dirigidas a J. durante a correção coletiva.
+* Atividade de explicar um cruzamento a um colega.`
+    },
+
+    /* ---------------- História ---------------- */
+    "his-5": {
+      tema: "cidadania e direitos", bncc: "EF05HI04",
+      turma: "A turma tem 25 alunos. Para eles, cidadania é votar quando crescer.",
+      para: "um estudante com deficiência física, que não escreve à mão",
+      notas: "A. participa muito e dá exemplos da própria vida; texto escrito claro; ajudou um colega novo a se enturmar; interrompe os colegas com frequência.",
+      plano: `# Plano de aula · Cidadania no dia a dia
+> 5º ano · História · 50 min · BNCC EF05HI04
+## Objetivo
+Associar a ideia de cidadania ao respeito à diversidade e aos direitos humanos, em situações da escola e do bairro.
+## Materiais
+Cartões com situações do cotidiano, papel pardo e canetões.
+## Passo a passo
+* **Abertura (10 min):** "O que uma criança pode fazer para ser cidadã hoje?" Liste as respostas.
+* **Situações (20 min):** em grupos, ler um cartão (uma colega nova que fala outra língua, a fila do bebedouro, a rampa bloqueada) e responder: que direito está em jogo? O que fazer?
+* **Mural (15 min):** cada grupo escreve no papel pardo um direito e um dever ligados à sua situação.
+* **Fechamento (5 min):** ler o mural e escolher um combinado para a turma.
+## Como avaliar
+Na fala dos grupos, veja se relacionam a situação a um direito e ao respeito às diferenças.`,
+      prova: `# Prova · Cidadania e direitos
+> 5º ano · História · BNCC EF05HI04
+**1.** Ser cidadão é:
+~ a) apenas votar nas eleições. | b) ter direitos e deveres na vida em sociedade. | c) morar em uma cidade grande. | d) ter mais de 18 anos.
+**2.** Qual atitude mostra respeito à diversidade?
+~ a) Rir do sotaque de um colega. | b) Escolher só os amigos para o grupo. | c) Ouvir e incluir quem pensa ou vive de modo diferente. | d) Ignorar quem chegou agora.
+**3.** Escreva um direito que toda criança tem e um dever que ela tem na escola.
+**4.** A rampa da escola está bloqueada por caixas. Quem é prejudicado? O que você pode fazer?
+## Gabarito
+* **1. b)** Cidadania envolve direitos e deveres, em qualquer idade.
+* **2. c)** Respeitar é ouvir e incluir.
+* **3.** Exemplos: direito de estudar, de brincar, de ter sua opinião ouvida; dever de respeitar os colegas e cuidar da escola.
+* **4.** Pessoas que usam cadeira de rodas ou têm dificuldade para andar. Avisar um adulto da escola e pedir a retirada das caixas.`,
+      adaptada: `# Atividade · Cidadania no dia a dia
+> 5º ano · História · BNCC EF05HI04
+## Versão da turma
+**1.** Escreva dois direitos e dois deveres das crianças.
+**2.** Desenhe uma cena de respeito às diferenças na escola.
+## Versão adaptada
+**1.** Cartões prontos com direitos e deveres. O estudante indica (apontando, falando ou com o olhar) em qual coluna cada um entra, e um colega cola.
+**2.** No lugar do desenho, escolher entre 4 fotos a cena que mostra respeito e explicar a escolha. A resposta pode ser gravada em áudio.
+## O que mudou
+* A forma de responder: indicar, falar ou gravar, em vez de escrever e desenhar.
+* Um colega como apoio para a parte manual.
+* As perguntas e o nível de exigência são os mesmos.`,
+      relatorio: `# Relatório de acompanhamento · A.
+> 5º ano · História · cidadania e direitos
+A. participa ativamente das discussões e traz exemplos da própria vida para explicar direitos e deveres. Os registros escritos são claros e completos.
+Por iniciativa própria, ajudou um colega recém-chegado a se integrar à turma, colocando em prática o que foi estudado.
+Ainda precisa aprender a esperar a vez de falar: com frequência interrompe os colegas.
+## Próximos passos
+* Combinar um sinal para pedir a palavra.
+* Convidar A. para mediar a roda de conversa, cuidando da vez de cada um.
+* Registrar e valorizar as atitudes de acolhimento.`
+    },
+
+    "his-7": {
+      tema: "as navegações no Atlântico e no Pacífico", bncc: "EF07HI06",
+      turma: "São 29 alunos. Eles conhecem Colombo e Cabral, mas não as navegações de outros povos.",
+      para: "um estudante com dislexia",
+      notas: "7º D, 29 alunos; muito interesse nas imagens das embarcações; comparam bem caravela e canoa; dificuldade para achar os oceanos no mapa; leitura lenta dos textos; 5 alunos com muitas faltas.",
+      plano: `# Plano de aula · Navegar no Atlântico e no Pacífico
+> 7º ano · História · 50 min · BNCC EF07HI06
+## Objetivo
+Comparar as navegações no Atlântico e no Pacífico entre os séculos XIV e XVI: quem navegava, com que técnicas e com que objetivos.
+## Materiais
+Mapa-múndi, imagens de uma caravela e de uma canoa polinésia de casco duplo, quadro comparativo.
+## Passo a passo
+* **Abertura (10 min):** mostre as duas embarcações. "Qual delas atravessou um oceano?" (As duas.)
+* **Leitura em grupos (20 min):** metade da turma lê sobre portugueses e espanhóis no Atlântico. A outra metade, sobre os povos polinésios no Pacífico.
+* **Quadro comparativo (15 min):** juntos, preencher: embarcação, forma de se orientar, objetivo da viagem.
+* **Fechamento (5 min):** "Por que os livros falam mais de uns navegadores do que de outros?"
+## Como avaliar
+No quadro, veja se cada grupo aponta uma semelhança e uma diferença entre as navegações.`,
+      prova: `# Prova · Navegações nos séculos XIV a XVI
+> 7º ano · História · BNCC EF07HI06
+**1.** Um dos principais objetivos das navegações portuguesas no Atlântico era:
+~ a) encontrar uma rota marítima para o comércio de especiarias. | b) fugir do frio da Europa. | c) estudar os animais marinhos. | d) povoar a Antártida.
+**2.** Os povos polinésios se orientavam no Pacífico principalmente:
+~ a) por mapas impressos. | b) pela observação das estrelas, dos ventos e das correntes. | c) por bússolas europeias. | d) seguindo navios portugueses.
+**3.** Cite uma diferença entre a caravela e a canoa polinésia de casco duplo.
+**4.** Aponte uma semelhança e uma diferença entre as navegações no Atlântico e no Pacífico.
+## Gabarito
+* **1. a)** A busca por especiarias e novas rotas de comércio moveu as viagens.
+* **2. b)** Era um conhecimento transmitido de geração em geração.
+* **3.** Exemplos: tamanho, materiais, tipo de vela, número de cascos.
+* **4.** Semelhança: longas travessias guiadas pelo conhecimento do céu e do mar. Diferença: os objetivos (comércio e conquista ou povoamento de ilhas) ou o tipo de embarcação.`,
+      adaptada: `# Atividade · Navegações no Atlântico e no Pacífico
+> 7º ano · História · BNCC EF07HI06
+## Versão da turma
+**1.** Leia os dois textos e preencha o quadro comparativo.
+**2.** Escreva um parágrafo: o que as duas navegações têm em comum?
+## Versão adaptada
+**1.** Os textos chegam em áudio (lidos em sala ou gravados) e impressos com letra maior, sem serifa e com mais espaço entre as linhas.
+**2.** Quadro comparativo com opções para marcar, em vez de escrever: embarcação, orientação, objetivo.
+**3.** A resposta final pode ser oral ou em três tópicos curtos.
+## O que mudou
+* Acesso ao texto pela escuta, além da leitura.
+* Menos escrita longa: marcar e listar em tópicos.
+* A comparação pedida é a mesma da turma.`,
+      relatorio: `# Relatório da turma · 7º D
+> História · navegações nos séculos XIV a XVI · para o conselho de classe
+A turma mostrou grande interesse pelo tema, sobretudo ao comparar as imagens da caravela e da canoa polinésia. A maioria aponta semelhanças e diferenças entre as embarcações.
+Duas dificuldades se destacaram: localizar os oceanos no mapa-múndi e ler os textos no tempo previsto. Cinco estudantes acumulam faltas e perderam parte da sequência.
+## Próximos passos
+* Abrir as próximas aulas com cinco minutos de localização no mapa.
+* Textos mais curtos, com perguntas de orientação antes da leitura.
+* Plano de reposição para os cinco estudantes e contato com as famílias.`
+    },
+
+    "his-9": {
+      tema: "a Proclamação da República", bncc: "EF09HI01",
+      turma: "São 35 alunos. Eles sabem a data, mas não quem participou nem quem ficou de fora.",
+      para: "um estudante cego, que usa leitor de tela",
+      notas: "M. sabe datas e nomes; analisa bem imagens; não explica as causas, só lista fatos; texto com frases soltas; pede ajuda quando não entende.",
+      plano: `# Plano de aula · O nascimento da República
+> 9º ano · História · 50 min · BNCC EF09HI01
+## Objetivo
+Descrever o contexto da Proclamação da República no Brasil e discutir quem participou e quem ficou de fora.
+## Materiais
+Reprodução da pintura "Proclamação da República", de Benedito Calixto, e a frase de Aristides Lobo sobre o povo no 15 de novembro.
+## Passo a passo
+* **Abertura (10 min):** observar a pintura. "Quem aparece? Quem não aparece?"
+* **Contexto (15 min):** exposição curta: crise do Império, fim da escravidão em 1888, insatisfação de militares e cafeicultores, 15 de novembro de 1889.
+* **Fontes em duplas (15 min):** comparar a pintura com a frase de Aristides Lobo, que descreveu o povo assistindo a tudo "bestializado". As duas fontes contam a mesma história?
+* **Fechamento (10 min):** cada dupla escreve: "A República começou com ou sem participação popular? Por quê?"
+## Como avaliar
+Na resposta final, veja se a dupla usa ao menos uma das fontes como evidência.`,
+      prova: `# Prova · A Proclamação da República
+> 9º ano · História · BNCC EF09HI01
+**1.** A República foi proclamada no Brasil em:
+~ a) 7 de setembro de 1822 | b) 13 de maio de 1888 | c) 15 de novembro de 1889 | d) 15 de novembro de 1930
+**2.** Um grupo que apoiou a queda da Monarquia foi:
+~ a) parte do Exército e dos cafeicultores. | b) a família imperial. | c) a nobreza portuguesa. | d) os bandeirantes.
+**3.** Explique uma causa da crise do Império.
+**4.** Aristides Lobo escreveu que o povo assistiu à Proclamação "bestializado", sem entender o que acontecia. O que essa frase sugere sobre a participação popular?
+## Gabarito
+* **1. c)** 15 de novembro de 1889.
+* **2. a)** Militares e cafeicultores estavam insatisfeitos com o governo imperial.
+* **3.** Exemplos: abolição sem indenização aos senhores, conflitos com os militares, conflitos com a Igreja, avanço das ideias republicanas.
+* **4.** Sugere que a mudança foi conduzida por um grupo restrito, com pouca participação da população.`,
+      adaptada: `# Atividade · A Proclamação da República
+> 9º ano · História · BNCC EF09HI01
+## Versão da turma
+**1.** Observe a pintura de Benedito Calixto e descreva quem aparece.
+**2.** Compare a pintura com a frase de Aristides Lobo.
+**3.** Escreva sua conclusão em um parágrafo.
+## Versão adaptada
+**1.** A pintura vem com descrição por escrito: militares a cavalo em destaque, tropas em formação e poucos civis. Um colega também descreve a imagem em voz alta.
+**2.** Textos em arquivo digital, compatível com o leitor de tela.
+**3.** O parágrafo pode ser digitado ou gravado em áudio.
+## O que mudou
+* A imagem vira descrição, em texto e na voz de um colega.
+* Material em formato digital acessível.
+* A análise das fontes é a mesma exigida da turma.`,
+      relatorio: `# Relatório de acompanhamento · M.
+> 9º ano · História · Proclamação da República
+M. domina datas, nomes e a sequência dos acontecimentos. Tem bom olhar para imagens: na análise da pintura, notou sem ajuda a ausência de pessoas comuns.
+O desafio está em explicar as causas. As respostas listam fatos, mas não mostram a ligação entre eles, e os textos trazem frases soltas, sem "porque" ou "por isso". M. pede ajuda quando não entende, o que facilita o acompanhamento.
+## Próximos passos
+* Exercícios de causa e consequência com conectivos.
+* Partir das imagens, ponto forte de M., para chegar à explicação escrita.
+* Devolutiva individual no próximo texto.`
+    }
+  }
+};
+
+/* =====================================================================
+   5. LÓGICA DA PÁGINA — não é preciso mexer daqui para baixo.
+   ===================================================================== */
+const MARCA = "[PREENCHER]";
+const $ = (s, c) => (c || document).querySelector(s);
+const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const calmo = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* O dado foi preenchido de verdade? */
+const preenchido = v => {
+  if (v == null) return false;
+  if (Array.isArray(v)) return v.length > 0;
+  if (typeof v === "number") return isFinite(v);
+  if (typeof v === "string") return v.trim() !== "" && v.indexOf(MARCA) === -1;
+  return true;
+};
+/* Texto seguro para a página, com o marcador [PREENCHER] em destaque. */
+const comMarca = v => {
+  if (Array.isArray(v)) v = v.join(", ");
+  if (v == null || String(v).trim() === "") v = MARCA;
+  return esc(v).split(MARCA).join('<mark class="todo">' + MARCA + "</mark>");
+};
+const cfg = caminho => caminho.split(".").reduce((o, k) => (o == null ? o : o[k]), CONFIG);
+/* Troca {chave} pelo valor do CONFIG dentro dos textos da página. */
+const txt = s => String(s).replace(/\{([\w.]+)\}/g, (m, k) => { const v = cfg(k); return v === undefined ? m : comMarca(v); });
+
+const estado = { perfil: "geral", demo: { disc: null, ano: null, tarefa: null }, passos: false, passo: 1, rodou: false };
+let execucao = 0; // muda a cada novo pedido, para cancelar a animação anterior
+
+const anunciar = msg => { const el = $("#status-geral"); el.textContent = ""; setTimeout(() => { el.textContent = msg; }, 60); };
+
+/* ---------- Tamanho da letra (A− / A+) ---------- */
+const NIVEIS = ["normal", "grande", "muito grande", "máximo"];
+let letraManual = null;
+try { const s = localStorage.getItem("iapp-letra"); if (s !== null && /^[0-3]$/.test(s)) letraManual = +s; } catch (e) {}
+const nivelLetra = () => (letraManual !== null ? letraManual : (estado.perfil === "experiente" ? 1 : 0));
+function aplicarLetra() {
+  const n = nivelLetra();
+  document.documentElement.setAttribute("data-letra", n);
+  $("#letra-menos").setAttribute("aria-disabled", String(n === 0));
+  $("#letra-mais").setAttribute("aria-disabled", String(n === NIVEIS.length - 1));
+}
+function mudarLetra(passo) {
+  const n = Math.max(0, Math.min(NIVEIS.length - 1, nivelLetra() + passo));
+  letraManual = n;
+  try { localStorage.setItem("iapp-letra", String(n)); } catch (e) {}
+  aplicarLetra();
+  anunciar("Tamanho da letra: " + NIVEIS[n] + ".");
+}
+
+/* ---------- Dados do CONFIG na página ---------- */
+function preencherConfig() {
+  $$("[data-c]").forEach(el => { el.innerHTML = comMarca(cfg(el.getAttribute("data-c"))); });
+}
+
+function montarFixos() {
+  // O que está incluso
+  $("#incluso").innerHTML = INCLUSO.map(i => '<li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>' + txt(i) + "</li>").join("");
+
+  // Bônus
+  const b = CONFIG.bonus;
+  $("#bonus").innerHTML = Array.isArray(b) && b.length
+    ? '<ul class="lista-ok">' + b.map(x => "<li>" + comMarca(x) + "</li>").join("") + "</ul>"
+    : "<p>" + comMarca(b) + "</p>";
+
+  // Módulos e aulas
+  const m = CONFIG.modulos;
+  $("#modulos").innerHTML = Array.isArray(m) && m.length
+    ? '<ol class="modulos">' + m.map((x, i) =>
+        '<li class="modulo"><p class="modulo-n">Módulo ' + (i + 1) + "</p><h4>" + comMarca(x && x.titulo) + "</h4>" +
+        (x && x.beneficio ? "<p>" + comMarca(x.beneficio) + "</p>" : "") +
+        (x && Array.isArray(x.aulas) && x.aulas.length ? '<ul class="aulas">' + x.aulas.map(a => "<li>" + comMarca(a) + "</li>").join("") + "</ul>" : "") +
+        "</li>").join("") + "</ol>"
+    : '<p class="modulo-vazio">' + comMarca(m) + "</p>";
+
+  // Depoimentos: a seção só aparece com depoimentos reais
+  const d = Array.isArray(CONFIG.depoimentos) ? CONFIG.depoimentos.filter(x => x && preenchido(x.texto) && preenchido(x.nome)) : [];
+  if (d.length) {
+    $("#depo-lista").innerHTML = d.map(x =>
+      '<figure class="depo"><blockquote>“' + esc(x.texto) + "”</blockquote><figcaption><strong>" + esc(x.nome) + "</strong>" +
+      (preenchido(x.cargo) ? esc(x.cargo) : "") + "</figcaption></figure>").join("");
+    $("#depoimentos").hidden = false;
+  }
+
+  // Quem ensina
+  $("#prof-bio").innerHTML = comMarca(CONFIG.professor.bio);
+  if (preenchido(CONFIG.professor.foto)) {
+    const f = $("#prof-foto");
+    f.classList.add("tem");
+    f.innerHTML = '<img src="' + esc(CONFIG.professor.foto) + '" alt="Foto do ' + esc(CONFIG.professor.nome) + '" width="320" height="320" loading="lazy">';
+  }
+
+  // Garantia e rodapé
+  $("#selo-dias").textContent = CONFIG.garantiaDias;
+  $("#ano").textContent = new Date().getFullYear();
+  $("#priv-pixel").textContent = preenchido(CONFIG.pixelId)
+    ? "Usamos o Pixel da Meta para saber quantas pessoas visitam esta página, trocam de perfil e clicam no botão de compra. A Meta pode usar cookies para isso e para mostrar anúncios no Facebook e no Instagram."
+    : "Esta página não usa ferramentas de medição de anúncios.";
+
+  // Urgência: só com data real e futura. Sem cronômetro.
+  if (preenchido(CONFIG.dataEncerramento)) {
+    const fim = new Date(CONFIG.dataEncerramento), agora = new Date();
+    if (!isNaN(fim) && fim > agora) {
+      const fuso = { timeZone: "America/Sao_Paulo" };
+      const data = new Intl.DateTimeFormat("pt-BR", Object.assign({ day: "numeric", month: "long", year: "numeric" }, fuso)).format(fim);
+      const hora = new Intl.DateTimeFormat("pt-BR", Object.assign({ hour: "2-digit", minute: "2-digit" }, fuso)).format(fim);
+      const dias = Math.ceil((fim - agora) / 864e5);
+      const falta = dias <= 1 ? " Termina em menos de 24 horas." : dias <= 10 ? " Faltam " + dias + " dias." : "";
+      $$(".urgencia").forEach(el => {
+        el.innerHTML = "<strong>Oferta válida até " + esc(data) + ", às " + esc(hora) + "</strong> (horário de Brasília)." + falta;
+        el.hidden = false;
+      });
+    }
+  }
+}
+
+/* ---------- Perfil ---------- */
+const APELIDOS = { graduando: "graduando", graduanda: "graduando", sobrecarregado: "sobrecarregado", sobrecarregada: "sobrecarregado", experiente: "experiente" };
+function perfilDaUrl() {
+  try { return APELIDOS[(new URLSearchParams(location.search).get("perfil") || "").toLowerCase().trim()] || "geral"; }
+  catch (e) { return "geral"; }
+}
+
+function aplicarPerfil(id, origem) {
+  if (!PERFIS[id]) id = "geral";
+  const P = PERFIS[id];
+  estado.perfil = id;
+  document.documentElement.setAttribute("data-perfil", id);
+
+  $$("[data-t]").forEach(el => { const v = P[el.getAttribute("data-t")]; if (v != null) el.innerHTML = txt(v); });
+  $("#dores-lista").innerHTML = P.dores.map(d => '<li class="postit">“' + txt(d) + "”</li>").join("");
+
+  $$(".perfil-btn").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.perfil === id)));
+  $$("[data-para]").forEach(li => li.classList.toggle("meu", li.dataset.para === id));
+
+  aplicarLetra();
+  iniciarDemo();
+  montarFaq();
+  atualizarLinks();
+
+  if (origem === "botao") {
+    try {
+      const u = new URL(location.href);
+      if (id === "geral") u.searchParams.delete("perfil"); else u.searchParams.set("perfil", id);
+      history.replaceState(null, "", u);
+    } catch (e) {}
+    anunciar(id === "geral" ? "Mostrando a versão geral da página." : "Página ajustada para " + P.nome + ".");
+    rastrear("TrocaPerfil", { perfil: id });
+  }
+}
+
+/* ---------- Botões de compra ---------- */
+function urlCheckout() {
+  if (!preenchido(CONFIG.checkoutUrl)) return null;
+  let u;
+  try { u = new URL(CONFIG.checkoutUrl, location.href); } catch (e) { return null; }
+  try {
+    new URLSearchParams(location.search).forEach((v, k) => {
+      const c = k.toLowerCase();
+      if (c.indexOf("utm_") === 0 || c === "src" || c === "sck") u.searchParams.set(k, v);
+    });
+  } catch (e) {}
+  u.searchParams.set(CONFIG.parametroPerfil || "perfil", estado.perfil);
+  return u.toString();
+}
+function atualizarLinks() {
+  const url = urlCheckout();
+  $$("a.btn-compra").forEach(a => { a.href = url || "#oferta"; });
+  $$(".pendente").forEach(p => { p.hidden = !!url; });
+}
+
+/* ---------- Meta Pixel (só carrega com CONFIG.pixelId preenchido) ---------- */
+function carregarPixel() {
+  if (!preenchido(CONFIG.pixelId)) return;
+  (function (f, b, e, v, n, t, s) {
+    if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = true; n.version = "2.0"; n.queue = [];
+    t = b.createElement(e); t.async = true; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+  })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+  window.fbq("init", String(CONFIG.pixelId));
+  window.fbq("track", "PageView");
+}
+function rastrear(evento, dados) {
+  if (typeof window.fbq !== "function") return;
+  if (evento === "InitiateCheckout") {
+    window.fbq("track", "InitiateCheckout", Object.assign({ content_name: CONFIG.nomeCurso, currency: "BRL", value: CONFIG.precoValor }, dados));
+  } else {
+    window.fbq("trackCustom", evento, dados);
+  }
+}
+
+/* ---------- Demonstração ---------- */
+const demo = $("#demo");
+const nomeDe = (lista, id) => { const x = lista.find(i => i.id === id); return x ? x.nome : ""; };
+const aspas = s => s.replace(/"([^"]+)"/g, "“$1”");
+const PASSOS = [null,
+  { titulo: "Escolha a sua disciplina" },
+  { titulo: "Agora, o ano da turma" },
+  { titulo: "O que você quer preparar?" }];
+
+function iniciarDemo() {
+  const P = PERFIS[estado.perfil];
+  execucao++;
+  estado.demo = Object.assign({}, P.demo);
+  estado.passos = !!P.passos;
+  estado.passo = 1;
+  estado.rodou = false;
+  demo.setAttribute("data-modo", estado.passos ? "passos" : "livre");
+  desenharOpcoes();
+  limparSaida();
+  mostrarPasso(false);
+}
+
+function desenharOpcoes() {
+  const P = PERFIS[estado.perfil];
+  const tarefas = (P.ordemTarefas || DEMO.tarefas.map(t => t.id)).map(id => DEMO.tarefas.find(t => t.id === id));
+  const grupo = (chave, itens) => {
+    $("#ops-" + chave).innerHTML = itens.map(i =>
+      '<button type="button" class="op" data-chave="' + chave + '" data-valor="' + i.id + '" aria-pressed="' + (estado.demo[chave] === i.id) + '">' +
+      (i.icone ? '<svg class="ico" aria-hidden="true"><use href="#' + i.icone + '"/></svg>' : "") + esc(i.nome) + "</button>").join("");
+  };
+  grupo("disc", DEMO.disciplinas);
+  grupo("ano", DEMO.anos);
+  grupo("tarefa", tarefas);
+}
+
+function limparSaida() {
+  $("#demo-vazio").hidden = false;
+  $("#pedido").hidden = true;
+  $("#escrevendo").hidden = true;
+  $("#folha").hidden = true;
+  $("#demo-depois").hidden = true;
+  $("#demo-status").textContent = "";
+}
+
+function mostrarPasso(focar) {
+  const passos = estado.passos, n = estado.passo, escolhendo = passos && n <= 3;
+  $$(".grupo", demo).forEach(g => { g.hidden = passos && +g.dataset.passo !== n; });
+  const rot = $("#passo-rot"), bolas = $("#passo-bolas"), resumo = $("#demo-resumo");
+  rot.hidden = bolas.hidden = !escolhendo;
+  if (escolhendo) {
+    rot.innerHTML = '<span class="passo-n">Passo ' + n + " de 3</span>" + PASSOS[n].titulo;
+    $$("li", bolas).forEach((li, i) => { li.className = i + 1 < n ? "feito" : i + 1 === n ? "atual" : ""; });
+  }
+  resumo.hidden = !(passos && n > 3);
+  if (passos && n > 3) {
+    const d = estado.demo;
+    resumo.textContent = "Você escolheu: " + nomeDe(DEMO.disciplinas, d.disc) + ", " + nomeDe(DEMO.anos, d.ano) + ", " + nomeDe(DEMO.tarefas, d.tarefa) + ".";
+  }
+  $("#demo-rodar").hidden = passos;
+  $("#demo-voltar").hidden = !(passos && n > 1 && n <= 3);
+  $("#demo-denovo").hidden = !(passos && n > 3);
+  if (focar) (escolhendo ? rot : resumo).focus({ preventScroll: true });
+}
+
+function escolher(botao) {
+  const chave = botao.dataset.chave;
+  estado.demo[chave] = botao.dataset.valor;
+  $$('.op[data-chave="' + chave + '"]', demo).forEach(o => o.setAttribute("aria-pressed", String(o === botao)));
+  if (estado.passos) {
+    estado.passo++;
+    mostrarPasso(true);
+    if (estado.passo > 3) rodarDemo();
+  } else if (estado.rodou) {
+    rodarDemo();
+  }
+}
+
+function paraHtml(fonte) {
+  const fmt = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  let html = "", lista = false;
+  const fechar = () => { if (lista) { html += "</ul>"; lista = false; } };
+  aspas(fonte).trim().split("\n").forEach(l => {
+    l = l.trim();
+    if (!l) return;
+    if (l.indexOf("# ") === 0) { fechar(); html += '<h3 class="r-titulo">' + fmt(l.slice(2)) + "</h3>"; }
+    else if (l.indexOf("## ") === 0) { fechar(); html += '<h4 class="r-sec">' + fmt(l.slice(3)) + "</h4>"; }
+    else if (l.indexOf("> ") === 0) { fechar(); html += '<p class="r-meta">' + fmt(l.slice(2)) + "</p>"; }
+    else if (l.indexOf("~ ") === 0) { fechar(); html += '<ul class="alts">' + l.slice(2).split(" | ").map(a => "<li>" + fmt(a) + "</li>").join("") + "</ul>"; }
+    else if (l.indexOf("* ") === 0) { if (!lista) { html += '<ul class="r-lista">'; lista = true; } html += "<li>" + fmt(l.slice(2)) + "</li>"; }
+    else { fechar(); html += "<p>" + fmt(l) + "</p>"; }
+  });
+  fechar();
+  return html;
+}
+
+function rolarPara(el) {
+  const r = el.getBoundingClientRect();
+  if (r.top < 8 || r.top > window.innerHeight * 0.45) el.scrollIntoView({ behavior: calmo() ? "auto" : "smooth", block: "start" });
+}
+
+function digitar(el, texto, meu, fim) {
+  if (calmo()) { el.textContent = texto; fim(); return; }
+  const inicio = performance.now(), porSegundo = 130;
+  (function passo() {
+    if (meu !== execucao) return;
+    const n = Math.min(texto.length, Math.floor((performance.now() - inicio) / 1000 * porSegundo) + 1);
+    el.textContent = texto.slice(0, n);
+    if (n < texto.length) requestAnimationFrame(passo); else fim();
+  })();
+}
+
+function rodarDemo() {
+  const d = estado.demo;
+  if (!d.disc || !d.ano || !d.tarefa) return;
+  const meu = ++execucao;
+  estado.rodou = true;
+  const P = PERFIS[estado.perfil];
+  const tema = DEMO.temas[d.disc + "-" + d.ano];
+  const tarefa = DEMO.tarefas.find(t => t.id === d.tarefa);
+  const pedido = aspas(DEMO.pedido[d.tarefa](nomeDe(DEMO.disciplinas, d.disc), nomeDe(DEMO.anos, d.ano), tema));
+  const caixa = $("#pedido"), digitado = $("#pedido-txt"), folha = $("#folha"), status = $("#demo-status");
+
+  $("#demo-vazio").hidden = true;
+  $("#demo-depois").hidden = true;
+  $("#escrevendo").hidden = true;
+  folha.hidden = true;
+  caixa.hidden = false;
+  digitado.textContent = "";
+  digitado.classList.add("cursor");
+  $("#pedido-sr").textContent = pedido;
+  status.textContent = "Enviando o pedido para a IA.";
+  rolarPara(estado.passos ? $("#demo-resumo") : caixa);
+
+  digitar(digitado, pedido, meu, () => {
+    digitado.classList.remove("cursor");
+    const mostrar = () => {
+      if (meu !== execucao) return;
+      $("#escrevendo").hidden = true;
+      $("#folha-corpo").innerHTML = paraHtml(tema[d.tarefa]);
+      $("#revise-txt").textContent = tarefa.revise;
+      $$("#folha-corpo > *").forEach((b, i) => { b.classList.add("surge"); b.style.animationDelay = Math.min(i * 60, 900) + "ms"; });
+      folha.hidden = false;
+      const sug = $("#demo-sugestao");
+      if (P.sugestao && P.sugestao.tarefa !== d.tarefa) { sug.textContent = P.sugestao.rotulo; sug.hidden = false; } else { sug.hidden = true; }
+      $("#demo-depois").hidden = false;
+      status.textContent = "Rascunho pronto: " + tarefa.nome + ", " + nomeDe(DEMO.disciplinas, d.disc) + ", " + nomeDe(DEMO.anos, d.ano) + ".";
+    };
+    if (calmo()) { mostrar(); return; }
+    $("#escrevendo").hidden = false;
+    setTimeout(mostrar, 900);
+  });
+}
+
+/* ---------- Calculadora de tempo ---------- */
+const CAMPOS = ["plan", "corr", "buro"];
+const horas = n => n + (n === 1 ? " hora" : " horas");
+function calcular(avisar) {
+  let semana = 0;
+  CAMPOS.forEach(k => {
+    const campo = $("#h-" + k), v = +campo.value;
+    semana += v;
+    $("#o-" + k).textContent = horas(v) + " por semana";
+    campo.setAttribute("aria-valuetext", horas(v) + " por semana");
+    campo.style.setProperty("--p", (v - campo.min) / (campo.max - campo.min) * 100 + "%");
+  });
+  const mes = semana * 4;
+  $("#calc-total").textContent = mes;
+  $("#calc-un").textContent = mes === 1 ? "hora por mês" : "horas por mês";
+  $("#calc-detalhe").textContent = mes === 0
+    ? "Arraste os marcadores para ver o seu total."
+    : "É o mesmo que " + (mes / 8).toLocaleString("pt-BR", { maximumFractionDigits: 1 }) + (mes / 8 === 1 ? " dia" : " dias") + " inteiros de trabalho, de 8 horas, todo mês.";
+
+  // Estimativa com o curso: só aparece se CONFIG.economiaPercentual estiver preenchido
+  const p = preenchido(CONFIG.economiaPercentual) ? parseFloat(String(CONFIG.economiaPercentual).replace(",", ".")) : NaN;
+  const temEstimativa = p > 0 && p < 100 && mes > 0;
+  $("#calc-estimativa").hidden = !temEstimativa;
+  let fala = "Total: " + horas(mes) + " por mês.";
+  if (temEstimativa) {
+    const volta = Math.round(mes * p / 100), com = mes - volta;
+    $("#calc-com").textContent = com;
+    $("#calc-com-un").textContent = com === 1 ? "hora por mês" : "horas por mês";
+    $("#calc-eco").textContent = "São cerca de " + horas(volta) + " de volta para você, todo mês.";
+    $("#calc-aviso").textContent = "Estimativa, considerando uma redução de " + String(p).replace(".", ",") + "% no tempo dessas tarefas. O resultado real varia de pessoa para pessoa.";
+    fala += " Estimativa com o curso: " + horas(com) + " por mês.";
+  }
+  if (avisar) $("#calc-status").textContent = fala;
+}
+
+/* ---------- FAQ em sanfona ---------- */
+function montarFaq() {
+  const primeiro = PERFIS[estado.perfil].faq;
+  const ordem = primeiro.concat(FAQ_ORDEM.filter(id => primeiro.indexOf(id) === -1));
+  $("#faq-lista").innerHTML = ordem.map(id => {
+    const f = FAQ[id];
+    return '<div class="faq-item"><h3><button type="button" class="faq-p" id="faq-p-' + id + '" aria-expanded="false" aria-controls="faq-r-' + id + '">' +
+      "<span>" + txt(f.p) + '</span><span class="mais" aria-hidden="true"></span></button></h3>' +
+      '<div class="faq-r" id="faq-r-' + id + '" role="region" aria-labelledby="faq-p-' + id + '" hidden>' +
+      f.r.map(p => "<p>" + txt(p) + "</p>").join("") + "</div></div>";
+  }).join("");
+}
+
+/* ---------- Botão de compra fixo (celular) ---------- */
+function ligarFixo() {
+  const fixo = $("#fixo"), link = $("a", fixo);
+  if (!("IntersectionObserver" in window)) return;
+  let passouDoTopo = false;
+  const naTela = new Set();
+  const atualizar = () => {
+    const on = passouDoTopo && naTela.size === 0;
+    fixo.classList.toggle("on", on);
+    fixo.setAttribute("aria-hidden", String(!on));
+    fixo.inert = !on;
+    link.tabIndex = on ? 0 : -1;
+  };
+  // Aparece quando o botão do topo já ficou para trás…
+  new IntersectionObserver(es => {
+    es.forEach(e => { passouDoTopo = !e.isIntersecting && e.boundingClientRect.top < 0; });
+    atualizar();
+  }).observe($(".topo .acao"));
+  // …e some enquanto outro botão de compra estiver à vista.
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) naTela.add(e.target); else naTela.delete(e.target); });
+    atualizar();
+  });
+  $$("a.btn-compra").filter(a => !fixo.contains(a)).forEach(a => io.observe(a));
+}
+
+/* ---------- Eventos ---------- */
+function ligarEventos() {
+  $("#letra-menos").addEventListener("click", () => mudarLetra(-1));
+  $("#letra-mais").addEventListener("click", () => mudarLetra(1));
+
+  $$(".perfil-btn").forEach(b => b.addEventListener("click", () => {
+    aplicarPerfil(b.getAttribute("aria-pressed") === "true" ? "geral" : b.dataset.perfil, "botao");
+  }));
+
+  $("#demo-controles").addEventListener("click", e => {
+    const b = e.target.closest(".op");
+    if (b) escolher(b);
+  });
+  $("#demo-rodar").addEventListener("click", rodarDemo);
+  $("#demo-voltar").addEventListener("click", () => { estado.passo = Math.max(1, estado.passo - 1); mostrarPasso(true); });
+  $("#demo-denovo").addEventListener("click", () => {
+    execucao++;
+    estado.demo = { disc: null, ano: null, tarefa: null };
+    estado.passo = 1;
+    desenharOpcoes();
+    limparSaida();
+    mostrarPasso(true);
+    rolarPara($("#demo-controles"));
+  });
+  $("#demo-sugestao").addEventListener("click", () => {
+    const s = PERFIS[estado.perfil].sugestao;
+    if (!s) return;
+    estado.demo.tarefa = s.tarefa;
+    $$('.op[data-chave="tarefa"]', demo).forEach(o => o.setAttribute("aria-pressed", String(o.dataset.valor === s.tarefa)));
+    rodarDemo();
+  });
+
+  CAMPOS.forEach(k => {
+    $("#h-" + k).addEventListener("input", () => calcular(false));
+    $("#h-" + k).addEventListener("change", () => calcular(true));
+  });
+
+  $("#faq-lista").addEventListener("click", e => {
+    const b = e.target.closest(".faq-p");
+    if (!b) return;
+    const abrir = b.getAttribute("aria-expanded") !== "true";
+    b.setAttribute("aria-expanded", String(abrir));
+    document.getElementById(b.getAttribute("aria-controls")).hidden = !abrir;
+  });
+
+  $("#priv-btn").addEventListener("click", e => {
+    const abrir = e.currentTarget.getAttribute("aria-expanded") !== "true";
+    e.currentTarget.setAttribute("aria-expanded", String(abrir));
+    $("#priv").hidden = !abrir;
+  });
+
+  // Todo clique em botão de compra é medido (se o Pixel estiver ativo)
+  document.addEventListener("click", e => {
+    const a = e.target.closest ? e.target.closest("a.btn-compra") : null;
+    if (a) rastrear("InitiateCheckout", { perfil: estado.perfil, posicao: a.dataset.compra || "" });
+  });
+}
+
+/* ---------- Início ---------- */
+preencherConfig();
+montarFixos();
+carregarPixel();
+ligarEventos();
+aplicarPerfil(perfilDaUrl(), "url");
+calcular(false);
+ligarFixo();
+
+})();
+</script>
+</body>
+</html>
