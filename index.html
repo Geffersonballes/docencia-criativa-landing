@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IA para Professores: a IA como sua assistente pessoal</title>
-<meta name="description" content="Curso online com o Prof. Romário Costa. Deixe com a IA as tarefas repetitivas: plano de aula, prova, atividade e relatório. Ela faz o rascunho, você revisa e decide.">
+<title>IA para Professores: a IA como sua assistente para criar aulas</title>
+<meta name="description" content="Curso online com o Prof. Romário Costa. Use a IA como assistente para criar questões, imagens, vídeos curtos e músicas para as suas aulas. Ela faz o rascunho, você revisa e decide.">
 <meta name="theme-color" content="#1B2A4E">
 <meta name="color-scheme" content="light">
 
@@ -12,8 +12,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="IA para Professores">
-<meta property="og:title" content="IA para Professores: a IA como sua assistente pessoal">
-<meta property="og:description" content="Plano de aula, prova, atividade e relatório: a IA faz o rascunho, você revisa e decide. Curso online com o Prof. Romário Costa.">
+<meta property="og:title" content="IA para Professores: a IA como sua assistente para criar aulas">
+<meta property="og:description" content="Questões por nível de Bloom, imagens, vídeos curtos e músicas para a sua aula: a IA faz o rascunho, você revisa e decide. Curso online com o Prof. Romário Costa.">
 <meta name="twitter:card" content="summary_large_image">
 <!-- [PREENCHER] Depois de publicar, tire o comentário das duas linhas abaixo e coloque os endereços completos (com https://).
      A imagem deve ter 1200 x 630 px e menos de 300 KB para aparecer no WhatsApp.
@@ -167,6 +167,8 @@ h1 mark,.marca-texto{color:inherit;background:linear-gradient(transparent 58%,va
 .r-meta{margin:0 0 .9em;font-size:.85rem;font-weight:700;color:var(--vermelho)}
 .r-sec{margin:1.1em 0 .45em;padding-bottom:.2em;border-bottom:1.5px solid var(--linha);font-family:var(--sans);font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--azul)}
 .folha p{margin:0 0 .6em}
+.r-verso{margin:0 0 .15em!important;padding-left:.9rem;border-left:3px solid var(--marca)}
+.r-verso+p:not(.r-verso){margin-top:.8em}
 .r-lista li{position:relative;margin-bottom:.5em;padding-left:1.05rem}
 .r-lista li::before{content:"";position:absolute;left:.1rem;top:.6em;width:.4rem;height:.4rem;border-radius:50%;background:var(--vermelho)}
 .alts{display:flex;flex-wrap:wrap;gap:.15rem 1.2rem;margin:-.25em 0 .9em;padding-left:.6rem}
@@ -378,8 +380,6 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
     <symbol id="i-lapis" viewBox="0 0 24 24"><path d="M4 20l1.2-4.6L16.5 4.1l3.4 3.4L8.6 18.8zM14 6.6l3.4 3.4"/></symbol>
     <symbol id="i-plano" viewBox="0 0 24 24"><path d="M5 5h14v15H5zM9 3v4M15 3v4M8 11h8M8 15h5"/></symbol>
     <symbol id="i-prova" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v4h4M9 14l2 2 4-4"/></symbol>
-    <symbol id="i-adaptada" viewBox="0 0 24 24"><path d="M4 5h8v8H4z"/><circle cx="15.5" cy="15.5" r="4.5"/></symbol>
-    <symbol id="i-relatorio" viewBox="0 0 24 24"><path d="M9 3h6v3H9zM9 4.5H6V21h12V4.5h-3M9 11h6M9 14.5h6M9 18h3.5"/></symbol>
     <symbol id="i-imagem" viewBox="0 0 24 24"><path d="M4 5h16v14H4zM4 16l4.5-4.5 3.5 3.5 3-3 5 5"/><circle cx="9" cy="9.5" r="1.4"/></symbol>
     <symbol id="i-video" viewBox="0 0 24 24"><path d="M3 6h13v12H3zM16 10.5l5-3v9l-5-3"/></symbol>
     <symbol id="i-musica" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></symbol>
@@ -409,8 +409,8 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
   <div class="wrap topo-grid">
     <div>
       <p class="sobre">Curso online para professores</p>
-      <h1 id="titulo" data-t="titulo">A IA como sua <mark>assistente pessoal</mark>. O repetitivo fica com ela.</h1>
-      <p class="sub" data-t="sub">Plano de aula, prova, atividade e relatório: a IA faz o rascunho, você revisa e decide.</p>
+      <h1 id="titulo" data-t="titulo">A IA como sua <mark>assistente pessoal</mark> para criar materiais de aula.</h1>
+      <p class="sub" data-t="sub">Questões, imagens, vídeos e músicas: a IA faz o rascunho, você revisa e decide.</p>
 
       <div class="seletor" role="group" aria-labelledby="seletor-rot">
         <p class="seletor-rot" id="seletor-rot">Qual é o seu momento?</p>
@@ -484,7 +484,7 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
 <!-- 3. DEMONSTRAÇÃO -->
 <section class="demo" id="demo" aria-labelledby="demo-t" data-modo="livre">
   <div class="wrap">
-    <h2 id="demo-t" data-t="demoTitulo">Veja a IA fazendo uma tarefa de professor</h2>
+    <h2 id="demo-t" data-t="demoTitulo">Veja a IA criando material para uma aula</h2>
     <p class="demo-intro" data-t="demoIntro"></p>
     <p class="aviso-demo"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>Demonstração com exemplos prontos. No curso, você faz isso com a IA de verdade.</span></p>
 
@@ -501,7 +501,7 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
           <div class="ops" id="ops-ano"></div>
         </div>
         <div class="grupo" role="group" aria-labelledby="g-tarefa" data-passo="3">
-          <p class="grupo-rot" id="g-tarefa">Tarefa</p>
+          <p class="grupo-rot" id="g-tarefa">O que preparar</p>
           <div class="ops" id="ops-tarefa"></div>
         </div>
         <p class="resumo" id="demo-resumo" tabindex="-1" hidden></p>
@@ -542,7 +542,7 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
 <!-- 4. CALCULADORA -->
 <section class="calc" id="calculadora" aria-labelledby="calc-t">
   <div class="wrap">
-    <h2 id="calc-t">Quanto tempo a escola toma de você fora da sala?</h2>
+    <h2 id="calc-t">Quanto tempo preparar aula toma de você?</h2>
     <p class="lead" data-t="calcIntro">Os números abaixo são só um ponto de partida. Arraste para chegar perto da sua semana.</p>
     <div class="calc-grid">
       <div class="cartao">
@@ -551,17 +551,17 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
           <input type="range" id="h-plan" min="0" max="20" step="1" value="4">
         </div>
         <div class="campo">
-          <div class="campo-topo"><label for="h-corr">Corrigir provas e atividades</label><output id="o-corr" for="h-corr" aria-live="off"></output></div>
+          <div class="campo-topo"><label for="h-corr">Montar provas e atividades</label><output id="o-corr" for="h-corr" aria-live="off"></output></div>
           <input type="range" id="h-corr" min="0" max="20" step="1" value="4">
         </div>
         <div class="campo">
-          <div class="campo-topo"><label for="h-buro">Diários, relatórios e burocracia</label><output id="o-buro" for="h-buro" aria-live="off"></output></div>
+          <div class="campo-topo"><label for="h-buro">Procurar ou criar materiais</label><output id="o-buro" for="h-buro" aria-live="off"></output></div>
           <input type="range" id="h-buro" min="0" max="20" step="1" value="2">
         </div>
         <p class="pequeno">Cada linha vai de 0 a 20 horas por semana.</p>
       </div>
       <div class="cartao">
-        <p class="rot-res">Seu total fora da sala</p>
+        <p class="rot-res">Seu total preparando aula</p>
         <p class="calc-num"><span id="calc-total">40</span> <span class="calc-un" id="calc-un">horas por mês</span></p>
         <p id="calc-detalhe"></p>
         <div class="estimativa" id="calc-estimativa" hidden>
@@ -596,7 +596,8 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
       <ol class="bloom-niveis" id="bloom-niveis"></ol>
       <p class="pequeno">Na demonstração desta página, escolha “Prova com gabarito” para ver o nível de cada questão.</p>
     </div>
-    <h3>Os temas do curso</h3>
+    <h3>Os dois módulos do curso</h3>
+    <p class="lead" style="margin-bottom:1.25rem">O Módulo 1 dá a base. O Módulo 2 é a Fábrica de Conteúdos: oito temas, do planejamento à música.</p>
     <div id="modulos"></div>
   </div>
 </section>
@@ -609,18 +610,18 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
       <div class="para-col sim">
         <h3>É para você se…</h3>
         <ul>
-          <li data-para="graduando"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Está na licenciatura e quer chegar ao estágio com plano de aula e atividade na mão.</li>
-          <li data-para="sobrecarregado"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Dá aula e leva trabalho para casa quase toda semana.</li>
-          <li data-para="experiente"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Tem muita experiência de sala e quer usar a IA com segurança, no seu ritmo.</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Quer a IA fazendo o rascunho, com você no comando.</li>
+          <li data-para="graduando"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Está na licenciatura e quer chegar ao estágio sabendo criar materiais com a IA.</li>
+          <li data-para="sobrecarregado"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Dá aula e gasta noites e fins de semana preparando material.</li>
+          <li data-para="experiente"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Tem muita experiência de sala e quer aprender as ferramentas com calma, desde a criação da conta.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Quer aulas que falem a língua da turma de hoje, com você no comando.</li>
         </ul>
       </div>
       <div class="para-col nao">
         <h3>Não é para você se…</h3>
         <ul>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Procura uma IA que dê aula no seu lugar. Aqui, quem decide é o professor.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Procura uma IA que dê aula ou corrija prova no seu lugar. Aqui ela ajuda a preparar, e quem decide é o professor.</li>
           <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Quer copiar e colar sem ler. Todo rascunho precisa da sua revisão.</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Busca um curso técnico de programação. Este é de prática de sala de aula.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Quer aprender uma ferramenta só. O curso passa por várias, uma de cada vez.</li>
         </ul>
       </div>
     </div>
@@ -771,7 +772,7 @@ input[type=range]:focus-visible{outline:3px solid var(--azul);outline-offset:2px
    ===================================================================== */
 const CONFIG = {
   nomeCurso: "IA para Professores",
-  promessa: "Tornar a IA a sua assistente pessoal e deixar com ela as tarefas repetitivas.",
+  promessa: "Fazer da IA a sua assistente pessoal para planejar, avaliar e criar materiais de aula.",
 
   // Preço e pagamento
   preco: "R$ 97,00",                 // texto mostrado na página (sempre "à vista")
@@ -782,22 +783,22 @@ const CONFIG = {
 
   // Conteúdo do curso
   // Temas do curso, tirados do conteúdo programático (sem o que era específico da formação presencial).
-  // Formato: { titulo: "…", beneficio: "…", aulas: ["…", "…"] }
+  // Formato: { rotulo: "…", titulo: "…", beneficio: "…", aulas: ["…", "…"] }
   modulos: [
-    { titulo: "Ponto de partida: seus alunos e a BNCC Computação",
+    { rotulo: "Módulo 1", titulo: "Ponto de partida: seus alunos e a BNCC Computação",
       beneficio: "Entenda como a Geração Alfa aprende e o que a BNCC Computação pede, para usar a tecnologia com intenção.",
       aulas: ["A Geração Alfa e as novas formas de aprender",
               "BNCC Computação: pensamento computacional, mundo digital e cultura digital"] },
-    { titulo: "Aulas em pílulas: microaprendizagem e metodologias ativas",
+    { rotulo: "Módulo 2 · Tema 1", titulo: "Aulas em pílulas: microaprendizagem e metodologias ativas",
       beneficio: "Aprenda a transformar um conteúdo em pílulas curtas e a usar o ensino híbrido e a sala de aula invertida.",
       aulas: ["O que é microaprendizagem",
               "Ensino híbrido e sala de aula invertida",
               "Versões pagas das ferramentas: quando valem o investimento"] },
-    { titulo: "Sua base no Google",
+    { rotulo: "Módulo 2 · Tema 2", titulo: "Sua base no Google",
       beneficio: "Deixe e-mail, navegador e armazenamento em ordem para trabalhar sem travar.",
       aulas: ["Gmail e Chrome organizados para o trabalho",
               "Como resolver o armazenamento cheio"] },
-    { titulo: "Personagens que falam, com o Adobe Express",
+    { rotulo: "Módulo 2 · Tema 3", titulo: "Personagens que falam, com o Adobe Express",
       beneficio: "Crie um personagem animado que explica o conteúdo com a sua voz, pelo computador ou pelo celular.",
       aulas: ["Primeiro acesso à plataforma",
               "Seu narrador, com áudio limpo de ruídos",
@@ -805,13 +806,13 @@ const CONFIG = {
               "Como fazer tudo pelo celular",
               "Voz criada pela IA no lugar da sua",
               "Prática: seu primeiro vídeo curto, de 30 segundos a 1 minuto"] },
-    { titulo: "Gemini: a IA como colaboradora",
+    { rotulo: "Módulo 2 · Tema 4", titulo: "Gemini: a IA como colaboradora",
       beneficio: "Aprenda a entregar contexto à IA (textos, fotos, links e documentos) para a resposta sair do seu material, e não genérica.",
       aulas: ["O que o Gemini faz pela rotina do professor",
               "Por dentro da tela: texto, imagens e leitura de documentos",
               "Contexto é rei: a IA colabora, o professor decide",
               "Como enviar textos, fotos, links e PDFs"] },
-    { titulo: "Agente Avaliativo: questões com a taxonomia de Bloom",
+    { rotulo: "Módulo 2 · Tema 5", titulo: "Agente Avaliativo: questões com a taxonomia de Bloom",
       beneficio: "Configure a IA para criar questões em cada nível de Bloom, do lembrar ao criar, com a justificativa da resposta certa.",
       aulas: ["Por que usar a taxonomia de Bloom para avaliar",
               "A IA como mentora: os seis níveis explicados para a sua disciplina",
@@ -820,7 +821,7 @@ const CONFIG = {
               "Questões a partir de fotos, textos, links e vídeos",
               "O comando pronto que cria o seu Agente Avaliativo",
               "Prática: sua primeira questão por nível"] },
-    { titulo: "Imagens autorais para a sala de aula",
+    { rotulo: "Módulo 2 · Tema 6", titulo: "Imagens autorais para a sala de aula",
       beneficio: "Gere ilustrações e desenhos para colorir sobre qualquer tema, em seis estilos.",
       aulas: ["Proporções certas para slide, celular e ficha",
               "Desenhos para colorir",
@@ -828,7 +829,7 @@ const CONFIG = {
               "Ícones e cartazes em estilo simples",
               "Cenas em 3D, anime e desenho realista",
               "Prática: seu kit de imagens em três formatos"] },
-    { titulo: "CapCut: seu vídeo do começo ao fim",
+    { rotulo: "Módulo 2 · Tema 7", titulo: "CapCut: seu vídeo do começo ao fim",
       beneficio: "Junte roteiro, voz, personagem e cenário em um vídeo curto, pronto para mandar à turma.",
       aulas: ["Instalação no computador e no celular",
               "Projeto organizado, cortes e camadas",
@@ -837,7 +838,7 @@ const CONFIG = {
               "Troca do fundo do vídeo",
               "Como exportar e compartilhar",
               "Projeto final: seu primeiro vídeo curto de aula, em cinco etapas"] },
-    { titulo: "Musicalizando a infância",
+    { rotulo: "Módulo 2 · Tema 8", titulo: "Musicalizando a infância",
       beneficio: "Transforme um conteúdo em canção: a letra nasce no Gemini e a música, na Suno.",
       aulas: ["Música como recurso na Educação Infantil",
               "Conhecendo as ferramentas de música",
@@ -877,7 +878,7 @@ const CONFIG = {
   // Respostas do FAQ que dependem de você
   respostaCursosGratuitos: "[PREENCHER]",
   ferramentasUsadas: "Gemini (Google), Adobe Express, CapCut e Suno",
-  ferramentas: "[PREENCHER]",        // quais delas pedem plano pago para acompanhar o curso?
+  ferramentas: "As aulas também mostram as versões pagas, que ampliam esses limites, para você decidir se o investimento vale a pena.",
 
   // Rodapé e medição
   cnpj: "[PREENCHER]",
@@ -896,35 +897,35 @@ const CONFIG = {
 const PERFIS = {
   geral: {
     nome: "versão geral",
-    titulo: "A IA como sua <mark>assistente pessoal</mark>. O repetitivo fica com ela.",
-    sub: "Plano de aula, prova, atividade e relatório: a IA faz o rascunho, você revisa e decide.",
+    titulo: "A IA como sua <mark>assistente pessoal</mark> para criar materiais de aula.",
+    sub: "Questões, imagens, vídeos e músicas: a IA faz o rascunho, você revisa e decide.",
     cta: "Quero a IA como minha assistente",
     ctaCurto: "Quero a IA como minha assistente",
     doresTitulo: "Isso soa familiar?",
     fala: "“Eu gosto de dar aula. O que cansa é todo o resto.”",
     falaLegenda: "Se você já pensou isso, continue lendo.",
     dores: [
-      "O plano de aula da semana sempre sobra para o domingo à noite.",
-      "A pilha de provas para corrigir não para de crescer.",
-      "Diário, ficha, relatório: a papelada come o tempo da aula.",
+      "O domingo à noite sempre vira dia de preparar aula.",
+      "Procuro uma imagem ou atividade pronta e perco a tarde na internet.",
+      "A turma presta mais atenção no celular do que em mim.",
       "Já tentei usar IA, mas a resposta veio genérica demais."
     ],
-    ponte: "Não é falta de vocação nem de capricho. É tarefa repetitiva demais para uma pessoa só. A IA entra aí: como assistente, não como substituta.",
-    demoTitulo: "Veja a IA fazendo uma tarefa de professor",
-    demoIntro: "Escolha a disciplina, o ano e a tarefa. Depois, acompanhe o pedido e o rascunho que volta.",
-    demo: { disc: "mat", ano: "5", tarefa: "plano" },
+    ponte: "Não é falta de vocação nem de capricho. Preparar material bom leva tempo, e a turma de hoje pede mais do que quadro e caderno. A IA entra aí: como assistente, não como substituta.",
+    demoTitulo: "Veja a IA criando material para uma aula",
+    demoIntro: "Escolha a disciplina, o ano e o que você quer preparar. Depois, acompanhe o pedido e o rascunho que volta.",
+    demo: { disc: "mat", ano: "5", tarefa: "prova" },
     demoDepois: "Repare no pedido: ele dá o contexto (ano, tema, habilidade da BNCC) e diz exatamente o que deve voltar. Fazer pedidos assim, e revisar o que volta, é o que você pratica no curso.",
-    sugestao: { tarefa: "prova", rotulo: "Ver também uma prova com gabarito" },
+    sugestao: { tarefa: "roteiro", rotulo: "Ver também um roteiro de vídeo curto" },
     calcIntro: "Os números abaixo são só um ponto de partida. Arraste para chegar perto da sua semana.",
-    faq: ["gratuitos", "substitui", "generica", "tempo", "complicado", "dinheiro", "garantia"],
+    faq: ["gratuitos", "ferramentas", "substitui", "generica", "tempo", "complicado", "garantia"],
     finalTitulo: "A aula é sua. O rascunho pode ser da IA.",
-    finalTexto: "Comece pelas tarefas que mais tomam o seu tempo. Você continua no comando de tudo o que vai para a sala."
+    finalTexto: "Comece por um tema e saia dele com um material pronto. Você continua no comando de tudo o que vai para a sala."
   },
 
   graduando: {
     nome: "quem está na licenciatura",
-    titulo: "Chegue ao estágio com a IA de assistente e a <mark>aula planejada</mark>.",
-    sub: "A faculdade deu a teoria. Aqui, a IA faz o rascunho do plano de aula e da atividade, e você decide o que entra.",
+    titulo: "Chegue ao estágio com a IA de assistente e <mark>materiais prontos</mark>.",
+    sub: "A faculdade deu a teoria. Aqui você cria questões, imagens e vídeos para a primeira turma.",
     cta: "Quero chegar ao estágio com a IA do meu lado",
     ctaCurto: "Quero a IA no meu estágio",
     doresTitulo: "Isso já passou pela sua cabeça?",
@@ -932,53 +933,53 @@ const PERFIS = {
     falaLegenda: "Se você já disse isso, esta página é para você.",
     dores: [
       "A faculdade me deu teoria. A sala de aula de verdade, não.",
-      "No estágio, pedem um plano de aula e eu travo na folha em branco.",
+      "No estágio, pedem uma atividade e eu não sei por onde começar.",
       "Meu currículo é igual ao de todo mundo da turma.",
       "Uso o ChatGPT, mas não sei se o que sai serve para uma aula real."
     ],
     ponte: "Calma: ninguém sai da faculdade sabendo tudo. Com um bom pedido, a IA monta o rascunho. Você entra com o que aprendeu na licenciatura para revisar e decidir.",
-    demoTitulo: "Um plano de aula para o seu estágio, do pedido ao rascunho",
-    demoIntro: "Escolha a disciplina e o ano da turma do estágio. Veja o plano surgir e, depois, peça a atividade.",
+    demoTitulo: "Um material para o seu estágio, do pedido ao rascunho",
+    demoIntro: "Escolha a disciplina e o ano da turma do estágio. Veja o plano surgir e, depois, peça as questões.",
     demo: { disc: "lp", ano: "5", tarefa: "plano" },
-    demoDepois: "Um plano de aula e uma atividade para revisar e levar ao estágio. No curso, você faz isso com a IA de verdade, para a turma que for a sua.",
-    sugestao: { tarefa: "adaptada", rotulo: "Ver agora a atividade" },
+    demoDepois: "Um plano e um conjunto de questões para revisar e levar ao estágio. No curso, você faz isso com a IA de verdade, para a turma que for a sua.",
+    sugestao: { tarefa: "prova", rotulo: "Ver agora as questões" },
     calcIntro: "Ainda não dá aula? Coloque as horas que o estágio e a faculdade pedem de você hoje.",
-    faq: ["naodouaula", "chatgpt", "dinheiro", "certificado", "ferramentas", "gratuitos"],
+    faq: ["naodouaula", "chatgpt", "dinheiro", "ferramentas", "certificado", "gratuitos"],
     finalTitulo: "Comece a carreira com uma assistente do seu lado.",
-    finalTexto: "Leve para o estágio um plano de aula e uma atividade feitos por você, com a IA. E conte isso no currículo."
+    finalTexto: "Leve para o estágio materiais feitos por você com a IA: questões, imagens e um vídeo curto. E mostre esse trabalho na entrevista."
   },
 
   sobrecarregado: {
     nome: "quem dá aula e vive sem tempo",
-    titulo: "Deixe com a IA o trabalho que vem <mark>depois da aula</mark>.",
-    sub: "Plano, prova, atividade e relatório: a IA adianta o rascunho, você revisa e decide. Aulas de {duracaoAulas}.",
-    cta: "Quero parar de levar trabalho para casa",
-    ctaCurto: "Quero minhas noites de volta",
+    titulo: "Deixe com a IA o trabalho de <mark>preparar o material</mark> da aula.",
+    sub: "Questões, imagens e roteiros: a IA adianta o rascunho, você revisa e decide. Aulas de {duracaoAulas}.",
+    cta: "Quero preparar minhas aulas em menos tempo",
+    ctaCurto: "Quero ganhar tempo com a IA",
     doresTitulo: "Sua semana também é assim?",
     fala: "“Eu amo dar aula, o que me mata é tudo o que vem depois dela.”",
     falaLegenda: "Se você já disse isso, esta página é para você.",
     dores: [
-      "Domingo à noite virou dia de plano de aula.",
-      "Levo prova para corrigir em casa. De novo.",
-      "Duas escolas, dois diários, dois sistemas para preencher.",
-      "Relatório de aluno escrito depois que a casa dorme."
+      "Domingo à noite virou dia de preparar aula.",
+      "Montar prova do zero, para cada turma, leva um tempo que eu não tenho.",
+      "Passo horas procurando imagem e atividade prontas na internet.",
+      "Queria usar vídeo na aula, mas nunca sobra tempo para aprender a editar."
     ],
-    ponte: "Você não precisa de mais força de vontade. Precisa de ajuda com o que se repete. A IA adianta o rascunho. Você revisa, ajusta e decide.",
-    demoTitulo: "Uma tarefa da sua semana, do pedido ao rascunho",
-    demoIntro: "Escolha uma turma e uma tarefa que está na sua lista. Veja quanto do trabalho já chega adiantado.",
-    demo: { disc: "mat", ano: "7", tarefa: "plano" },
-    demoDepois: "Esse foi um plano. A meta do curso é você repetir o caminho para as outras turmas e planejar a semana seguinte inteira em cerca de 1 hora.",
-    sugestao: { tarefa: "prova", rotulo: "Ver também uma prova com gabarito" },
-    calcIntro: "Some as horas que a escola toma de você fora da sala. Arraste para chegar perto da sua semana.",
-    faq: ["tempo", "naotermino", "caro", "generica", "gratuitos", "substitui"],
-    finalTitulo: "O domingo à noite pode voltar a ser seu.",
-    finalTexto: "Aulas de {duracaoAulas} e modelos prontos. Você assiste no intervalo e já usa na primeira semana."
+    ponte: "A IA não dá aula nem corrige no seu lugar. Mas adianta o que consome as suas noites: montar questões, roteiros e materiais. Você revisa, ajusta e decide.",
+    demoTitulo: "Uma prova da sua semana, do pedido ao rascunho",
+    demoIntro: "Escolha uma turma. Veja as questões chegarem separadas por nível, com gabarito.",
+    demo: { disc: "mat", ano: "7", tarefa: "prova" },
+    demoDepois: "Esse foi o rascunho de uma prova. No curso, você configura o seu Agente Avaliativo e repete o caminho para cada turma e cada conteúdo.",
+    sugestao: { tarefa: "plano", rotulo: "Ver também um plano de aula" },
+    calcIntro: "Some as horas que preparar aula toma de você. Arraste para chegar perto da sua semana.",
+    faq: ["tempo", "naotermino", "caro", "generica", "ferramentas", "gratuitos", "substitui"],
+    finalTitulo: "Preparar aula pode caber na sua semana.",
+    finalTexto: "Aulas de {duracaoAulas} e pedidos prontos. Você assiste no intervalo e sai dos temas de criação com um material para usar."
   },
 
   experiente: {
     nome: "quem tem muita sala de aula e quer começar com calma",
     titulo: "Você já sabe ensinar. A IA pode ser a <mark>sua assistente</mark>.",
-    sub: "Passo a passo calmo, com a tela gravada e palavras simples. A IA executa. Quem decide é você.",
+    sub: "Passo a passo, da criação da conta ao material pronto. A IA executa. Quem decide é você.",
     cta: "Quero aprender no meu ritmo",
     ctaCurto: "Quero aprender no meu ritmo",
     doresTitulo: "Você já se sentiu assim?",
@@ -991,14 +992,14 @@ const PERFIS = {
       "Queria conseguir por conta própria, no meu tempo."
     ],
     ponte: "O mais difícil você já tem: saber o que é uma boa aula. Isso a IA não sabe. Ela só executa o que você pede, e é você quem aprova o resultado.",
-    demoTitulo: "Experimente: uma atividade da sua disciplina",
+    demoTitulo: "Experimente: um material para a sua disciplina",
     demoIntro: "São só 3 escolhas, uma de cada vez. Pode tocar à vontade: aqui é só um ensaio.",
     demo: { disc: null, ano: null, tarefa: null },
     passos: true,
-    ordemTarefas: ["adaptada", "plano", "prova", "relatorio"],
-    demoDepois: "Pronto. Foram 3 escolhas e um pedido para a IA. No curso, você faz o mesmo com a IA de verdade, acompanhando a tela gravada. A meta é criar por conta própria uma atividade da sua disciplina em menos de 10 minutos.",
+    ordemTarefas: ["plano", "prova", "roteiro", "musica"],
+    demoDepois: "Pronto. Foram 3 escolhas e um pedido para a IA. No curso, você faz o mesmo com a IA de verdade, acompanhando a tela gravada, da criação da conta ao material pronto.",
     calcIntro: "Em cada linha, arraste o marcador amarelo até o número de horas da sua semana.",
-    faq: ["complicado", "perdida", "paramim", "golpe", "acesso", "garantia", "gratuitos"],
+    faq: ["complicado", "perdida", "paramim", "ferramentas", "golpe", "acesso", "garantia", "gratuitos"],
     finalTitulo: "No seu ritmo, com alguém para ajudar.",
     finalTexto: "Você assiste, pausa e repete cada aula. Se surgir uma dúvida, tem uma pessoa do outro lado para responder."
   }
@@ -1019,17 +1020,18 @@ const FAQ = {
         "Na demonstração desta página dá para ver a diferença que um pedido completo faz."] },
   tempo: { p: "Não tenho tempo nem para fazer o curso. Como fica?",
     r: ["As aulas têm de {duracaoAulas}. Cabem em um intervalo ou em uma janela entre duas turmas.",
-        "Você não precisa assistir a tudo para começar: os modelos prontos já servem na primeira semana."] },
+        "Você não precisa assistir a tudo para começar: os pedidos prontos já servem na primeira semana."] },
   naotermino: { p: "Já comprei curso e não terminei. Por que este seria diferente?",
-    r: ["Porque ele foi pensado para quem tem pouco tempo: aulas curtas e modelos prontos para copiar e adaptar.",
-        "A ideia é você usar em uma tarefa real da sua semana logo no começo. Ver resultado cedo ajuda a continuar.",
+    r: ["Porque ele foi pensado para quem tem pouco tempo: aulas curtas e pedidos prontos para copiar e adaptar.",
+        "Os temas de criação terminam em uma atividade prática. Você sai deles com um material pronto para a sua aula, e ver resultado ajuda a continuar.",
         "Se mesmo assim não servir, você tem {garantiaDias} dias para pedir o reembolso."] },
   caro: { p: "O curso é caro?",
     r: ["Custa {preco} à vista. Parcelamento: {parcelamento}",
-        "Para comparar, use a calculadora desta página: veja quantas horas por mês a escola toma de você fora da sala e pense em quanto vale recuperar parte delas."] },
+        "Para comparar, use a calculadora desta página: veja quantas horas por mês você gasta preparando aula e pense em quanto vale recuperar parte delas."] },
   dinheiro: { p: "Não tenho dinheiro agora. Dá para parcelar?",
     r: ["O curso custa {preco} à vista.",
         "Parcelamento: {parcelamento}",
+        "As ferramentas usadas no curso têm versão gratuita, com limite de uso.",
         "E você tem {garantiaDias} dias para pedir o dinheiro de volta, como em toda compra feita pela internet."] },
   complicado: { p: "É complicado demais?",
     r: ["Não. Cada ferramenta é apresentada do zero, da criação da conta ao resultado final, com a tela gravada: você vê onde clicar e o que escrever.",
@@ -1047,8 +1049,8 @@ const FAQ = {
         "Você tem {garantiaDias} dias para pedir o dinheiro de volta. Esse prazo é um direito seu, previsto no Código de Defesa do Consumidor.",
         "CNPJ: {cnpj}. Contato: {email}"] },
   naodouaula: { p: "Ainda não dou aula. Faz sentido fazer agora?",
-    r: ["Faz. No estágio você já precisa entregar plano de aula e atividade, e é aí que o curso ajuda primeiro.",
-        "Também serve para organizar as ideias e revisar o texto do TCC, sempre dentro das regras da sua faculdade.",
+    r: ["Faz. No estágio você já precisa levar atividades, e o curso ensina a criar questões, imagens e vídeos curtos.",
+        "Você também sai com materiais feitos por você, que pode mostrar em entrevistas.",
         "Certificado e carga horária: {certificado}"] },
   chatgpt: { p: "Já uso o ChatGPT de graça. O que o curso muda?",
     r: ["A ferramenta você já tem. O que falta é o jeito de professor de usar.",
@@ -1057,22 +1059,22 @@ const FAQ = {
   certificado: { p: "O curso dá certificado?",
     r: ["Certificado e carga horária: {certificado}"] },
   ferramentas: { p: "Preciso pagar por alguma ferramenta de IA para acompanhar?",
-    r: ["O curso usa estas ferramentas: {ferramentasUsadas}.",
-        "Quais delas pedem plano pago: {ferramentas}"] },
+    r: ["Não é obrigatório. O curso usa {ferramentasUsadas}, e todas têm versão gratuita, com limite de uso.",
+        "{ferramentas}"] },
   acesso: { p: "Como recebo o acesso?",
     r: ["Depois da confirmação do pagamento, a Hotmart envia o acesso para o e-mail usado na compra."] },
   garantia: { p: "Como funciona a garantia de {garantiaDias} dias?",
     r: ["Toda compra feita pela internet pode ser cancelada em até 7 dias, com devolução do valor pago. É o que diz o art. 49 do Código de Defesa do Consumidor.",
         "Se nesse prazo você achar que o curso não é para você, peça o reembolso pela Hotmart."] }
 };
-const FAQ_ORDEM = ["gratuitos", "substitui", "generica", "tempo", "naotermino", "caro", "dinheiro", "complicado", "perdida", "paramim", "golpe", "naodouaula", "chatgpt", "certificado", "ferramentas", "acesso", "garantia"];
+const FAQ_ORDEM = ["gratuitos", "ferramentas", "substitui", "generica", "tempo", "naotermino", "caro", "dinheiro", "complicado", "perdida", "paramim", "golpe", "naodouaula", "chatgpt", "certificado", "acesso", "garantia"];
 
 /* O que está incluso (seção da oferta). {chave} puxa do CONFIG. */
 const INCLUSO = [
   "Aulas em vídeo de {duracaoAulas}",
   "Passo a passo com a tela gravada, da criação da conta ao resultado final",
   "Pedidos prontos para copiar: imagens em seis estilos e o comando do Agente Avaliativo",
-  "Atividade prática em cada tema",
+  "Atividades práticas ao longo dos temas",
   "Suporte humano. Canal e horário: {suporte}",
   "Certificado e carga horária: {certificado}",
   "{garantiaDias} dias para desistir e receber o dinheiro de volta, como manda a lei"
@@ -1081,7 +1083,7 @@ const INCLUSO = [
 /* =====================================================================
    4. DEMO — exemplos prontos, alinhados à BNCC. Nenhuma chamada a API.
    Marcação dos textos: "# " título · "> " linha de dados · "## " seção
-   "* " item de lista · "~ a) … | b) …" alternativas · **negrito**
+   "* " item de lista · "~ a) … | b) …" alternativas · "| " verso · **negrito**
    [B1] a [B6] nível da taxonomia de Bloom (nomes em CONFIG.niveisBloom)
    ===================================================================== */
 const DEMO = {
@@ -1099,18 +1101,18 @@ const DEMO = {
   tarefas: [
     { id: "plano", nome: "Plano de aula", icone: "i-plano",
       revise: "Rascunho da IA. Agora é com você: revise, ajuste à sua turma e decida o que vai para a sala." },
-    { id: "prova", nome: "Prova com gabarito", icone: "i-prova",
+    { id: "prova", nome: "Prova por nível de Bloom", icone: "i-prova",
       revise: "Rascunho da IA. Confira cada questão e o gabarito antes de aplicar. Na correção, o nível de cada questão ajuda a ver até onde cada aluno chegou." },
-    { id: "adaptada", nome: "Atividade adaptada", icone: "i-adaptada",
-      revise: "Rascunho da IA. Confirme a adaptação com quem acompanha o estudante na escola." },
-    { id: "relatorio", nome: "Relatório", icone: "i-relatorio",
-      revise: "Rascunho da IA, feito só com as suas anotações. Revise antes de entregar e use iniciais no lugar do nome do aluno." }
+    { id: "roteiro", nome: "Roteiro de vídeo curto", icone: "i-video",
+      revise: "Rascunho da IA. Leia em voz alta e ajuste do seu jeito antes de gravar. No curso, esse roteiro vira narração, personagem animado e vídeo editado." },
+    { id: "musica", nome: "Letra de música", icone: "i-musica",
+      revise: "Rascunho da IA. Confira o conteúdo e cante antes de levar à turma. No curso, essa letra vira música pronta em uma ferramenta de IA." }
   ],
   pedido: {
     plano: (d, a, t) => `Dou aula de ${d} para o ${a}. Monte um plano de aula de 50 minutos sobre ${t.tema}, alinhado à habilidade ${t.bncc} da BNCC. ${t.turma} Quero objetivo, materiais, passo a passo com o tempo de cada etapa e uma forma simples de avaliar.`,
     prova: (d, a, t) => `Crie uma prova de ${d} para o ${a} sobre ${t.tema} (habilidade ${t.bncc} da BNCC). São 4 questões: 2 de múltipla escolha e 2 abertas. Cada uma deve cobrar um nível diferente da taxonomia de Bloom, do mais simples ao mais exigente, com o nível indicado. No final, coloque o gabarito com uma explicação curta de cada resposta.`,
-    adaptada: (d, a, t) => `Crie uma atividade de ${d} para o ${a} sobre ${t.tema} (habilidade ${t.bncc} da BNCC). Depois, faça uma versão adaptada para ${t.para}. Mantenha o mesmo objetivo de aprendizagem e diga o que mudou.`,
-    relatorio: (d, a, t) => `Escreva um relatório com base nas minhas anotações. ${a}, ${d}, tema: ${t.tema}. Anotações: ${t.notas} Use linguagem clara, sem rótulos, e termine com os próximos passos. Por privacidade, uso só iniciais.`
+    roteiro: (d, a, t) => `Aja como professor de ${d} do ${a}. Crie um roteiro para um vídeo curto, de até 1 minuto, sobre ${t.tema} (habilidade ${t.bncc} da BNCC). São no máximo 5 linhas de narração: saudação, gancho com uma pergunta, explicação breve e despedida. Use palavras que a turma entende.`,
+    musica: (d, a, t) => `Componha a letra de uma música educativa sobre ${t.tema} para o ${a}, ligada à habilidade ${t.bncc} da BNCC. Ela vai ser cantada por uma IA de música: marque as partes com [Verso] e [Refrão]. Quero versos curtos, rimas simples e um refrão fácil de repetir. Estilo: ${t.estilo}.`
   },
   temas: {
 
@@ -1118,8 +1120,7 @@ const DEMO = {
     "lp-5": {
       tema: "leitura de fábulas", bncc: "EF35LP04",
       turma: "A turma tem 26 alunos. Eles leem bem em voz alta, mas só respondem o que está escrito no texto.",
-      para: "um estudante que ainda está em processo de alfabetização",
-      notas: "B. lê com fluência; acha fácil a informação que está escrita; trava nas perguntas de \"por quê\"; respostas de uma linha; gosta de ler em voz alta para a turma.",
+      estilo: "cantiga com violão",
       plano: `# Plano de aula · Lendo nas entrelinhas de uma fábula
 > 5º ano · Língua Portuguesa · 50 min · BNCC EF35LP04
 ## Objetivo
@@ -1147,35 +1148,30 @@ Cada aluno responde por escrito: "Como você sabe que a raposa queria as uvas?" 
 * **2. b)** O texto não diz, mas o riso logo depois da promessa mostra que ele duvidou.
 * **3.** Resposta pessoal. Vale um exemplo em que alguém menor ou mais novo ajuda alguém maior.
 * **4.** Resposta pessoal. Deve trazer uma opinião e um fato da história que a sustente.`,
-      adaptada: `# Atividade · Fábula "A raposa e as uvas"
-> 5º ano · Língua Portuguesa · BNCC EF35LP04
-## Versão da turma
-**1.** Leia a fábula e sublinhe a fala da raposa.
-**2.** Por que a raposa disse que as uvas estavam verdes?
-**3.** Escreva outra moral para a história.
-## Versão adaptada
-**1.** Ouça a leitura da fábula. Depois, coloque as 3 imagens na ordem da história.
-**2.** Marque um X: a raposa queria as uvas? ( ) Sim ( ) Não. Conte como você sabe.
-**3.** Complete com as palavras do quadro (alcançou, verdes): "A raposa não ___ as uvas e disse que estavam ___."
-## O que mudou
-* O texto chega pela escuta, com apoio de imagens.
-* Respostas por marcação, fala e banco de palavras.
-* A habilidade é a mesma: perceber o que o texto não diz.`,
-      relatorio: `# Relatório de acompanhamento · B.
-> 5º ano · Língua Portuguesa · leitura de fábulas
-B. lê com fluência e gosta de ler em voz alta para a turma. Localiza com facilidade as informações que estão escritas no texto.
-O próximo desafio é ler nas entrelinhas. Nas perguntas de "por quê", B. costuma repetir um trecho do texto em vez de explicar a intenção da personagem. As respostas escritas ainda são curtas, de uma linha.
-## Próximos passos
-* Perguntas de inferência em toda leitura: "Como você sabe?"
-* Pedir respostas com "porque", em duas linhas ou mais.
-* Aproveitar o gosto pela leitura em voz alta: B. pode ler e fazer as perguntas aos colegas.`
+      roteiro: `# Roteiro de vídeo curto · Ler nas entrelinhas
+> 5º ano · Língua Portuguesa · BNCC EF35LP04 · até 1 minuto de narração
+**Saudação:** Oi, pessoal!
+**Gancho:** Vocês já disseram "eu nem queria mesmo" depois de não conseguir uma coisa?
+**Conteúdo:** Na fábula da raposa e das uvas, a raposa pula, pula e não alcança o cacho. Aí ela diz que as uvas estão verdes. O texto não conta, mas a gente descobre: ela queria, sim. Isso é ler nas entrelinhas.
+**Fechamento:** Na próxima leitura, procurem o que o texto não diz. Até mais!`,
+      musica: `# Letra de música · Ler nas entrelinhas
+> 5º ano · Língua Portuguesa · BNCC EF35LP04 · estilo: cantiga com violão
+**[Verso]**
+| A raposa pulou, pulou e não alcançou,
+| olhou pro cacho de uvas e disfarçou:
+| "Estão verdes, não quero, vou embora daqui."
+| Mas o texto dá pistas, e eu logo entendi.
+**[Refrão]**
+| Ler é mais que ver o que está escrito,
+| é achar a pista, eu acho bonito!
+| Se o texto não conta, eu vou procurar:
+| nas entrelinhas tem muito pra achar.`
     },
 
     "lp-7": {
       tema: "fato e opinião em notícias", bncc: "EF67LP04",
       turma: "São 30 alunos. Eles tratam como fato tudo o que leem nas redes sociais.",
-      para: "um estudante com TEA (autismo)",
-      notas: "7º A, 30 alunos; a maioria separa fato e opinião em frases soltas; erram quando os dois vêm na mesma frase; 6 não entregaram a atividade; debate animado sobre notícias de redes sociais.",
+      estilo: "pop",
       plano: `# Plano de aula · Fato ou opinião?
 > 7º ano · Língua Portuguesa · 50 min · BNCC EF67LP04
 ## Objetivo
@@ -1183,7 +1179,7 @@ Distinguir, em trechos de textos jornalísticos, o fato da opinião sobre esse f
 ## Materiais
 Uma notícia curta e um comentário de leitor sobre o mesmo assunto; canetas de duas cores.
 ## Passo a passo
-* **Abertura (10 min):** escreva no quadro "Choveu 80 mm ontem" e "Foi a pior chuva do ano". Qual dá para conferir? Como?
+* **Abertura (10 min):** escreva no quadro "Choveu 80 mm ontem" e "Foi uma chuva horrível". Qual dá para conferir? Como?
 * **Leitura (15 min):** em duplas, ler a notícia e o comentário. Sublinhar fatos com uma cor e opiniões com outra.
 * **Discussão (15 min):** quais palavras denunciam opinião? Liste no quadro: adjetivos, "acho", "deveria", "infelizmente".
 * **Fechamento (10 min):** cada dupla escreve um fato e uma opinião sobre a escola e troca com outra dupla para classificar.
@@ -1203,35 +1199,30 @@ Recolha as frases trocadas. Veja se a dupla justifica a classificação com uma 
 * **2. c)** O custo da obra pode ser conferido em documentos.
 * **3.** "Linda" e "tarde demais": são avaliações de quem fala, não dados que se possam conferir.
 * **4.** Resposta pessoal, com marca de opinião (adjetivo, "acho que", "deveria").`,
-      adaptada: `# Atividade · Fato ou opinião?
-> 7º ano · Língua Portuguesa · BNCC EF67LP04
-## Versão da turma
-**1.** Leia a notícia e sublinhe três fatos e duas opiniões.
-**2.** Reescreva uma opinião do texto como se fosse um fato. O que você precisou mudar?
-## Versão adaptada
-**Regra no topo da folha:** "Fato: dá para conferir. Opinião: é o que alguém acha."
-**1.** Recorte as 6 frases e cole na coluna certa da tabela: FATO ou OPINIÃO.
-**2.** Circule a palavra que mostra a opinião. Exemplo já feito: "A ciclovia é (linda)."
-## O que mudou
-* Regra escrita e um exemplo resolvido antes de começar.
-* Frases soltas e tabela de duas colunas, em vez de texto corrido.
-* Linguagem direta, sem duplo sentido. A habilidade avaliada é a mesma.`,
-      relatorio: `# Relatório da turma · 7º A
-> Língua Portuguesa · fato e opinião · para o conselho de classe
-A turma se envolveu com o tema, principalmente no debate sobre notícias que circulam nas redes sociais.
-A maioria já separa fato de opinião em frases isoladas. A dificuldade aparece quando os dois vêm juntos, como em "a obra, cara demais, ficou pronta em maio".
-Seis estudantes não entregaram a atividade escrita, o que impede avaliar o que aprenderam.
-## Próximos passos
-* Trabalhar frases que misturam fato e opinião.
-* Nova chance de entrega, em sala, para os seis estudantes.
-* Levar manchetes reais para a turma classificar em grupos.`
+      roteiro: `# Roteiro de vídeo curto · Fato ou opinião?
+> 7º ano · Língua Portuguesa · BNCC EF67LP04 · até 1 minuto de narração
+**Saudação:** Fala, turma!
+**Gancho:** Vocês acreditam em tudo o que aparece no celular?
+**Conteúdo:** "Choveu 80 milímetros ontem" é um fato: dá para conferir. "Foi uma chuva horrível" é uma opinião: é o que alguém acha. Palavras como "horrível", "lindo" e "acho" entregam a opinião.
+**Fechamento:** Antes de compartilhar, perguntem: dá para conferir? Até a próxima!`,
+      musica: `# Letra de música · Fato ou opinião?
+> 7º ano · Língua Portuguesa · BNCC EF67LP04 · estilo: pop
+**[Verso]**
+| Li no celular, não sei se é pra valer,
+| antes de compartilhar, vou conferir e ler.
+| Fato tem data, número e lugar,
+| opinião é o que alguém resolveu achar.
+**[Refrão]**
+| Fato eu confiro, opinião eu respeito,
+| cada um no seu lugar, do seu jeito.
+| "Lindo", "horrível", "eu acho que é assim":
+| palavra de opinião eu descubro, sim!`
     },
 
     "lp-9": {
       tema: "tese e argumentos no artigo de opinião", bncc: "EF89LP04",
       turma: "São 34 alunos. Eles dão opinião com facilidade, mas não sustentam com argumentos.",
-      para: "um estudante surdo, usuário de Libras",
-      notas: "C. tem opinião formada e fala bem nos debates; texto escrito em bloco único, sem parágrafos; argumentos se repetem; não relê; melhora quando faz esquema antes.",
+      estilo: "rap",
       plano: `# Plano de aula · Tese e argumentos
 > 9º ano · Língua Portuguesa · 50 min · BNCC EF89LP04
 ## Objetivo
@@ -1259,38 +1250,31 @@ No parágrafo final, veja se há posição clara e ao menos um argumento que nã
 * **2. c)** O autor admite a ideia contrária e responde a ela em seguida.
 * **3.** Resposta pessoal. Deve escolher entre "já faz parte da vida dos jovens" e "pode ser usado para pesquisar e produzir" e explicar a escolha.
 * **4.** Resposta pessoal. Avaliar: posição clara e argumento que a sustente.`,
-      adaptada: `# Atividade · Tese e argumentos
-> 9º ano · Língua Portuguesa · BNCC EF89LP04
-## Versão da turma
-**1.** Leia o artigo e escreva a tese com as suas palavras.
-**2.** Liste dois argumentos do autor.
-**3.** Escreva um contra-argumento.
-## Versão adaptada
-**Antes da leitura:** quadro com 5 palavras-chave do texto (tese, argumento, proibir, distrair, responsável), cada uma com imagem ou exemplo.
-**1.** Texto em frases curtas, na ordem direta. Pinte de amarelo a frase que mostra o que o autor defende.
-**2.** Complete o esquema: TESE → ARGUMENTO 1 → ARGUMENTO 2.
-**3.** Resposta em Libras, com o intérprete, ou por escrito.
-## O que mudou
-* Vocabulário apresentado antes, com apoio visual.
-* Esquema com setas no lugar de respostas longas.
-* Possibilidade de responder em Libras. O objetivo continua o mesmo.`,
-      relatorio: `# Relatório de acompanhamento · C.
-> 9º ano · Língua Portuguesa · artigo de opinião
-C. se posiciona com clareza nos debates e defende bem as ideias oralmente.
-Na escrita, o texto ainda aparece em bloco único, sem parágrafos, e os argumentos se repetem com outras palavras. C. costuma entregar a primeira versão, sem reler.
-Quando faz um esquema antes de escrever, o resultado melhora de forma visível.
-## Próximos passos
-* Esquema obrigatório antes do texto: tese, dois argumentos, conclusão.
-* Roteiro de revisão com três perguntas.
-* Reescrita de um texto anterior, agora em parágrafos.`
+      roteiro: `# Roteiro de vídeo curto · Tese e argumentos
+> 9º ano · Língua Portuguesa · BNCC EF89LP04 · até 1 minuto de narração
+**Saudação:** E aí, turma!
+**Gancho:** Celular na escola: proibir ou liberar?
+**Conteúdo:** Quem responde já tem uma tese, que é a ideia que a pessoa defende. Mas tese sozinha não convence. Ela precisa de argumentos: razões, exemplos, dados. E quem argumenta bem ainda responde ao outro lado.
+**Fechamento:** Na aula, cada um defende a sua tese. Tragam argumentos. Até lá!`,
+      musica: `# Letra de música · Tese e argumentos
+> 9º ano · Língua Portuguesa · BNCC EF89LP04 · estilo: rap
+**[Verso]**
+| Opinião todo mundo tem pra dar,
+| difícil é fazer o outro escutar.
+| Primeiro a tese: o que eu vou defender.
+| Depois o argumento, pra convencer.
+**[Refrão]**
+| Tese na frente, argumento do lado,
+| exemplo e dado deixam tudo firmado.
+| E se alguém discordar, eu não vou fugir:
+| contra-argumento eu sei construir.`
     },
 
     /* ---------------- Matemática ---------------- */
     "mat-5": {
       tema: "frações na reta numérica", bncc: "EF05MA03",
       turma: "A turma tem 28 alunos e ainda se confunde com frações maiores que 1.",
-      para: "um estudante com discalculia",
-      notas: "L. acerta frações menores que 1 com desenho; erra quando a fração passa de 1; participa bem em dupla; tarefa de casa volta incompleta.",
+      estilo: "pop infantil animado",
       plano: `# Plano de aula · Frações na reta numérica
 > 5º ano · Matemática · 50 min · BNCC EF05MA03
 ## Objetivo
@@ -1317,36 +1301,30 @@ Bilhete de saída: marcar 3/4 e 5/4 em uma reta e explicar a diferença em uma f
 * **2. c)** Em 5/4, o numerador é maior que o denominador: passa de 1 inteiro.
 * **3.** 1/2 fica no meio entre 0 e 1; 3/2 fica no meio entre 1 e 2.
 * **4.** 5/4 é 1 inteiro mais 1/4. Fica depois do 1, a um quarto do caminho até o 2.`,
-      adaptada: `# Atividade · Frações na reta numérica
-> 5º ano · Matemática · BNCC EF05MA03
-## Versão da turma
-**1.** Marque na reta de 0 a 2 as frações 1/2, 3/4, 5/4 e 3/2.
-**2.** Circule as frações maiores que 1 inteiro.
-**3.** Explique como você descobriu.
-## Versão adaptada
-**1.** A reta já vem dividida em quartos, com 0, 1 e 2 em destaque. Ligue cada cartão (1/2, 3/4, 5/4) ao ponto certo.
-**2.** Pinte de azul a fração que passa do número 1.
-**3.** Explique em voz alta como você pensou. Pode usar as tiras de papel.
-## O que mudou
-* Reta pronta e cartões: menos cópia de números, mais raciocínio.
-* Menos frações por vez e material concreto à mão.
-* Explicação oral no lugar da escrita. O objetivo é o mesmo.`,
-      relatorio: `# Relatório de acompanhamento · L.
-> 5º ano · Matemática · frações na reta numérica
-L. identifica e representa frações menores que 1 com segurança quando usa desenhos ou material concreto. Participa bem das atividades em dupla e explica o próprio raciocínio aos colegas.
-Ainda precisa de apoio para localizar frações maiores que 1 na reta numérica: costuma posicioná-las antes do número 1.
-As tarefas de casa têm voltado incompletas, o que reduz o tempo de prática.
-## Próximos passos
-* Retomar frações maiores que 1 com tiras de papel e a reta no chão.
-* Combinar com a família um horário curto e fixo para a tarefa.
-* Reavaliar em duas semanas com um bilhete de saída.`
+      roteiro: `# Roteiro de vídeo curto · Frações maiores que 1
+> 5º ano · Matemática · BNCC EF05MA03 · até 1 minuto de narração
+**Saudação:** Oi, turma!
+**Gancho:** Vocês sabiam que existe fração maior que 1 inteiro?
+**Conteúdo:** Pensem em uma régua que vai do 0 ao 2. O 1/2 fica no meio do caminho entre o 0 e o 1. Já o 3/2 passa do 1: é um inteiro e mais meio.
+**Fechamento:** Na próxima aula, a gente marca essas frações no chão da sala. Até lá!`,
+      musica: `# Letra de música · Frações maiores que 1
+> 5º ano · Matemática · BNCC EF05MA03 · estilo: pop infantil animado
+**[Verso]**
+| A reta vai do zero até o dois,
+| cada fração tem seu lugar, e depois:
+| um meio fica entre o zero e o um,
+| três quartos vem na frente, sem erro nenhum.
+**[Refrão]**
+| Passou do um? É mais que um inteiro!
+| Cinco quartos, três meios: confere primeiro!
+| Se em cima é maior que embaixo, já sei:
+| passou do um inteiro, é lá que eu marquei!`
     },
 
     "mat-7": {
       tema: "equações do 1º grau", bncc: "EF07MA18",
       turma: "São 32 alunos. Muitos ainda resolvem no chute, sem usar a igualdade.",
-      para: "um estudante com TDAH",
-      notas: "7º B, 32 alunos; 20 montam e resolvem equações simples; 8 resolvem a equação pronta, mas erram ao montar a partir do problema; 4 com dificuldade nas operações inversas; muita conversa nas duplas.",
+      estilo: "rap leve",
       plano: `# Plano de aula · Equações do 1º grau
 > 7º ano · Matemática · 50 min · BNCC EF07MA18
 ## Objetivo
@@ -1373,36 +1351,30 @@ Observe se a dupla monta a equação e faz a mesma operação dos dois lados. Re
 * **2. b)** 3x = 15, então x = 5.
 * **3.** Ela subtraiu 7 em vez de somar 7 aos dois lados. O certo: 4x = 28, x = 7.
 * **4.** Resposta pessoal, com x = 8. Exemplo: táxi com taxa fixa de R$ 6,00 e R$ 3,00 por quilômetro, total de R$ 30,00.`,
-      adaptada: `# Atividade · Equações do 1º grau
-> 7º ano · Matemática · BNCC EF07MA18
-## Versão da turma
-**1.** Resolva: a) x + 9 = 15   b) 2x − 3 = 11   c) 5x + 10 = 45
-**2.** Crie um problema para a equação 3x + 2 = 20 e resolva.
-## Versão adaptada
-**Cartão 1:** x + 9 = 15. Resolva e marque ✓.
-**Cartão 2:** 2x − 3 = 11. Resolva e marque ✓.
-**Cartão 3:** 5x + 10 = 45. Resolva e marque ✓.
-**Cartão 4 (desafio):** invente uma história para 3x + 2 = 20.
-## O que mudou
-* Um exercício por cartão, entregue um de cada vez.
-* Lista de conferência para marcar o que já foi feito.
-* Pausa curta combinada depois do cartão 2. O conteúdo é o mesmo.`,
-      relatorio: `# Relatório da turma · 7º B
-> Matemática · equações do 1º grau · para o conselho de classe
-A turma participou bem das aulas sobre equações do 1º grau, em especial das atividades com a balança.
-Dos 32 estudantes, 20 já montam e resolvem equações simples com autonomia. Outros 8 resolvem a equação pronta, mas se perdem ao transformar o problema em equação. E 4 ainda precisam retomar as operações inversas.
-Nas atividades em duplas, a conversa paralela reduz o tempo de prática.
-## Próximos passos
-* Aula de retomada: do texto do problema para a equação.
-* Grupo de apoio para os 4 estudantes, com operações inversas.
-* Duplas definidas antes da aula e tempo marcado no quadro.`
+      roteiro: `# Roteiro de vídeo curto · Equação é uma balança
+> 7º ano · Matemática · BNCC EF07MA18 · até 1 minuto de narração
+**Saudação:** Oi, pessoal!
+**Gancho:** Vocês sabiam que uma equação funciona como uma balança?
+**Conteúdo:** Em 2x + 3 = 11, os dois lados pesam igual. Se eu tiro 3 de um lado, tiro 3 do outro: fica 2x = 8. Divido os dois lados por 2 e descubro: x = 4.
+**Fechamento:** O segredo é esse: o que faz de um lado, faz do outro. Até a próxima!`,
+      musica: `# Letra de música · Equação é uma balança
+> 7º ano · Matemática · BNCC EF07MA18 · estilo: rap leve
+**[Verso]**
+| Equação é balança, tem que equilibrar:
+| o que eu faço de um lado, do outro vou imitar.
+| Dois x mais três é igual a onze, então:
+| tiro três dos dois lados, sem confusão.
+**[Refrão]**
+| Dois x é oito, divide por dois,
+| x vale quatro, confere depois!
+| Um lado, outro lado, na mesma medida:
+| assim a equação fica resolvida.`
     },
 
     "mat-9": {
       tema: "o teorema de Pitágoras", bncc: "EF09MA14",
       turma: "São 30 alunos. Eles decoram a fórmula, mas não sabem quando usar.",
-      para: "um estudante com baixa visão",
-      notas: "R. sabe a fórmula e calcula bem; troca a hipotenusa quando o triângulo aparece virado; não desenha a situação; 3 faltas no mês.",
+      estilo: "rock leve",
       plano: `# Plano de aula · Teorema de Pitágoras
 > 9º ano · Matemática · 50 min · BNCC EF09MA14
 ## Objetivo
@@ -1429,37 +1401,31 @@ Recolha um problema por grupo. Veja se identificaram o ângulo reto e a hipotenu
 * **2. a)** 6² + 8² = 36 + 64 = 100; √100 = 10.
 * **3.** A escada é a hipotenusa, então a conta é de subtração: h² = 13² − 5² = 144; h = 12 m.
 * **4.** Resposta pessoal. Conferir: a situação tem ângulo reto, a hipotenusa está identificada e a conta fecha.`,
-      adaptada: `# Atividade · Teorema de Pitágoras
-> 9º ano · Matemática · BNCC EF09MA14
-## Versão da turma
-**1.** Calcule a hipotenusa de um triângulo com catetos de 9 cm e 12 cm.
-**2.** Uma rampa avança 4 m na horizontal e sobe 3 m. Qual é o comprimento da rampa?
-**3.** Desenhe a situação do item 2 e indique o ângulo reto.
-## Versão adaptada
-**1 e 2.** Os mesmos itens, impressos em letra grande, com bom contraste e um item por página.
-**Figuras:** traço grosso e medidas escritas fora do desenho.
-**3.** O estudante monta o triângulo com tiras de papel-cartão, em vez de desenhar.
-## O que mudou
-* O formato, não o conteúdo: letra ampliada, contraste e traço grosso.
-* Material para tocar no lugar do desenho fino.
-* Tempo extra combinado antes de começar.`,
-      relatorio: `# Relatório de acompanhamento · R.
-> 9º ano · Matemática · teorema de Pitágoras
-R. conhece a fórmula do teorema de Pitágoras e faz os cálculos com segurança, inclusive com raiz quadrada.
-A dificuldade aparece antes da conta: quando o triângulo está em outra posição, R. troca a hipotenusa por um cateto. Como não costuma desenhar a situação, o erro passa despercebido.
-As três faltas no mês coincidiram com as aulas de problemas.
-## Próximos passos
-* Pedir sempre o desenho, com o ângulo reto marcado, antes do cálculo.
-* Lista curta com triângulos em posições diferentes.
-* Conversar com a família sobre as faltas e repor os problemas da aula.`
+      roteiro: `# Roteiro de vídeo curto · Pitágoras e a escada
+> 9º ano · Matemática · BNCC EF09MA14 · até 1 minuto de narração
+**Saudação:** Fala, turma!
+**Gancho:** Como saber a altura que uma escada alcança sem subir nela?
+**Conteúdo:** Escada, parede e chão formam um triângulo retângulo, e a escada é a hipotenusa. Se ela mede 5 metros e o pé está a 3 metros da parede, a conta é 5 ao quadrado menos 3 ao quadrado, que dá 16. A raiz de 16 é 4: quatro metros de altura.
+**Fechamento:** Onde tem ângulo reto, Pitágoras resolve. Até a próxima!`,
+      musica: `# Letra de música · Pitágoras e a escada
+> 9º ano · Matemática · BNCC EF09MA14 · estilo: rock leve
+**[Verso]**
+| Tem ângulo reto? Então pode chamar:
+| Pitágoras chega para ajudar.
+| O lado maior, de frente pro canto,
+| é a hipotenusa, eu já te adianto.
+**[Refrão]**
+| Cateto ao quadrado mais cateto ao quadrado
+| dá a hipotenusa ao quadrado, tá ligado?
+| Três, quatro e cinco, faz a conta comigo:
+| nove mais dezesseis dá vinte e cinco, amigo!`
     },
 
     /* ---------------- Ciências ---------------- */
     "cie-5": {
       tema: "o ciclo da água", bncc: "EF05CI02",
       turma: "A turma tem 27 alunos e pouca experiência com experimentos.",
-      para: "um estudante com deficiência intelectual",
-      notas: "T. tem muita curiosidade no experimento e faz boas perguntas; desenho do ciclo completo; troca os nomes evaporação e condensação; fala pouco no grupo.",
+      estilo: "cantiga animada",
       plano: `# Plano de aula · O ciclo da água
 > 5º ano · Ciências · 50 min · BNCC EF05CI02
 ## Objetivo
@@ -1486,35 +1452,30 @@ No desenho, veja se as três etapas aparecem na ordem certa e com setas.`,
 * **2. b)** Ao esfriar, o vapor condensa em gotinhas.
 * **3.** A condensação: o vapor do banho encontra o espelho frio e volta a ser água líquida.
 * **4.** Sem chuva, rios e reservatórios recebem menos água e o abastecimento diminui.`,
-      adaptada: `# Atividade · O ciclo da água
-> 5º ano · Ciências · BNCC EF05CI02
-## Versão da turma
-**1.** Desenhe o ciclo da água e nomeie as etapas.
-**2.** Explique o que é condensação.
-**3.** Dê um exemplo de evaporação na sua casa.
-## Versão adaptada
-**1.** Observe de novo o pote do experimento. Aponte onde está a água, o vapor e as gotinhas.
-**2.** Coloque em ordem as 3 figuras: sol aquecendo a água, nuvem se formando, chuva caindo.
-**3.** Ligue: "roupa secando no varal" ↔ "a água virou vapor".
-## O que mudou
-* Começa pelo material concreto, não pelo texto.
-* Três figuras para ordenar em vez de desenho livre.
-* Um exemplo do dia a dia para ligar. O tema é o mesmo da turma.`,
-      relatorio: `# Relatório de acompanhamento · T.
-> 5º ano · Ciências · ciclo da água
-T. demonstra curiosidade nas aulas práticas e fez perguntas pertinentes durante o experimento do ciclo da água. O desenho do ciclo está completo, com setas e as três etapas.
-Ainda troca os nomes "evaporação" e "condensação", embora explique corretamente o que acontece em cada uma. No trabalho em grupo, T. fala pouco e deixa as decisões para os colegas.
-## Próximos passos
-* Cartões com nome e figura de cada etapa para fixar o vocabulário.
-* Dar a T. um papel definido no grupo, como registrar ou apresentar.
-* Valorizar as perguntas feitas em aula.`
+      roteiro: `# Roteiro de vídeo curto · O caminho da água
+> 5º ano · Ciências · BNCC EF05CI02 · até 1 minuto de narração
+**Saudação:** Oi, turma!
+**Gancho:** Para onde vai a água da poça quando o sol aparece?
+**Conteúdo:** Ela não some: evapora, vira vapor e sobe. Lá no alto, onde é frio, o vapor vira gotinhas e forma as nuvens. Quando as gotas ficam pesadas, caem como chuva. E tudo começa de novo.
+**Fechamento:** Esse caminho se chama ciclo da água. Até a próxima!`,
+      musica: `# Letra de música · O caminho da água
+> 5º ano · Ciências · BNCC EF05CI02 · estilo: cantiga animada
+**[Verso]**
+| O sol esquenta a água do rio e do mar,
+| ela vira vapor e sobe pelo ar.
+| Lá no alto é frio, o vapor vai juntar
+| e vira gotinha pra nuvem formar.
+**[Refrão]**
+| Evapora, condensa e volta a chover,
+| é o ciclo da água, eu vou aprender!
+| Da nuvem pro rio, do rio pro mar,
+| a água não para de viajar.`
     },
 
     "cie-7": {
       tema: "ecossistemas brasileiros", bncc: "EF07CI07",
       turma: "São 31 alunos. Eles conhecem a Amazônia, mas quase nada sobre o bioma da própria região.",
-      para: "um estudante recém-chegado de outro país, que ainda está aprendendo português",
-      notas: "7º C, 31 alunos; quadros dos biomas bem-feitos; na apresentação, leem o cartaz; confundem Cerrado e Caatinga; 2 grupos não terminaram no prazo.",
+      estilo: "forró",
       plano: `# Plano de aula · Ecossistemas brasileiros
 > 7º ano · Ciências · 50 min · BNCC EF07CI07
 ## Objetivo
@@ -1541,35 +1502,30 @@ No quadro de cada grupo, veja se a planta e o animal escolhidos combinam com o c
 * **2. b)** A casca grossa protege o interior do tronco do calor e da perda de água.
 * **3.** No Pantanal. Exemplos: nadar bem, ter pernas longas, alimentar-se de peixes.
 * **4.** Ela é adaptada a pouca água e muito sol. Na floresta há muita umidade e sombra.`,
-      adaptada: `# Atividade · Ecossistemas brasileiros
-> 7º ano · Ciências · BNCC EF07CI07
-## Versão da turma
-**1.** Escolha dois biomas e compare clima, água e vegetação em um quadro.
-**2.** Explique como um animal de cada bioma está adaptado ao ambiente.
-## Versão adaptada
-**Glossário ilustrado:** 8 palavras (chuva, seca, solo, floresta, espinho, raiz, alagado, frio), com espaço para escrever cada uma na língua do estudante.
-**1.** Ligue cada foto de bioma à sua descrição curta.
-**2.** Complete o quadro com desenhos ou palavras soltas: clima, água, uma planta, um animal.
-**Em dupla:** com um colega que ajuda na leitura.
-## O que mudou
-* Mais imagem e menos texto corrido.
-* Glossário que aproxima as duas línguas.
-* O conteúdo de Ciências é o mesmo. O que se adapta é a língua.`,
-      relatorio: `# Relatório da turma · 7º C
-> Ciências · ecossistemas brasileiros · para o conselho de classe
-A turma realizou o trabalho em grupos sobre os biomas com capricho: os quadros trazem clima, água, solo e exemplos de seres vivos.
-Na apresentação oral, a maior parte dos grupos leu o cartaz, sem explicar com as próprias palavras. Também foi comum confundir Cerrado e Caatinga. Dois grupos não terminaram no prazo.
-## Próximos passos
-* Aula comparando Cerrado e Caatinga com fotos e dados de chuva.
-* Ensaio de apresentação com roteiro de três tópicos, sem leitura.
-* Prazo intermediário de conferência nos próximos trabalhos.`
+      roteiro: `# Roteiro de vídeo curto · Cada bioma do seu jeito
+> 7º ano · Ciências · BNCC EF07CI07 · até 1 minuto de narração
+**Saudação:** Fala, pessoal!
+**Gancho:** Por que o mandacaru não nasce na Amazônia?
+**Conteúdo:** Cada bioma tem seu clima, sua água e seu solo. Na Caatinga chove pouco: as plantas têm espinhos e guardam água no caule. Na Amazônia chove muito, e as árvores disputam a luz lá no alto.
+**Fechamento:** Em qual bioma fica a nossa cidade? Descubram até a próxima aula!`,
+      musica: `# Letra de música · Cada bioma do seu jeito
+> 7º ano · Ciências · BNCC EF07CI07 · estilo: forró
+**[Verso]**
+| Na Caatinga chove pouco, o sol é de rachar,
+| o mandacaru guarda água pra não secar.
+| Na Amazônia chove muito, a mata é um mundão,
+| as árvores sobem alto atrás de um clarão.
+**[Refrão]**
+| Cada bioma tem seu jeito de ser,
+| com seu clima, sua água, seu modo de viver.
+| Cerrado, Pantanal, Pampa e Mata também:
+| o Brasil é grande e cabe tudo o que tem!`
     },
 
     "cie-9": {
       tema: "hereditariedade e as ideias de Mendel", bncc: "EF09CI09",
       turma: "São 33 alunos. Eles acham que as características pulam gerações por acaso.",
-      para: "um estudante com altas habilidades, que termina rápido e perde o interesse",
-      notas: "J. monta certo o quadro de cruzamento e calcula bem as proporções; confunde dominante com mais comum; quase não fala nas discussões; entrega tudo no prazo.",
+      estilo: "pop rock",
       plano: `# Plano de aula · As ideias de Mendel
 > 9º ano · Ciências · 50 min · BNCC EF09CI09
 ## Objetivo
@@ -1596,36 +1552,31 @@ Veja se a dupla explica por que o resultado da turma inteira chega mais perto de
 * **2. b)** Basta um fator dominante (A) para a cor amarela aparecer.
 * **3.** AA, Aa, Aa, aa: 3 amarelas para 1 verde.
 * **4.** Sim, se as duas forem Aa. Cada uma pode passar o fator "a", formando aa.`,
-      adaptada: `# Atividade · Cruzamentos de Mendel
-> 9º ano · Ciências · BNCC EF09CI09
-## Versão da turma
-**1.** Monte o quadro do cruzamento Aa × aa.
-**2.** Qual é a proporção esperada de ervilhas amarelas e verdes?
-**3.** Explique o que é um fator recessivo.
-## Versão adaptada (aprofundamento)
-**1.** Faça o item 1 da turma. Depois, descubra: quais cruzamentos dão 100% de ervilhas amarelas?
-**2.** Em 20 sorteios com feijões, saíram 13 "amarelas" e 7 "verdes". O resultado contradiz Mendel? Argumente.
-**3.** Crie um problema de cruzamento para um colega resolver e escreva o gabarito.
-## O que mudou
-* Menos repetição e mais investigação.
-* Uma pergunta aberta sobre acaso e proporção.
-* O estudante cria um problema, em vez de só resolver. O tema é o mesmo.`,
-      relatorio: `# Relatório de acompanhamento · J.
-> 9º ano · Ciências · hereditariedade
-J. monta corretamente os quadros de cruzamento e calcula as proporções com facilidade. Entrega as atividades no prazo e com organização.
-Ainda associa "dominante" a "mais comum na população", o que leva a erros na interpretação dos resultados. Nas discussões em sala, J. raramente se manifesta, mesmo quando sabe a resposta.
-## Próximos passos
-* Exemplos de características dominantes que são raras.
-* Perguntas dirigidas a J. durante a correção coletiva.
-* Atividade de explicar um cruzamento a um colega.`
+      roteiro: `# Roteiro de vídeo curto · As ervilhas de Mendel
+> 9º ano · Ciências · BNCC EF09CI09 · até 1 minuto de narração
+**Saudação:** E aí, turma!
+**Gancho:** Por que irmãos dos mesmos pais podem ser tão diferentes?
+**Conteúdo:** Mendel cruzou ervilhas amarelas com verdes, e todas as filhas nasceram amarelas. O verde tinha sumido? Não: estava escondido. Na geração seguinte, ele voltou em uma de cada quatro sementes.
+**Fechamento:** Esse fator escondido se chama recessivo. Na aula, a gente sorteia os nossos. Até lá!`,
+      musica: `# Letra de música · As ervilhas de Mendel
+> 9º ano · Ciências · BNCC EF09CI09 · estilo: pop rock
+**[Verso]**
+| Mendel plantou ervilha e ficou a observar:
+| amarela com verde, o que é que ia dar?
+| Nasceu tudo amarelo, o verde se escondeu,
+| mas na outra geração ele reapareceu.
+**[Refrão]**
+| Dominante aparece, recessivo se guarda,
+| mas se vier em dobro, ele volta, não tarda.
+| Três para um, a proporção apareceu:
+| foi contando ervilhas que Mendel entendeu.`
     },
 
     /* ---------------- História ---------------- */
     "his-5": {
       tema: "cidadania e direitos", bncc: "EF05HI04",
       turma: "A turma tem 25 alunos. Para eles, cidadania é votar quando crescer.",
-      para: "um estudante com deficiência física, que não escreve à mão",
-      notas: "A. participa muito e dá exemplos da própria vida; texto escrito claro; ajudou um colega novo a se enturmar; interrompe os colegas com frequência.",
+      estilo: "cantiga de roda",
       plano: `# Plano de aula · Cidadania no dia a dia
 > 5º ano · História · 50 min · BNCC EF05HI04
 ## Objetivo
@@ -1652,34 +1603,30 @@ Na fala dos grupos, veja se relacionam a situação a um direito e ao respeito �
 * **2. c)** Respeitar é ouvir e incluir.
 * **3.** Pessoas que usam cadeira de rodas ou têm dificuldade para andar. Avisar um adulto da escola e pedir a retirada das caixas.
 * **4.** Resposta pessoal. Deve notar que o colega é excluído e propor uma regra que inclua todos, como sorteio ou rodízio.`,
-      adaptada: `# Atividade · Cidadania no dia a dia
-> 5º ano · História · BNCC EF05HI04
-## Versão da turma
-**1.** Escreva dois direitos e dois deveres das crianças.
-**2.** Desenhe uma cena de respeito às diferenças na escola.
-## Versão adaptada
-**1.** Cartões prontos com direitos e deveres. O estudante indica (apontando, falando ou com o olhar) em qual coluna cada um entra, e um colega cola.
-**2.** No lugar do desenho, escolher entre 4 fotos a cena que mostra respeito e explicar a escolha. A resposta pode ser gravada em áudio.
-## O que mudou
-* A forma de responder: indicar, falar ou gravar, em vez de escrever e desenhar.
-* Um colega como apoio para a parte manual.
-* As perguntas e o nível de exigência são os mesmos.`,
-      relatorio: `# Relatório de acompanhamento · A.
-> 5º ano · História · cidadania e direitos
-A. participa ativamente das discussões e traz exemplos da própria vida para explicar direitos e deveres. Os registros escritos são claros e completos.
-Por iniciativa própria, ajudou um colega recém-chegado a se integrar à turma, colocando em prática o que foi estudado.
-Ainda precisa aprender a esperar a vez de falar: com frequência interrompe os colegas.
-## Próximos passos
-* Combinar um sinal para pedir a palavra.
-* Convidar A. para mediar a roda de conversa, cuidando da vez de cada um.
-* Registrar e valorizar as atitudes de acolhimento.`
+      roteiro: `# Roteiro de vídeo curto · Criança também é cidadã
+> 5º ano · História · BNCC EF05HI04 · até 1 minuto de narração
+**Saudação:** Oi, turma!
+**Gancho:** Será que criança também é cidadã?
+**Conteúdo:** É, sim! Ser cidadão é ter direitos, como estudar e brincar, e deveres, como respeitar os colegas e cuidar da escola. E respeitar inclui quem fala, pensa ou vive de um jeito diferente do seu.
+**Fechamento:** Que tal um combinado de cidadania para a nossa turma? Até a próxima!`,
+      musica: `# Letra de música · Criança também é cidadã
+> 5º ano · História · BNCC EF05HI04 · estilo: cantiga de roda
+**[Verso]**
+| Eu tenho direito de estudar e brincar,
+| tenho o dever de ouvir e respeitar.
+| Na fila, na sala, no pátio também,
+| cuidar da escola é cuidar de alguém.
+**[Refrão]**
+| Sou cidadão, sou cidadã,
+| hoje, agora, não só amanhã!
+| Cada um é de um jeito, e isso é legal:
+| respeitar a diferença é fundamental.`
     },
 
     "his-7": {
       tema: "as navegações no Atlântico e no Pacífico", bncc: "EF07HI06",
       turma: "São 29 alunos. Eles conhecem Colombo e Cabral, mas não as navegações de outros povos.",
-      para: "um estudante com dislexia",
-      notas: "7º D, 29 alunos; muito interesse nas imagens das embarcações; comparam bem caravela e canoa; dificuldade para achar os oceanos no mapa; leitura lenta dos textos; 5 alunos com muitas faltas.",
+      estilo: "balada com violão",
       plano: `# Plano de aula · Navegar no Atlântico e no Pacífico
 > 7º ano · História · 50 min · BNCC EF07HI06
 ## Objetivo
@@ -1706,34 +1653,30 @@ No quadro, veja se cada grupo aponta uma semelhança e uma diferença entre as n
 * **2. a)** Sem pontos de referência em terra, o céu era o guia.
 * **3.** Semelhança: longas travessias guiadas pelo conhecimento do céu e do mar. Diferença: os objetivos (comércio e conquista ou povoamento de ilhas) ou o tipo de embarcação.
 * **4.** Resposta pessoal. Avaliar se relaciona a resposta a quem escreveu os registros e os livros.`,
-      adaptada: `# Atividade · Navegações no Atlântico e no Pacífico
-> 7º ano · História · BNCC EF07HI06
-## Versão da turma
-**1.** Leia os dois textos e preencha o quadro comparativo.
-**2.** Escreva um parágrafo: o que as duas navegações têm em comum?
-## Versão adaptada
-**1.** Os textos chegam em áudio (lidos em sala ou gravados) e impressos com letra maior, sem serifa e com mais espaço entre as linhas.
-**2.** Quadro comparativo com opções para marcar, em vez de escrever: embarcação, orientação, objetivo.
-**3.** A resposta final pode ser oral ou em três tópicos curtos.
-## O que mudou
-* Acesso ao texto pela escuta, além da leitura.
-* Menos escrita longa: marcar e listar em tópicos.
-* A comparação pedida é a mesma da turma.`,
-      relatorio: `# Relatório da turma · 7º D
-> História · navegações nos séculos XIV a XVI · para o conselho de classe
-A turma mostrou grande interesse pelo tema, sobretudo ao comparar as imagens da caravela e da canoa polinésia. A maioria aponta semelhanças e diferenças entre as embarcações.
-Duas dificuldades se destacaram: localizar os oceanos no mapa-múndi e ler os textos no tempo previsto. Cinco estudantes acumulam faltas e perderam parte da sequência.
-## Próximos passos
-* Abrir as próximas aulas com cinco minutos de localização no mapa.
-* Textos mais curtos, com perguntas de orientação antes da leitura.
-* Plano de reposição para os cinco estudantes e contato com as famílias.`
+      roteiro: `# Roteiro de vídeo curto · Dois oceanos, muitos navegadores
+> 7º ano · História · BNCC EF07HI06 · até 1 minuto de narração
+**Saudação:** Fala, turma!
+**Gancho:** Vocês sabiam que não foram só os europeus que atravessaram oceanos?
+**Conteúdo:** Enquanto portugueses e espanhóis cruzavam o Atlântico em caravelas, os povos polinésios navegavam pelo Pacífico em canoas de dois cascos. Sem bússola: eles liam as estrelas, os ventos e as correntes.
+**Fechamento:** Na aula, vamos comparar essas viagens. Até lá!`,
+      musica: `# Letra de música · Dois oceanos, muitos navegadores
+> 7º ano · História · BNCC EF07HI06 · estilo: balada com violão
+**[Verso]**
+| Caravela no Atlântico, vela aberta ao vento,
+| canoa no Pacífico, o mar em movimento.
+| Uns buscavam especiarias pra vender,
+| outros, ilhas novas onde viver.
+**[Refrão]**
+| Quem navega aprende a ler
+| o céu, o vento e o mar, pra não se perder.
+| No Atlântico ou no Pacífico, tanto faz:
+| atravessar oceano é pra quem é capaz.`
     },
 
     "his-9": {
       tema: "a Proclamação da República", bncc: "EF09HI01",
       turma: "São 35 alunos. Eles sabem a data, mas não quem participou nem quem ficou de fora.",
-      para: "um estudante cego, que usa leitor de tela",
-      notas: "M. sabe datas e nomes; analisa bem imagens; não explica as causas, só lista fatos; texto com frases soltas; pede ajuda quando não entende.",
+      estilo: "samba",
       plano: `# Plano de aula · O nascimento da República
 > 9º ano · História · 50 min · BNCC EF09HI01
 ## Objetivo
@@ -1760,28 +1703,24 @@ Na resposta final, veja se a dupla usa ao menos uma das fontes como evidência.`
 * **2. b)** Sem indenização pela abolição, muitos senhores retiraram o apoio ao imperador.
 * **3.** Sugere que a mudança foi conduzida por um grupo restrito, com pouca participação da população.
 * **4.** Resposta pessoal. Avaliar o uso de fatos, como a ação de militares e cafeicultores e o povo como espectador.`,
-      adaptada: `# Atividade · A Proclamação da República
-> 9º ano · História · BNCC EF09HI01
-## Versão da turma
-**1.** Observe a pintura de Benedito Calixto e descreva quem aparece.
-**2.** Compare a pintura com a frase de Aristides Lobo.
-**3.** Escreva sua conclusão em um parágrafo.
-## Versão adaptada
-**1.** A pintura vem com descrição por escrito: militares a cavalo em destaque, tropas em formação e poucos civis. Um colega também descreve a imagem em voz alta.
-**2.** Textos em arquivo digital, compatível com o leitor de tela.
-**3.** O parágrafo pode ser digitado ou gravado em áudio.
-## O que mudou
-* A imagem vira descrição, em texto e na voz de um colega.
-* Material em formato digital acessível.
-* A análise das fontes é a mesma exigida da turma.`,
-      relatorio: `# Relatório de acompanhamento · M.
-> 9º ano · História · Proclamação da República
-M. domina datas, nomes e a sequência dos acontecimentos. Tem bom olhar para imagens: na análise da pintura, notou sem ajuda a ausência de pessoas comuns.
-O desafio está em explicar as causas. As respostas listam fatos, mas não mostram a ligação entre eles, e os textos trazem frases soltas, sem "porque" ou "por isso". M. pede ajuda quando não entende, o que facilita o acompanhamento.
-## Próximos passos
-* Exercícios de causa e consequência com conectivos.
-* Partir das imagens, ponto forte de M., para chegar à explicação escrita.
-* Devolutiva individual no próximo texto.`
+      roteiro: `# Roteiro de vídeo curto · Quem fez a República?
+> 9º ano · História · BNCC EF09HI01 · até 1 minuto de narração
+**Saudação:** E aí, pessoal!
+**Gancho:** Quem estava na rua no dia em que o Brasil virou República?
+**Conteúdo:** Em 15 de novembro de 1889, militares derrubaram a Monarquia, com apoio de cafeicultores. Um jornalista da época escreveu que o povo assistiu a tudo sem entender o que acontecia.
+**Fechamento:** Foi uma conquista do povo ou uma troca de comando? Tragam a opinião de vocês. Até a próxima!`,
+      musica: `# Letra de música · Quem fez a República?
+> 9º ano · História · BNCC EF09HI01 · estilo: samba
+**[Verso]**
+| Quinze de novembro de oitenta e nove,
+| cai a Monarquia, o país se move.
+| Militar na praça, cafeicultor apoiando,
+| e o povo na calçada, só observando.
+**[Refrão]**
+| Quem fez a República? Eu quero saber.
+| Quem ficou de fora? Vamos responder.
+| A história tem lado, tem fonte e tem voz:
+| ler mais de uma é tarefa pra nós.`
     }
   }
 };
@@ -1861,7 +1800,7 @@ function montarFixos() {
   $("#modulos").innerHTML = Array.isArray(m) && m.length
     ? '<ol class="modulos">' + m.map(x => {
         const aulas = x && Array.isArray(x.aulas) ? x.aulas : [];
-        return '<li class="modulo"><h4>' + comMarca(x && x.titulo) + "</h4>" +
+        return '<li class="modulo">' + (x && x.rotulo ? '<p class="modulo-n">' + comMarca(x.rotulo) + "</p>" : "") + "<h4>" + comMarca(x && x.titulo) + "</h4>" +
           (x && x.beneficio ? "<p>" + comMarca(x.beneficio) + "</p>" : "") +
           (aulas.length ? '<details><summary>Ver o que tem neste tema<span class="sr">: ' + comMarca(x.titulo) + '</span></summary><ul class="aulas">' +
             aulas.map(t => "<li>" + comMarca(t) + "</li>").join("") + "</ul></details>" : "") + "</li>";
@@ -2073,6 +2012,7 @@ function paraHtml(fonte) {
     else if (l.indexOf("## ") === 0) { fechar(); html += '<h4 class="r-sec">' + fmt(l.slice(3)) + "</h4>"; }
     else if (l.indexOf("> ") === 0) { fechar(); html += '<p class="r-meta">' + fmt(l.slice(2)) + "</p>"; }
     else if (l.indexOf("~ ") === 0) { fechar(); html += '<ul class="alts">' + l.slice(2).split(" | ").map(a => "<li>" + fmt(a) + "</li>").join("") + "</ul>"; }
+    else if (l.indexOf("| ") === 0) { fechar(); html += '<p class="r-verso">' + fmt(l.slice(2)) + "</p>"; }
     else if (l.indexOf("* ") === 0) { if (!lista) { html += '<ul class="r-lista">'; lista = true; } html += "<li>" + fmt(l.slice(2)) + "</li>"; }
     else { fechar(); html += "<p>" + fmt(l) + "</p>"; }
   });
