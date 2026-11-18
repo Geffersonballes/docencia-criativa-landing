@@ -1,0 +1,5 @@
+node_modules/
+testes/saida/
+*.log
+.DS_Store
+conteudo/*.docx

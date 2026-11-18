@@ -1,0 +1,358 @@
+[
+ {
+  "cabecalho": "MÓDULO 1 - Fundamentando o Treinamento",
+  "modulo": "1",
+  "tema": null,
+  "titulo": "Fundamentando o Treinamento",
+  "aulas": [
+   {
+    "n": 1,
+    "titulo": "Boas-vindas à Estação Maker Sapezal"
+   },
+   {
+    "n": 2,
+    "titulo": "Coordenador - Prof. Nelson Manoel da Silva"
+   },
+   {
+    "n": 3,
+    "titulo": "Quem Sou/ Formador"
+   },
+   {
+    "n": 4,
+    "titulo": "Objetivo Geral"
+   },
+   {
+    "n": 5,
+    "titulo": "Objetivos Específicos"
+   },
+   {
+    "n": 6,
+    "titulo": "BNCC Computação: O Alicerce da Nossa Prática"
+   },
+   {
+    "n": 7,
+    "titulo": "A Geração Alfa e as Novas Fronteiras da Aprendizagem"
+   }
+  ]
+ },
+ {
+  "cabecalho": "MÓDULO 2 (Tema 1) - FÁBRICA DE CONTEÚDOS: Metodologias Ativas e Microaprendizagem",
+  "modulo": "2",
+  "tema": "1",
+  "titulo": "FÁBRICA DE CONTEÚDOS: Metodologias Ativas e Microaprendizagem",
+  "aulas": [
+   {
+    "n": 1,
+    "titulo": "Objetivo Geral do Módulo: Fábrica de Conteúdos"
+   },
+   {
+    "n": 2,
+    "titulo": "O Conceito de Microaprendizagem"
+   },
+   {
+    "n": 3,
+    "titulo": "Metodologias Ativas - Ensino Híbrido e Sala de Aula Invertida"
+   },
+   {
+    "n": 4,
+    "titulo": "Investimento Estratégico - Por que as Ferramentas Pro são o Braço Direito do Professor Inovador?"
+   }
+  ]
+ },
+ {
+  "cabecalho": "MÓDULO 2 (Tema 2) - Gmail: Ecossistema Google",
+  "modulo": "2",
+  "tema": "2",
+  "titulo": "Gmail: Ecossistema Google",
+  "aulas": [
+   {
+    "n": 1,
+    "titulo": "Gmail: Sua Chave Mestra para o Espaço e a Inteligência Ilimitada"
+   },
+   {
+    "n": 2,
+    "titulo": "Google Sala de Aula: Como Logar pelo Navegador e Celular com Segurança"
+   }
+  ]
+ },
+ {
+  "cabecalho": "MÓDULO 2 (Tema 3) - Adobe Express: Criando Personagens Falantes",
+  "modulo": "2",
+  "tema": "3",
+  "titulo": "Adobe Express: Criando Personagens Falantes",
+  "aulas": [
+   {
+    "n": 1,
+    "titulo": "Adobe Express - Introdução e Acesso à Plataforma"
+   },
+   {
+    "n": 2,
+    "titulo": "Adobe Express - Mão na Massa: Criando seu Narrador com Áudio de Estúdio"
+   },
+   {
+    "n": 3,
+    "titulo": "Adobe Express - Técnica de Fundo Verde (Chroma Key)"
+   },
+   {
+    "n": 4,
+    "titulo": "Adobe Express Mobile - Crie Personagens Animados pelo Celular"
+   },
+   {
+    "n": 5,
+    "titulo": "Adobe Express - Sincronia Inteligente: Integrando as Vozes do CapCut à sua Animação"
+   },
+   {
+    "n": 6,
+    "titulo": "Atividade Prática - Meu Primeiro Microlearning com Adobe Express"
+   }
+  ]
+ },
+ {
+  "cabecalho": "MÓDULO 2 (Tema 4) - Gemini: Inteligência Artificial na Prática",
+  "modulo": "2",
+  "tema": "4",
+  "titulo": "Gemini: Inteligência Artificial na Prática",
+  "aulas": [
+   {
+    "n": 1,
+    "titulo": "Gemini - O Salto de Performance na Rotina do Educador"
+   },
+   {
+    "n": 2,
+    "titulo": "Gemini - Explorando a Interface e o Poder Multimodal do Gemini"
+   },
+   {
+    "n": 3,
+    "titulo": "Gemini - A Arte da Personalização de Textos: A Mente por trás da Máquina"
+   },
+   {
+    "n": 4,
+    "titulo": "Gemini - Como Inserir e Organizar Fontes de Informação no Gemini"
+   }
+  ]
+ },
+ {
+  "cabecalho": "MÓDULO 2 (Tema 5) - Agente Avaliativo: Criando Itens com a Taxonomia de Bloom",
+  "modulo": "2",
+  "tema": "5",
+  "titulo": "Agente Avaliativo: Criando Itens com a Taxonomia de Bloom",
+  "aulas": [
+   {
+    "n": 1,
+    "titulo": "Agente Avaliativo - IA e Taxonomia de Bloom: A Ciência por trás da Avaliação"
+   },
+   {
+    "n": 2,
+    "titulo": "Agente Avaliativo - IA como Mentora Pedagógica: Desvendando a Taxonomia de Bloom"
+   },
+   {
+    "n": 3,
+    "titulo": "Agente Avaliativo - Sua IA Aprendeu Mesmo? Validando o Conhecimento do Gemini sobre Bloom"
+   },
+   {
+    "n": 4,
+    "titulo": "Agente Avaliativo - Quais Modelos de Itens melhor se adequam aos Níveis da Taxonomia?"
+   },
+   {
+    "n": 5,
+    "titulo": "Agente Avaliativo - Criando Questões a partir de Fotos, Textos, Links e Vídeos"
+   },
+   {
+    "n": 6,
+    "titulo": "Agente Avaliativo - Geração Prática de Itens Avaliativos com a Taxonomia de Bloom"
+   },
+   {
+    "n": 7,
+    "titulo": "Agente Avaliativo - O Prompt Mestre: Criando seu Agente Especialista em Bloom"
+   },
+   {
+    "n": 8,
+    "titulo": "Agente Avaliativo - ATIVIDADE PRÁTICA: Ativando seu Agente Avaliativo"
+   },
+   {
+    "n": 9,
+    "titulo": "Agente Avaliativo - Finalização e Postagem da Atividade Prática"
+   }
+  ]
+ },
+ {
+  "cabecalho": "MÓDULO 2 (Tema 6) - Geração de Imagens Nano Banana: Criando Imagens Autorais para a Sala de Aula",
+  "modulo": "2",
+  "tema": "6",
+  "titulo": "Geração de Imagens Nano Banana: Criando Imagens Autorais para a Sala de Aula",
+  "aulas": [
+   {
+    "n": 1,
+    "titulo": "Geração de Imagens - Introdução à Geração de Imagens com IA"
+   },
+   {
+    "n": 2,
+    "titulo": "Geração de Imagens - Criando Atividades de Colorir com o Estilo Line Art"
+   },
+   {
+    "n": 3,
+    "titulo": "Geração de Imagens - Criando Mascotes e Personagens com o Estilo Chibi / Kawaii"
+   },
+   {
+    "n": 4,
+    "titulo": "Geração de Imagens - Criando Recursos Visuais com o Estilo Flat Design"
+   },
+   {
+    "n": 5,
+    "titulo": "Geração de Imagens - Criando Mundos e Personagens com o Estilo Pixar / 3D Render"
+   },
+   {
+    "n": 6,
+    "titulo": "Geração de Imagens - Engajamento Visual com o Estilo Anime e Mangá"
+   },
+   {
+    "n": 7,
+    "titulo": "Geração de Imagens - Precisão Técnica com o Estilo Desenho Realista"
+   },
+   {
+    "n": 8,
+    "titulo": "Geração de Imagens - Do Retrato ao Papel: Transformando a Família do Aluno em Desenho para Colorir"
+   },
+   {
+    "n": 9,
+    "titulo": "Geração de Imagens - ATIVIDADE PRÁTICA: Criando, Baixando e Postando seu Kit Visual"
+   },
+   {
+    "n": 10,
+    "titulo": "Geração de Imagens - Criando uma Atividade Contextualizada para o Aniversário de Sapezal com IA"
+   },
+   {
+    "n": 11,
+    "titulo": "Geração de Imagens - Atividade de Aplicação Pedagógica"
+   }
+  ]
+ },
+ {
+  "cabecalho": "MÓDULO 2 (Tema 7) - CapCut: O Caldeirão da Produção Educacional",
+  "modulo": "2",
+  "tema": "7",
+  "titulo": "CapCut: O Caldeirão da Produção Educacional",
+  "aulas": [
+   {
+    "n": 1,
+    "titulo": "CapCut - O Poder da Edição: Do Básico à IA com CapCut"
+   },
+   {
+    "n": 2,
+    "titulo": "CapCut - Criando Projetos, Importando Mídias de forma Organizada"
+   },
+   {
+    "n": 3,
+    "titulo": "CapCut - Cortes em Vídeos e Imagens com Precisão"
+   },
+   {
+    "n": 4,
+    "titulo": "CapCut - Entendendo as Camadas: A Estrutura de Pilhas do CapCut"
+   },
+   {
+    "n": 5,
+    "titulo": "CapCut - Suavizando sua Aula: Animações e Transições de Áudio"
+   },
+   {
+    "n": 6,
+    "titulo": "CapCut - Cortes Estratégicos e Transições Dinâmicas"
+   },
+   {
+    "n": 7,
+    "titulo": "CapCut - Narração Inteligente pelo Celular: Transformando Texto em Voz"
+   },
+   {
+    "n": 8,
+    "titulo": "CapCut - Ajuste Fino da Voz de IA: Ritmo, Fluidez e Fonemas"
+   },
+   {
+    "n": 9,
+    "titulo": "CapCut - Chroma Key: Substituindo o Fundo do seu Vídeo"
+   },
+   {
+    "n": 10,
+    "titulo": "CapCut - Exportação Final: Salvando seu Conteúdo"
+   },
+   {
+    "n": 11,
+    "titulo": "CapCut - Atividade Final: Criando seu Primeiro Microlearning Personalizado"
+   },
+   {
+    "n": 12,
+    "titulo": "CapCut - Etapa 1: Criando o Roteiro Narrativo com IA"
+   },
+   {
+    "n": 13,
+    "titulo": "CapCut - Etapa 2: Dando Voz ao Roteiro - Narração Profissional no Celular"
+   },
+   {
+    "n": 14,
+    "titulo": "CapCut - Etapa 3: Vida à Marionete - Animando seu Personagem no Adobe Express"
+   },
+   {
+    "n": 15,
+    "titulo": "CapCut - Atividade Prática 1: Validando sua Animação Digital"
+   },
+   {
+    "n": 16,
+    "titulo": "CapCut - Etapa 4: Ambientação e Estilo – Gerando o Fundo da sua Videoaula"
+   },
+   {
+    "n": 17,
+    "titulo": "CapCut - Etapa 5: Edição Final - Editando e Personalizando seu Primeiro Microlearning"
+   },
+   {
+    "n": 18,
+    "titulo": "CapCut - Etapa 6: ATIVIDADE FINAL - Publicando seu Microlearning Personalizado"
+   }
+  ]
+ },
+ {
+  "cabecalho": "MÓDULO 2 (Tema 8) - Musicalizando a Infância: Criando Músicas para Aprender e Brincar",
+  "modulo": "2",
+  "tema": "8",
+  "titulo": "Musicalizando a Infância: Criando Músicas para Aprender e Brincar",
+  "aulas": [
+   {
+    "n": 1,
+    "titulo": "Musicalizando a Infância - Introdução à Musicalização Infantil com IA"
+   },
+   {
+    "n": 2,
+    "titulo": "Musicalizando a Infância - Conhecendo a Interface, Inscrição e Modelos de Geração da Flow Music"
+   },
+   {
+    "n": 3,
+    "titulo": "Musicalizando a Infância - Conhecendo a Interface, Estilos e Modos de Geração da Suno AI"
+   },
+   {
+    "n": 4,
+    "titulo": "Musicalizando a Infância - Criando Letras no Gemini e Gerando Músicas na Suno AI"
+   },
+   {
+    "n": 5,
+    "titulo": "Musicalizando a Infância - Como Criar Prompts Assertivos na IA para geração de músicas no Suno AI"
+   },
+   {
+    "n": 6,
+    "titulo": "Musicalizando a Infância - Atividade Final"
+   }
+  ]
+ },
+ {
+  "cabecalho": "MÓDULO BÔNUS (Tema 1) - O Desafio da Multiplicação: Ferramentas Pedagógicas",
+  "modulo": "BÔNUS",
+  "tema": "1",
+  "titulo": "O Desafio da Multiplicação: Ferramentas Pedagógicas",
+  "aulas": [
+   {
+    "n": 1,
+    "titulo": "O Desafio da Multiplicação - Showcase: O Poder da Gamificação"
+   },
+   {
+    "n": 2,
+    "titulo": "O Desafio da Multiplicação - Passo a Passo: Como Operar e Customizar o Jogo na Prática"
+   }
+  ]
+ }
+]
