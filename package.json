@@ -1,0 +1,17 @@
+{
+  "name": "docencia-criativa-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Página de vendas do curso Docência Criativa: Tecnologias e IA na Prática",
+  "scripts": {
+    "test": "npm run validar && node testes/conteudo.js index.html conteudo/aulas.json && node testes/interacoes.js index.html && node testes/para-quem.js index.html",
+    "validar": "html-validate index.html",
+    "contraste": "HALO=1 node testes/contraste-captura.js index.html testes/saida/contraste && python3 testes/contraste-calculo.py testes/saida/contraste",
+    "video": "node ferramentas/gravar-demo.js index.html testes/saida/video"
+  },
+  "devDependencies": {
+    "axe-core": "4.14.0",
+    "html-validate": "8.29.0",
+    "playwright": "1.63.0"
+  }
+}
