@@ -46,6 +46,16 @@ const ORDEM_BLOOM = ['Lembrar', 'Entender', 'Aplicar', 'Analisar', 'Avaliar', 'C
 (async () => {
   const browser = await chromium.launch();
 
+  /* 0. Prévia no WhatsApp: og:url, og:image e canonical com o endereço do arquivo CNAME */
+  {
+    const path = require('path'), cname = path.join(path.dirname(ARQ), 'CNAME');
+    const dominio = fs.existsSync(cname) ? fs.readFileSync(cname, 'utf8').trim() : null;
+    const meta = p => (HTML.match(new RegExp('<meta property="' + p + '" content="([^"]+)"')) || [])[1];
+    const canon = (HTML.match(/<link rel="canonical" href="([^"]+)"/) || [])[1];
+    const url = 'https://' + dominio + '/';
+    confere('[prévia] og:url, og:image e canonical com o endereço publicado (CNAME)', !!dominio && meta('og:url') === url && canon === url && meta('og:image') === url + 'previa.jpg' && fs.existsSync(path.join(path.dirname(ARQ), 'previa.jpg')) && !HTML.includes('SEU-DOMINIO'), { dominio, url: meta('og:url'), canon, img: meta('og:image') });
+  }
+
   /* A. Uma única versão: parâmetros de anúncio não mudam o conteúdo */
   for (const w of [360, 1280]) {
     let base = null;

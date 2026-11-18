@@ -94,7 +94,8 @@ const assinatura = (p, sel) => p.evaluate(s => { const c = document.querySelecto
       confere(t + 'encostar no botão do topo faz o título "falhar"', await p.evaluate(() => document.querySelector('#titulo').classList.contains('glitch')));
       await p.mouse.move(300, 300); await p.waitForTimeout(250);
       d = await p.evaluate(() => { const a = document.querySelector('#anel'); return { on: a.classList.contains('on'), tf: a.style.transform }; });
-      confere(t + 'anel segue o cursor', d.on && /translate3d\(2\d\d/.test(d.tf), d);
+      const xy = (d.tf.match(/translate3d\(([\d.]+)px, ([\d.]+)px/) || []).slice(1).map(Number);
+      confere(t + 'anel segue o cursor', d.on && xy.length === 2 && Math.abs(xy[0] - 300) < 60 && Math.abs(xy[1] - 300) < 60, d);
     }
     // rolar a página toda em passos: tudo aparece
     await p.evaluate(async () => { for (let y = 0; y <= document.documentElement.scrollHeight; y += innerHeight / 2) { window.scrollTo({ top: y, behavior: 'instant' }); await new Promise(r => setTimeout(r, 60)); } });

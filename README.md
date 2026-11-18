@@ -4,6 +4,8 @@ Página de vendas do curso **Docência Criativa: Tecnologias e IA na Prática** 
 
 É um único arquivo, `index.html`, com HTML, CSS e JavaScript juntos. Não usa frameworks nem bibliotecas externas e pesa cerca de 170 KB. Funciona em qualquer hospedagem de site estático.
 
+Endereço: **https://docenciacriativa.ballestech.com.br**
+
 Veja a página em uso: [no celular](docs/demonstracao/pagina-animada-celular.mp4) · [no computador](docs/demonstracao/pagina-animada-desktop.mp4).
 
 ## O que tem aqui
@@ -12,6 +14,7 @@ Veja a página em uso: [no celular](docs/demonstracao/pagina-animada-celular.mp4
 |---|---|
 | `index.html` | A página inteira |
 | `previa.jpg` | Imagem da prévia no WhatsApp e nas redes (1200 × 630), feita a partir da capa do curso |
+| `CNAME` | Endereço da página no GitHub Pages |
 | `conteudo/aulas.json` | Módulos, temas e os títulos das 69 aulas, extraídos do documento do curso (usado pelos testes) |
 | `testes/` | Testes automáticos: conteúdo, acessibilidade, interações, contraste e posição do quadro "Para quem é" |
 | `ferramentas/gravar-demo.js` | Grava os vídeos da página em uso |
@@ -51,15 +54,22 @@ Onde o valor ainda é `"[PREENCHER]"`, a página mostra o marcador em destaque e
 | `cnpj` e `email` | Rodapé |
 | `pixelId` | ID do Meta Pixel. Vazio = o Pixel não carrega |
 
-Depois de publicar, ative a prévia do WhatsApp: no `<head>` há um bloco comentado com `og:url` e `og:image` e as instruções. O WhatsApp só lê endereços completos (com `https://`).
-
 ### Links de compra
 
 Todos os botões de compra usam `CONFIG.checkoutUrl`. Eles repassam ao checkout os parâmetros `utm_*`, `src` e `sck` do anúncio e o parâmetro de perfil (`?perfil=…`), sem mudar o conteúdo da página.
 
-## Publicar
+## Publicação
 
-Envie `index.html` e `previa.jpg` para a mesma pasta de qualquer hospedagem de site estático. Depois ative as tags de prévia (veja acima).
+A página é publicada pelo GitHub Pages a partir do branch `main` deste repositório, no endereço **https://docenciacriativa.ballestech.com.br**. Cada push no `main` atualiza o site em cerca de um minuto.
+
+Configuração (feita uma vez):
+
+1. **GitHub**, em Settings → Pages: "Deploy from a branch", branch `main`, pasta `/ (root)`. O domínio vem do arquivo `CNAME`. Depois que o DNS responder, marque "Enforce HTTPS".
+2. **Hostinger**, na zona DNS de ballestech.com.br: registro `CNAME` com nome `docenciacriativa` apontando para `geffersonballes.github.io`. Os registros de e-mail do domínio (MX, TXT e os CNAME de e-mail) não mudam.
+
+Se o endereço mudar, troque nos três lugares: arquivo `CNAME`, `canonical`, `og:url` e `og:image` no `<head>` do `index.html`, e o registro DNS. O teste `npm test` confere se a prévia aponta para o endereço do `CNAME`. O arquivo `.nojekyll` faz o GitHub servir os arquivos como estão.
+
+Para publicar em outra hospedagem de site estático, envie `index.html` e `previa.jpg` para a mesma pasta e ajuste o endereço nos mesmos lugares.
 
 As animações dependem do JavaScript. A pré-visualização de arquivos do iPhone, por exemplo, não roda JavaScript e mostra a página parada. Para ver a página como o visitante vai ver, abra o endereço publicado num navegador.
 
