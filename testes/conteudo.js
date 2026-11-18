@@ -41,6 +41,7 @@ const abrirTudo = async page => {
 const PROIBIDO = /10 a 15 minutos|tela gravada|suporte humano|licenciatura|est[aá]gio|\bTCC\b|curso online|assistente pessoal|corrigir|na correção|plano de aula|semana|noites|domingo|calculadora|horas por mês|Qual é o seu momento|leveza|sem termos técnicos|prova com gabarito|atividade adaptada|Sei ensinar|falta tempo|Dou aula/i;
 const H1 = 'Docência Criativa: Tecnologias e IA na Prática';
 const PREFIXO = /^(Adobe Express|Gemini|Agente Avaliativo|Geração de Imagens|CapCut|Musicalizando a Infância|O Desafio da Multiplicação) - /;
+const REDES = ['https://www.instagram.com/prof.romariocosta/', 'https://www.tiktok.com/@prof.romariocosta', 'https://www.youtube.com/@engajadamente'];
 const ORDEM_BLOOM = ['Lembrar', 'Entender', 'Aplicar', 'Analisar', 'Avaliar', 'Criar'];
 
 (async () => {
@@ -91,7 +92,7 @@ const ORDEM_BLOOM = ['Lembrar', 'Entender', 'Aplicar', 'Analisar', 'Avaliar', 'C
       confere(t + 'letra normal', d.letra === '0', d.letra);
       confere(t + 'marcadores [PREENCHER] visíveis', d.marcadores >= 8, d.marcadores);
       confere(t + 'depoimentos e urgência escondidos', d.escondidos);
-      confere(t + 'sem links de saída', d.links.length === 0, d.links);
+      confere(t + 'links de saída só para as 3 redes do professor', d.links.length === 3 && d.links.every(h => REDES.includes(h)), d.links);
       confere(t + 'pixel não carregado', d.fbq === 'undefined');
       confere(t + 'nenhum dado vazio', d.vazios.length === 0, d.vazios);
       if (w === 360) confere(t + 'botão de compra na primeira dobra (640 px)', d.ctaFundo <= 640, d.ctaFundo);
@@ -136,7 +137,10 @@ const ORDEM_BLOOM = ['Lembrar', 'Entender', 'Aplicar', 'Analisar', 'Avaliar', 'C
     confere('[quem ensina] bio do documento, sem "Como trabalha"', prof.includes('idealizador da formação Docência Criativa') && prof.includes('Aulas Engajadoras') && prof.includes('O conhecimento é um lugar') && !prof.includes('Como trabalha'));
     const pq = await page.evaluate(() => ({ cred: [...document.querySelectorAll('#prof-cred li')].map(l => l.textContent), redes: document.querySelector('.prof-redes').textContent, nome: document.querySelector('.prof-nome').textContent, links: document.querySelectorAll('#quem-ensina a').length, golpe: document.querySelector('#faq-r-golpe').textContent }));
     confere('[quem ensina] nome com idade, 6 credenciais, graduado pela UFMT (não "estudante")', pq.nome === 'Prof. Romário Costa, 39 anos' && pq.cred.length === 6 && pq.cred.includes('Graduado em Tecnologia Educacional pela UFMT') && !prof.includes('estudante'), pq);
-    confere('[quem ensina] Instagram, TikTok e YouTube como texto, sem links de saída; FAQ cita as três redes', /Instagram @prof\.romariocosta/.test(pq.redes) && /TikTok @prof\.romariocosta/.test(pq.redes) && /YouTube @engajadamente/.test(pq.redes) && pq.links === 0 && pq.golpe.includes('TikTok como @prof.romariocosta') && pq.golpe.includes('YouTube como @engajadamente'), pq);
+    const rd = await page.evaluate(() => [...document.querySelectorAll('#quem-ensina a.rede')].map(a => ({ href: a.getAttribute('href'), alvo: a.target, rel: a.rel, nome: a.textContent })));
+    confere('[quem ensina] Instagram, TikTok e YouTube clicáveis, em aba nova, com aviso para leitor de tela; FAQ cita as três redes', /Instagram @prof\.romariocosta/.test(pq.redes) && /TikTok @prof\.romariocosta/.test(pq.redes) && /YouTube @engajadamente/.test(pq.redes) && rd.length === 3 && JSON.stringify(rd.map(r => r.href)) === JSON.stringify(REDES) && rd.every(r => r.alvo === '_blank' && /noopener/.test(r.rel) && r.nome.includes('(abre em nova aba)')) && pq.golpe.includes('TikTok como @prof.romariocosta') && pq.golpe.includes('YouTube como @engajadamente'), { pq, rd });
+    const pr = await page.evaluate(() => ({ chip: document.querySelector('.topo .nota-chip').textContent.replace(/\s+/g, ' ').trim(), oferta: document.querySelector('.preco-de').textContent + ' ' + document.querySelector('.preco').textContent, final: document.querySelector('#final .acao-nota').textContent.replace(/\s+/g, ' ').trim(), fixo: document.querySelector('.fixo-preco').textContent, faq: document.querySelector('#faq-r-parcelar').textContent, riscado: [...document.querySelectorAll('s[data-c="precoDe"]')].filter(x => x.offsetParent !== null || x.closest('.fixo')).length }));
+    confere('[preço] "de R$ 197,00 por R$ 97,00 à vista" no topo, na oferta, no final, na barra fixa e no FAQ', pr.chip.startsWith('de R$ 197,00 por R$ 97,00 à vista') && pr.oferta.startsWith('de R$ 197,00 por R$ 97,00') && pr.final.startsWith('de R$ 197,00 por R$ 97,00 à vista') && pr.fixo === 'de R$ 197,00R$ 97,00à vista' && pr.faq.startsWith('Preço: de R$ 197,00 por R$ 97,00 à vista.'), pr);
     const bloom = await page.textContent('.bloom');
     confere('[bloom] seis níveis e menção ao Tema 5, sem correção', ORDEM_BLOOM.every(n => bloom.includes(n)) && bloom.includes('No Tema 5') && !/corrig|correção/.test(bloom));
     confere('[B] sem erros', log.erros.length === 0, log.erros);
@@ -331,6 +335,10 @@ const ORDEM_BLOOM = ['Lembrar', 'Entender', 'Aplicar', 'Analisar', 'Avaliar', 'C
     confere('[config] parcelamento e suporte preenchidos aparecem', d.parc === 'ou 10x de teste' && d.sup.length === 1 && d.sup[0] === 'Suporte: WhatsApp, de segunda a sexta', d);
     confere('[config] sem erros', log.erros.length === 0, log.erros);
     await ctx.close();
+    const sd = await abrir(browser, { html: variante([['precoDe: "R$ 197,00",', 'precoDe: "",']]) });
+    const sdd = await sd.page.evaluate(() => ({ vis: [...document.querySelectorAll('.preco-de-txt')].filter(x => !x.hidden).length, chip: document.querySelector('.topo .nota-chip').innerText.replace(/\s+/g, ' ').trim(), faq: document.querySelector('#faq-r-parcelar').textContent }));
+    confere('[config] sem preço "de", a página mostra só o preço à vista', sdd.vis === 0 && sdd.chip.startsWith('R$ 97,00 à vista') && sdd.faq.startsWith('Preço: R$ 97,00 à vista.'), sdd);
+    await sd.ctx.close();
     const p = await abrir(browser, { html: variante([['dataEncerramento: "[PREENCHER]"', 'dataEncerramento: "2020-01-01T00:00:00-03:00"']]) });
     confere('[config] data passada não mostra urgência', await p.page.evaluate(() => [...document.querySelectorAll('.urgencia')].every(x => x.hidden)));
     await p.ctx.close();

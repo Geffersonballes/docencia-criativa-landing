@@ -58,6 +58,12 @@ Onde o valor ainda é `"[PREENCHER]"`, a página mostra o marcador em destaque e
 
 Todos os botões de compra usam `CONFIG.checkoutUrl`. Eles repassam ao checkout os parâmetros `utm_*`, `src` e `sck` do anúncio e o parâmetro de perfil (`?perfil=…`), sem mudar o conteúdo da página.
 
+Os únicos outros links que saem da página são as redes do professor (Instagram, TikTok e YouTube, em `CONFIG.professor`), que abrem numa aba nova para a página de vendas continuar aberta.
+
+### Preço
+
+`preco` é o preço à vista e `precoDe` é o preço "de", que aparece riscado antes do "por" (no topo, na oferta, no painel final, na barra fixa do celular e no FAQ). Com `precoDe` vazio, a página mostra só o preço à vista. Use como preço "de" apenas um valor que o curso já tenha praticado de verdade.
+
 ## Publicação
 
 A página é publicada pelo GitHub Pages a partir do branch `main` deste repositório, no endereço **https://docenciacriativa.ballestech.com.br**. Cada push no `main` atualiza o site em cerca de um minuto.

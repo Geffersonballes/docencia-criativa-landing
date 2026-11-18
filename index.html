@@ -221,9 +221,12 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .foto img{width:100%;height:100%;object-fit:cover}
 .prof-nome{font-size:1.5rem;font-weight:800;margin:0 0 .1em;line-height:1.2}
 .prof-idade{font-weight:600;color:var(--texto-2);white-space:nowrap}
-.prof-redes{display:flex;flex-wrap:wrap;gap:.25rem 1.1rem;margin:0 0 1.1rem;font-size:.95rem;color:var(--texto-2);overflow-wrap:anywhere}
+.prof-redes{display:flex;flex-wrap:wrap;gap:0 1.2rem;margin:0 0 .8rem;font-size:.95rem;color:var(--texto-2);overflow-wrap:anywhere}
 .prof-grid>div:last-child{min-width:0;max-width:100%}
-.prof-redes b{font-weight:700;color:var(--link)}
+.rede{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;color:var(--texto-2);text-decoration:none}
+.rede b{font-weight:700;color:var(--link);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.22em}
+.rede::after{content:"↗";font-size:.85em;color:var(--link)}
+@media (hover:hover){.rede:hover b{text-decoration-thickness:2px}}
 .prof-cred{display:grid;gap:.45rem;margin:0 0 1.1rem;padding:0;list-style:none}
 .prof-cred li{position:relative;padding-left:1.35rem;font-weight:600;line-height:1.4;overflow-wrap:anywhere}
 .prof-cred li::before{content:"";position:absolute;left:.1rem;top:.5em;width:.5rem;height:.5rem;border-radius:50%;background:var(--menta);box-shadow:0 0 8px rgba(78,241,180,.7)}
@@ -238,6 +241,8 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .bonus h3{font-size:1.05rem;margin-bottom:.3em;color:var(--menta)}
 .bonus p{margin:0}
 .preco-bloco{padding:1.2rem .9rem;background:var(--painel);border:1.5px solid var(--borda);border-radius:16px;text-align:center;align-self:start}
+.preco-de{margin:0 0 .35rem;font-size:1.05rem;font-weight:700;color:var(--texto-2)}
+.preco-de-txt s{text-decoration-thickness:2px}
 .preco{margin:0 0 .3rem;font-weight:900;letter-spacing:-.03em;font-size:clamp(2.6rem,2rem + 3vw,3.5rem);line-height:1}
 .preco small{display:block;margin-top:.35rem;font-size:1rem;font-weight:700;letter-spacing:0;color:var(--texto-2)}
 .preco-linhas{margin:.8rem 0 1.1rem;font-size:.95rem}
@@ -290,6 +295,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .fixo.on{transform:none;visibility:visible;transition:transform .25s}
 .fixo-preco{flex:none;margin:0;font-weight:800;font-size:.9rem;line-height:1.15}
 .fixo-preco small{display:block;font-weight:600;font-size:.7rem;color:var(--texto-2)}
+.fixo-preco small.preco-de-txt[hidden]{display:none}
 .fixo .btn-compra{flex:1;min-height:48px;padding:.45rem .7rem;font-size:.95rem;box-shadow:none}
 @media (max-width:767px){.rodape{padding-bottom:6.5rem}}
 @media (max-width:479px){.fala{transform:none}}
@@ -380,6 +386,8 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .btn-compra{position:relative;overflow:hidden;isolation:isolate}
 .js-anima .btn-compra::after{content:"";position:absolute;top:-10%;bottom:-10%;left:-70%;z-index:-1;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);animation:reflexo 6s ease-in-out 1.5s infinite}
 @keyframes reflexo{0%{left:-70%}18%,100%{left:130%}}
+/* no botão escuro do painel final o texto é branco: reflexo verde e suave, para não apagar as letras */
+.js-anima .painel-final .btn-compra::after{background:linear-gradient(100deg,transparent,rgba(78,241,180,.3),transparent)}
 
 /* ========== Palco: céu de fitas fixo, abertura e cursor ========== */
 .ceu{position:fixed;inset:0;z-index:0;display:block;width:100%;height:100%;pointer-events:none;opacity:.85}
@@ -608,7 +616,7 @@ h1 .acento{font-weight:700}
       <div class="acao">
         <a class="btn-compra" data-compra="topo" href="#oferta"><span>Quero fazer a formação</span> <span aria-hidden="true">→</span></a>
         <a class="link-demo" href="#demo"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>Ver a IA trabalhar</a>
-        <p class="acao-nota"><span class="nota-chip"><strong data-c="preco">R$ 97,00</strong> à vista / garantia de <span data-c="garantiaDias">7</span> dias / compra pela Hotmart</span></p>
+        <p class="acao-nota"><span class="nota-chip"><span class="preco-de-txt">de <s data-c="precoDe">R$ 197,00</s> por </span><strong data-c="preco">R$ 97,00</strong> à vista / garantia de <span data-c="garantiaDias">7</span> dias / compra pela Hotmart</span></p>
       </div>
     </div>
 
@@ -814,7 +822,7 @@ h1 .acento{font-weight:700}
       <div class="polaroid"><div class="foto" id="prof-foto"><span>Foto do professor</span><mark class="todo">[PREENCHER]</mark></div></div>
       <div>
         <p class="prof-nome"><span data-c="professor.nome">Prof. Romário Costa</span><span class="prof-idade">, <span data-c="professor.idade">39</span> anos</span></p>
-        <p class="prof-redes"><span>Instagram <b data-c="professor.instagram">@prof.romariocosta</b></span><span>TikTok <b data-c="professor.tiktok">@prof.romariocosta</b></span><span>YouTube <b data-c="professor.youtube">@engajadamente</b></span></p>
+        <p class="prof-redes"><a class="rede" href="https://www.instagram.com/prof.romariocosta/" data-href="professor.instagramUrl" target="_blank" rel="noopener">Instagram <b data-c="professor.instagram">@prof.romariocosta</b><span class="sr"> (abre em nova aba)</span></a><a class="rede" href="https://www.tiktok.com/@prof.romariocosta" data-href="professor.tiktokUrl" target="_blank" rel="noopener">TikTok <b data-c="professor.tiktok">@prof.romariocosta</b><span class="sr"> (abre em nova aba)</span></a><a class="rede" href="https://www.youtube.com/@engajadamente" data-href="professor.youtubeUrl" target="_blank" rel="noopener">YouTube <b data-c="professor.youtube">@engajadamente</b><span class="sr"> (abre em nova aba)</span></a></p>
         <ul class="prof-cred" id="prof-cred"></ul>
         <p id="prof-bio"></p>
         <blockquote class="citacao">“O conhecimento é um lugar, e nós, professores, somos os guias que mostram o caminho para se chegar até ele.”</blockquote>
@@ -838,6 +846,7 @@ h1 .acento{font-weight:700}
         </div>
         <div class="preco-bloco">
           <p class="rot-res"><span data-c="nomeCurto">Docência Criativa</span></p>
+          <p class="preco-de preco-de-txt">de <s data-c="precoDe">R$ 197,00</s> por</p>
           <p class="preco"><span data-c="preco">R$ 97,00</span> <small>à vista</small></p>
           <div class="preco-linhas">
             <p><strong>Parcelamento:</strong> <span data-c="parcelamento"></span></p>
@@ -896,7 +905,7 @@ h1 .acento{font-weight:700}
       <h2 id="final-t" data-palavras>Deixe de ser apenas transmissor e torne-se criador de experiências.</h2>
       <p>Ao dominar essas ferramentas, você transforma a maneira como apresenta os conteúdos e como seus alunos interagem com eles. Vamos juntos transformar a educação?</p>
       <a class="btn-compra" data-compra="final" href="#oferta"><span>Quero fazer a formação</span> <span aria-hidden="true">→</span></a>
-      <p class="acao-nota"><strong data-c="preco">R$ 97,00</strong> à vista · garantia de <span data-c="garantiaDias">7</span> dias · compra pela Hotmart</p>
+      <p class="acao-nota"><span class="preco-de-txt">de <s data-c="precoDe">R$ 197,00</s> por </span><strong data-c="preco">R$ 97,00</strong> à vista · garantia de <span data-c="garantiaDias">7</span> dias · compra pela Hotmart</p>
       <p class="urgencia" hidden></p>
     </div>
   </div>
@@ -930,7 +939,7 @@ h1 .acento{font-weight:700}
 
 <!-- Botão de compra fixo (só no celular, depois da primeira dobra) -->
 <aside class="fixo" id="fixo" aria-label="Compra rápida" aria-hidden="true" inert>
-  <p class="fixo-preco"><span data-c="preco">R$ 97,00</span><small>à vista</small></p>
+  <p class="fixo-preco"><small class="preco-de-txt">de <s data-c="precoDe">R$ 197,00</s></small><span data-c="preco">R$ 97,00</span><small>à vista</small></p>
   <a class="btn-compra" data-compra="fixo" href="#oferta" tabindex="-1"><span>Quero fazer a formação</span></a>
 </aside>
 
@@ -954,6 +963,7 @@ const CONFIG = {
 
   // Preço e pagamento
   preco: "R$ 97,00",                 // texto mostrado na página (sempre "à vista")
+  precoDe: "R$ 197,00",              // preço "de" (riscado), antes do "por". Vazio = a página mostra só o preço à vista
   precoValor: 97,                    // número enviado ao Meta Pixel
   parcelamento: "[PREENCHER]",       // ex.: "ou 10x de R$ 11,64 no cartão"
   formasPagamento: "[PREENCHER]",    // ex.: "Pix, cartão de crédito e boleto"
@@ -1088,13 +1098,16 @@ const CONFIG = {
   suporte: "[PREENCHER]",            // canal e horário. Enquanto não for preenchido, o item não aparece na oferta
 
   // Quem ensina. Credenciais e redes informadas pelo professor; a história vem da aula "Quem Sou/ Formador".
-  // As redes aparecem como texto, sem link: a página não tem saídas além do checkout.
+  // As redes abrem numa aba nova, para a página de vendas continuar aberta.
   professor: {
     nome: "Prof. Romário Costa",
     idade: 39,
     instagram: "@prof.romariocosta",
     tiktok: "@prof.romariocosta",
     youtube: "@engajadamente",
+    instagramUrl: "https://www.instagram.com/prof.romariocosta/",
+    tiktokUrl: "https://www.tiktok.com/@prof.romariocosta",
+    youtubeUrl: "https://www.youtube.com/@engajadamente",
     credenciais: [
       "Professor pedagogo",
       "Pós-graduado em Ensino Híbrido",
@@ -1167,7 +1180,7 @@ const FAQ = [
   { id: "gratuitos", p: "Existem cursos gratuitos de IA para professores. Por que pagar por este?",
     r: ["{respostaCursosGratuitos}"] },
   { id: "parcelar", p: "Dá para parcelar?",
-    r: ["O curso custa {preco} à vista.",
+    r: ["Preço: {_precoTexto} à vista.",
         "Parcelamento: {parcelamento}"] },
   { id: "golpe", p: "Como sei que não é golpe?",
     r: ["A compra é feita na Hotmart, a plataforma que processa o pagamento e libera o acesso ao curso.",
@@ -1744,6 +1757,8 @@ CONFIG._aulas = {
   bonus: somaAulas(CONFIG.bonus ? [CONFIG.bonus] : [])
 };
 CONFIG._aulas.total = CONFIG._aulas.m1 + CONFIG._aulas.m2 + CONFIG._aulas.bonus;
+/* Preço por extenso: "de R$ 197,00 por R$ 97,00" quando há preço "de"; senão, só o preço à vista */
+CONFIG._precoTexto = preenchido(CONFIG.precoDe) ? "de " + CONFIG.precoDe + " por " + CONFIG.preco : CONFIG.preco;
 
 /* Código do anúncio (?perfil=…): só vai para o checkout, para saber qual anúncio levou à compra */
 const perfilAnuncio = (() => {
@@ -1777,6 +1792,10 @@ function mudarLetra(passo) {
 /* ---------- Dados do CONFIG na página ---------- */
 function preencherConfig() {
   $$("[data-c]").forEach(el => { el.innerHTML = comMarca(cfg(el.getAttribute("data-c"))); });
+  // preço "de" só aparece quando preenchido
+  $$(".preco-de-txt").forEach(el => { el.hidden = !preenchido(CONFIG.precoDe); });
+  // links das redes: só endereços https do CONFIG
+  $$("[data-href]").forEach(a => { const u = String(cfg(a.dataset.href) || ""); if (/^https:\/\//.test(u)) a.href = u; else a.removeAttribute("href"); });
 }
 
 function montarFixos() {
