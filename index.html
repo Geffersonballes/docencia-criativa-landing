@@ -190,9 +190,6 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .ganho-fio .ico{color:var(--menta)}
 .bloom{margin:0 0 2.5rem;padding:1.2rem 1.1rem;background:var(--painel);border:1.5px solid rgba(184,138,252,.6);border-radius:18px;box-shadow:0 0 32px -8px rgba(89,22,175,.95)}
 .bloom p{max-width:44rem}
-.bloom-niveis{display:flex;flex-wrap:wrap;align-items:flex-end;gap:.5rem;margin:0 0 1rem}
-.bloom-niveis li{display:flex;align-items:flex-end;gap:.45rem;padding:.45rem .7rem;background:var(--noite-2);border:1.5px solid var(--borda);border-radius:10px;font-weight:700;font-size:.95rem;line-height:1.5rem}
-.bloom-niveis b{display:grid;place-items:center;flex:none;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--lilas);color:var(--tinta);font-size:.8rem}
 .modulos{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(16rem,100%),1fr));align-items:start}
 .modulo,.modulo-vazio{margin:0;padding:1rem 1.1rem;background:var(--painel);border:1.5px solid var(--borda);border-radius:16px;box-shadow:var(--brilho)}
 .modulo-n{margin:0 0 .2rem;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--menta)}
@@ -308,6 +305,106 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .modulo-bonus{border-style:dashed;border-color:var(--menta);background:#0E2457}
 .citacao{margin:1.25rem 0 0;padding:.1rem 0 .1rem 1rem;border-left:4px solid var(--lilas);font-style:italic;font-weight:600;font-size:1.12rem;line-height:1.45}
 
+/* ========== Movimento e interação ========== */
+/* Faixa de progresso da leitura */
+.progresso{position:fixed;top:0;left:0;right:0;z-index:80;height:3px;transform-origin:0 50%;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--lilas),var(--ciano),var(--verde));box-shadow:0 0 12px rgba(2,203,250,.8);pointer-events:none}
+
+/* Fitas de luz (canvas) no topo e na chamada final */
+.topo,.final{position:relative;overflow:hidden;isolation:isolate}
+.topo>.wrap,.final>.wrap{position:relative;z-index:1}
+.fitas{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%;pointer-events:none;-webkit-mask-image:var(--mascara);mask-image:var(--mascara)}
+.topo .fitas{--mascara:linear-gradient(180deg,transparent 0,transparent 66%,rgba(0,0,0,.5) 74%,#000 84%)}
+.final .fitas{--mascara:linear-gradient(180deg,transparent 0,transparent 42%,#000 92%)}
+
+/* Revelar ao rolar (só com a animação ligada) */
+.js-anima [data-revelar]{opacity:0;translate:0 22px;transition:opacity .6s ease,translate .75s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 90ms)}
+.js-anima [data-revelar].visivel{opacity:1;translate:none}
+.js-anima [data-palavras] .pl{display:inline-block;opacity:0;filter:blur(10px);translate:0 .3em;transition:opacity .7s ease,filter .7s ease,translate .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0) * 55ms)}
+.js-anima [data-palavras].visivel .pl{opacity:1;filter:blur(0);translate:none}
+.js-anima [data-palavras]::after{width:0;transition:width .9s cubic-bezier(.2,.7,.2,1) .35s}
+.js-anima [data-palavras].visivel::after{width:5.5rem}
+.revela-tudo [data-revelar],.revela-tudo [data-palavras] .pl{opacity:1!important;translate:none!important;filter:none!important;transition:none!important}
+.revela-tudo [data-palavras]::after{width:5.5rem!important}
+
+/* Palavra de destaque e etiqueta com ponto aceso */
+.junto{white-space:nowrap}
+.acento{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;letter-spacing:-.01em;color:var(--lilas)}
+.olho{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.5rem;max-width:100%;margin:0 0 .9rem;padding:.25rem .75rem;border:1px solid var(--borda);border-radius:999px;background:rgba(255,255,255,.04);font:700 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.03em;text-transform:uppercase;color:var(--texto-2)}
+.olho::before{content:"";flex:none;width:.45rem;height:.45rem;border-radius:50%;background:var(--menta);box-shadow:0 0 10px var(--menta)}
+.js-anima .olho::before{animation:pisca-ponto 2.4s ease-in-out infinite}
+@keyframes pisca-ponto{50%{opacity:.35}}
+
+/* Números da formação */
+.numeros{padding:2.25rem 0;background:var(--noite-3);border-block:1px solid rgba(130,150,255,.2)}
+.numeros-lista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem .75rem;text-align:center}
+.numero-vis{display:flex;flex-direction:column;align-items:center}
+.contador{font-size:clamp(2.5rem,1.9rem + 2.6vw,3.6rem);font-weight:900;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--ciano-2)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){.contador{background:var(--degrade-titulo);-webkit-background-clip:text;background-clip:text;color:transparent}}
+.numero-vis small{max-width:11rem;margin-top:.45rem;font-size:.85rem;font-weight:700;line-height:1.3;color:var(--texto-2)}
+
+/* Do roteiro ao vídeo: etapas que acendem com a rolagem */
+.fluxo-sec{background:var(--noite)}
+.fluxo{--prog:0;position:relative;display:grid;gap:1.6rem;margin-top:1.75rem;padding-left:3.4rem}
+.fluxo::before,.fluxo::after{content:"";position:absolute;left:1.3rem;top:1.3rem;bottom:1.3rem;width:3px;margin-left:-1.5px;border-radius:3px;background:rgba(130,150,255,.25)}
+.fluxo::after{background:linear-gradient(180deg,var(--lilas),var(--ciano),var(--verde));transform-origin:50% 0;transform:scaleY(var(--prog));box-shadow:0 0 14px rgba(2,203,250,.75)}
+.etapa{position:relative}
+.etapa-n{position:absolute;left:-3.4rem;top:0;z-index:1;display:grid;place-items:center;width:2.6rem;height:2.6rem;border-radius:50%;background:var(--painel);border:2px solid var(--borda);font-size:.85rem;font-weight:800;color:var(--texto-2);transition:background-color .4s,color .4s,box-shadow .4s,border-color .4s}
+.etapa.aceso .etapa-n{background:var(--menta);border-color:var(--menta);color:var(--tinta);box-shadow:0 0 0 6px rgba(78,241,180,.15),0 0 24px rgba(78,241,180,.65)}
+.etapa h3{margin:.3rem 0 .35em;font-size:1.1rem}
+.etapa h3 small{display:block;margin-top:.25rem;font:700 .72rem/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--menta)}
+.etapa p{margin:0;font-size:.95rem;color:var(--texto-2)}
+
+/* Painel "Contexto é rei", que cresce ao entrar na tela */
+.contexto{padding:1rem 0 3rem;background:var(--noite)}
+.painel-contexto{--z:1;position:relative;padding:2.25rem 1.3rem;border-radius:calc(44px - var(--z) * 20px);background:linear-gradient(120deg,#50E4F7,#4EF1B4 55%,#01F2B8);color:var(--tinta);transform:scale(calc(.88 + var(--z) * .12));transform-origin:50% 70%;box-shadow:0 30px 80px -30px rgba(1,242,184,.75);overflow:hidden}
+.painel-contexto h2{color:var(--tinta);font-size:clamp(2.3rem,1.5rem + 4.2vw,4.2rem)}
+.painel-contexto h2::after{background:var(--tinta)}
+.painel-contexto .acento{color:#3A1A8C}
+.painel-contexto blockquote{margin:0 0 1.1rem;max-width:48rem;font-size:clamp(1.1rem,.95rem + .7vw,1.5rem);font-weight:700;line-height:1.45}
+.painel-contexto blockquote p{margin:0}
+.contexto-fonte{margin:0;font:700 .75rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.03em;text-transform:uppercase}
+.painel-contexto .olho{border-color:rgba(6,10,51,.3);background:rgba(255,255,255,.3);color:var(--tinta)}
+.painel-contexto .olho::before{background:var(--tinta);box-shadow:none}
+
+/* Bloom: níveis que crescem; tocar mostra o formato de item indicado */
+.bloom-niveis{display:grid;gap:.45rem;margin:0 0 1rem}
+.bloom-niveis li{display:flex}
+.nivel-btn{position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;gap:.6rem;width:100%;min-height:48px;padding:.4rem .75rem;background:var(--noite-2);border:1.5px solid var(--borda);border-radius:12px;color:var(--texto);font-weight:700;font-size:.95rem;line-height:1.2;text-align:left;transition:border-color .2s,box-shadow .2s}
+.nivel-btn::before{content:"";position:absolute;top:0;bottom:0;left:0;z-index:-1;width:calc(30% + var(--i,0) * 14%);background:linear-gradient(90deg,rgba(184,138,252,.4),rgba(2,203,250,.4));transform-origin:0 50%;transition:transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0) * 110ms)}
+.js-anima .bloom:not(.visivel) .nivel-btn::before{transform:scaleX(0)}
+.nivel-btn b{display:grid;place-items:center;flex:none;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--lilas);color:var(--tinta);font-size:.8rem}
+.nivel-btn[aria-pressed="true"]{border-color:var(--menta);box-shadow:0 0 0 1px var(--menta),0 0 24px -4px rgba(78,241,180,.85)}
+.nivel-btn[aria-pressed="true"] b{background:var(--menta)}
+.bloom-detalhe{min-height:3.2em;margin:0 0 1rem;padding:.75rem 1rem;border-left:4px solid var(--menta);border-radius:0 10px 10px 0;background:rgba(78,241,180,.08)}
+.bloom-detalhe strong{color:var(--menta)}
+.dica{margin:0 0 .6rem;font-size:.85rem;font-weight:700;color:var(--menta)}
+
+/* Uma imagem, três proporções */
+.formatos{margin:0 0 2.5rem;padding:1.2rem 1.1rem;background:var(--painel);border:1.5px solid var(--borda);border-radius:18px;box-shadow:var(--brilho)}
+.formatos p{max-width:44rem}
+.formatos-ops{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1rem}
+.op-formato{min-width:4.5rem;min-height:48px;padding:.4rem 1rem;background:transparent;border:2px solid rgba(255,255,255,.5);border-radius:999px;font-weight:800;font-variant-numeric:tabular-nums}
+.op-formato[aria-pressed="true"]{background:var(--degrade-botao);border-color:transparent;color:var(--tinta)}
+.palco{display:grid;place-items:center;width:100%;height:15rem}
+.moldura{position:relative;width:16rem;height:9rem;max-width:100%;overflow:hidden;border:2px solid rgba(255,255,255,.75);border-radius:12px;box-shadow:0 0 34px -6px rgba(2,203,250,.75);transition:width .65s cubic-bezier(.2,.7,.2,1),height .65s cubic-bezier(.2,.7,.2,1)}
+.moldura svg{position:absolute;inset:0;width:100%;height:100%}
+.moldura-rot{margin:.75rem 0 0;text-align:center;font:700 .78rem/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.02em;color:var(--texto)}
+
+/* Brilho que segue o cursor nos cartões */
+@media (hover:hover){.spot{background-image:radial-gradient(280px circle at var(--mx,-400px) var(--my,-400px),rgba(2,203,250,.13),transparent 65%)}.nivel-btn:hover,.op-formato:hover{border-color:var(--ciano)}.btn-compra:hover{transform:translateY(-2px)}}
+
+/* Reflexo que passa no botão de compra */
+.btn-compra{position:relative;overflow:hidden;isolation:isolate}
+.js-anima .btn-compra::after{content:"";position:absolute;top:-10%;bottom:-10%;left:-70%;z-index:-1;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);animation:reflexo 6s ease-in-out 1.5s infinite}
+@keyframes reflexo{0%{left:-70%}18%,100%{left:130%}}
+
+/* Ilustração do topo: blocos flutuando, conexões em movimento e inclinação com o cursor */
+.js-anima .topo-arte svg{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .3s ease-out}
+.js-anima .flutua{animation:flutua 6s ease-in-out infinite;animation-delay:calc(var(--f,0) * -1.5s)}
+@keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.js-anima .conexao{animation:fluir 2.2s linear infinite}
+@keyframes fluir{to{stroke-dashoffset:-32}}
+
 /* ========== Telas maiores ========== */
 @media (min-width:700px){
   section{padding:4.5rem 0}
@@ -318,6 +415,14 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   .garantia-grid{grid-template-columns:auto 1fr;gap:2.5rem}
   .prof-grid{grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
   .prancheta-folha{padding:2rem 1.75rem}
+  .numeros-lista{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .painel-contexto{padding:3.5rem 3rem}
+  .formatos{padding:1.6rem 1.75rem}
+  .bloom-niveis{grid-template-columns:repeat(6,minmax(0,1fr));align-items:end;gap:.6rem;height:12rem}
+  .bloom-niveis li{height:100%;align-items:flex-end}
+  .nivel-btn{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:.45rem;height:calc(38% + var(--i,0) * 12.4%);padding:.65rem .7rem}
+  .nivel-btn::before{top:auto;right:0;width:auto;height:100%;transform-origin:50% 100%}
+  .js-anima .bloom:not(.visivel) .nivel-btn::before{transform:scaleY(0)}
   .folha{padding:1.9rem 1.6rem 1.4rem}
 }
 @media (min-width:960px){
@@ -329,7 +434,12 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   .demo-controles{position:sticky;top:1rem}
   .prancheta-folha{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:2.5rem}
   .bloom{padding:1.6rem 1.75rem}
-  .bloom-niveis li{padding-top:calc(.45rem + var(--i) * .5rem)}
+  .topo .fitas{--mascara:linear-gradient(90deg,transparent 0,transparent 44%,rgba(0,0,0,.5) 54%,#000 66%)}
+  .fluxo{grid-template-columns:repeat(5,minmax(0,1fr));gap:0;padding:3.6rem 0 0}
+  .fluxo::before,.fluxo::after{left:10%;right:10%;top:1.3rem;bottom:auto;width:auto;height:3px;margin:-1.5px 0 0}
+  .fluxo::after{background:linear-gradient(90deg,var(--lilas),var(--ciano),var(--verde));transform-origin:0 50%;transform:scaleX(var(--prog))}
+  .etapa{padding:0 .7rem;text-align:center}
+  .etapa-n{left:50%;top:-3.6rem;margin-left:-1.3rem}
 }
 
 /* ========== Menos movimento ========== */
@@ -338,9 +448,15 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
 </style>
+<script>
+/* Liga as animações antes da primeira pintura (desligadas para quem pediu menos movimento no aparelho).
+   Rede de segurança: se o script principal não terminar, todo o conteúdo aparece em 2,5 s. */
+(function(){var h=document.documentElement;try{if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)h.classList.add("js-anima")}catch(e){}setTimeout(function(){if(!window.__paginaPronta)h.classList.add("revela-tudo")},2500)})();
+</script>
 </head>
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<div class="progresso" id="progresso" aria-hidden="true"></div>
 
 <!-- Ícones (desenhados aqui mesmo, sem arquivos externos) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -375,6 +491,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 
 <!-- 1. TOPO -->
 <section class="topo" id="topo" aria-labelledby="titulo">
+  <canvas class="fitas" data-fitas="topo" aria-hidden="true"></canvas>
   <div class="wrap topo-grid">
     <div>
       <p class="sobre">Formação continuada</p>
@@ -397,7 +514,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
           <filter id="f-brilho" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         </defs>
         <circle cx="230" cy="170" r="175" fill="url(#g-luz)" opacity=".75"/>
-        <path d="M70 120q60-40 150-50M370 120q-60-40-150-50M220 70v40M386 190q-20 10-40 10" fill="none" stroke="#02CBFA" stroke-width="1.5" stroke-opacity=".45" stroke-dasharray="3 5"/>
+        <path d="M70 120q60-40 150-50M370 120q-60-40-150-50M220 70v40M386 190q-20 10-40 10" fill="none" stroke="#02CBFA" stroke-width="1.5" stroke-opacity=".45" stroke-dasharray="3 5" class="conexao"/>
         <rect x="96" y="128" width="248" height="158" rx="12" fill="#0B1452" stroke="#8BA1DC" stroke-width="2"/>
         <rect x="108" y="140" width="224" height="134" rx="6" fill="#060A33"/>
         <rect x="120" y="152" width="200" height="26" rx="13" fill="#18237A" stroke="#02CBFA" stroke-opacity=".7" stroke-width="1.5"/>
@@ -408,10 +525,10 @@ h1 mark{color:var(--lilas);background:none;padding:0}
         <rect x="258" y="190" width="62" height="72" rx="7" fill="#4EF1B4" opacity=".9"/>
         <path d="M130 206h42M130 216h34M130 226h40M199 242l10-14 9 10 6-6 10 10M268 208v28M276 216v20M284 210v26M292 220v16M300 214v22" fill="none" stroke="#060A33" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
         <path d="M66 286h308l-22 16H88z" fill="#18237A" stroke="#8BA1DC" stroke-width="2" stroke-linejoin="round"/>
-        <g><rect x="14" y="70" width="112" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="70.0" y="99" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">Gemini</text></g>
-        <g><rect x="146" y="24" width="152" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="222.0" y="53" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">Adobe Express</text></g>
-        <g><rect x="316" y="70" width="112" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="372.0" y="99" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">CapCut</text></g>
-        <g><rect x="340" y="168" width="92" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="386.0" y="197" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">Suno</text></g>
+        <g class="flutua" style="--f:0"><rect x="14" y="70" width="112" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="70.0" y="99" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">Gemini</text></g>
+        <g class="flutua" style="--f:1"><rect x="146" y="24" width="152" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="222.0" y="53" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">Adobe Express</text></g>
+        <g class="flutua" style="--f:2"><rect x="316" y="70" width="112" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="372.0" y="99" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">CapCut</text></g>
+        <g class="flutua" style="--f:3"><rect x="340" y="168" width="92" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="386.0" y="197" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">Suno</text></g>
         <g transform="rotate(-7 66 268)">
           <rect x="8" y="214" width="120" height="112" rx="4" fill="#FFFDF6"/>
           <path d="M10 244h116M10 266h116M10 288h116M10 310h116" stroke="#C5D3EA" stroke-width="1.5"/>
@@ -424,30 +541,37 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   </div>
 </section>
 
+<!-- A FORMAÇÃO EM NÚMEROS (contam a partir do zero quando aparecem) -->
+<section class="numeros" aria-label="A formação em números">
+  <div class="wrap">
+    <ul class="numeros-lista" id="numeros"></ul>
+  </div>
+</section>
+
 <!-- 2. O DESAFIO -->
 <section class="dores" id="dores" aria-labelledby="dores-t">
   <div class="wrap">
-    <h2 id="dores-t">O desafio de repensar a escola</h2>
+    <h2 id="dores-t" data-palavras>O desafio de repensar a <em class="acento">escola</em></h2>
     <div class="dores-grid">
-      <figure class="fala">
+      <figure class="fala" data-revelar>
         <blockquote>“Estamos prontos para oferecer metodologias que acompanhem esse ritmo acelerado, transformando o acesso passivo à informação em conhecimento crítico e criativo?”</blockquote>
         <figcaption>Prof. Romário Costa, na aula “A Geração Alfa e as Novas Fronteiras da Aprendizagem”</figcaption>
       </figure>
       <ul class="postits">
-        <li class="postit">A Geração Alfa nasceu em um mundo digital e pede uma escola que fale a língua dela.</li>
-        <li class="postit">Burocracia e planejamento consomem o tempo que poderia ir para a mediação humana.</li>
-        <li class="postit">Elaborar itens avaliativos que realmente meçam o que o aluno aprendeu é um dos maiores desafios da docência.</li>
-        <li class="postit">Pedir coisas soltas à IA gera respostas genéricas e robóticas.</li>
+        <li class="postit" data-revelar style="--d:1">A Geração Alfa nasceu em um mundo digital e pede uma escola que fale a língua dela.</li>
+        <li class="postit" data-revelar style="--d:2">Burocracia e planejamento consomem o tempo que poderia ir para a mediação humana.</li>
+        <li class="postit" data-revelar style="--d:3">Elaborar itens avaliativos que realmente meçam o que o aluno aprendeu é um dos maiores desafios da docência.</li>
+        <li class="postit" data-revelar style="--d:4">Pedir coisas soltas à IA gera respostas genéricas e robóticas.</li>
       </ul>
     </div>
-    <p class="ponte">O desafio proposto pelo Prof. Romário é sair de uma educação de “apresentação de conceitos” para uma de “aprofundamento e intencionalidade”. Na formação, você deixa de ser apenas um transmissor e se torna curador e criador de experiências.</p>
+    <p class="ponte" data-revelar>O desafio proposto pelo Prof. Romário é sair de uma educação de “apresentação de conceitos” para uma de “aprofundamento e intencionalidade”. Na formação, você deixa de ser apenas um transmissor e se torna curador e criador de experiências.</p>
   </div>
 </section>
 
 <!-- 3. DEMONSTRAÇÃO -->
 <section class="demo" id="demo" aria-labelledby="demo-t">
   <div class="wrap">
-    <h2 id="demo-t">Veja um exemplo do que você aprende a fazer</h2>
+    <h2 id="demo-t" data-palavras>Veja um exemplo do que você aprende a <em class="acento">fazer</em></h2>
     <p class="demo-intro">Escolha a disciplina, o ano e o material. Acompanhe o pedido feito à IA e o rascunho que volta.</p>
     <p class="aviso-demo"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>Demonstração com exemplos prontos. No curso, você faz isso no Gemini, com os seus próprios conteúdos.</span></p>
 
@@ -497,25 +621,73 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   </div>
 </section>
 
-<!-- 4. O QUE VOCÊ VAI APRENDER -->
+<!-- 4. DO ROTEIRO AO VÍDEO (atividade final do Tema 7) -->
+<section class="fluxo-sec" id="fluxo" aria-labelledby="fluxo-t">
+  <div class="wrap">
+    <p class="olho" data-revelar>Módulo 2 · Tema 7 · Atividade final</p>
+    <h2 id="fluxo-t" data-palavras>Do roteiro ao <em class="acento">vídeo</em>, em cinco etapas</h2>
+    <p class="lead" data-revelar>Na atividade final do Tema 7, você integra o Gemini, o Adobe Express e o CapCut para produzir um conteúdo curto e dinâmico: o seu primeiro microlearning personalizado.</p>
+    <ol class="fluxo" id="fluxo-etapas"></ol>
+  </div>
+</section>
+
+<!-- 5. CONTEXTO É REI (Tema 4) -->
+<section class="contexto" aria-labelledby="contexto-t">
+  <div class="wrap">
+    <div class="painel-contexto" id="painel-contexto">
+      <p class="olho">Módulo 2 · Tema 4 · Gemini</p>
+      <h2 id="contexto-t" data-palavras>Contexto é <em class="acento">rei</em>.</h2>
+      <blockquote><p>“O chat não é apenas para conversas casuais; é um ambiente onde você fornece toda a base teórica e documental para que a IA personalize o conhecimento de acordo com a sua necessidade real.”</p></blockquote>
+      <p class="contexto-fonte">Frase da aula “A Arte da Personalização de Textos: A Mente por trás da Máquina”</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. O QUE VOCÊ VAI APRENDER -->
 <section class="aprender" id="aprender" aria-labelledby="aprender-t">
   <div class="wrap">
-    <h2 id="aprender-t">O que você vai aprender</h2>
-    <p class="lead"><strong>Objetivo da formação:</strong> <span data-c="objetivo"></span></p>
+    <h2 id="aprender-t" data-palavras>O que você vai aprender</h2>
+    <p class="lead" data-revelar><strong>Objetivo da formação:</strong> <span data-c="objetivo"></span></p>
     <ul class="ganhos">
-      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-texto"/></svg><h3>Textos com o Gemini</h3><p>Roteiros, relatórios, planejamentos e atividades personalizadas, a partir dos textos, fotos, links e documentos que você fornece.</p></li>
-      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-prova"/></svg><h3>Itens avaliativos com Bloom</h3><p>Múltipla escolha, verdadeiro ou falso, relacione colunas e lacunas, do nível Lembrar ao Criar, com a justificativa da resposta correta.</p></li>
-      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-imagem"/></svg><h3>Imagens geradas por IA</h3><p>Desenhos para colorir, mascotes, recursos visuais e cenários em seis estilos, nas proporções 16:9, 9:16 e 1:1.</p></li>
-      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-boneco"/></svg><h3>Personagens falantes</h3><p>Marionetes digitais do Adobe Express narram o conteúdo com a sua voz ou com uma voz gerada no CapCut.</p></li>
-      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-video"/></svg><h3>Vídeos no CapCut</h3><p>Cortes, camadas, transições, texto em fala, chroma key e exportação em 1080p, até o seu primeiro microlearning.</p></li>
-      <li class="ganho"><svg class="ico" aria-hidden="true"><use href="#i-musica"/></svg><h3>Músicas pedagógicas</h3><p>Letras compostas no Gemini e transformadas em canção na Suno AI e na Flow Music.</p></li>
-      <li class="ganho ganho-fio"><svg class="ico" aria-hidden="true"><use href="#i-fio"/></svg><h3>Contexto é rei</h3><p>A IA manipula o que você fornece. A validação pedagógica e o toque humano continuam sendo do educador.</p></li>
+      <li class="ganho spot" data-revelar style="--d:0"><svg class="ico" aria-hidden="true"><use href="#i-texto"/></svg><h3>Textos com o Gemini</h3><p>Roteiros, relatórios, planejamentos e atividades personalizadas, a partir dos textos, fotos, links e documentos que você fornece.</p></li>
+      <li class="ganho spot" data-revelar style="--d:1"><svg class="ico" aria-hidden="true"><use href="#i-prova"/></svg><h3>Itens avaliativos com Bloom</h3><p>Múltipla escolha, verdadeiro ou falso, relacione colunas e lacunas, do nível Lembrar ao Criar, com a justificativa da resposta correta.</p></li>
+      <li class="ganho spot" data-revelar style="--d:2"><svg class="ico" aria-hidden="true"><use href="#i-imagem"/></svg><h3>Imagens geradas por IA</h3><p>Desenhos para colorir, mascotes, recursos visuais e cenários em seis estilos, nas proporções 16:9, 9:16 e 1:1.</p></li>
+      <li class="ganho spot" data-revelar style="--d:0"><svg class="ico" aria-hidden="true"><use href="#i-boneco"/></svg><h3>Personagens falantes</h3><p>Marionetes digitais do Adobe Express narram o conteúdo com a sua voz ou com uma voz gerada no CapCut.</p></li>
+      <li class="ganho spot" data-revelar style="--d:1"><svg class="ico" aria-hidden="true"><use href="#i-video"/></svg><h3>Vídeos no CapCut</h3><p>Cortes, camadas, transições, texto em fala, chroma key e exportação em 1080p, até o seu primeiro microlearning.</p></li>
+      <li class="ganho spot" data-revelar style="--d:2"><svg class="ico" aria-hidden="true"><use href="#i-musica"/></svg><h3>Músicas pedagógicas</h3><p>Letras compostas no Gemini e transformadas em canção na Suno AI e na Flow Music.</p></li>
+      <li class="ganho ganho-fio spot" data-revelar style="--d:0"><svg class="ico" aria-hidden="true"><use href="#i-fio"/></svg><h3>Contexto é rei</h3><p>A IA manipula o que você fornece. A validação pedagógica e o toque humano continuam sendo do educador.</p></li>
     </ul>
-    <div class="bloom">
+    <div class="bloom spot" data-revelar>
+      <p class="olho">Módulo 2 · Tema 5 · Agente Avaliativo</p>
       <h3>Avaliação com a Taxonomia de Bloom</h3>
       <p>Elaborar itens avaliativos que realmente meçam o que o aluno aprendeu é um dos maiores desafios da docência. No Tema 5, você treina o Gemini para atuar como seu Agente Avaliativo e gerar itens que respeitam os seis níveis da Taxonomia de Bloom revisada, do mais simples ao mais complexo:</p>
+      <p class="dica">Toque em um nível para ver o formato de item indicado nas aulas.</p>
       <ol class="bloom-niveis" id="bloom-niveis"></ol>
+      <p class="bloom-detalhe" id="bloom-detalhe"></p>
       <p class="pequeno">Você não precisa ser especialista em Bloom para começar. Na demonstração desta página, escolha “Itens avaliativos (Bloom)” para ver o nível de cada item.</p>
+    </div>
+    <div class="formatos spot" data-revelar data-vivo>
+      <p class="olho">Módulo 2 · Tema 6 · Geração de Imagens</p>
+      <h3>Uma imagem, três proporções</h3>
+      <p>Nas aulas de geração de imagens, cada estilo vem com prompts estruturados para as três proporções. Toque para ver a diferença.</p>
+      <div class="formatos-ops" id="formatos-ops" role="group" aria-label="Escolha a proporção"></div>
+      <div class="palco" id="palco">
+        <div class="moldura" id="moldura">
+          <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="g-ceu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D1881"/><stop offset=".65" stop-color="#5916AF"/><stop offset="1" stop-color="#B88AFC"/></linearGradient>
+              <linearGradient id="g-sol" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4EF1B4"/><stop offset="1" stop-color="#02CBFA"/></linearGradient>
+            </defs>
+            <rect width="200" height="200" fill="url(#g-ceu)"/>
+            <g fill="#fff" opacity=".85"><circle cx="30" cy="30" r="1.3"/><circle cx="160" cy="24" r="1.1"/><circle cx="122" cy="50" r="1.4"/><circle cx="58" cy="60" r="1"/><circle cx="178" cy="72" r="1.2"/><circle cx="16" cy="84" r="1.1"/><circle cx="84" cy="22" r="1"/></g>
+            <circle cx="100" cy="92" r="24" fill="url(#g-sol)"/>
+            <path d="M0 140q40-30 80-8t70-10 50 6V200H0z" fill="#0B1452"/>
+            <path d="M0 160q50-24 100-4t100-6V200H0z" fill="#060A33"/>
+            <g transform="translate(78 126)"><path d="M0 4q11-6 22 0v22q-11-6-22 0z" fill="#FFFDF6"/><path d="M22 4q11-6 22 0v22q-11-6-22 0z" fill="#E2D1FF"/><path d="M22 4v22" stroke="#5916AF" stroke-width="1.2"/></g>
+          </svg>
+        </div>
+      </div>
+      <p class="moldura-rot" id="moldura-rot"></p>
     </div>
     <h3>Módulos, temas e aulas</h3>
     <p class="lead" style="margin-bottom:1.25rem">O Módulo 1 fundamenta a formação. O Módulo 2 é a Fábrica de Conteúdos, com oito temas. No fim, um Módulo Bônus.</p>
@@ -523,12 +695,12 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   </div>
 </section>
 
-<!-- 5. PARA QUEM É -->
+<!-- 7. PARA QUEM É -->
 <section class="para" id="para-quem" aria-labelledby="para-t">
   <div class="wrap">
-    <h2 id="para-t">Para quem é. E para quem não é.</h2>
+    <h2 id="para-t" data-palavras>Para quem é. E para quem não é.</h2>
     <div class="para-grid">
-      <div class="para-col sim">
+      <div class="para-col sim spot" data-revelar>
         <h3>É para você se…</h3>
         <ul>
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>É profissional da educação e quer usar tecnologias digitais e IA para criar e personalizar conteúdos, atividades e avaliações.</li>
@@ -537,7 +709,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
           <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Atua na educação básica. Os exemplos das aulas dão destaque à Educação Infantil e aos Anos Iniciais.</li>
         </ul>
       </div>
-      <div class="para-col nao">
+      <div class="para-col nao spot" data-revelar style="--d:1">
         <h3>Não é para você se…</h3>
         <ul>
           <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Procura uma IA que trabalhe sozinha. No curso, a validação pedagógica é sempre do educador.</li>
@@ -549,7 +721,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   </div>
 </section>
 
-<!-- 6. DEPOIMENTOS (só aparece quando CONFIG.depoimentos tiver itens) -->
+<!-- 8. DEPOIMENTOS (só aparece quando CONFIG.depoimentos tiver itens) -->
 <section class="depo-sec" id="depoimentos" aria-labelledby="depo-t" hidden>
   <div class="wrap">
     <h2 id="depo-t">O que dizem os professores que fizeram a formação</h2>
@@ -557,11 +729,11 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   </div>
 </section>
 
-<!-- 7. QUEM ENSINA -->
+<!-- 9. QUEM ENSINA -->
 <section class="prof" id="quem-ensina" aria-labelledby="prof-t">
   <div class="wrap">
-    <h2 id="prof-t">Quem ensina</h2>
-    <div class="prof-grid">
+    <h2 id="prof-t" data-palavras>Quem ensina</h2>
+    <div class="prof-grid" data-revelar>
       <div class="polaroid"><div class="foto" id="prof-foto"><span>Foto do professor</span><mark class="todo">[PREENCHER]</mark></div></div>
       <div>
         <p class="prof-nome" data-c="professor.nome">Prof. Romário Costa</p>
@@ -573,11 +745,11 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   </div>
 </section>
 
-<!-- 8. OFERTA -->
+<!-- 10. OFERTA -->
 <section class="oferta" id="oferta" aria-labelledby="oferta-t">
   <div class="wrap">
-    <h2 id="oferta-t">O que você recebe</h2>
-    <div class="prancheta">
+    <h2 id="oferta-t" data-palavras>O que você recebe</h2>
+    <div class="prancheta" data-revelar>
       <div class="prancheta-folha">
         <div>
           <ul class="lista-ok" id="incluso"></ul>
@@ -603,9 +775,9 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   </div>
 </section>
 
-<!-- 9. GARANTIA -->
+<!-- 11. GARANTIA -->
 <section class="garantia" id="garantia" aria-labelledby="garantia-t">
-  <div class="wrap garantia-grid">
+  <div class="wrap garantia-grid" data-revelar>
     <div class="selo" aria-hidden="true">
       <svg viewBox="0 0 160 160" focusable="false">
         <defs><path id="selo-cima" d="M22 80A58 58 0 0 1 138 80"/><path id="selo-baixo" d="M13.5 80A66.5 66.5 0 0 0 146.5 80"/></defs>
@@ -628,20 +800,21 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   </div>
 </section>
 
-<!-- 10. FAQ -->
+<!-- 12. FAQ -->
 <section class="faq" id="faq" aria-labelledby="faq-t">
   <div class="wrap">
-    <h2 id="faq-t">Perguntas que você pode estar se fazendo</h2>
-    <div class="faq-lista" id="faq-lista"></div>
+    <h2 id="faq-t" data-palavras>Perguntas que você pode estar se fazendo</h2>
+    <div class="faq-lista" id="faq-lista" data-revelar></div>
   </div>
 </section>
 
 </main>
 
-<!-- 11. CHAMADA FINAL E RODAPÉ -->
+<!-- 13. CHAMADA FINAL E RODAPÉ -->
 <section class="final" id="final" aria-labelledby="final-t">
+  <canvas class="fitas" data-fitas="final" aria-hidden="true"></canvas>
   <div class="wrap">
-    <h2 id="final-t">Deixe de ser apenas transmissor e torne-se criador de experiências.</h2>
+    <h2 id="final-t" data-palavras>Deixe de ser apenas transmissor e torne-se criador de experiências.</h2>
     <p>Ao dominar essas ferramentas, você transforma a maneira como apresenta os conteúdos e como seus alunos interagem com eles. Vamos juntos transformar a educação?</p>
     <a class="btn-compra" data-compra="final" href="#oferta"><span>Quero fazer a formação</span> <span aria-hidden="true">→</span></a>
     <p class="acao-nota"><strong data-c="preco">R$ 97,00</strong> à vista · garantia de <span data-c="garantiaDias">7</span> dias · compra pela Hotmart</p>
@@ -1398,6 +1571,44 @@ const DEMO = {
 };
 
 /* =====================================================================
+   3b. CONTEÚDO DAS PARTES INTERATIVAS (do documento do curso)
+   ===================================================================== */
+// Tema 7, aula "Atividade Final: Criando seu Primeiro Microlearning Personalizado" (as 5 etapas)
+const FLUXO = [
+  { titulo: "O Roteiro Estratégico", ferramenta: "Gemini",
+    texto: "Escolha um tema da sua disciplina e peça ao Gemini um texto narrativo de no máximo 5 linhas." },
+  { titulo: "A Voz da IA", ferramenta: "CapCut no celular",
+    texto: "Leve o roteiro para o CapCut, use a função “Texto em Fala”, escolha a voz e ajuste a pronúncia e as pausas." },
+  { titulo: "Dando Vida à Marionete", ferramenta: "Adobe Express",
+    texto: "Escolha a marionete, use a proporção 1:1 e o fundo verde-limão, envie o áudio e baixe o vídeo do personagem falando." },
+  { titulo: "O Cenário Ideal", ferramenta: "Nano Banana / Gemini",
+    texto: "Gere uma imagem que represente o contexto do seu tema para servir de fundo." },
+  { titulo: "A Montagem no Caldeirão", ferramenta: "CapCut",
+    texto: "Cenário na trilha principal, marionete em sobreposição, fundo verde removido, textos, stickers, transições e música com fade out no final." }
+];
+
+// Tema 5, aula "Quais Modelos de Itens melhor se adequam aos Níveis da Taxonomia?"
+// niveis = posições em CONFIG.niveisBloom (0 = Lembrar … 5 = Criar)
+const BLOOM_FORMATOS = [
+  { niveis: [0, 1], grupo: "Níveis de base",
+    texto: "Formatos indicados: verdadeiro ou falso e lacunas, para o reconhecimento de fatos." },
+  { niveis: [2, 3], grupo: "Níveis intermediários",
+    texto: "Formatos indicados: múltipla escolha e relacione colunas, para a execução e a organização de partes." },
+  { niveis: [4, 5], grupo: "Níveis superiores",
+    texto: "Formato indicado: múltipla escolha baseada em critérios, para julgamento e proposta de soluções." }
+];
+
+// Tema 6: as três proporções dos prompts estruturados
+const FORMATOS = [
+  { id: "16:9", nome: "Horizontal", uso: "para slides e telas", w: 16, h: 9 },
+  { id: "9:16", nome: "Vertical", uso: "para celular e tablets", w: 9, h: 16 },
+  { id: "1:1", nome: "Quadrada", uso: "para fichas e murais", w: 1, h: 1 }
+];
+
+// Tema 6: Line Art, Chibi, Flat, Pixar/3D, Anime e Realista
+const ESTILOS_DE_IMAGEM = 6;
+
+/* =====================================================================
    4. LÓGICA DA PÁGINA — não é preciso mexer daqui para baixo.
    ===================================================================== */
 const MARCA = "[PREENCHER]";
@@ -1496,21 +1707,17 @@ function montarFixos() {
     ? "<p><strong>Módulo Bônus · " + comMarca(B.titulo) + "</strong> (" + A.bonus + " aulas). " + comMarca(B.descricao) + "</p>"
     : "<p>" + comMarca("") + "</p>";
 
-  // Níveis da Taxonomia de Bloom
-  $("#bloom-niveis").innerHTML = CONFIG.niveisBloom.map((n, i) =>
-    '<li style="--i:' + i + '"><b aria-hidden="true">' + (i + 1) + "</b>" + esc(n) + "</li>").join("");
-
   // Módulos, temas e aulas (a lista de aulas de cada cartão abre com um toque)
-  const cartao = (x, rotulo, extra) => {
+  const cartao = (x, rotulo, extra, n) => {
     const aulas = x && Array.isArray(x.aulas) ? x.aulas : [];
-    return '<li class="modulo' + extra + '"><p class="modulo-n">' + esc(rotulo) + "</p><h4>" + comMarca(x.titulo) + "</h4>" +
+    return '<li class="modulo spot' + extra + '" data-revelar style="--d:' + (n % 4) + '"><p class="modulo-n">' + esc(rotulo) + "</p><h4>" + comMarca(x.titulo) + "</h4>" +
       (x.descricao ? "<p>" + comMarca(x.descricao) + "</p>" : "") +
       (aulas.length ? "<details><summary>Ver as " + aulas.length + ' aulas<span class="sr"> de ' + comMarca(x.titulo) + '</span></summary><ol class="aulas">' +
         aulas.map((t, i) => "<li><b>Aula " + pad(i + 1) + "</b><span>" + comMarca(t) + "</span></li>").join("") + "</ol></details>" : "") + "</li>";
   };
   $("#modulos").innerHTML = '<ol class="modulos">' +
-    CONFIG.modulos.map(x => cartao(x, x.modulo === "1" ? "Módulo 1" : "Módulo 2 · Tema " + x.tema, "")).join("") +
-    (B ? cartao(B, "Módulo Bônus", " modulo-bonus") : "") + "</ol>";
+    CONFIG.modulos.map((x, i) => cartao(x, x.modulo === "1" ? "Módulo 1" : "Módulo 2 · Tema " + x.tema, "", i)).join("") +
+    (B ? cartao(B, "Módulo Bônus", " modulo-bonus", CONFIG.modulos.length) : "") + "</ol>";
 
   // Depoimentos: a seção só aparece com depoimentos reais
   const d = Array.isArray(CONFIG.depoimentos) ? CONFIG.depoimentos.filter(x => x && preenchido(x.texto) && preenchido(x.nome)) : [];
@@ -1766,6 +1973,309 @@ function ligarEventos() {
   });
 }
 
+/* =====================================================================
+   5. MOVIMENTO E INTERAÇÃO
+   Quem pediu "reduzir movimento" no aparelho vê tudo pronto, sem animação.
+   ===================================================================== */
+const ANIMA = document.documentElement.classList.contains("js-anima");
+const limitar = (v, a, b) => Math.max(a, Math.min(b, v));
+
+/* ---------- A formação em números ---------- */
+function montarNumeros() {
+  const A = CONFIG._aulas;
+  const itens = [
+    { valor: A.total, rot: "aulas" },
+    { valor: A.temas, rot: "temas no Módulo 2" },
+    { valor: CONFIG.niveisBloom.length, rot: "níveis da Taxonomia de Bloom" },
+    { valor: ESTILOS_DE_IMAGEM, rot: "estilos de imagem" }
+  ];
+  $("#numeros").innerHTML = itens.map((x, i) =>
+    '<li class="numero" data-revelar style="--d:' + i + '"><span class="sr">' + x.valor + " " + esc(x.rot) + "</span>" +
+    '<span class="numero-vis" aria-hidden="true"><b class="contador" data-alvo="' + x.valor + '">' + x.valor + "</b><small>" + esc(x.rot) + "</small></span></li>").join("");
+}
+function contar(el) {
+  const alvo = +el.dataset.alvo, inicio = performance.now(), duracao = 1300;
+  (function passo(agora) {
+    const p = limitar((agora - inicio) / duracao, 0, 1);
+    el.textContent = Math.round(alvo * (1 - Math.pow(1 - p, 3)));
+    if (p < 1) requestAnimationFrame(passo);
+  })(inicio);
+}
+
+/* ---------- Do roteiro ao vídeo ---------- */
+function montarFluxo() {
+  $("#fluxo-etapas").innerHTML = FLUXO.map((x, i) =>
+    '<li class="etapa"><span class="etapa-n" aria-hidden="true">' + pad(i + 1) + "</span><h3>" + esc(x.titulo) +
+    "<small>Etapa " + pad(i + 1) + " · " + esc(x.ferramenta) + "</small></h3><p>" + esc(x.texto) + "</p></li>").join("");
+}
+function atualizarFluxo() {
+  const ol = $("#fluxo-etapas");
+  if (!ol) return;
+  const etapas = $$(".etapa", ol), n = etapas.length;
+  if (!ANIMA) { ol.style.setProperty("--prog", 1); etapas.forEach(li => li.classList.add("aceso")); return; }
+  const r = ol.getBoundingClientRect(), vh = window.innerHeight;
+  const bolas = etapas.map(li => $(".etapa-n", li).getBoundingClientRect());
+  const vertical = n > 1 && Math.abs(bolas[1].top - bolas[0].top) > 4;
+  let p;
+  if (vertical) {
+    // Celular: a linha avança até a altura de leitura (62% da tela) e cada etapa acende quando a linha chega nela
+    const y = vh * .62, inicio = r.top + 20.8, fim = r.bottom - 20.8;
+    p = limitar((y - inicio) / Math.max(1, fim - inicio), 0, 1);
+    etapas.forEach((li, i) => li.classList.toggle("aceso", bolas[i].top + bolas[i].height / 2 <= y));
+  } else {
+    // Telas largas: as etapas acendem da esquerda para a direita enquanto o bloco sobe pela tela
+    p = limitar((vh * .85 - r.top) / (vh * .4), 0, 1);
+    etapas.forEach((li, i) => li.classList.toggle("aceso", p > 0 && p >= (n > 1 ? i / (n - 1) : 0) - .001));
+  }
+  ol.style.setProperty("--prog", p.toFixed(3));
+}
+
+/* ---------- Painel "Contexto é rei" ---------- */
+function atualizarContexto() {
+  const el = $("#painel-contexto");
+  if (!el || !ANIMA) return;
+  const r = el.getBoundingClientRect(), vh = window.innerHeight;
+  el.style.setProperty("--z", limitar((vh - r.top) / (vh * .55), 0, 1).toFixed(3));
+}
+
+/* ---------- Bloom: tocar um nível mostra o formato indicado ---------- */
+function ligarBloom() {
+  const lista = $("#bloom-niveis"), detalhe = $("#bloom-detalhe");
+  lista.innerHTML = CONFIG.niveisBloom.map((n, i) =>
+    '<li style="--i:' + i + '"><button type="button" class="nivel-btn" aria-pressed="' + (i === 0) + '" aria-controls="bloom-detalhe" data-nivel="' + i + '">' +
+    '<b aria-hidden="true">' + (i + 1) + "</b>" + esc(n) + "</button></li>").join("");
+  const mostrar = i => {
+    const g = BLOOM_FORMATOS.find(x => x.niveis.indexOf(i) !== -1) || BLOOM_FORMATOS[0];
+    $$(".nivel-btn", lista).forEach((b, j) => b.setAttribute("aria-pressed", String(j === i)));
+    detalhe.innerHTML = "<strong>" + esc(CONFIG.niveisBloom[i]) + "</strong> · " + esc(g.grupo) + ". " + esc(g.texto);
+  };
+  mostrar(0);
+  detalhe.setAttribute("aria-live", "polite");
+  lista.addEventListener("click", e => { const b = e.target.closest(".nivel-btn"); if (b) mostrar(+b.dataset.nivel); });
+}
+
+/* ---------- Uma imagem, três proporções ---------- */
+function ligarFormatos() {
+  const ops = $("#formatos-ops"), palco = $("#palco"), moldura = $("#moldura"), rotulo = $("#moldura-rot");
+  let atual = 0, automatico = ANIMA, relogio = 0;
+  ops.innerHTML = FORMATOS.map((f, i) =>
+    '<button type="button" class="op-formato" aria-pressed="' + (i === 0) + '" data-i="' + i + '" aria-label="' + esc(f.nome + " " + f.id) + '">' + esc(f.id) + "</button>").join("");
+  const aplicar = () => {
+    const f = FORMATOS[atual], W = palco.clientWidth, H = palco.clientHeight;
+    if (!W || !H) return;
+    const k = Math.min(W / f.w, H / f.h) * .96;
+    moldura.style.width = Math.floor(f.w * k) + "px";
+    moldura.style.height = Math.floor(f.h * k) + "px";
+    rotulo.textContent = f.nome + " (" + f.id + ") · " + f.uso;
+    $$(".op-formato", ops).forEach((b, j) => b.setAttribute("aria-pressed", String(j === atual)));
+  };
+  ops.addEventListener("click", e => {
+    const b = e.target.closest(".op-formato");
+    if (!b) return;
+    automatico = false; clearInterval(relogio);
+    rotulo.setAttribute("aria-live", "polite");
+    atual = +b.dataset.i; aplicar();
+  });
+  if ("ResizeObserver" in window) new ResizeObserver(aplicar).observe(palco); else window.addEventListener("resize", aplicar);
+  aplicar();
+  if (automatico && "IntersectionObserver" in window) {
+    new IntersectionObserver(es => {
+      clearInterval(relogio);
+      if (es[0].isIntersecting && automatico) relogio = setInterval(() => { atual = (atual + 1) % FORMATOS.length; aplicar(); }, 2600);
+    }).observe(palco);
+  }
+}
+
+/* ---------- Revelar ao rolar ---------- */
+function dividirPalavras(el) {
+  let i = 0;
+  (function andar(no) {
+    Array.from(no.childNodes).forEach(f => {
+      if (f.nodeType === 3) {
+        if (!f.textContent.trim()) return;
+        // Pontuação logo depois de um destaque (ex.: "vídeo,") fica na mesma linha da palavra
+        const ant = f.previousSibling, pont = /^[.,;:!?…)»”]+/.exec(f.textContent);
+        if (pont && ant && ant.nodeType === 1) {
+          const junto = document.createElement("span");
+          junto.className = "junto";
+          no.insertBefore(junto, ant);
+          junto.appendChild(ant);
+          const sp = document.createElement("span");
+          sp.className = "pl"; sp.style.setProperty("--i", i++); sp.textContent = pont[0];
+          junto.appendChild(sp);
+          f.textContent = f.textContent.slice(pont[0].length);
+          if (!f.textContent.trim()) { if (f.textContent) no.insertBefore(document.createTextNode(f.textContent), f); no.removeChild(f); return; }
+        }
+        const frag = document.createDocumentFragment();
+        f.textContent.split(/(\s+)/).forEach(p => {
+          if (!p) return;
+          if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+          const s = document.createElement("span");
+          s.className = "pl"; s.style.setProperty("--i", i++); s.textContent = p;
+          frag.appendChild(s);
+        });
+        no.replaceChild(frag, f);
+      } else if (f.nodeType === 1 && !f.classList.contains("sr")) andar(f);
+    });
+  })(el);
+}
+function ligarRevelacao() {
+  $$("[data-palavras]").forEach(dividirPalavras);
+  const alvos = $$("[data-revelar],[data-palavras]");
+  if (!ANIMA || !("IntersectionObserver" in window)) { alvos.forEach(el => el.classList.add("visivel")); return; }
+  $$(".contador").forEach(c => { c.textContent = "0"; });
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add("visivel");
+    $$(".contador", e.target).forEach(contar);
+    io.unobserve(e.target);
+  }), { rootMargin: "0px 0px -6% 0px", threshold: .1 });
+  alvos.forEach(el => io.observe(el));
+}
+
+/* ---------- Fitas de luz (canvas): seguem o dedo ou o cursor e ganham energia com o toque e a rolagem ---------- */
+const CONF_FITAS = {
+  topo: [
+    { y: .6, yEstreito: .85, inclina: -.42, a: .15, k: 4.2, v: .34, a2: .05, k2: 8.5, v2: .21, fase: 0, torcao: 1.1, esp: 64, alfa: .8, brilho: .14, cores: ["#5916AF", "#B88AFC", "#02E1FC"] },
+    { y: .68, yEstreito: .91, inclina: -.3, a: .11, k: 3.3, v: -.27, a2: .06, k2: 7, v2: .17, fase: 2.1, torcao: .7, esp: 46, alfa: .7, brilho: .12, cores: ["#02CBFA", "#01F2B8", "#4EF1B4"] },
+    { y: .52, yEstreito: .81, inclina: -.5, a: .08, k: 5.6, v: .22, a2: .035, k2: 11, v2: .3, fase: 4.2, torcao: 1.4, esp: 30, alfa: .45, brilho: .08, cores: ["#B88AFC", "#5FE3FA"] }
+  ],
+  final: [
+    { y: .84, yEstreito: .88, inclina: -.16, a: .08, k: 3.8, v: .3, a2: .04, k2: 8, v2: .2, fase: 1, torcao: .9, esp: 50, alfa: .7, brilho: .12, cores: ["#5916AF", "#B88AFC", "#02E1FC"] },
+    { y: .91, yEstreito: .93, inclina: -.1, a: .06, k: 3, v: -.24, a2: .05, k2: 6.5, v2: .15, fase: 3, torcao: .6, esp: 38, alfa: .6, brilho: .1, cores: ["#02CBFA", "#01F2B8"] }
+  ]
+};
+function Fitas(canvas, conf) {
+  const ctx = canvas.getContext && canvas.getContext("2d");
+  if (!ctx) return null;
+  const area = canvas.parentElement;
+  let w = 1, h = 1, bandas = [], raf = 0, visivel = false, energia = 0, t = 2.2, ultimo = 0;
+  const alvo = { x: .7, y: .6, forca: 0 }, mao = { x: .7, y: .6, forca: 0 };
+  function desenhar(tempo) {
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalCompositeOperation = "lighter";
+    const estreito = w < 700, passo = estreito ? 20 : 16, linhas = estreito ? 16 : 26, base = Math.min(h, w * .8);
+    const curva = (b, tempo, amp, f, x) => {
+      const nx = x / w;
+      let y = b.yAtual * h + (nx - .5) * b.inclina * base
+        + Math.sin(nx * b.k + tempo * b.v + f * b.torcao) * amp
+        + Math.sin(nx * b.k2 - tempo * b.v2 + b.fase) * b.a2 * base
+        + f * b.esp * (1 + .55 * Math.sin(nx * 3.1 + tempo * .6 + b.fase));
+      if (mao.forca > .01) { const d = (nx - mao.x) / .2; y += (mao.y * h - y) * .5 * mao.forca * Math.exp(-d * d); }
+      return y;
+    };
+    for (const b of bandas) {
+      const amp = b.a * base * (1 + energia * .7);
+      ctx.strokeStyle = b.grad;
+      for (const [largura, alfa] of [[b.esp * 1.6, b.brilho * .5], [b.esp * .6, b.brilho]]) {
+        ctx.beginPath();
+        for (let x = -30; x <= w + 30; x += passo * 2) { const y = curva(b, tempo, amp, 0, x); if (x === -30) ctx.moveTo(x, y); else ctx.lineTo(x, y); }
+        ctx.globalAlpha = alfa * (1 + energia * .6);
+        ctx.lineWidth = largura;
+        ctx.lineCap = "round";
+        ctx.stroke();
+      }
+      for (let j = 0; j < linhas; j++) {
+        const f = j / (linhas - 1) - .5;
+        ctx.beginPath();
+        for (let x = -30; x <= w + 30; x += passo) { const y = curva(b, tempo, amp, f, x); if (x === -30) ctx.moveTo(x, y); else ctx.lineTo(x, y); }
+        ctx.globalAlpha = Math.max(0, b.alfa * (1 - Math.abs(f) * 1.5) * (.8 + energia * .5));
+        ctx.lineWidth = Math.abs(f) < .06 ? 2.4 : 1;
+        ctx.stroke();
+      }
+    }
+    ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = "source-over";
+  }
+  function medir() {
+    const r = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    w = Math.max(1, r.width); h = Math.max(1, r.height);
+    canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    bandas = conf.map(b => {
+      const g = ctx.createLinearGradient(0, 0, w, 0);
+      b.cores.forEach((c, i) => g.addColorStop(i / (b.cores.length - 1), c));
+      return Object.assign({}, b, { grad: g, yAtual: w < 700 ? b.yEstreito : b.y });
+    });
+    if (!raf) desenhar(t);
+  }
+  function quadro(agora) {
+    raf = 0;
+    if (!visivel || document.hidden) return;
+    const dt = ultimo ? Math.min(.05, (agora - ultimo) / 1000) : 0;
+    ultimo = agora;
+    t += dt * (1 + energia * 1.5);
+    mao.x += (alvo.x - mao.x) * .08; mao.y += (alvo.y - mao.y) * .08; mao.forca += (alvo.forca - mao.forca) * .06;
+    energia *= .96;
+    desenhar(t);
+    raf = requestAnimationFrame(quadro);
+  }
+  const iniciar = () => { if (!raf && ANIMA && visivel && !document.hidden) { ultimo = 0; raf = requestAnimationFrame(quadro); } };
+  medir();
+  if ("ResizeObserver" in window) new ResizeObserver(medir).observe(canvas); else window.addEventListener("resize", medir);
+  if (!ANIMA || !("IntersectionObserver" in window)) return null;
+  t = Math.random() * 10;
+  new IntersectionObserver(es => { visivel = es[0].isIntersecting; iniciar(); }).observe(canvas);
+  document.addEventListener("visibilitychange", iniciar);
+  const mover = e => { const r = area.getBoundingClientRect(); alvo.x = (e.clientX - r.left) / r.width; alvo.y = (e.clientY - r.top) / r.height; alvo.forca = 1; };
+  area.addEventListener("pointermove", mover, { passive: true });
+  area.addEventListener("pointerdown", e => { mover(e); energia = Math.min(1.6, energia + .9); }, { passive: true });
+  area.addEventListener("pointerleave", () => { alvo.forca = 0; });
+  return { agitar: v => { energia = Math.min(1.6, energia + v); } };
+}
+
+/* ---------- Ilustração do topo inclina com o cursor ---------- */
+function ligarInclinacao() {
+  const topo = $(".topo"), arte = $(".topo-arte svg");
+  if (!ANIMA || !arte || !window.matchMedia("(hover: hover)").matches) return;
+  topo.addEventListener("pointermove", e => {
+    const r = topo.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    arte.style.setProperty("--ry", (x * 10).toFixed(2) + "deg");
+    arte.style.setProperty("--rx", (-y * 8).toFixed(2) + "deg");
+  }, { passive: true });
+  topo.addEventListener("pointerleave", () => { arte.style.setProperty("--ry", "0deg"); arte.style.setProperty("--rx", "0deg"); });
+}
+
+/* ---------- Brilho que segue o cursor nos cartões ---------- */
+function ligarLuz() {
+  if (!window.matchMedia("(hover: hover)").matches) return;
+  document.addEventListener("pointermove", e => {
+    const el = e.target.closest ? e.target.closest(".spot") : null;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", (e.clientX - r.left) + "px");
+    el.style.setProperty("--my", (e.clientY - r.top) + "px");
+  }, { passive: true });
+}
+
+/* ---------- Rolagem: progresso, etapas, painel e energia das fitas ---------- */
+function ligarRolagem(fitas) {
+  const barra = $("#progresso");
+  let pendente = false, ultimoY = window.scrollY;
+  const atualizar = () => {
+    pendente = false;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    barra.style.setProperty("--p", max > 0 ? limitar(window.scrollY / max, 0, 1).toFixed(4) : 0);
+    atualizarFluxo();
+    atualizarContexto();
+    const v = Math.abs(window.scrollY - ultimoY);
+    ultimoY = window.scrollY;
+    if (v) fitas.forEach(f => { if (f) f.agitar(Math.min(.2, v / 1200)); });
+  };
+  window.addEventListener("scroll", () => { if (!pendente) { pendente = true; requestAnimationFrame(atualizar); } }, { passive: true });
+  window.addEventListener("resize", atualizar);
+  atualizar();
+}
+
+function ligarAnimacoes() {
+  try { ligarRevelacao(); } catch (e) { document.documentElement.classList.add("revela-tudo"); }
+  window.__paginaPronta = true;
+  const fitas = $$(".fitas").map(c => Fitas(c, CONF_FITAS[c.dataset.fitas] || CONF_FITAS.topo));
+  ligarRolagem(fitas);
+  ligarInclinacao();
+  ligarLuz();
+}
+
 /* ---------- Início ---------- */
 preencherConfig();
 montarFixos();
@@ -1776,6 +2286,11 @@ aplicarLetra();
 desenharOpcoes();
 atualizarLinks();
 ligarFixo();
+montarNumeros();
+montarFluxo();
+ligarBloom();
+ligarFormatos();
+ligarAnimacoes();
 
 })();
 </script>
