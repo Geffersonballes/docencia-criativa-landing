@@ -134,6 +134,9 @@ const ORDEM_BLOOM = ['Lembrar', 'Entender', 'Aplicar', 'Analisar', 'Avaliar', 'C
     confere('[oferta] bônus do documento', (await page.textContent('#bonus')).startsWith('Módulo Bônus · O Desafio da Multiplicação: Ferramentas Pedagógicas (2 aulas).'));
     const prof = await page.textContent('#quem-ensina');
     confere('[quem ensina] bio do documento, sem "Como trabalha"', prof.includes('idealizador da formação Docência Criativa') && prof.includes('Aulas Engajadoras') && prof.includes('O conhecimento é um lugar') && !prof.includes('Como trabalha'));
+    const pq = await page.evaluate(() => ({ cred: [...document.querySelectorAll('#prof-cred li')].map(l => l.textContent), redes: document.querySelector('.prof-redes').textContent, nome: document.querySelector('.prof-nome').textContent, links: document.querySelectorAll('#quem-ensina a').length, golpe: document.querySelector('#faq-r-golpe').textContent }));
+    confere('[quem ensina] nome com idade, 6 credenciais, graduado pela UFMT (não "estudante")', pq.nome === 'Prof. Romário Costa, 39 anos' && pq.cred.length === 6 && pq.cred.includes('Graduado em Tecnologia Educacional pela UFMT') && !prof.includes('estudante'), pq);
+    confere('[quem ensina] Instagram, TikTok e YouTube como texto, sem links de saída; FAQ cita as três redes', /Instagram @prof\.romariocosta/.test(pq.redes) && /TikTok @prof\.romariocosta/.test(pq.redes) && /YouTube @engajadamente/.test(pq.redes) && pq.links === 0 && pq.golpe.includes('TikTok como @prof.romariocosta') && pq.golpe.includes('YouTube como @engajadamente'), pq);
     const bloom = await page.textContent('.bloom');
     confere('[bloom] seis níveis e menção ao Tema 5, sem correção', ORDEM_BLOOM.every(n => bloom.includes(n)) && bloom.includes('No Tema 5') && !/corrig|correção/.test(bloom));
     confere('[B] sem erros', log.erros.length === 0, log.erros);

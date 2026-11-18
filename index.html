@@ -220,7 +220,13 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .foto.tem{border:0;padding:0}
 .foto img{width:100%;height:100%;object-fit:cover}
 .prof-nome{font-size:1.5rem;font-weight:800;margin:0 0 .1em;line-height:1.2}
-.prof-ig{margin:0 0 1rem;font-weight:700;color:var(--link)}
+.prof-idade{font-weight:600;color:var(--texto-2);white-space:nowrap}
+.prof-redes{display:flex;flex-wrap:wrap;gap:.25rem 1.1rem;margin:0 0 1.1rem;font-size:.95rem;color:var(--texto-2);overflow-wrap:anywhere}
+.prof-grid>div:last-child{min-width:0;max-width:100%}
+.prof-redes b{font-weight:700;color:var(--link)}
+.prof-cred{display:grid;gap:.45rem;margin:0 0 1.1rem;padding:0;list-style:none}
+.prof-cred li{position:relative;padding-left:1.35rem;font-weight:600;line-height:1.4;overflow-wrap:anywhere;hyphens:auto}
+.prof-cred li::before{content:"";position:absolute;left:.1rem;top:.5em;width:.5rem;height:.5rem;border-radius:50%;background:var(--menta);box-shadow:0 0 8px rgba(78,241,180,.7)}
 
 /* ========== 8. Oferta ========== */
 .oferta{background:var(--veu-2)}
@@ -378,7 +384,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 /* ========== Palco: céu de fitas fixo, abertura e cursor ========== */
 .ceu{position:fixed;inset:0;z-index:0;display:block;width:100%;height:100%;pointer-events:none;opacity:.85}
 .barra,.furos,main,.final,.rodape{position:relative;z-index:1}
-.halo,.sub,.lead,.ponte,h1,[data-palavras] .pl,.garantia-grid h2,.prof-nome,.prof-ig{text-shadow:var(--halo)}
+.halo,.sub,.lead,.ponte,h1,[data-palavras] .pl,.garantia-grid h2,.prof-nome,.prof-redes{text-shadow:var(--halo)}
 .painel-contexto,.painel-final{--halo:0 0 0 transparent}
 /* o texto em degradê é pintado pelo fundo: a sombra do texto ficaria por cima dele, então o halo vira filtro */
 h1 mark{text-shadow:none;filter:drop-shadow(0 0 2px rgba(2,4,45,.95)) drop-shadow(0 0 7px rgba(2,4,45,.85))}
@@ -495,6 +501,7 @@ h1 .acento{font-weight:700}
   .para-col+.para-col{border-top:0;border-left:1px solid var(--borda)}
   .garantia-grid{grid-template-columns:auto 1fr;gap:2.5rem}
   .prof-grid{grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
+  .prof-cred{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1.75rem}
   .prancheta-folha{padding:2rem 1.75rem}
   .painel-contexto{padding:3.5rem 3rem}
   .painel-final{padding:4rem 3rem}
@@ -806,8 +813,9 @@ h1 .acento{font-weight:700}
     <div class="prof-grid" data-revelar>
       <div class="polaroid"><div class="foto" id="prof-foto"><span>Foto do professor</span><mark class="todo">[PREENCHER]</mark></div></div>
       <div>
-        <p class="prof-nome" data-c="professor.nome">Prof. Romário Costa</p>
-        <p class="prof-ig"><span data-c="professor.instagram">@prof.romariocosta</span> no Instagram</p>
+        <p class="prof-nome"><span data-c="professor.nome">Prof. Romário Costa</span><span class="prof-idade">, <span data-c="professor.idade">39</span> anos</span></p>
+        <p class="prof-redes"><span>Instagram <b data-c="professor.instagram">@prof.romariocosta</b></span><span>TikTok <b data-c="professor.tiktok">@prof.romariocosta</b></span><span>YouTube <b data-c="professor.youtube">@engajadamente</b></span></p>
+        <ul class="prof-cred" id="prof-cred"></ul>
         <p id="prof-bio"></p>
         <blockquote class="citacao">“O conhecimento é um lugar, e nós, professores, somos os guias que mostram o caminho para se chegar até ele.”</blockquote>
       </div>
@@ -1079,11 +1087,23 @@ const CONFIG = {
   certificado: "[PREENCHER]",        // o documento cita a certificação; informe carga horária e como é emitido
   suporte: "[PREENCHER]",            // canal e horário. Enquanto não for preenchido, o item não aparece na oferta
 
-  // Quem ensina (bio tirada da aula "Quem Sou/ Formador")
+  // Quem ensina. Credenciais e redes informadas pelo professor; a história vem da aula "Quem Sou/ Formador".
+  // As redes aparecem como texto, sem link: a página não tem saídas além do checkout.
   professor: {
     nome: "Prof. Romário Costa",
-    instagram: "@prof.romariocosta", // aparece como texto, sem link
-    bio: "Pedagogo, especialista em Ensino Híbrido e estudante de Tecnologia Educacional pela UFMT (Universidade Federal de Mato Grosso). É o idealizador da formação Docência Criativa, que nasceu do seu treinamento online “Aulas Engajadoras”. Na pandemia de COVID-19, precisou se tornar um profissional mais digital e percebeu o quanto o uso estratégico das TDICs gera engajamento e significados reais para os alunos.",
+    idade: 39,
+    instagram: "@prof.romariocosta",
+    tiktok: "@prof.romariocosta",
+    youtube: "@engajadamente",
+    credenciais: [
+      "Professor pedagogo",
+      "Pós-graduado em Ensino Híbrido",
+      "Graduado em Tecnologia Educacional pela UFMT",
+      "Formador de professores",
+      "Especialista no uso de Inteligência Artificial na personalização do ensino e da aprendizagem",
+      "Músico, compositor, guitarrista e produtor audiovisual e musical"
+    ],
+    bio: "É o idealizador da formação Docência Criativa, que nasceu do seu treinamento online “Aulas Engajadoras”. Na pandemia de COVID-19, precisou se tornar um profissional mais digital e percebeu o quanto o uso estratégico das TDICs gera engajamento e significados reais para os alunos.",
     foto: "[PREENCHER]"              // endereço da imagem, ex.: "romario.jpg"
   },
 
@@ -1151,7 +1171,7 @@ const FAQ = [
         "Parcelamento: {parcelamento}"] },
   { id: "golpe", p: "Como sei que não é golpe?",
     r: ["A compra é feita na Hotmart, a plataforma que processa o pagamento e libera o acesso ao curso.",
-        "Quem ensina é o {professor.nome}, que você encontra no Instagram como {professor.instagram}.",
+        "Quem ensina é o {professor.nome}, que você encontra no Instagram como {professor.instagram}, no TikTok como {professor.tiktok} e no YouTube como {professor.youtube}.",
         "Você tem {garantiaDias} dias para desistir e receber o dinheiro de volta. Esse prazo é um direito seu, previsto no Código de Defesa do Consumidor.",
         "CNPJ: {cnpj}. Contato: {email}"] },
   { id: "acesso", p: "Como recebo o acesso?",
@@ -1807,6 +1827,7 @@ function montarFixos() {
   }
 
   // Quem ensina
+  $("#prof-cred").innerHTML = (CONFIG.professor.credenciais || []).map(c => "<li>" + comMarca(c) + "</li>").join("");
   $("#prof-bio").innerHTML = comMarca(CONFIG.professor.bio);
   if (preenchido(CONFIG.professor.foto)) {
     const f = $("#prof-foto");

@@ -44,6 +44,7 @@ const assinatura = (p, sel) => p.evaluate(s => { const c = document.querySelecto
     const fixo = await p.evaluate(() => { const c = document.querySelector('#ceu'), s = getComputedStyle(c); return s.position === 'fixed' && Math.abs(c.getBoundingClientRect().height - innerHeight) < 2; });
     confere(t + 'céu fixo atrás da página inteira', fixo);
     // etiqueta decodificada e título com eco
+    await p.waitForFunction(() => { const o = document.querySelector('#olho-topo'), sr = o.querySelector('.sr'), v = o.querySelector('[aria-hidden]'); return sr && v && v.textContent === sr.textContent; }, null, { timeout: 4000 }).catch(() => {});
     d = await p.evaluate(() => { const o = document.querySelector('#olho-topo'); return { sr: o.querySelector('.sr') && o.querySelector('.sr').textContent, vis: o.querySelector('[aria-hidden]') && o.querySelector('[aria-hidden]').textContent }; });
     confere(t + 'etiqueta do topo decodificada até o texto final (leitor de tela lê o texto certo)', d.sr === 'formação continuada / 69 aulas / módulo 1 + 8 temas + bônus' && d.vis === d.sr, d);
     const eco = await p.evaluate(() => getComputedStyle(document.querySelector('#aprender-t .pl')).textShadow);
