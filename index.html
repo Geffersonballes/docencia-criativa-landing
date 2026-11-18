@@ -46,6 +46,9 @@
   --degrade-botao:linear-gradient(90deg,#02CBFA,#01F2B8);
   --brilho:0 0 0 1px rgba(2,203,250,.18),0 0 26px -6px rgba(89,22,175,.85);
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --halo:0 0 2px rgba(2,4,45,.95),0 0 6px rgba(2,4,45,.9),0 0 16px rgba(2,4,45,.85);
+  --veu:rgba(6,10,51,.8); --veu-2:rgba(11,20,82,.78);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{font-size:112.5%;-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
@@ -96,7 +99,7 @@ section{padding:3rem 0;scroll-margin-top:.5rem}
 .furos{height:4px;background:linear-gradient(90deg,var(--ciano),var(--lilas),var(--verde))}
 
 /* ========== 1. Topo ========== */
-.topo{padding:1rem 0 2.5rem;background:radial-gradient(60% 55% at 100% 0%,rgba(89,22,175,.65),transparent 70%),radial-gradient(45% 50% at 0% 100%,rgba(1,201,125,.3),transparent 70%),var(--noite)}
+.topo{padding:1rem 0 2.5rem;background:radial-gradient(60% 55% at 100% 0%,rgba(89,22,175,.5),transparent 70%),radial-gradient(40% 32% at 0% 64%,rgba(1,201,125,.16),transparent 70%)}
 .topo-grid{display:grid;gap:1.5rem}
 .sobre{display:inline-block;margin:0 0 .8rem;padding:.25rem .85rem;background:linear-gradient(90deg,#50E4F7,#4EF1B4);color:var(--tinta);border-radius:6px 16px 8px 14px;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;transform:rotate(-1.5deg)}
 h1{font-size:clamp(1.95rem,1.3rem + 3.3vw,3.35rem);margin-bottom:.45em}
@@ -107,13 +110,9 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 @media (max-width:479px){.btn-compra{padding-inline:.6rem;font-size:clamp(.9rem,4.6vw,1.05rem)}.btn-compra [aria-hidden]{display:none}}
 .acao-nota{margin:.8rem 0 .3rem;font-size:.9rem;color:var(--texto-2)}
 .acao-nota strong{color:var(--texto)}
-.acao-demo{margin:0;font-size:.95rem;font-weight:700}
-.acao-demo a{display:inline-block;padding:.6rem 0}
-.topo-arte{max-width:19rem;margin:0 auto}
-.topo-arte svg{display:block;width:100%}
 
 /* ========== 2. O desafio ========== */
-.dores{background:var(--noite-2)}
+.dores{background:var(--veu-2)}
 .dores-grid{display:grid;gap:1.75rem;margin:1.5rem 0}
 .fala{margin:0;position:relative;padding:1.35rem 1rem 1.1rem 2.9rem;background-color:var(--folha);color:var(--tinta);background-image:linear-gradient(90deg,transparent 2rem,#E3A096 2rem,#E3A096 calc(2rem + 2px),transparent calc(2rem + 2px)),repeating-linear-gradient(transparent 0,transparent calc(2.3rem - 1px),var(--linha) calc(2.3rem - 1px),var(--linha) 2.3rem);background-position:0 0,0 .9rem;border-radius:4px;box-shadow:0 18px 34px -14px rgba(0,0,0,.75),0 0 30px -10px rgba(89,22,175,.8);transform:rotate(-.7deg)}
 .fala::before{content:"";position:absolute;left:.7rem;top:1.2rem;bottom:1.2rem;width:.6rem;background:radial-gradient(circle,var(--noite-2) 0 .28rem,transparent .3rem) center top/.6rem 2.3rem repeat-y}
@@ -129,7 +128,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .ponte{max-width:42rem;margin:0;font-size:1.15rem;font-weight:600;line-height:1.5}
 
 /* ========== 3. Demonstração (quadro) ========== */
-.demo{background:#0B1A3F radial-gradient(ellipse at 15% 0,rgba(2,203,250,.14),transparent 55%);color:var(--texto);border-block:1px solid rgba(2,203,250,.4)}
+.demo{background:radial-gradient(ellipse at 15% 0,rgba(2,203,250,.14),transparent 55%),rgba(11,26,63,.93);color:var(--texto);border-block:1px solid rgba(2,203,250,.4)}
 .demo-intro{font-size:1.05rem;max-width:38rem}
 .aviso-demo{display:flex;gap:.6rem;align-items:flex-start;max-width:38rem;margin:0 0 1.75rem;padding:.7rem .8rem;border:2px dashed rgba(255,255,255,.5);border-radius:10px;font-size:.9rem;line-height:1.45}
 .aviso-demo .ico{margin-top:.1em;color:var(--menta)}
@@ -181,13 +180,6 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .rot-res{margin:0 0 .2rem;font-size:.8rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-2)}
 
 /* ========== 4. O que você vai aprender ========== */
-.ganhos{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(14rem,100%),1fr));margin:1.5rem 0}
-.ganho{padding:1.1rem 1rem;background:var(--painel);border:1.5px solid var(--borda);border-radius:16px;box-shadow:var(--brilho)}
-.ganho .ico{width:2rem;height:2rem;color:var(--ciano);margin-bottom:.4rem}
-.ganho h3{font-size:1.15rem;margin-bottom:.3em}
-.ganho p{margin:0;font-size:.95rem;color:var(--texto-2)}
-.ganho-fio{border-color:var(--menta);background:#0F2A5E}
-.ganho-fio .ico{color:var(--menta)}
 .bloom{margin:0 0 2.5rem;padding:1.2rem 1.1rem;background:var(--painel);border:1.5px solid rgba(184,138,252,.6);border-radius:18px;box-shadow:0 0 32px -8px rgba(89,22,175,.95)}
 .bloom p{max-width:44rem}
 .modulos{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(min(16rem,100%),1fr));align-items:start}
@@ -202,7 +194,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .modulo details[open] summary{color:var(--texto)}
 
 /* ========== 5. Para quem é ========== */
-.para{background:var(--noite-2)}
+.para{background:var(--veu-2)}
 .para-grid{display:grid;gap:1.25rem;margin-top:1.5rem}
 .para-col{padding:1.2rem 1.1rem;background:var(--painel);border-radius:16px;border:1.5px solid var(--borda)}
 .para-col h3{display:flex;align-items:center;gap:.5rem}
@@ -219,7 +211,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 
 /* ========== 7. Quem ensina ========== */
 .prof-grid{display:grid;gap:1.75rem;justify-items:start;margin-top:1.5rem}
-.polaroid{width:min(100%,14rem);padding:.65rem .65rem 2.2rem;background:#fff;box-shadow:0 18px 30px -12px rgba(0,0,0,.75),0 0 30px -8px rgba(89,22,175,.8);transform:rotate(-2.5deg);position:relative}
+.polaroid{width:min(85%,14rem);padding:.65rem .65rem 2.2rem;background:#fff;box-shadow:0 18px 30px -12px rgba(0,0,0,.75),0 0 30px -8px rgba(89,22,175,.8);transform:rotate(-2.5deg);position:relative}
 .polaroid::before{content:"";position:absolute;top:-.6rem;left:50%;width:4.5rem;height:1.25rem;margin-left:-2.25rem;background:rgba(78,241,180,.85);transform:rotate(3deg)}
 .foto{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;aspect-ratio:1;background:#EDEBFA;color:var(--tinta);border:2px dashed #8A86C0;text-align:center;font-size:.85rem;font-weight:700;padding:.5rem;overflow:hidden}
 .foto.tem{border:0;padding:0}
@@ -228,7 +220,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .prof-ig{margin:0 0 1rem;font-weight:700;color:var(--link)}
 
 /* ========== 8. Oferta ========== */
-.oferta{background:var(--noite-2)}
+.oferta{background:var(--veu-2)}
 .prancheta{margin-top:1.75rem;padding:2px;background:linear-gradient(120deg,var(--lilas),var(--ciano),var(--verde));border-radius:22px;box-shadow:0 0 44px -10px rgba(89,22,175,.95)}
 .prancheta-folha{display:grid;gap:1.5rem;padding:1.5rem .9rem 1.1rem;background:var(--noite);border-radius:20px}
 .lista-ok li{position:relative;padding:.45rem 0 .45rem 2rem;border-bottom:1px solid rgba(255,255,255,.12)}
@@ -252,7 +244,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .garantia-grid p{max-width:38rem;color:var(--texto-2)}
 
 /* ========== 10. FAQ ========== */
-.faq{background:var(--noite-2)}
+.faq{background:var(--veu-2)}
 .faq-lista{margin-top:1.5rem;background:var(--painel);border:1.5px solid var(--borda);border-radius:16px;overflow:hidden;max-width:48rem;box-shadow:var(--brilho)}
 .faq-item+.faq-item{border-top:1px solid rgba(255,255,255,.12)}
 .faq-item h3{margin:0;font-size:1rem;font-weight:700;letter-spacing:0;text-wrap:wrap}
@@ -291,13 +283,10 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .fixo-preco small{display:block;font-weight:600;font-size:.7rem;color:var(--texto-2)}
 .fixo .btn-compra{flex:1;min-height:48px;padding:.45rem .7rem;font-size:.95rem;box-shadow:none}
 @media (max-width:767px){.rodape{padding-bottom:6.5rem}}
-@media (max-width:479px){.fala{transform:none}}
+@media (max-width:479px){.fala{transform:none}.no small{font-size:.64rem}.no b{font-size:.76rem}}
 @media (min-width:768px){.fixo{display:none}}
 
 /* ========== Complementos ========== */
-.fatos{display:flex;flex-wrap:wrap;gap:.45rem;margin:1rem 0 1.25rem}
-.fatos li{padding:.2rem .75rem;background:rgba(255,255,255,.06);border:1.5px solid var(--borda);border-radius:999px;font-size:.85rem;font-weight:700;line-height:1.5}
-.fatos li:last-child{background:var(--degrade-botao);border-color:transparent;color:var(--tinta)}
 .aulas{margin-top:.2rem}
 .aulas li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.55rem;margin-bottom:.45rem;font-size:.9rem;line-height:1.35}
 .aulas span{overflow-wrap:break-word}
@@ -309,41 +298,26 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 /* Faixa de progresso da leitura */
 .progresso{position:fixed;top:0;left:0;right:0;z-index:80;height:3px;transform-origin:0 50%;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--lilas),var(--ciano),var(--verde));box-shadow:0 0 12px rgba(2,203,250,.8);pointer-events:none}
 
-/* Fitas de luz (canvas) no topo e na chamada final */
-.topo,.final{position:relative;overflow:hidden;isolation:isolate}
-.topo>.wrap,.final>.wrap{position:relative;z-index:1}
-.fitas{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%;pointer-events:none;-webkit-mask-image:var(--mascara);mask-image:var(--mascara)}
-.topo .fitas{--mascara:linear-gradient(180deg,transparent 0,transparent 66%,rgba(0,0,0,.5) 74%,#000 84%)}
-.final .fitas{--mascara:linear-gradient(180deg,transparent 0,transparent 42%,#000 92%)}
-
 /* Revelar ao rolar (só com a animação ligada) */
 .js-anima [data-revelar]{opacity:0;translate:0 22px;transition:opacity .6s ease,translate .75s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0) * 90ms)}
 .js-anima [data-revelar].visivel{opacity:1;translate:none}
-.js-anima [data-palavras] .pl{display:inline-block;opacity:0;filter:blur(10px);translate:0 .3em;transition:opacity .7s ease,filter .7s ease,translate .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0) * 55ms)}
-.js-anima [data-palavras].visivel .pl{opacity:1;filter:blur(0);translate:none}
+.js-anima [data-palavras] .pl{display:inline-block;opacity:0;filter:blur(10px);translate:0 .3em;text-shadow:0 .34em 0 rgba(255,255,255,.22),0 .68em 0 rgba(255,255,255,.1);text-shadow:0 .34em 0 color-mix(in srgb,currentColor 24%,transparent),0 .68em 0 color-mix(in srgb,currentColor 11%,transparent);transition:opacity .7s ease,filter .7s ease,translate .8s cubic-bezier(.2,.7,.2,1),text-shadow 1s ease;transition-delay:calc(var(--i,0) * 55ms)}
+.js-anima [data-palavras].visivel .pl{opacity:1;filter:blur(0);translate:none;text-shadow:var(--halo)}
 .js-anima [data-palavras]::after{width:0;transition:width .9s cubic-bezier(.2,.7,.2,1) .35s}
 .js-anima [data-palavras].visivel::after{width:5.5rem}
-.revela-tudo [data-revelar],.revela-tudo [data-palavras] .pl{opacity:1!important;translate:none!important;filter:none!important;transition:none!important}
+.revela-tudo [data-revelar],.revela-tudo [data-palavras] .pl{opacity:1!important;translate:none!important;filter:none!important;text-shadow:var(--halo)!important;transition:none!important}
 .revela-tudo [data-palavras]::after{width:5.5rem!important}
 
 /* Palavra de destaque e etiqueta com ponto aceso */
 .junto{white-space:nowrap}
 .acento{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;letter-spacing:-.01em;color:var(--lilas)}
-.olho{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.5rem;max-width:100%;margin:0 0 .9rem;padding:.25rem .75rem;border:1px solid var(--borda);border-radius:999px;background:rgba(255,255,255,.04);font:700 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.03em;text-transform:uppercase;color:var(--texto-2)}
+.olho{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.5rem;max-width:100%;margin:0 0 .9rem;padding:.25rem .75rem;border:1px solid var(--borda);border-radius:999px;background:rgba(6,10,51,.72);font:700 .72rem/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.03em;text-transform:uppercase;color:var(--texto-2)}
 .olho::before{content:"";flex:none;width:.45rem;height:.45rem;border-radius:50%;background:var(--menta);box-shadow:0 0 10px var(--menta)}
 .js-anima .olho::before{animation:pisca-ponto 2.4s ease-in-out infinite}
 @keyframes pisca-ponto{50%{opacity:.35}}
 
-/* Números da formação */
-.numeros{padding:2.25rem 0;background:var(--noite-3);border-block:1px solid rgba(130,150,255,.2)}
-.numeros-lista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem .75rem;text-align:center}
-.numero-vis{display:flex;flex-direction:column;align-items:center}
-.contador{font-size:clamp(2.5rem,1.9rem + 2.6vw,3.6rem);font-weight:900;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--ciano-2)}
-@supports ((-webkit-background-clip:text) or (background-clip:text)){.contador{background:var(--degrade-titulo);-webkit-background-clip:text;background-clip:text;color:transparent}}
-.numero-vis small{max-width:11rem;margin-top:.45rem;font-size:.85rem;font-weight:700;line-height:1.3;color:var(--texto-2)}
-
 /* Do roteiro ao vídeo: etapas que acendem com a rolagem */
-.fluxo-sec{background:var(--noite)}
+.fluxo-sec{background:var(--veu)}
 .fluxo{--prog:0;position:relative;display:grid;gap:1.6rem;margin-top:1.75rem;padding-left:3.4rem}
 .fluxo::before,.fluxo::after{content:"";position:absolute;left:1.3rem;top:1.3rem;bottom:1.3rem;width:3px;margin-left:-1.5px;border-radius:3px;background:rgba(130,150,255,.25)}
 .fluxo::after{background:linear-gradient(180deg,var(--lilas),var(--ciano),var(--verde));transform-origin:50% 0;transform:scaleY(var(--prog));box-shadow:0 0 14px rgba(2,203,250,.75)}
@@ -355,8 +329,8 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .etapa p{margin:0;font-size:.95rem;color:var(--texto-2)}
 
 /* Painel "Contexto é rei", que cresce ao entrar na tela */
-.contexto{padding:1rem 0 3rem;background:var(--noite)}
-.painel-contexto{--z:1;position:relative;padding:2.25rem 1.3rem;border-radius:calc(44px - var(--z) * 20px);background:linear-gradient(120deg,#50E4F7,#4EF1B4 55%,#01F2B8);color:var(--tinta);transform:scale(calc(.88 + var(--z) * .12));transform-origin:50% 70%;box-shadow:0 30px 80px -30px rgba(1,242,184,.75);overflow:hidden}
+.contexto{padding:1rem 0 3rem}
+.painel-contexto{position:relative;padding:2.25rem 1.3rem;border-radius:calc(44px - var(--z,1) * 20px);background:linear-gradient(120deg,#50E4F7,#4EF1B4 55%,#01F2B8);color:var(--tinta);transform:scale(calc(.88 + var(--z,1) * .12));transform-origin:50% 70%;box-shadow:0 30px 80px -30px rgba(1,242,184,.75);overflow:hidden}
 .painel-contexto h2{color:var(--tinta);font-size:clamp(2.3rem,1.5rem + 4.2vw,4.2rem)}
 .painel-contexto h2::after{background:var(--tinta)}
 .painel-contexto .acento{color:#3A1A8C}
@@ -398,12 +372,176 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .js-anima .btn-compra::after{content:"";position:absolute;top:-10%;bottom:-10%;left:-70%;z-index:-1;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-18deg);animation:reflexo 6s ease-in-out 1.5s infinite}
 @keyframes reflexo{0%{left:-70%}18%,100%{left:130%}}
 
-/* Ilustração do topo: blocos flutuando, conexões em movimento e inclinação com o cursor */
-.js-anima .topo-arte svg{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .3s ease-out}
-.js-anima .flutua{animation:flutua 6s ease-in-out infinite;animation-delay:calc(var(--f,0) * -1.5s)}
+/* ========== Palco: céu de fitas fixo, abertura e cursor ========== */
+.ceu{position:fixed;inset:0;z-index:0;display:block;width:100%;height:100%;pointer-events:none;opacity:.85}
+.barra,.furos,main,.final,.rodape{position:relative;z-index:1}
+.halo,.sub,.lead,.ponte,h1,[data-palavras] .pl,.garantia-grid h2,.prof-nome,.prof-ig{text-shadow:var(--halo)}
+.painel-contexto,.painel-final{--halo:0 0 0 transparent}
+/* o texto em degradê é pintado pelo fundo: a sombra do texto ficaria por cima dele, então o halo vira filtro */
+h1 mark{text-shadow:none;filter:drop-shadow(0 0 2px rgba(2,4,45,.95)) drop-shadow(0 0 7px rgba(2,4,45,.85))}
+/* textos pequenos que ficariam sobre as fitas ganham fundo próprio */
+.prof-grid>div:last-child,.garantia-grid>div:last-child{padding:1.25rem 1.1rem;background:var(--veu);border:1px solid var(--borda);border-radius:18px;box-shadow:0 18px 40px -24px rgba(0,0,0,.9)}
+.garantia-grid>div:last-child h2{margin-top:0}
+.garantia-grid>div:last-child p:last-child,.prof .citacao:last-child{margin-bottom:0}
+.mono{font-family:var(--mono);letter-spacing:.01em}
+.intro{display:none}
+.com-intro .intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--noite);pointer-events:none;animation:intro-sai .45s ease .6s forwards}
+.intro::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,#50E4F7,#4EF1B4 55%,#01F2B8);opacity:0;animation:intro-luz .5s ease .22s forwards}
+.intro-ico{position:relative;display:grid;place-items:center;width:4.2rem;height:4.2rem;border-radius:18px;background:linear-gradient(120deg,#50E4F7,#4EF1B4);color:var(--tinta);box-shadow:0 0 44px rgba(78,241,180,.85);animation:intro-ico .45s cubic-bezier(.2,.7,.2,1) both}
+.intro-ico .ico{width:1.9rem;height:1.9rem;stroke-width:2.4}
+@keyframes intro-ico{from{opacity:0;transform:scale(.55)}}
+@keyframes intro-luz{45%{opacity:.82}100%{opacity:0}}
+@keyframes intro-sai{to{opacity:0;visibility:hidden}}
+.anel{position:fixed;left:-17px;top:-17px;z-index:90;width:34px;height:34px;border:1.5px solid rgba(78,241,180,.9);border-radius:50%;pointer-events:none;opacity:0;transition:opacity .3s,background-color .25s;will-change:transform}
+.anel.on{opacity:1}
+.anel.sobre{background:rgba(78,241,180,.14)}
+
+/* ========== Barra do topo: status e botão ========== */
+.status,.btn-nav{display:none}
+
+/* ========== Topo: etiqueta, título, ações ========== */
+.olho-topo{margin-bottom:1rem}
+h1 .acento{font-weight:700}
+.acao{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem}
+.link-demo{display:inline-flex;align-items:center;gap:.5rem;min-height:48px;padding:.55rem 1.1rem;border:1.5px solid rgba(255,255,255,.35);border-radius:14px;background:rgba(6,10,51,.7);color:var(--texto);font-weight:700;text-decoration:none;transition:border-color .2s,background-color .2s}
+.link-demo .ico{width:.95em;height:.95em;fill:currentColor;stroke:none}
+.topo .acao-nota{flex-basis:100%;margin:.2rem 0 0;font-family:var(--mono);font-size:.8rem;letter-spacing:.01em}
+.nota-chip{display:inline-block;max-width:100%;padding:.35rem .65rem;background:var(--veu);border:1px solid var(--borda);border-radius:8px}
+@media (hover:hover){.link-demo:hover{border-color:var(--ciano);background:rgba(2,203,250,.12)}}
+
+/* ========== Topo: cartão do Agente Avaliativo (fluxo com ramificação) ========== */
+.fluxo-card{position:relative;padding:1rem;background:rgba(10,16,64,.88);border:1.5px solid rgba(130,150,255,.42);border-radius:20px;box-shadow:0 30px 80px -30px rgba(0,0,0,.9),0 0 44px -12px rgba(89,22,175,.95);transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .3s ease-out}
+.fc-topo{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .8rem;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.fc-nome{margin:0;font-weight:800;font-size:.95rem}
+.fc-nome span{font-weight:600;color:var(--texto-2)}
+.fc-meta,.fc-status{margin:0;font-family:var(--mono);font-size:.7rem;color:var(--texto-2)}
+.fc-status{display:inline-flex;align-items:center;gap:.4rem;margin-left:auto;color:var(--menta)}
+.fc-status i{width:.45rem;height:.45rem;border-radius:50%;background:var(--menta);box-shadow:0 0 8px var(--menta)}
+.js-anima .fc-status i{animation:pisca-ponto 1.6s ease-in-out infinite}
+.fc-grafo{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1.7rem .45rem}
+.fc-linhas{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.fc-linhas path{fill:none}
+.fc-linhas .base{stroke:rgba(130,150,255,.4);stroke-width:1.5;stroke-dasharray:3 4}
+.fc-linhas .luz{stroke:#4EF1B4;stroke-width:2.2;stroke-dasharray:var(--l,400) var(--l,400);stroke-dashoffset:var(--l,400);transition:stroke-dashoffset .42s ease;filter:drop-shadow(0 0 4px rgba(78,241,180,.95))}
+.fc-linhas .luz.on{stroke-dashoffset:0}
+.no{position:relative;z-index:1;margin:0;padding:.5rem .55rem;min-height:48px;background:#0E1650;border:1.5px solid rgba(130,150,255,.5);border-radius:12px;color:var(--texto);font:inherit;text-align:left;line-height:1.2;transition:border-color .3s,box-shadow .3s,background-color .3s,color .3s}
+.no b{display:block;font-size:.8rem;font-weight:800}
+.no small{display:block;margin-top:.22rem;font:600 .68rem/1.3 var(--mono);color:var(--texto-2)}
+.no-a{grid-column:1/4}.no-b{grid-column:4/7}.no-c{grid-column:span 2}.no-d{grid-column:1/4}.no-e{grid-column:4/7}
+button.no{padding-right:1.6rem;cursor:pointer}
+button.no::after{content:"↻";position:absolute;top:.4rem;right:.5rem;font-size:.8rem;color:var(--ciano)}
+.no.on{border-color:var(--menta);background:#0F2A5E;box-shadow:0 0 0 1px var(--menta),0 0 22px -4px rgba(78,241,180,.9)}
+.no-e.on{background:linear-gradient(120deg,#50E4F7,#4EF1B4);color:var(--tinta)}
+.no-e.on small{color:var(--tinta)}
+.fc-log{margin-top:1.1rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.1)}
+.fc-log p{margin:0 0 .4rem;font:700 .66rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--texto-2)}
+.fc-log ol{display:grid;gap:.3rem;min-height:4.4em;font:600 .72rem/1.4 var(--mono)}
+.fc-log li{display:flex;gap:.45rem}
+.fc-log li::before{content:"";flex:none;width:.4rem;height:.4rem;margin-top:.45em;border-radius:50%;background:var(--menta)}
+.js-anima .fc-log li.novo{animation:entra .5s ease}
+@keyframes entra{from{opacity:0;transform:translateY(-6px)}}
+.fc-dica{margin:.8rem 0 0;font:600 .7rem/1.4 var(--mono);color:var(--texto-2)}
+
+/* ========== A formação em números (painel em grade) ========== */
+.numeros{padding:3rem 0}
+.bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-flow:dense;gap:.9rem;margin-top:1.5rem}
+.cel{position:relative;grid-column:span 2;overflow:hidden;padding:1.1rem;background:rgba(14,22,80,.9);border:1.5px solid var(--borda);border-radius:18px;box-shadow:var(--brilho)}
+.cel-mini{grid-column:span 1}
+.cel-estilos{grid-column:span 2}
+.cel-rot{margin:0 0 .45rem;font:700 .7rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--texto-2)}
+.cel-txt{margin:.6rem 0 0;font-size:.95rem;color:var(--texto-2)}
+.cel-txt strong{color:var(--texto)}
+.num{margin:0;line-height:1}
+.num .contador{font-size:clamp(3.2rem,2.4rem + 3vw,4.6rem)}
+.cel-mini .num .contador{font-size:2.6rem}
+.equalizador{display:flex;align-items:flex-end;gap:4px;height:7.5rem;margin-top:.9rem}
+.eq{display:flex;flex:1 1 0;align-items:flex-end;min-width:0;height:100%;padding:0;background:none;border:0;border-radius:6px}
+.eq i{display:block;width:100%;height:var(--h);border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,var(--ciano),var(--lilas));transform-origin:50% 100%;transition:transform .8s cubic-bezier(.2,.7,.2,1),box-shadow .2s;transition-delay:calc(var(--i,0) * 70ms)}
+.js-anima .cel-aulas:not(.visivel) .eq i{transform:scaleY(.04)}
+.eq[aria-pressed="true"] i{background:linear-gradient(180deg,#4EF1B4,#02CBFA);box-shadow:0 0 16px rgba(78,241,180,.8)}
+.eq-legenda{min-height:2.8em;margin:.7rem 0 0;font:600 .75rem/1.4 var(--mono);color:var(--texto)}
+.anel-grafico{position:relative;width:9rem;height:9rem;margin:.4rem auto 0}
+.anel-grafico svg{width:100%;height:100%;transform:rotate(-90deg)}
+.anel-fundo{fill:none;stroke:rgba(130,150,255,.2);stroke-width:10}
+.anel-valor{fill:none;stroke:url(#g-anel);stroke-width:10;stroke-linecap:round;stroke-dasharray:var(--c,327) var(--c,327);stroke-dashoffset:var(--o,0);transition:stroke-dashoffset 1.5s cubic-bezier(.2,.7,.2,1) .2s}
+.js-anima .cel-anel:not(.visivel) .anel-valor{stroke-dashoffset:var(--c,327)}
+.anel-num{position:absolute;inset:0;display:grid;place-content:center;margin:0;text-align:center}
+.anel-num .contador{font-size:2.4rem}
+.anel-num small{font:700 .7rem/1.4 var(--mono);color:var(--texto-2)}
+.helice{display:block;width:100%;height:6rem;margin-top:.3rem;overflow:visible}
+.helice path{fill:none;stroke-width:2.5;stroke-linecap:round}
+.helice .h1{stroke:var(--lilas);filter:drop-shadow(0 0 5px rgba(184,138,252,.85))}
+.helice .h2{stroke:var(--ciano);filter:drop-shadow(0 0 5px rgba(2,203,250,.85))}
+.helice line{stroke:#fff;stroke-width:1}
+.helice-leg{display:flex;gap:1rem;margin:.3rem 0 0;font:700 .7rem/1.4 var(--mono);text-transform:uppercase;color:var(--texto-2)}
+.helice-leg i{display:inline-block;width:.9rem;height:3px;margin-right:.35rem;vertical-align:middle;border-radius:3px;background:var(--lilas)}
+.helice-leg i.ia{background:var(--ciano)}
+.escada{display:flex;align-items:flex-end;gap:4px;height:3.2rem;margin-top:.7rem}
+.escada i{flex:1;height:calc(22% + var(--i) * 15.6%);border-radius:3px 3px 1px 1px;background:linear-gradient(180deg,var(--lilas),var(--violeta))}
+.molduras{display:flex;align-items:flex-end;gap:.55rem;height:3.2rem;margin-top:.7rem}
+.molduras i{border:1.5px solid var(--ciano);border-radius:4px;box-shadow:0 0 10px rgba(2,203,250,.5)}
+.molduras i:nth-child(1){width:3.6rem;height:2.03rem}.molduras i:nth-child(2){width:1.8rem;height:3.2rem}.molduras i:nth-child(3){width:2.4rem;height:2.4rem}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.7rem}
+.chips li{padding:.1rem .55rem;border:1px solid var(--borda);border-radius:999px;font:700 .7rem/1.7 var(--mono);color:var(--texto)}
+
+/* ========== O que você vai aprender: ecossistema de ferramentas ========== */
+.hub{display:grid;gap:1.25rem;align-items:center;margin:1.75rem 0 2.5rem}
+.hub-palco{position:relative;width:min(100%,24rem);aspect-ratio:1;margin:0 auto}
+.hub-linhas{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.hub-linhas line{stroke:rgba(130,150,255,.45);stroke-width:.45;stroke-dasharray:1 1.6}
+.hub-linhas line.on{stroke:#4EF1B4;stroke-width:.8;stroke-dasharray:2.2 1.8;filter:drop-shadow(0 0 1.2px #4EF1B4)}
+.js-anima .hub-linhas line.on{animation:fluir-hub 1.1s linear infinite}
+@keyframes fluir-hub{to{stroke-dashoffset:-8}}
+.hub-sat,.hub-centro{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%)}
+.hub-sat{min-height:48px;max-width:min(6.4rem,27%);padding:.4rem .6rem;background:#0E1650;border:1.5px solid rgba(130,150,255,.55);border-radius:14px;font-weight:800;font-size:.78rem;line-height:1.15;text-align:center;transition:border-color .25s,background-color .25s,box-shadow .25s}
+.hub-sat[aria-pressed="true"]{border-color:var(--menta);background:#0F2A5E;box-shadow:0 0 0 1px var(--menta),0 0 22px -4px rgba(78,241,180,.9)}
+.hub-centro{display:grid;place-items:center;align-content:center;gap:.15rem;width:6rem;height:6rem;padding:0;border:0;border-radius:26px;background:linear-gradient(120deg,#50E4F7,#4EF1B4);color:var(--tinta);font-weight:900;box-shadow:0 0 50px -6px rgba(78,241,180,.9)}
+.hub-centro .ico{width:1.6rem;height:1.6rem;stroke-width:2.4}
+.hub-centro[aria-pressed="true"]{box-shadow:0 0 0 4px #fff,0 0 50px -6px rgba(78,241,180,.9)}
+.js-anima .hub-centro{animation:pulso 3s ease-in-out infinite}
+@keyframes pulso{50%{box-shadow:0 0 70px 2px rgba(78,241,180,.95)}}
+.js-anima .hub-centro[aria-pressed="true"]{animation:none}
+.hub-detalhe{min-height:12rem;padding:1.2rem 1.1rem;background:rgba(14,22,80,.9);border:1.5px solid var(--borda);border-radius:18px;box-shadow:var(--brilho)}
+.hub-detalhe h3{margin:.2rem 0 .45rem}
+.hub-detalhe p:last-child{margin:0;color:var(--texto-2)}
+.js-anima .hub-detalhe.troca{animation:entra .45s ease}
+.col3d{display:none}
+
+/* ========== Contexto é rei: pedido que ganha contexto ========== */
+.ctx-lab{margin-top:1.5rem;padding:1rem;background:rgba(255,255,255,.5);border-radius:16px}
+.ctx-rot{display:block;margin:0;font-weight:800}
+.ctx-range{-webkit-appearance:none;appearance:none;display:block;width:100%;height:48px;margin:0;background:transparent;cursor:pointer}
+.ctx-range::-webkit-slider-runnable-track{height:8px;border-radius:99px;background:linear-gradient(90deg,var(--tinta) var(--p,0%),rgba(6,10,51,.22) var(--p,0%))}
+.ctx-range::-moz-range-track{height:8px;border-radius:99px;background:rgba(6,10,51,.22)}
+.ctx-range::-moz-range-progress{height:8px;border-radius:99px;background:var(--tinta)}
+.ctx-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:30px;height:30px;margin-top:-11px;border-radius:50%;background:var(--tinta);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.35)}
+.ctx-range::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:var(--tinta);border:3px solid #fff}
+.ctx-range:focus-visible{outline:3px solid var(--tinta);outline-offset:2px}
+.ctx-pedido{min-height:7.5em;margin:.3rem 0 .8rem;padding:.85rem .95rem;background:var(--noite);color:var(--texto);border-radius:12px;font:600 .88rem/1.55 var(--mono)}
+.ctx-pedido mark{padding:0 .1em;border-radius:4px;background:rgba(78,241,180,.22);color:#B9F6E4}
+.js-anima .ctx-pedido mark.nova{animation:acende 1.1s ease}
+@keyframes acende{from{background:rgba(78,241,180,.85);color:var(--tinta)}}
+.ctx-medidor{display:flex;align-items:center;gap:.6rem;margin:0;font:800 .7rem/1.3 var(--mono);text-transform:uppercase}
+.ctx-medidor b{flex:1;height:10px;overflow:hidden;border-radius:99px;background:rgba(6,10,51,.2)}
+.ctx-medidor b i{display:block;width:calc(8% + var(--n,0) * 23%);height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--violeta),var(--tinta));transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.ctx-nota{margin:.8rem 0 0;font-size:.88rem;font-weight:600}
+
+/* ========== Chamada final: painel que cresce ========== */
+.final{padding:3rem 0 4rem}
+.painel-final{position:relative;padding:2.6rem 1.3rem;border-radius:calc(44px - var(--z,1) * 20px);background:linear-gradient(120deg,#B88AFC,#02CBFA 55%,#01F2B8);color:var(--tinta);text-align:center;transform:scale(calc(.86 + var(--z,1) * .14));transform-origin:50% 60%;box-shadow:0 40px 100px -30px rgba(89,22,175,.95)}
+.final .painel-final h2{color:var(--tinta)}
+.final .painel-final h2::after{background:var(--tinta)}
+.final .painel-final p,.final .painel-final .acao-nota{color:var(--tinta)}
+.painel-final .acao-nota strong{color:var(--tinta)}
+.final .painel-final .btn-compra{background:var(--tinta);color:#fff;box-shadow:0 14px 30px -10px rgba(6,10,51,.85)}
+.final-ico{display:inline-grid;place-items:center;width:3.6rem;height:3.6rem;margin-bottom:1rem;border-radius:16px;background:var(--tinta);color:var(--menta);box-shadow:0 10px 30px -8px rgba(6,10,51,.8)}
+.final-ico .ico{width:1.7rem;height:1.7rem;stroke-width:2.4}
+.js-anima .final-ico{animation:flutua 5s ease-in-out infinite}
 @keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.js-anima .conexao{animation:fluir 2.2s linear infinite}
-@keyframes fluir{to{stroke-dashoffset:-32}}
+
+/* ========== Título que "falha" quando o cursor encosta no botão ========== */
+.glitch{animation:glitch .5s steps(2,end)}
+@keyframes glitch{0%{text-shadow:-3px 0 rgba(184,138,252,.9),3px 0 rgba(2,225,252,.9);transform:translateX(1px)}25%{text-shadow:3px 0 rgba(184,138,252,.9),-3px 0 rgba(2,225,252,.9);transform:translateX(-1px)}50%{text-shadow:-2px 0 rgba(78,241,180,.9),2px 0 rgba(184,138,252,.9)}100%{text-shadow:none;transform:none}}
 
 /* ========== Telas maiores ========== */
 @media (min-width:700px){
@@ -415,26 +553,45 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   .garantia-grid{grid-template-columns:auto 1fr;gap:2.5rem}
   .prof-grid{grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
   .prancheta-folha{padding:2rem 1.75rem}
-  .numeros-lista{grid-template-columns:repeat(4,minmax(0,1fr))}
   .painel-contexto{padding:3.5rem 3rem}
+  .bento{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense}
+  .cel-aulas{grid-row:span 2}
+  .cel-anel,.cel-mini{grid-column:span 1}
+  .cel-estilos{grid-column:span 3}
+  .cel-aulas{display:flex;flex-direction:column}
+  .cel-aulas .equalizador{flex:1;min-height:9rem;height:auto}
+  .painel-final{padding:4rem 3rem}
+  .fc-grafo{gap:1.9rem .55rem}
   .formatos{padding:1.6rem 1.75rem}
   .bloom-niveis{grid-template-columns:repeat(6,minmax(0,1fr));align-items:end;gap:.6rem;height:12rem}
   .bloom-niveis li{height:100%;align-items:flex-end}
-  .nivel-btn{flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:.45rem;height:calc(38% + var(--i,0) * 12.4%);padding:.65rem .7rem}
-  .nivel-btn::before{top:auto;right:0;width:auto;height:100%;transform-origin:50% 100%}
-  .js-anima .bloom:not(.visivel) .nivel-btn::before{transform:scaleY(0)}
+  .bloom-niveis{height:16rem}
+  .nivel-btn{height:100%;flex-direction:column-reverse;align-items:center;justify-content:flex-start;gap:.7rem;padding:0 0 .25rem;background:none;border:0;border-radius:10px;overflow:visible;text-align:center}
+  .nivel-btn::before{display:none}
+  .nivel-btn[aria-pressed="true"]{box-shadow:none}
+  .rot-nivel{display:flex;flex-direction:column;align-items:center;gap:.35rem}
+  .col3d{display:block;position:relative;width:58%;height:calc(26% + var(--i,0) * 11%);margin-right:12px;background:linear-gradient(180deg,#B88AFC,#5916AF);transform-origin:50% 100%;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .3s;transition-delay:calc(var(--i,0) * 110ms)}
+  .col3d::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:12px;background:#E2D1FF;transform:skewX(-45deg);transform-origin:0 100%}
+  .col3d::after{content:"";position:absolute;top:0;bottom:0;left:100%;width:12px;background:#3A1A8C;transform:skewY(-45deg);transform-origin:0 0}
+  .js-anima .bloom:not(.visivel) .col3d{transform:scaleY(0)}
+  .nivel-btn[aria-pressed="true"] .col3d{background:linear-gradient(180deg,#4EF1B4,#02CBFA);filter:drop-shadow(0 0 16px rgba(78,241,180,.7))}
+  .nivel-btn[aria-pressed="true"] .col3d::before{background:#B9F6E4}
+  .nivel-btn[aria-pressed="true"] .col3d::after{background:#0E8F78}
   .folha{padding:1.9rem 1.6rem 1.4rem}
 }
 @media (min-width:960px){
   .topo-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:3rem;align-items:center}
-  .topo-arte{max-width:32rem;width:100%;margin:0;justify-self:center}
   .dores-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:3rem;align-items:center}
   .fala blockquote{font-size:1.35rem}
   .demo-grid{grid-template-columns:minmax(0,21rem) minmax(0,1fr);gap:2.5rem;align-items:start}
   .demo-controles{position:sticky;top:1rem}
   .prancheta-folha{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:2.5rem}
   .bloom{padding:1.6rem 1.75rem}
-  .topo .fitas{--mascara:linear-gradient(90deg,transparent 0,transparent 44%,rgba(0,0,0,.5) 54%,#000 66%)}
+  .status{display:inline-flex;align-items:center;gap:.45rem;margin:0 auto 0 1.25rem;padding:.2rem .75rem;border:1px solid var(--borda);border-radius:999px;font:700 .7rem/1.6 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--texto-2)}
+  .status::before{content:"";width:.45rem;height:.45rem;border-radius:50%;background:var(--menta);box-shadow:0 0 8px var(--menta)}
+  .btn-nav{display:inline-flex;min-height:48px;margin-right:.6rem;padding:.5rem 1.05rem;font-size:.9rem}
+  .hub{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2.5rem}
+  .ceu{-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.45),#000 52%);mask-image:linear-gradient(90deg,rgba(0,0,0,.45),#000 52%)}
   .fluxo{grid-template-columns:repeat(5,minmax(0,1fr));gap:0;padding:3.6rem 0 0}
   .fluxo::before,.fluxo::after{left:10%;right:10%;top:1.3rem;bottom:auto;width:auto;height:3px;margin:-1.5px 0 0}
   .fluxo::after{background:linear-gradient(90deg,var(--lilas),var(--ciano),var(--verde));transform-origin:0 50%;transform:scaleX(var(--prog))}
@@ -450,13 +607,17 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 </style>
 <script>
 /* Liga as animações antes da primeira pintura (desligadas para quem pediu menos movimento no aparelho).
+   A abertura (ícone e clarão) aparece uma vez por sessão e some com qualquer toque ou tecla.
    Rede de segurança: se o script principal não terminar, todo o conteúdo aparece em 2,5 s. */
-(function(){var h=document.documentElement;try{if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)h.classList.add("js-anima")}catch(e){}setTimeout(function(){if(!window.__paginaPronta)h.classList.add("revela-tudo")},2500)})();
+(function(){var h=document.documentElement;try{if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){h.classList.add("js-anima");if(!sessionStorage.getItem("dc-intro")){sessionStorage.setItem("dc-intro","1");h.classList.add("com-intro")}}}catch(e){}setTimeout(function(){if(!window.__paginaPronta)h.classList.add("revela-tudo")},2500)})();
 </script>
 </head>
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <div class="progresso" id="progresso" aria-hidden="true"></div>
+<canvas class="ceu" id="ceu" aria-hidden="true"></canvas>
+<div class="intro" aria-hidden="true"><span class="intro-ico"><svg class="ico"><use href="#i-lapis"/></svg></span></div>
+<div class="anel" id="anel" aria-hidden="true"></div>
 
 <!-- Ícones (desenhados aqui mesmo, sem arquivos externos) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -479,6 +640,8 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 <header class="barra">
   <div class="wrap barra-in">
     <p class="marca"><svg class="ico" aria-hidden="true"><use href="#i-lapis"/></svg><span><span data-c="nomeCurto">Docência Criativa</span><small>com o <span data-c="professor.nome">Prof. Romário Costa</span></small></span></p>
+    <p class="status">formação continuada</p>
+    <a class="btn-compra btn-nav" data-compra="menu" href="#oferta">Quero fazer a formação</a>
     <div class="letra" role="group" aria-label="Tamanho da letra">
       <button type="button" id="letra-menos" aria-label="A− diminuir a letra">A−</button>
       <button type="button" id="letra-mais" aria-label="A+ aumentar a letra">A+</button>
@@ -491,60 +654,86 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 
 <!-- 1. TOPO -->
 <section class="topo" id="topo" aria-labelledby="titulo">
-  <canvas class="fitas" data-fitas="topo" aria-hidden="true"></canvas>
   <div class="wrap topo-grid">
     <div>
-      <p class="sobre">Formação continuada</p>
-      <h1 id="titulo">Docência Criativa: <mark>Tecnologias e IA</mark> na Prática</h1>
+      <p class="olho olho-topo" id="olho-topo" data-revelar data-decodificar>formação continuada / 69 aulas / módulo 1 + 8 temas + bônus</p>
+      <h1 id="titulo">Docência Criativa: <mark>Tecnologias e IA</mark> na <em class="acento">Prática</em></h1>
       <p class="sub">Domine inteligências artificiais e ferramentas audiovisuais e produza material pedagógico autoral: textos, avaliações, imagens, vídeos e músicas.</p>
-      <ul class="fatos" id="fatos" aria-label="Estrutura da formação"></ul>
       <div class="acao">
         <a class="btn-compra" data-compra="topo" href="#oferta"><span>Quero fazer a formação</span> <span aria-hidden="true">→</span></a>
-        <p class="acao-nota"><strong data-c="preco">R$ 97,00</strong> à vista · garantia de <span data-c="garantiaDias">7</span> dias · compra pela Hotmart</p>
-        <p class="acao-demo"><a href="#demo">Ver um exemplo antes</a></p>
+        <a class="link-demo" href="#demo"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg>Ver a IA trabalhar</a>
+        <p class="acao-nota"><span class="nota-chip"><strong data-c="preco">R$ 97,00</strong> à vista / garantia de <span data-c="garantiaDias">7</span> dias / compra pela Hotmart</span></p>
       </div>
     </div>
 
-    <div class="topo-arte" aria-hidden="true">
-      <svg viewBox="0 0 440 350" focusable="false">
-        <defs>
-          <linearGradient id="g-borda" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B88AFC"/><stop offset=".55" stop-color="#02CBFA"/><stop offset="1" stop-color="#01F2B8"/></linearGradient>
-          <linearGradient id="g-estrela" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B88AFC"/><stop offset="1" stop-color="#02E1FC"/></linearGradient>
-          <radialGradient id="g-luz"><stop offset="0" stop-color="#5916AF" stop-opacity=".95"/><stop offset="1" stop-color="#5916AF" stop-opacity="0"/></radialGradient>
-          <filter id="f-brilho" x="-30%" y="-40%" width="160%" height="180%"><feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
-        <circle cx="230" cy="170" r="175" fill="url(#g-luz)" opacity=".75"/>
-        <path d="M70 120q60-40 150-50M370 120q-60-40-150-50M220 70v40M386 190q-20 10-40 10" fill="none" stroke="#02CBFA" stroke-width="1.5" stroke-opacity=".45" stroke-dasharray="3 5" class="conexao"/>
-        <rect x="96" y="128" width="248" height="158" rx="12" fill="#0B1452" stroke="#8BA1DC" stroke-width="2"/>
-        <rect x="108" y="140" width="224" height="134" rx="6" fill="#060A33"/>
-        <rect x="120" y="152" width="200" height="26" rx="13" fill="#18237A" stroke="#02CBFA" stroke-opacity=".7" stroke-width="1.5"/>
-        <path d="M135 158l2.8 6.2 6.2 2.8-6.2 2.8-2.8 6.2-2.8-6.2-6.2-2.8 6.2-2.8z" fill="url(#g-estrela)"/>
-        <rect x="152" y="161" width="118" height="8" rx="4" fill="#C9CDF5" opacity=".75"/>
-        <rect x="120" y="190" width="62" height="72" rx="7" fill="#B88AFC" opacity=".9"/>
-        <rect x="189" y="190" width="62" height="72" rx="7" fill="#02CBFA" opacity=".9"/>
-        <rect x="258" y="190" width="62" height="72" rx="7" fill="#4EF1B4" opacity=".9"/>
-        <path d="M130 206h42M130 216h34M130 226h40M199 242l10-14 9 10 6-6 10 10M268 208v28M276 216v20M284 210v26M292 220v16M300 214v22" fill="none" stroke="#060A33" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
-        <path d="M66 286h308l-22 16H88z" fill="#18237A" stroke="#8BA1DC" stroke-width="2" stroke-linejoin="round"/>
-        <g class="flutua" style="--f:0"><rect x="14" y="70" width="112" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="70.0" y="99" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">Gemini</text></g>
-        <g class="flutua" style="--f:1"><rect x="146" y="24" width="152" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="222.0" y="53" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">Adobe Express</text></g>
-        <g class="flutua" style="--f:2"><rect x="316" y="70" width="112" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="372.0" y="99" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">CapCut</text></g>
-        <g class="flutua" style="--f:3"><rect x="340" y="168" width="92" height="46" rx="12" fill="#0E1650" stroke="url(#g-borda)" stroke-width="2.5" filter="url(#f-brilho)"/><text x="386.0" y="197" text-anchor="middle" font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="17" font-weight="800" fill="#fff">Suno</text></g>
-        <g transform="rotate(-7 66 268)">
-          <rect x="8" y="214" width="120" height="112" rx="4" fill="#FFFDF6"/>
-          <path d="M10 244h116M10 266h116M10 288h116M10 310h116" stroke="#C5D3EA" stroke-width="1.5"/>
-          <g fill="#0B1452"><circle cx="20" cy="226" r="3.5"/><circle cx="20" cy="270" r="3.5"/><circle cx="20" cy="314" r="3.5"/></g>
-          <path d="M34 238l5 6 9-11M34 260l5 6 9-11M34 282l5 6 9-11" fill="none" stroke="#5916AF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <text font-family="system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif" font-size="14" font-weight="800" fill="#060A33"><tspan x="54" y="242">Criar</tspan><tspan x="54" y="264">Avaliar</tspan><tspan x="54" y="286">Validar</tspan></text>
-        </g>
-      </svg>
+    <div class="fluxo-card spot" id="agente" role="group" aria-labelledby="agente-t">
+      <div class="fc-topo">
+        <p class="fc-nome" id="agente-t">Agente Avaliativo <span>· Módulo 2 · Tema 5</span></p>
+        <p class="fc-meta">5 etapas / 3 caminhos</p>
+        <p class="fc-status"><i aria-hidden="true"></i>ativo</p>
+      </div>
+      <div class="fc-grafo" id="fc-grafo">
+        <svg class="fc-linhas" id="fc-linhas" aria-hidden="true" focusable="false"></svg>
+        <button type="button" class="no no-a" id="no-a" aria-describedby="fc-dica"><b>Conteúdo</b><small id="fc-entrada">foto do livro</small></button>
+        <button type="button" class="no no-b" id="no-b" aria-describedby="fc-dica"><b>Nível de Bloom</b><small id="fc-nivel">Aplicar</small></button>
+        <p class="no no-c"><b>V ou F · lacunas</b><small>Lembrar · Entender</small></p>
+        <p class="no no-c"><b>Múltipla escolha · colunas</b><small>Aplicar · Analisar</small></p>
+        <p class="no no-c"><b>Múltipla escolha com critérios</b><small>Avaliar · Criar</small></p>
+        <p class="no no-d"><b>Item + justificativa</b><small>enunciado e alternativas</small></p>
+        <p class="no no-e"><b>Você valida</b><small>o toque humano</small></p>
+      </div>
+      <div class="fc-log"><p>últimos itens do exemplo</p><ol id="fc-log"></ol></div>
+      <p class="fc-dica" id="fc-dica">Exemplo do fluxo ensinado no Tema 5. Toque em “Conteúdo” ou em “Nível de Bloom” para mudar o caminho.</p>
+      <p class="sr" role="status" id="fc-anuncio"></p>
     </div>
   </div>
 </section>
 
-<!-- A FORMAÇÃO EM NÚMEROS (contam a partir do zero quando aparecem) -->
-<section class="numeros" aria-label="A formação em números">
+<!-- A FORMAÇÃO EM NÚMEROS -->
+<section class="numeros" id="numeros-sec" aria-labelledby="num-t">
   <div class="wrap">
-    <ul class="numeros-lista" id="numeros"></ul>
+    <p class="olho" data-revelar data-decodificar>a formação em números</p>
+    <h2 id="num-t" data-palavras>A formação, em <em class="acento">números</em>.</h2>
+    <div class="bento">
+      <div class="cel cel-aulas spot" data-revelar>
+        <p class="cel-rot" data-decodificar>aulas por módulo e tema</p>
+        <p class="num"><span class="sr" id="aulas-sr">69 aulas</span><b class="contador" id="c-aulas" data-alvo="69" aria-hidden="true">69</b></p>
+        <div class="equalizador" id="equalizador" role="group" aria-label="Aulas por módulo e tema"></div>
+        <p class="eq-legenda" id="eq-legenda">Toque em uma barra para ver o tema.</p>
+      </div>
+      <div class="cel cel-anel spot" data-revelar style="--d:1">
+        <p class="cel-rot" data-decodificar>fábrica de conteúdos</p>
+        <div class="anel-grafico">
+          <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false"><defs><linearGradient id="g-anel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B88AFC"/><stop offset="1" stop-color="#4EF1B4"/></linearGradient></defs><circle class="anel-fundo" cx="60" cy="60" r="52"/><circle class="anel-valor" id="anel-valor" cx="60" cy="60" r="52"/></svg>
+          <p class="anel-num"><span class="sr" id="anel-sr"></span><b class="contador" id="c-m2" data-alvo="60" aria-hidden="true">60</b><small aria-hidden="true" id="anel-de">de 69 aulas</small></p>
+        </div>
+        <p class="cel-txt" id="anel-txt">estão no Módulo 2, em 8 temas.</p>
+      </div>
+      <div class="cel cel-mini cel-bloom spot" data-revelar style="--d:2">
+        <p class="cel-rot" data-decodificar>Taxonomia de Bloom</p>
+        <p class="num"><span class="sr" id="bloom-sr"></span><b class="contador" id="c-bloom" data-alvo="6" aria-hidden="true">6</b></p>
+        <p class="cel-txt">níveis, do Lembrar ao Criar</p>
+        <div class="escada" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i></div>
+      </div>
+      <div class="cel cel-helice spot" data-revelar style="--d:1" id="cel-helice">
+        <p class="cel-rot" data-decodificar>humano + máquina</p>
+        <svg class="helice" id="helice" viewBox="0 0 300 90" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g class="h-elos"></g><path class="h1"/><path class="h2"/></svg>
+        <p class="helice-leg" aria-hidden="true"><span><i></i>você</span><span><i class="ia"></i>IA</span></p>
+        <p class="cel-txt">A IA manipula o que você fornece. <strong>A validação pedagógica e o toque humano são seus.</strong></p>
+      </div>
+      <div class="cel cel-estilos spot" data-revelar style="--d:2">
+        <p class="cel-rot" data-decodificar>Geração de imagens</p>
+        <p class="num"><span class="sr" id="estilos-sr"></span><b class="contador" id="c-estilos" data-alvo="6" aria-hidden="true">6</b></p>
+        <p class="cel-txt">estilos de imagem</p>
+        <ul class="chips" id="chips-estilos"></ul>
+      </div>
+      <div class="cel cel-mini spot" data-revelar style="--d:3">
+        <p class="cel-rot" data-decodificar>proporções</p>
+        <p class="num"><span class="sr">3 proporções</span><b class="contador" data-alvo="3" aria-hidden="true">3</b></p>
+        <p class="cel-txt">16:9 · 9:16 · 1:1</p>
+        <div class="molduras" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -624,7 +813,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 <!-- 4. DO ROTEIRO AO VÍDEO (atividade final do Tema 7) -->
 <section class="fluxo-sec" id="fluxo" aria-labelledby="fluxo-t">
   <div class="wrap">
-    <p class="olho" data-revelar>Módulo 2 · Tema 7 · Atividade final</p>
+    <p class="olho" data-revelar data-decodificar>Módulo 2 · Tema 7 · Atividade final</p>
     <h2 id="fluxo-t" data-palavras>Do roteiro ao <em class="acento">vídeo</em>, em cinco etapas</h2>
     <p class="lead" data-revelar>Na atividade final do Tema 7, você integra o Gemini, o Adobe Express e o CapCut para produzir um conteúdo curto e dinâmico: o seu primeiro microlearning personalizado.</p>
     <ol class="fluxo" id="fluxo-etapas"></ol>
@@ -634,11 +823,18 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 <!-- 5. CONTEXTO É REI (Tema 4) -->
 <section class="contexto" aria-labelledby="contexto-t">
   <div class="wrap">
-    <div class="painel-contexto" id="painel-contexto">
-      <p class="olho">Módulo 2 · Tema 4 · Gemini</p>
+    <div class="painel-contexto" id="painel-contexto" data-zoom>
+      <p class="olho" data-decodificar>Módulo 2 · Tema 4 · Gemini</p>
       <h2 id="contexto-t" data-palavras>Contexto é <em class="acento">rei</em>.</h2>
       <blockquote><p>“O chat não é apenas para conversas casuais; é um ambiente onde você fornece toda a base teórica e documental para que a IA personalize o conhecimento de acordo com a sua necessidade real.”</p></blockquote>
       <p class="contexto-fonte">Frase da aula “A Arte da Personalização de Textos: A Mente por trás da Máquina”</p>
+      <div class="ctx-lab">
+        <label class="ctx-rot" for="ctx-range">Arraste e veja o pedido ganhar contexto</label>
+        <input class="ctx-range" id="ctx-range" type="range" min="0" max="4" step="1" value="0">
+        <p class="ctx-pedido" id="ctx-pedido"></p>
+        <p class="ctx-medidor" aria-hidden="true"><span>genérica e robótica</span><b><i id="ctx-barra"></i></b><span>autoral</span></p>
+        <p class="ctx-nota">Na aula 03 do Tema 4: quanto mais informações você dá sobre a turma, a escola e o objetivo, mais autoral e menos robótica fica a resposta.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -648,17 +844,12 @@ h1 mark{color:var(--lilas);background:none;padding:0}
   <div class="wrap">
     <h2 id="aprender-t" data-palavras>O que você vai aprender</h2>
     <p class="lead" data-revelar><strong>Objetivo da formação:</strong> <span data-c="objetivo"></span></p>
-    <ul class="ganhos">
-      <li class="ganho spot" data-revelar style="--d:0"><svg class="ico" aria-hidden="true"><use href="#i-texto"/></svg><h3>Textos com o Gemini</h3><p>Roteiros, relatórios, planejamentos e atividades personalizadas, a partir dos textos, fotos, links e documentos que você fornece.</p></li>
-      <li class="ganho spot" data-revelar style="--d:1"><svg class="ico" aria-hidden="true"><use href="#i-prova"/></svg><h3>Itens avaliativos com Bloom</h3><p>Múltipla escolha, verdadeiro ou falso, relacione colunas e lacunas, do nível Lembrar ao Criar, com a justificativa da resposta correta.</p></li>
-      <li class="ganho spot" data-revelar style="--d:2"><svg class="ico" aria-hidden="true"><use href="#i-imagem"/></svg><h3>Imagens geradas por IA</h3><p>Desenhos para colorir, mascotes, recursos visuais e cenários em seis estilos, nas proporções 16:9, 9:16 e 1:1.</p></li>
-      <li class="ganho spot" data-revelar style="--d:0"><svg class="ico" aria-hidden="true"><use href="#i-boneco"/></svg><h3>Personagens falantes</h3><p>Marionetes digitais do Adobe Express narram o conteúdo com a sua voz ou com uma voz gerada no CapCut.</p></li>
-      <li class="ganho spot" data-revelar style="--d:1"><svg class="ico" aria-hidden="true"><use href="#i-video"/></svg><h3>Vídeos no CapCut</h3><p>Cortes, camadas, transições, texto em fala, chroma key e exportação em 1080p, até o seu primeiro microlearning.</p></li>
-      <li class="ganho spot" data-revelar style="--d:2"><svg class="ico" aria-hidden="true"><use href="#i-musica"/></svg><h3>Músicas pedagógicas</h3><p>Letras compostas no Gemini e transformadas em canção na Suno AI e na Flow Music.</p></li>
-      <li class="ganho ganho-fio spot" data-revelar style="--d:0"><svg class="ico" aria-hidden="true"><use href="#i-fio"/></svg><h3>Contexto é rei</h3><p>A IA manipula o que você fornece. A validação pedagógica e o toque humano continuam sendo do educador.</p></li>
-    </ul>
+    <div class="hub" data-revelar>
+      <div class="hub-palco" id="hub-palco" role="group" aria-label="Ferramentas da formação"></div>
+      <div class="hub-detalhe" id="hub-detalhe"></div>
+    </div>
     <div class="bloom spot" data-revelar>
-      <p class="olho">Módulo 2 · Tema 5 · Agente Avaliativo</p>
+      <p class="olho" data-decodificar>Módulo 2 · Tema 5 · Agente Avaliativo</p>
       <h3>Avaliação com a Taxonomia de Bloom</h3>
       <p>Elaborar itens avaliativos que realmente meçam o que o aluno aprendeu é um dos maiores desafios da docência. No Tema 5, você treina o Gemini para atuar como seu Agente Avaliativo e gerar itens que respeitam os seis níveis da Taxonomia de Bloom revisada, do mais simples ao mais complexo:</p>
       <p class="dica">Toque em um nível para ver o formato de item indicado nas aulas.</p>
@@ -667,7 +858,7 @@ h1 mark{color:var(--lilas);background:none;padding:0}
       <p class="pequeno">Você não precisa ser especialista em Bloom para começar. Na demonstração desta página, escolha “Itens avaliativos (Bloom)” para ver o nível de cada item.</p>
     </div>
     <div class="formatos spot" data-revelar data-vivo>
-      <p class="olho">Módulo 2 · Tema 6 · Geração de Imagens</p>
+      <p class="olho" data-decodificar>Módulo 2 · Tema 6 · Geração de Imagens</p>
       <h3>Uma imagem, três proporções</h3>
       <p>Nas aulas de geração de imagens, cada estilo vem com prompts estruturados para as três proporções. Toque para ver a diferença.</p>
       <div class="formatos-ops" id="formatos-ops" role="group" aria-label="Escolha a proporção"></div>
@@ -812,13 +1003,15 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 
 <!-- 13. CHAMADA FINAL E RODAPÉ -->
 <section class="final" id="final" aria-labelledby="final-t">
-  <canvas class="fitas" data-fitas="final" aria-hidden="true"></canvas>
   <div class="wrap">
-    <h2 id="final-t" data-palavras>Deixe de ser apenas transmissor e torne-se criador de experiências.</h2>
-    <p>Ao dominar essas ferramentas, você transforma a maneira como apresenta os conteúdos e como seus alunos interagem com eles. Vamos juntos transformar a educação?</p>
-    <a class="btn-compra" data-compra="final" href="#oferta"><span>Quero fazer a formação</span> <span aria-hidden="true">→</span></a>
-    <p class="acao-nota"><strong data-c="preco">R$ 97,00</strong> à vista · garantia de <span data-c="garantiaDias">7</span> dias · compra pela Hotmart</p>
-    <p class="urgencia" hidden></p>
+    <div class="painel-final" id="painel-final" data-zoom>
+      <span class="final-ico" aria-hidden="true"><svg class="ico"><use href="#i-lapis"/></svg></span>
+      <h2 id="final-t" data-palavras>Deixe de ser apenas transmissor e torne-se criador de experiências.</h2>
+      <p>Ao dominar essas ferramentas, você transforma a maneira como apresenta os conteúdos e como seus alunos interagem com eles. Vamos juntos transformar a educação?</p>
+      <a class="btn-compra" data-compra="final" href="#oferta"><span>Quero fazer a formação</span> <span aria-hidden="true">→</span></a>
+      <p class="acao-nota"><strong data-c="preco">R$ 97,00</strong> à vista · garantia de <span data-c="garantiaDias">7</span> dias · compra pela Hotmart</p>
+      <p class="urgencia" hidden></p>
+    </div>
   </div>
 </section>
 
@@ -1605,8 +1798,41 @@ const FORMATOS = [
   { id: "1:1", nome: "Quadrada", uso: "para fichas e murais", w: 1, h: 1 }
 ];
 
-// Tema 6: Line Art, Chibi, Flat, Pixar/3D, Anime e Realista
-const ESTILOS_DE_IMAGEM = 6;
+// Tema 6: os seis estilos de imagem das aulas
+const ESTILOS = ["Line Art", "Chibi", "Flat Design", "Pixar / 3D", "Anime", "Realista"];
+
+// Tema 5 (aulas 04 a 06): de onde vem o conteúdo e qual formato de item combina com cada nível de Bloom
+const AGENTE = {
+  entradas: ["foto do livro", "texto copiado", "link de site", "vídeo do YouTube"],
+  formatos: ["verdadeiro ou falso e lacunas", "múltipla escolha e relacione colunas", "múltipla escolha com critérios"]
+};
+
+// "O que você vai aprender": o professor no centro e as ferramentas ao redor
+const HUB = [
+  { nome: "Você", tag: "Módulo 2 · Tema 4", titulo: "Contexto é rei",
+    texto: "A IA manipula o que você fornece. A validação pedagógica e o toque humano continuam sendo do educador." },
+  { nome: "Gemini", tag: "Módulo 2 · Tema 4", titulo: "Textos com o Gemini",
+    texto: "Roteiros, relatórios, planejamentos e atividades personalizadas, a partir dos textos, fotos, links e documentos que você fornece." },
+  { nome: "Agente Avaliativo", tag: "Módulo 2 · Tema 5", titulo: "Itens avaliativos com Bloom",
+    texto: "Múltipla escolha, verdadeiro ou falso, relacione colunas e lacunas, do nível Lembrar ao Criar, com a justificativa da resposta correta." },
+  { nome: "Nano Banana", tag: "Módulo 2 · Tema 6", titulo: "Imagens geradas por IA",
+    texto: "Desenhos para colorir, mascotes, recursos visuais e cenários em seis estilos, nas proporções 16:9, 9:16 e 1:1." },
+  { nome: "Adobe Express", tag: "Módulo 2 · Tema 3", titulo: "Personagens falantes",
+    texto: "Marionetes digitais do Adobe Express narram o conteúdo com a sua voz ou com uma voz gerada no CapCut." },
+  { nome: "CapCut", tag: "Módulo 2 · Tema 7", titulo: "Vídeos no CapCut",
+    texto: "Cortes, camadas, transições, texto em fala, chroma key e exportação em 1080p, até o seu primeiro microlearning." },
+  { nome: "Suno AI · Flow Music", tag: "Módulo 2 · Tema 8", titulo: "Músicas pedagógicas",
+    texto: "Letras compostas no Gemini e transformadas em canção na Suno AI e na Flow Music." }
+];
+
+// Tema 4: o mesmo pedido, com cada vez mais contexto (exemplo de Matemática, 5º ano)
+const PEDIDO_CONTEXTO = [
+  "Faça uma atividade sobre frações",
+  " para o 5º ano",
+  ", alinhada à habilidade EF05MA03 da BNCC",
+  ". Minha turma tem 28 alunos e ainda se confunde com frações maiores que 1",
+  ". Utilize APENAS as informações do capítulo do livro que enviei em foto"
+];
 
 /* =====================================================================
    4. LÓGICA DA PÁGINA — não é preciso mexer daqui para baixo.
@@ -1684,9 +1910,8 @@ function preencherConfig() {
 function montarFixos() {
   const A = CONFIG._aulas, B = CONFIG.bonus;
 
-  // Estrutura da formação, no topo
-  $("#fatos").innerHTML = ["Módulo 1", "Módulo 2 · " + A.temas + " temas", "Módulo Bônus", A.total + " aulas"]
-    .map(f => "<li>" + esc(f) + "</li>").join("");
+  // Etiqueta do topo
+  $("#olho-topo").textContent = "formação continuada / " + A.total + " aulas / módulo 1 + " + A.temas + " temas + bônus";
 
   // O que está incluso
   const m1 = CONFIG.modulos.find(x => x.modulo === "1");
@@ -1981,28 +2206,249 @@ const ANIMA = document.documentElement.classList.contains("js-anima");
 const limitar = (v, a, b) => Math.max(a, Math.min(b, v));
 
 /* ---------- A formação em números ---------- */
-function montarNumeros() {
-  const A = CONFIG._aulas;
-  const itens = [
-    { valor: A.total, rot: "aulas" },
-    { valor: A.temas, rot: "temas no Módulo 2" },
-    { valor: CONFIG.niveisBloom.length, rot: "níveis da Taxonomia de Bloom" },
-    { valor: ESTILOS_DE_IMAGEM, rot: "estilos de imagem" }
-  ];
-  $("#numeros").innerHTML = itens.map((x, i) =>
-    '<li class="numero" data-revelar style="--d:' + i + '"><span class="sr">' + x.valor + " " + esc(x.rot) + "</span>" +
-    '<span class="numero-vis" aria-hidden="true"><b class="contador" data-alvo="' + x.valor + '">' + x.valor + "</b><small>" + esc(x.rot) + "</small></span></li>").join("");
+function montarBento() {
+  const A = CONFIG._aulas, B = CONFIG.bonus, curto = t => String(t || "").split(":")[0];
+  $("#c-aulas").dataset.alvo = A.total; $("#c-aulas").textContent = A.total; $("#aulas-sr").textContent = A.total + " aulas";
+  $("#c-m2").dataset.alvo = A.m2; $("#c-m2").textContent = A.m2;
+  $("#anel-de").textContent = "de " + A.total + " aulas";
+  $("#anel-sr").textContent = A.m2 + " de " + A.total + " aulas";
+  $("#anel-txt").textContent = "estão no Módulo 2, a Fábrica de Conteúdos, em " + A.temas + " temas.";
+  const C = 2 * Math.PI * 52, anel = $("#anel-valor");
+  anel.style.setProperty("--c", C.toFixed(1));
+  anel.style.setProperty("--o", (C * (1 - A.m2 / Math.max(1, A.total))).toFixed(1));
+  $("#c-bloom").dataset.alvo = CONFIG.niveisBloom.length; $("#c-bloom").textContent = CONFIG.niveisBloom.length;
+  $("#bloom-sr").textContent = CONFIG.niveisBloom.length + " níveis da Taxonomia de Bloom";
+  $("#c-estilos").dataset.alvo = ESTILOS.length; $("#c-estilos").textContent = ESTILOS.length;
+  $("#estilos-sr").textContent = ESTILOS.length + " estilos de imagem";
+  $("#chips-estilos").innerHTML = ESTILOS.map(e => "<li>" + esc(e) + "</li>").join("");
+
+  // Equalizador: uma barra por módulo e tema, com a quantidade real de aulas
+  const grupos = CONFIG.modulos.map(x => ({ rot: x.modulo === "1" ? "Módulo 1" : "Módulo 2 · Tema " + x.tema, nome: curto(x.titulo), n: (x.aulas || []).length }));
+  if (B) grupos.push({ rot: "Módulo Bônus", nome: curto(B.titulo), n: (B.aulas || []).length });
+  const max = Math.max.apply(null, grupos.map(g => g.n).concat(1)), eq = $("#equalizador"), leg = $("#eq-legenda");
+  eq.innerHTML = grupos.map((g, i) => '<button type="button" class="eq" data-i="' + i + '" style="--i:' + i + '" aria-pressed="false" aria-label="' +
+    esc(g.rot + " · " + g.nome + " · " + g.n + " aulas") + '"><i style="--h:' + (12 + 88 * g.n / max).toFixed(1) + '%"></i></button>').join("");
+  const escolher = (i, falar) => {
+    $$(".eq", eq).forEach((b, j) => b.setAttribute("aria-pressed", String(j === i)));
+    leg.textContent = grupos[i].rot + " · " + grupos[i].nome + " · " + grupos[i].n + " aulas";
+    if (falar) leg.setAttribute("aria-live", "polite");
+  };
+  eq.addEventListener("click", e => { const b = e.target.closest(".eq"); if (b) escolher(+b.dataset.i, true); });
+  eq._destacar = () => { let maior = 0; grupos.forEach((g, i) => { if (g.n > grupos[maior].n) maior = i; }); escolher(maior, false); };
 }
 function contar(el) {
-  const alvo = +el.dataset.alvo, inicio = performance.now(), duracao = 1300;
+  const alvo = +el.dataset.alvo, inicio = performance.now(), duracao = 1400;
   (function passo(agora) {
     const p = limitar((agora - inicio) / duracao, 0, 1);
-    el.textContent = Math.round(alvo * (1 - Math.pow(1 - p, 3)));
+    // os dígitos "rolam" (como um painel) antes de assentar no valor final
+    el.textContent = p < 1 ? Math.round(alvo * (1 - Math.pow(1 - p, 3)) + (p < .85 ? (Math.random() - .5) * alvo * .25 * (1 - p) : 0)) : alvo;
+    if (+el.textContent < 0) el.textContent = 0;
     if (p < 1) requestAnimationFrame(passo);
   })(inicio);
 }
 
-/* ---------- Do roteiro ao vídeo ---------- */
+/* ---------- Hélice humano + máquina ---------- */
+function ligarHelice() {
+  const svg = $("#helice"), cel = $("#cel-helice");
+  if (!svg) return;
+  const p1 = $(".h1", svg), p2 = $(".h2", svg), elos = $(".h-elos", svg);
+  const W = 300, H = 90, N = 72;
+  let fase = 0, amp = 26, ampAlvo = 26, vel = 1, velAlvo = 1, raf = 0, visivel = false, ultimo = 0;
+  const desenhar = () => {
+    let d1 = "", d2 = "", ls = "";
+    for (let i = 0; i <= N; i++) {
+      const x = i / N * W, ang = i / N * Math.PI * 4 + fase, s = Math.sin(ang) * amp;
+      d1 += (i ? "L" : "M") + x.toFixed(1) + " " + (H / 2 + s).toFixed(1);
+      d2 += (i ? "L" : "M") + x.toFixed(1) + " " + (H / 2 - s).toFixed(1);
+      if (i % 4 === 2) ls += '<line x1="' + x.toFixed(1) + '" y1="' + (H / 2 + s).toFixed(1) + '" x2="' + x.toFixed(1) + '" y2="' + (H / 2 - s).toFixed(1) + '" opacity="' + (.12 + .45 * Math.abs(Math.cos(ang))).toFixed(2) + '"/>';
+    }
+    p1.setAttribute("d", d1); p2.setAttribute("d", d2); elos.innerHTML = ls;
+  };
+  const quadro = agora => {
+    raf = 0;
+    if (!visivel || document.hidden) return;
+    const dt = ultimo ? Math.min(.05, (agora - ultimo) / 1000) : 0;
+    ultimo = agora;
+    amp += (ampAlvo - amp) * .08; vel += (velAlvo - vel) * .08;
+    fase += dt * 1.6 * vel;
+    desenhar();
+    raf = requestAnimationFrame(quadro);
+  };
+  desenhar();
+  if (!ANIMA || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(es => { visivel = es[0].isIntersecting; if (visivel && !raf) { ultimo = 0; raf = requestAnimationFrame(quadro); } }).observe(svg);
+  cel.addEventListener("pointermove", e => { const r = svg.getBoundingClientRect(); ampAlvo = 8 + 32 * limitar(1 - Math.abs((e.clientY - r.top) / r.height - .5) * 2, 0, 1); velAlvo = .4 + 2.6 * limitar((e.clientX - r.left) / r.width, 0, 1); }, { passive: true });
+  cel.addEventListener("pointerleave", () => { ampAlvo = 26; velAlvo = 1; });
+}
+
+/* ---------- Topo: cartão do Agente Avaliativo ---------- */
+function ligarAgente() {
+  const grafo = $("#fc-grafo"), svg = $("#fc-linhas"), log = $("#fc-log"), card = $("#agente");
+  if (!grafo) return;
+  const nos = { a: $("#no-a"), b: $("#no-b"), d: $(".no-d", grafo), e: $(".no-e", grafo) };
+  $$(".no-c", grafo).forEach((n, i) => { nos["c" + i] = n; });
+  const arestas = [["a", "b", "h"], ["b", "c0", "v"], ["b", "c1", "v"], ["b", "c2", "v"], ["c0", "d", "v"], ["c1", "d", "v"], ["c2", "d", "v"], ["d", "e", "h"]];
+  const est = { e: 0, n: 2 };
+  let timers = [], relogio = 0, visivel = false, pausaAte = 0;
+  const ramo = n => Math.min(2, Math.floor(n / 2));
+  const linha = (e, n) => AGENTE.entradas[e] + " → " + CONFIG.niveisBloom[n] + " → " + AGENTE.formatos[ramo(n)];
+  function desenharArestas() {
+    const W = grafo.clientWidth, H = grafo.clientHeight;
+    if (!W) return;
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    const caixa = el => ({ x: el.offsetLeft, y: el.offsetTop, w: el.offsetWidth, h: el.offsetHeight });
+    svg.innerHTML = arestas.map(([de, para, tipo]) => {
+      const a = caixa(nos[de]), b = caixa(nos[para]);
+      let d;
+      if (tipo === "h") { const x1 = a.x + a.w, y1 = a.y + a.h / 2, x2 = b.x, y2 = b.y + b.h / 2, m = (x1 + x2) / 2; d = "M" + x1 + " " + y1 + "C" + m + " " + y1 + " " + m + " " + y2 + " " + x2 + " " + y2; }
+      else { const x1 = a.x + a.w / 2, y1 = a.y + a.h, x2 = b.x + b.w / 2, y2 = b.y, m = (y1 + y2) / 2; d = "M" + x1 + " " + y1 + "C" + x1 + " " + m + " " + x2 + " " + m + " " + x2 + " " + y2; }
+      return '<path class="base" d="' + d + '"/><path class="luz" data-a="' + de + "-" + para + '" d="' + d + '"/>';
+    }).join("");
+    $$(".luz", svg).forEach(p => { try { p.style.setProperty("--l", p.getTotalLength().toFixed(1)); } catch (e) {} });
+    rodar(false);
+  }
+  function rodar(animar) {
+    timers.forEach(clearTimeout); timers = [];
+    $$(".on", card).forEach(x => x.classList.remove("on"));
+    const r = ramo(est.n);
+    $("#fc-entrada").textContent = AGENTE.entradas[est.e];
+    $("#fc-nivel").textContent = CONFIG.niveisBloom[est.n];
+    const passos = [["a"], ["a-b", "b"], ["b-c" + r, "c" + r], ["c" + r + "-d", "d"], ["d-e", "e"]];
+    const acender = ids => ids.forEach(id => {
+      const alvo = id.indexOf("-") > 0 ? svg.querySelector('.luz[data-a="' + id + '"]') : nos[id];
+      if (alvo) alvo.classList.add("on");
+    });
+    if (!animar) { passos.forEach(acender); return; }
+    passos.forEach((ids, i) => timers.push(setTimeout(() => acender(ids), i * 420)));
+    timers.push(setTimeout(() => {
+      const li = document.createElement("li");
+      li.className = "novo"; li.textContent = linha(est.e, est.n);
+      log.insertBefore(li, log.firstChild);
+      while (log.children.length > 3) log.removeChild(log.lastChild);
+    }, passos.length * 420));
+  }
+  function ciclo() {
+    if (!visivel || Date.now() < pausaAte || document.hidden) return;
+    est.n = (est.n + 1) % CONFIG.niveisBloom.length;
+    if (est.n % 2 === 0) est.e = (est.e + 1) % AGENTE.entradas.length;
+    rodar(true);
+  }
+  log.innerHTML = [[0, 0], [1, 4], [0, 2]].map(([e, n]) => "<li>" + esc(linha(e, n)) + "</li>").join("");
+  const mudar = qual => {
+    if (qual === "a") est.e = (est.e + 1) % AGENTE.entradas.length; else est.n = (est.n + 1) % CONFIG.niveisBloom.length;
+    pausaAte = Date.now() + 9000;
+    rodar(ANIMA);
+    $("#fc-anuncio").textContent = "Conteúdo: " + AGENTE.entradas[est.e] + ". Nível: " + CONFIG.niveisBloom[est.n] + ". Formato indicado: " + AGENTE.formatos[ramo(est.n)] + ".";
+  };
+  nos.a.addEventListener("click", () => mudar("a"));
+  nos.b.addEventListener("click", () => mudar("b"));
+  if ("ResizeObserver" in window) new ResizeObserver(desenharArestas).observe(grafo); else window.addEventListener("resize", desenharArestas);
+  desenharArestas();
+  if (!ANIMA) return;
+  if ("IntersectionObserver" in window) new IntersectionObserver(es => { visivel = es[0].isIntersecting; }).observe(card); else visivel = true;
+  relogio = setInterval(ciclo, 3200);
+  // inclinação do cartão com o cursor
+  if (window.matchMedia("(hover: hover)").matches) {
+    card.addEventListener("pointermove", e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty("--ry", (((e.clientX - r.left) / r.width - .5) * 8).toFixed(2) + "deg");
+      card.style.setProperty("--rx", (-((e.clientY - r.top) / r.height - .5) * 6).toFixed(2) + "deg");
+    }, { passive: true });
+    card.addEventListener("pointerleave", () => { card.style.setProperty("--ry", "0deg"); card.style.setProperty("--rx", "0deg"); });
+  }
+}
+
+/* ---------- O que você vai aprender: ecossistema ---------- */
+function ligarHub() {
+  const palco = $("#hub-palco"), detalhe = $("#hub-detalhe");
+  if (!palco) return;
+  const pos = HUB.map((h, i) => {
+    if (!i) return { x: 50, y: 50 };
+    const ang = (-90 + (i - 1) * 360 / (HUB.length - 1)) * Math.PI / 180;
+    return { x: 50 + 36 * Math.cos(ang), y: 50 + 36 * Math.sin(ang) };
+  });
+  palco.innerHTML = '<svg class="hub-linhas" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">' +
+    pos.slice(1).map((p, i) => '<line data-i="' + (i + 1) + '" x1="' + p.x.toFixed(2) + '" y1="' + p.y.toFixed(2) + '" x2="50" y2="50"/>').join("") + "</svg>" +
+    HUB.map((h, i) => '<button type="button" class="' + (i ? "hub-sat" : "hub-centro") + '" data-i="' + i + '" aria-pressed="false" aria-controls="hub-detalhe" style="--x:' + pos[i].x.toFixed(2) + "%;--y:" + pos[i].y.toFixed(2) + '%">' +
+      (i ? "" : '<svg class="ico" aria-hidden="true"><use href="#i-lapis"/></svg>') + "<span>" + esc(h.nome) + "</span></button>").join("");
+  let atual = -1, auto = ANIMA, relogio = 0;
+  const mostrar = (i, falar) => {
+    atual = i;
+    $$("button", palco).forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.i === i)));
+    $$("line", palco).forEach(l => l.classList.toggle("on", i === 0 || +l.dataset.i === i));
+    const h = HUB[i];
+    detalhe.innerHTML = '<p class="olho">' + esc(h.tag) + "</p><h3>" + esc(h.titulo) + "</h3><p>" + esc(h.texto) + "</p>";
+    detalhe.classList.remove("troca"); void detalhe.offsetWidth; detalhe.classList.add("troca");
+    if (falar) detalhe.setAttribute("aria-live", "polite");
+  };
+  palco.addEventListener("click", e => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    auto = false; clearInterval(relogio);
+    mostrar(+b.dataset.i, true);
+  });
+  mostrar(0, false);
+  if (auto && "IntersectionObserver" in window) {
+    new IntersectionObserver(es => {
+      clearInterval(relogio);
+      if (es[0].isIntersecting && auto) relogio = setInterval(() => mostrar((atual + 1) % HUB.length, false), 3200);
+    }).observe(palco);
+  }
+}
+
+/* ---------- Contexto é rei: o pedido ganha contexto ---------- */
+function ligarContexto() {
+  const faixa = $("#ctx-range"), saida = $("#ctx-pedido"), barra = $("#ctx-barra");
+  if (!faixa) return;
+  const max = PEDIDO_CONTEXTO.length - 1;
+  faixa.max = max;
+  let anterior = 0, tocou = false, timers = [];
+  const mostrar = (n, falar) => {
+    saida.innerHTML = esc(PEDIDO_CONTEXTO[0]) + PEDIDO_CONTEXTO.slice(1, n + 1).map((t, i) =>
+      '<mark class="' + (i + 1 > anterior ? "nova" : "") + '">' + esc(t) + "</mark>").join("") + ".";
+    anterior = n;
+    faixa.value = n;
+    faixa.style.setProperty("--p", (n / max * 100).toFixed(1) + "%");
+    faixa.setAttribute("aria-valuetext", n + " de " + max + " informações de contexto");
+    barra.parentElement.parentElement.style.setProperty("--n", n);
+    if (falar) saida.setAttribute("aria-live", "polite");
+  };
+  faixa.addEventListener("input", () => { tocou = true; timers.forEach(clearTimeout); mostrar(+faixa.value, true); });
+  mostrar(0, false);
+  if (!ANIMA || !("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver(es => {
+    if (!es[0].isIntersecting || tocou) return;
+    io.disconnect();
+    for (let n = 1; n <= max; n++) timers.push(setTimeout(() => { if (!tocou) mostrar(n, false); }, 700 + n * 950));
+  }, { threshold: .5 });
+  io.observe(faixa);
+}
+
+/* ---------- Letras que se "decodificam" (etiquetas em fonte mono) ---------- */
+const GLIFOS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/+·";
+function prepararDecodificar(el) {
+  if (el._dec) return;
+  const final = el.textContent, sr = document.createElement("span"), vis = document.createElement("span");
+  sr.className = "sr"; sr.textContent = final;
+  vis.setAttribute("aria-hidden", "true"); vis.textContent = final;
+  el.textContent = "";
+  el.appendChild(sr); el.appendChild(vis);
+  el._dec = { vis, final };
+}
+function decodificar(el) {
+  const d = el._dec;
+  if (!d || !ANIMA) return;
+  const n = d.final.length, ini = performance.now(), dur = 650 + n * 14;
+  (function passo(t) {
+    const p = (t - ini) / dur;
+    let s = "";
+    for (let i = 0; i < n; i++) { const c = d.final[i]; s += (c === " " || p > i / n * .7 + .3) ? c : GLIFOS[(Math.random() * GLIFOS.length) | 0]; }
+    d.vis.textContent = p >= 1 ? d.final : s;
+    if (p < 1) requestAnimationFrame(passo);
+  })(ini);
+}
+
+/* ---------- Do roteiro ao vídeo ---------- *//* ---------- Do roteiro ao vídeo ---------- */
 function montarFluxo() {
   $("#fluxo-etapas").innerHTML = FLUXO.map((x, i) =>
     '<li class="etapa"><span class="etapa-n" aria-hidden="true">' + pad(i + 1) + "</span><h3>" + esc(x.titulo) +
@@ -2030,12 +2476,11 @@ function atualizarFluxo() {
   ol.style.setProperty("--prog", p.toFixed(3));
 }
 
-/* ---------- Painel "Contexto é rei" ---------- */
-function atualizarContexto() {
-  const el = $("#painel-contexto");
-  if (!el || !ANIMA) return;
-  const r = el.getBoundingClientRect(), vh = window.innerHeight;
-  el.style.setProperty("--z", limitar((vh - r.top) / (vh * .55), 0, 1).toFixed(3));
+/* ---------- Painéis que crescem ao entrar na tela ("Contexto é rei" e chamada final) ---------- */
+function atualizarZoom() {
+  if (!ANIMA) return;
+  const vh = window.innerHeight;
+  $$("[data-zoom]").forEach(el => { const r = el.getBoundingClientRect(); el.style.setProperty("--z", limitar((vh - r.top) / (vh * .55), 0, 1).toFixed(3)); });
 }
 
 /* ---------- Bloom: tocar um nível mostra o formato indicado ---------- */
@@ -2043,7 +2488,7 @@ function ligarBloom() {
   const lista = $("#bloom-niveis"), detalhe = $("#bloom-detalhe");
   lista.innerHTML = CONFIG.niveisBloom.map((n, i) =>
     '<li style="--i:' + i + '"><button type="button" class="nivel-btn" aria-pressed="' + (i === 0) + '" aria-controls="bloom-detalhe" data-nivel="' + i + '">' +
-    '<b aria-hidden="true">' + (i + 1) + "</b>" + esc(n) + "</button></li>").join("");
+    '<span class="rot-nivel"><b aria-hidden="true">' + (i + 1) + "</b>" + esc(n) + '</span><span class="col3d" aria-hidden="true"></span></button></li>').join("");
   const mostrar = i => {
     const g = BLOOM_FORMATOS.find(x => x.niveis.indexOf(i) !== -1) || BLOOM_FORMATOS[0];
     $$(".nivel-btn", lista).forEach((b, j) => b.setAttribute("aria-pressed", String(j === i)));
@@ -2123,64 +2568,72 @@ function ligarRevelacao() {
   $$("[data-palavras]").forEach(dividirPalavras);
   const alvos = $$("[data-revelar],[data-palavras]");
   if (!ANIMA || !("IntersectionObserver" in window)) { alvos.forEach(el => el.classList.add("visivel")); return; }
+  $$("[data-decodificar]").forEach(prepararDecodificar);
   $$(".contador").forEach(c => { c.textContent = "0"; });
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
-    e.target.classList.add("visivel");
-    $$(".contador", e.target).forEach(contar);
-    io.unobserve(e.target);
+    const el = e.target;
+    el.classList.add("visivel");
+    $$(".contador", el).forEach(contar);
+    (el.hasAttribute("data-decodificar") ? [el] : []).concat($$("[data-decodificar]", el)).forEach(decodificar);
+    const eq = $(".equalizador", el);
+    if (eq && eq._destacar) setTimeout(eq._destacar, 1300);
+    io.unobserve(el);
   }), { rootMargin: "0px 0px -6% 0px", threshold: .1 });
   alvos.forEach(el => io.observe(el));
 }
 
-/* ---------- Fitas de luz (canvas): seguem o dedo ou o cursor e ganham energia com o toque e a rolagem ---------- */
-const CONF_FITAS = {
-  topo: [
-    { y: .6, yEstreito: .85, inclina: -.42, a: .15, k: 4.2, v: .34, a2: .05, k2: 8.5, v2: .21, fase: 0, torcao: 1.1, esp: 64, alfa: .8, brilho: .14, cores: ["#5916AF", "#B88AFC", "#02E1FC"] },
-    { y: .68, yEstreito: .91, inclina: -.3, a: .11, k: 3.3, v: -.27, a2: .06, k2: 7, v2: .17, fase: 2.1, torcao: .7, esp: 46, alfa: .7, brilho: .12, cores: ["#02CBFA", "#01F2B8", "#4EF1B4"] },
-    { y: .52, yEstreito: .81, inclina: -.5, a: .08, k: 5.6, v: .22, a2: .035, k2: 11, v2: .3, fase: 4.2, torcao: 1.4, esp: 30, alfa: .45, brilho: .08, cores: ["#B88AFC", "#5FE3FA"] }
-  ],
-  final: [
-    { y: .84, yEstreito: .88, inclina: -.16, a: .08, k: 3.8, v: .3, a2: .04, k2: 8, v2: .2, fase: 1, torcao: .9, esp: 50, alfa: .7, brilho: .12, cores: ["#5916AF", "#B88AFC", "#02E1FC"] },
-    { y: .91, yEstreito: .93, inclina: -.1, a: .06, k: 3, v: -.24, a2: .05, k2: 6.5, v2: .15, fase: 3, torcao: .6, esp: 38, alfa: .6, brilho: .1, cores: ["#02CBFA", "#01F2B8"] }
-  ]
-};
-function Fitas(canvas, conf) {
-  const ctx = canvas.getContext && canvas.getContext("2d");
+/* ---------- Céu de fitas (canvas fixo atrás da página) ----------
+   As fitas seguem o dedo ou o cursor, ganham energia com o toque e a rolagem, mudam de
+   posição conforme a pessoa desce a página e são puxadas na direção do botão de compra. */
+const CEU_FAIXAS = [
+  { y: .76, yEstreito: .9, inclina: -.5, a: .13, k: 4.2, v: .34, a2: .05, k2: 8.5, v2: .21, fase: 0, torcao: 1.1, esp: 60, alfa: .55, brilho: .1, onda: 1.3, desloc: .2, cores: ["#5916AF", "#B88AFC", "#02E1FC"] },
+  { y: .84, yEstreito: .95, inclina: -.36, a: .1, k: 3.3, v: -.27, a2: .06, k2: 7, v2: .17, fase: 2.1, torcao: .7, esp: 44, alfa: .48, brilho: .09, onda: .9, desloc: .24, cores: ["#02CBFA", "#01F2B8", "#4EF1B4"] },
+  { y: .68, yEstreito: .86, inclina: -.58, a: .07, k: 5.6, v: .22, a2: .035, k2: 11, v2: .3, fase: 4.2, torcao: 1.4, esp: 28, alfa: .32, brilho: .06, onda: 1.7, desloc: .26, cores: ["#B88AFC", "#5FE3FA"] }
+];
+function Ceu(canvas) {
+  const ctx = canvas && canvas.getContext && canvas.getContext("2d");
   if (!ctx) return null;
-  const area = canvas.parentElement;
-  let w = 1, h = 1, bandas = [], raf = 0, visivel = false, energia = 0, t = 2.2, ultimo = 0;
+  let w = 1, h = 1, bandas = [], estrelas = [], raf = 0, energia = 0, t = 2.2, ultimo = 0, ultimoDesenho = 0, rol = 0, rolPx = 0;
   const alvo = { x: .7, y: .6, forca: 0 }, mao = { x: .7, y: .6, forca: 0 };
   function desenhar(tempo) {
     ctx.clearRect(0, 0, w, h);
+    const estreito = w < 700, passo = estreito ? 22 : 18, linhas = estreito ? 14 : 20, base = Math.min(h, w * .8);
+    // estrelas que sobem devagar com a rolagem (parallax) e piscam
+    ctx.fillStyle = "#fff";
+    for (const e of estrelas) {
+      const y = ((e.y * h - rolPx * e.par) % h + h) % h;
+      ctx.globalAlpha = .18 + .5 * (.5 + .5 * Math.sin(tempo * e.pisca + e.fase));
+      ctx.fillRect(e.x * w, y, e.r, e.r);
+    }
     ctx.globalCompositeOperation = "lighter";
-    const estreito = w < 700, passo = estreito ? 20 : 16, linhas = estreito ? 16 : 26, base = Math.min(h, w * .8);
-    const curva = (b, tempo, amp, f, x) => {
+    const curva = (b, amp, f, x) => {
       const nx = x / w;
       let y = b.yAtual * h + (nx - .5) * b.inclina * base
         + Math.sin(nx * b.k + tempo * b.v + f * b.torcao) * amp
         + Math.sin(nx * b.k2 - tempo * b.v2 + b.fase) * b.a2 * base
         + f * b.esp * (1 + .55 * Math.sin(nx * 3.1 + tempo * .6 + b.fase));
-      if (mao.forca > .01) { const d = (nx - mao.x) / .2; y += (mao.y * h - y) * .5 * mao.forca * Math.exp(-d * d); }
+      if (mao.forca > .01) { const d = (nx - mao.x) / .22; y += (mao.y * h - y) * .55 * mao.forca * Math.exp(-d * d); }
       return y;
     };
     for (const b of bandas) {
+      b.yAtual = (estreito ? b.yEstreito : b.y) - b.desloc * (.5 - .5 * Math.cos(rol * Math.PI * 2 * b.onda + b.fase));
       const amp = b.a * base * (1 + energia * .7);
       ctx.strokeStyle = b.grad;
+      ctx.lineCap = "round";
       for (const [largura, alfa] of [[b.esp * 1.6, b.brilho * .5], [b.esp * .6, b.brilho]]) {
         ctx.beginPath();
-        for (let x = -30; x <= w + 30; x += passo * 2) { const y = curva(b, tempo, amp, 0, x); if (x === -30) ctx.moveTo(x, y); else ctx.lineTo(x, y); }
+        for (let x = -30; x <= w + 30; x += passo * 2) { const y = curva(b, amp, 0, x); if (x === -30) ctx.moveTo(x, y); else ctx.lineTo(x, y); }
         ctx.globalAlpha = alfa * (1 + energia * .6);
         ctx.lineWidth = largura;
-        ctx.lineCap = "round";
         ctx.stroke();
       }
       for (let j = 0; j < linhas; j++) {
         const f = j / (linhas - 1) - .5;
         ctx.beginPath();
-        for (let x = -30; x <= w + 30; x += passo) { const y = curva(b, tempo, amp, f, x); if (x === -30) ctx.moveTo(x, y); else ctx.lineTo(x, y); }
+        for (let x = -30; x <= w + 30; x += passo) { const y = curva(b, amp, f, x); if (x === -30) ctx.moveTo(x, y); else ctx.lineTo(x, y); }
         ctx.globalAlpha = Math.max(0, b.alfa * (1 - Math.abs(f) * 1.5) * (.8 + energia * .5));
-        ctx.lineWidth = Math.abs(f) < .06 ? 2.4 : 1;
+        ctx.lineWidth = Math.abs(f) < .06 ? 2.2 : 1;
         ctx.stroke();
       }
     }
@@ -2188,52 +2641,96 @@ function Fitas(canvas, conf) {
     ctx.globalCompositeOperation = "source-over";
   }
   function medir() {
-    const r = canvas.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    w = Math.max(1, r.width); h = Math.max(1, r.height);
+    const dpr = 1; // as fitas são luz difusa: resolução de tela 1x basta e pesa menos
+    w = Math.max(1, window.innerWidth); h = Math.max(1, window.innerHeight);
     canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    bandas = conf.map(b => {
+    bandas = CEU_FAIXAS.map(b => {
       const g = ctx.createLinearGradient(0, 0, w, 0);
       b.cores.forEach((c, i) => g.addColorStop(i / (b.cores.length - 1), c));
-      return Object.assign({}, b, { grad: g, yAtual: w < 700 ? b.yEstreito : b.y });
+      return Object.assign({}, b, { grad: g, yAtual: b.y });
     });
+    if (!estrelas.length) {
+      const n = w < 700 ? 40 : 80;
+      for (let i = 0; i < n; i++) estrelas.push({ x: Math.random(), y: Math.random(), r: Math.random() < .2 ? 2 : 1.2, par: .04 + Math.random() * .3, pisca: .5 + Math.random() * 2, fase: Math.random() * 6 });
+    }
     if (!raf) desenhar(t);
   }
   function quadro(agora) {
     raf = 0;
-    if (!visivel || document.hidden) return;
+    if (document.hidden) return;
     const dt = ultimo ? Math.min(.05, (agora - ultimo) / 1000) : 0;
     ultimo = agora;
     t += dt * (1 + energia * 1.5);
     mao.x += (alvo.x - mao.x) * .08; mao.y += (alvo.y - mao.y) * .08; mao.forca += (alvo.forca - mao.forca) * .06;
     energia *= .96;
-    desenhar(t);
+    // no celular, 30 quadros por segundo bastam e poupam bateria
+    if (w >= 700 || agora - ultimoDesenho > 30) { desenhar(t); ultimoDesenho = agora; }
     raf = requestAnimationFrame(quadro);
   }
-  const iniciar = () => { if (!raf && ANIMA && visivel && !document.hidden) { ultimo = 0; raf = requestAnimationFrame(quadro); } };
+  const iniciar = () => { if (!raf && ANIMA && !document.hidden) { ultimo = 0; raf = requestAnimationFrame(quadro); } };
   medir();
-  if ("ResizeObserver" in window) new ResizeObserver(medir).observe(canvas); else window.addEventListener("resize", medir);
-  if (!ANIMA || !("IntersectionObserver" in window)) return null;
+  window.addEventListener("resize", medir);
+  const api = {
+    rolar: (p, px, vel) => { rol = p; rolPx = px; if (vel) energia = Math.min(1.6, energia + Math.min(.2, vel / 1200)); if (!ANIMA) desenhar(t); },
+    puxar: (x, y, forca) => { alvo.x = x; alvo.y = y; alvo.forca = forca; energia = Math.min(1.6, energia + .6); },
+    soltar: () => { alvo.forca = 0; }
+  };
+  if (!ANIMA) return api;
   t = Math.random() * 10;
-  new IntersectionObserver(es => { visivel = es[0].isIntersecting; iniciar(); }).observe(canvas);
   document.addEventListener("visibilitychange", iniciar);
-  const mover = e => { const r = area.getBoundingClientRect(); alvo.x = (e.clientX - r.left) / r.width; alvo.y = (e.clientY - r.top) / r.height; alvo.forca = 1; };
-  area.addEventListener("pointermove", mover, { passive: true });
-  area.addEventListener("pointerdown", e => { mover(e); energia = Math.min(1.6, energia + .9); }, { passive: true });
-  area.addEventListener("pointerleave", () => { alvo.forca = 0; });
-  return { agitar: v => { energia = Math.min(1.6, energia + v); } };
+  const mover = e => { alvo.x = e.clientX / w; alvo.y = e.clientY / h; alvo.forca = .7; };
+  document.addEventListener("pointermove", mover, { passive: true });
+  document.addEventListener("pointerdown", e => { mover(e); energia = Math.min(1.6, energia + .9); }, { passive: true });
+  document.documentElement.addEventListener("pointerleave", () => { alvo.forca = 0; });
+  iniciar();
+  return api;
 }
 
-/* ---------- Ilustração do topo inclina com o cursor ---------- */
-function ligarInclinacao() {
-  const topo = $(".topo"), arte = $(".topo-arte svg");
-  if (!ANIMA || !arte || !window.matchMedia("(hover: hover)").matches) return;
-  topo.addEventListener("pointermove", e => {
-    const r = topo.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-    arte.style.setProperty("--ry", (x * 10).toFixed(2) + "deg");
-    arte.style.setProperty("--rx", (-y * 8).toFixed(2) + "deg");
+/* ---------- Botões de compra: as fitas vão até o botão e o título "falha" ---------- */
+function ligarCTA(ceu) {
+  const h1 = $("#titulo");
+  $$("a.btn-compra").forEach(a => {
+    const perto = () => {
+      if (ceu) { const r = a.getBoundingClientRect(); ceu.puxar((r.left + r.width / 2) / window.innerWidth, (r.top + r.height / 2) / window.innerHeight, 1.3); }
+      if (ANIMA && a.closest(".topo")) { h1.classList.remove("glitch"); void h1.offsetWidth; h1.classList.add("glitch"); }
+    };
+    a.addEventListener("pointerenter", perto);
+    a.addEventListener("focus", perto);
+    a.addEventListener("pointerleave", () => { if (ceu) ceu.soltar(); });
+    a.addEventListener("blur", () => { if (ceu) ceu.soltar(); });
+  });
+  h1.addEventListener("animationend", () => h1.classList.remove("glitch"));
+}
+
+/* ---------- Anel que segue o cursor (só com mouse) ---------- */
+function ligarAnel() {
+  const anel = $("#anel");
+  if (!ANIMA || !anel || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  let x = -100, y = -100, tx = -100, ty = -100, esc_ = 1, escAlvo = 1, raf = 0;
+  const passo = () => {
+    x += (tx - x) * .24; y += (ty - y) * .24; esc_ += (escAlvo - esc_) * .2;
+    anel.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0) scale(" + esc_.toFixed(3) + ")";
+    raf = Math.abs(tx - x) + Math.abs(ty - y) + Math.abs(escAlvo - esc_) * 40 > .4 ? requestAnimationFrame(passo) : 0;
+  };
+  document.addEventListener("pointermove", e => {
+    if (e.pointerType !== "mouse") return;
+    tx = e.clientX; ty = e.clientY;
+    const sobre = !!(e.target.closest && e.target.closest("a,button,input,summary,label"));
+    escAlvo = sobre ? 1.7 : 1;
+    anel.classList.add("on"); anel.classList.toggle("sobre", sobre);
+    if (!raf) raf = requestAnimationFrame(passo);
   }, { passive: true });
-  topo.addEventListener("pointerleave", () => { arte.style.setProperty("--ry", "0deg"); arte.style.setProperty("--rx", "0deg"); });
+  document.documentElement.addEventListener("pointerleave", () => anel.classList.remove("on"));
+}
+
+/* ---------- Abertura: some sozinha ou com qualquer toque ou tecla ---------- */
+function ligarIntro() {
+  const h = document.documentElement;
+  if (!h.classList.contains("com-intro")) return;
+  const fim = () => h.classList.remove("com-intro");
+  setTimeout(fim, 1150);
+  ["pointerdown", "keydown", "wheel", "touchstart"].forEach(t => window.addEventListener(t, fim, { once: true, passive: true }));
 }
 
 /* ---------- Brilho que segue o cursor nos cartões ---------- */
@@ -2248,8 +2745,8 @@ function ligarLuz() {
   }, { passive: true });
 }
 
-/* ---------- Rolagem: progresso, etapas, painel e energia das fitas ---------- */
-function ligarRolagem(fitas) {
+/* ---------- Rolagem: progresso, etapas, painéis e fitas ---------- */
+function ligarRolagem(ceu) {
   const barra = $("#progresso");
   let pendente = false, ultimoY = window.scrollY;
   const atualizar = () => {
@@ -2257,10 +2754,10 @@ function ligarRolagem(fitas) {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     barra.style.setProperty("--p", max > 0 ? limitar(window.scrollY / max, 0, 1).toFixed(4) : 0);
     atualizarFluxo();
-    atualizarContexto();
+    atualizarZoom();
     const v = Math.abs(window.scrollY - ultimoY);
     ultimoY = window.scrollY;
-    if (v) fitas.forEach(f => { if (f) f.agitar(Math.min(.2, v / 1200)); });
+    if (ceu) ceu.rolar(max > 0 ? limitar(window.scrollY / max, 0, 1) : 0, window.scrollY, v);
   };
   window.addEventListener("scroll", () => { if (!pendente) { pendente = true; requestAnimationFrame(atualizar); } }, { passive: true });
   window.addEventListener("resize", atualizar);
@@ -2270,9 +2767,12 @@ function ligarRolagem(fitas) {
 function ligarAnimacoes() {
   try { ligarRevelacao(); } catch (e) { document.documentElement.classList.add("revela-tudo"); }
   window.__paginaPronta = true;
-  const fitas = $$(".fitas").map(c => Fitas(c, CONF_FITAS[c.dataset.fitas] || CONF_FITAS.topo));
-  ligarRolagem(fitas);
-  ligarInclinacao();
+  ligarIntro();
+  let ceu = null;
+  try { ceu = Ceu($("#ceu")); } catch (e) { ceu = null; }
+  ligarRolagem(ceu);
+  ligarCTA(ceu);
+  ligarAnel();
   ligarLuz();
 }
 
@@ -2286,10 +2786,14 @@ aplicarLetra();
 desenharOpcoes();
 atualizarLinks();
 ligarFixo();
-montarNumeros();
+montarBento();
 montarFluxo();
 ligarBloom();
 ligarFormatos();
+ligarAgente();
+ligarHub();
+ligarContexto();
+ligarHelice();
 ligarAnimacoes();
 
 })();
