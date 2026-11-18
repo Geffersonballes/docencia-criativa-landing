@@ -194,9 +194,12 @@ h1 mark{color:var(--lilas);background:none;padding:0}
 .modulo details[open] summary{color:var(--texto)}
 
 /* ========== 5. Para quem é ========== */
-.para{background:var(--veu-2)}
-.para-grid{display:grid;gap:1.25rem;margin-top:1.5rem}
-.para-col{padding:1.2rem 1.1rem;background:var(--painel);border-radius:16px;border:1.5px solid var(--borda)}
+.topo .para-topo{padding:0;margin-top:1rem;scroll-margin-top:.5rem}
+.para-quadro{margin-top:1.25rem;padding:2px;background:linear-gradient(120deg,var(--lilas),var(--ciano),var(--verde));border-radius:22px;box-shadow:0 0 44px -12px rgba(89,22,175,.95)}
+.para-grid{display:grid;background:var(--noite);border-radius:20px;overflow:hidden}
+.para-col{padding:1.2rem 1.1rem}
+.para-col+.para-col{border-top:1px solid var(--borda)}
+.sim h3{color:var(--menta)} .nao h3{color:var(--rosa)}
 .para-col h3{display:flex;align-items:center;gap:.5rem}
 .para-col li{position:relative;padding:.45rem .5rem .45rem 2.1rem;border-radius:8px}
 .para-col li .ico{position:absolute;left:.3rem;top:.6rem;stroke-width:3}
@@ -550,6 +553,8 @@ button.no::after{content:"↻";position:absolute;top:.4rem;right:.5rem;font-size
   .acao .btn-compra{width:auto}
   .postits{grid-template-columns:1fr 1fr}
   .para-grid{grid-template-columns:1fr 1fr}
+  .para-col{padding:1.5rem 1.4rem}
+  .para-col+.para-col{border-top:0;border-left:1px solid var(--borda)}
   .garantia-grid{grid-template-columns:auto 1fr;gap:2.5rem}
   .prof-grid{grid-template-columns:auto 1fr;gap:2.5rem;align-items:center}
   .prancheta-folha{padding:2rem 1.75rem}
@@ -580,7 +585,8 @@ button.no::after{content:"↻";position:absolute;top:.4rem;right:.5rem;font-size
   .folha{padding:1.9rem 1.6rem 1.4rem}
 }
 @media (min-width:960px){
-  .topo-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:3rem;align-items:center}
+  .topo-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-areas:"texto agente" "para para";gap:2.25rem 3rem;align-items:center}
+  .topo-texto{grid-area:texto} #agente{grid-area:agente} .topo .para-topo{grid-area:para;margin-top:0}
   .dores-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:3rem;align-items:center}
   .fala blockquote{font-size:1.35rem}
   .demo-grid{grid-template-columns:minmax(0,21rem) minmax(0,1fr);gap:2.5rem;align-items:start}
@@ -655,7 +661,7 @@ button.no::after{content:"↻";position:absolute;top:.4rem;right:.5rem;font-size
 <!-- 1. TOPO -->
 <section class="topo" id="topo" aria-labelledby="titulo">
   <div class="wrap topo-grid">
-    <div>
+    <div class="topo-texto">
       <p class="olho olho-topo" id="olho-topo" data-revelar data-decodificar>formação continuada / 69 aulas / módulo 1 + 8 temas + bônus</p>
       <h1 id="titulo">Docência Criativa: <mark>Tecnologias e IA</mark> na <em class="acento">Prática</em></h1>
       <p class="sub">Domine inteligências artificiais e ferramentas audiovisuais e produza material pedagógico autoral: textos, avaliações, imagens, vídeos e músicas.</p>
@@ -665,6 +671,32 @@ button.no::after{content:"↻";position:absolute;top:.4rem;right:.5rem;font-size
         <p class="acao-nota"><span class="nota-chip"><strong data-c="preco">R$ 97,00</strong> à vista / garantia de <span data-c="garantiaDias">7</span> dias / compra pela Hotmart</span></p>
       </div>
     </div>
+
+    <!-- PARA QUEM É: logo abaixo do botão de compra e do preço -->
+    <section class="para-topo" id="para-quem" aria-labelledby="para-t">
+      <h2 id="para-t" data-palavras>Para quem é. E para quem não é.</h2>
+      <div class="para-quadro">
+        <div class="para-grid">
+          <div class="para-col sim spot" data-revelar>
+            <h3>É para você se…</h3>
+            <ul>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>É profissional da educação e quer usar tecnologias digitais e IA para criar e personalizar conteúdos, atividades e avaliações.</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Quer produzir material autoral em todas as mídias: texto, imagem, vídeo e áudio.</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Quer aplicar metodologias ativas, como o Ensino Híbrido e a Sala de Aula Invertida.</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Atua na educação básica. Os exemplos das aulas dão destaque à Educação Infantil e aos Anos Iniciais.</li>
+            </ul>
+          </div>
+          <div class="para-col nao spot" data-revelar style="--d:1">
+            <h3>Não é para você se…</h3>
+            <ul>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Procura uma IA que trabalhe sozinha. No curso, a validação pedagógica é sempre do educador.</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Quer aprender uma única ferramenta. A formação passa por Gemini, Adobe Express, CapCut, Suno AI e Flow Music.</li>
+              <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Espera fazer tudo sem nenhum gasto extra. As ferramentas têm versão gratuita, com limites, e o curso apresenta as versões pagas como investimento.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div class="fluxo-card spot" id="agente" role="group" aria-labelledby="agente-t">
       <div class="fc-topo">
@@ -883,32 +915,6 @@ button.no::after{content:"↻";position:absolute;top:.4rem;right:.5rem;font-size
     <h3>Módulos, temas e aulas</h3>
     <p class="lead" style="margin-bottom:1.25rem">O Módulo 1 fundamenta a formação. O Módulo 2 é a Fábrica de Conteúdos, com oito temas. No fim, um Módulo Bônus.</p>
     <div id="modulos"></div>
-  </div>
-</section>
-
-<!-- 7. PARA QUEM É -->
-<section class="para" id="para-quem" aria-labelledby="para-t">
-  <div class="wrap">
-    <h2 id="para-t" data-palavras>Para quem é. E para quem não é.</h2>
-    <div class="para-grid">
-      <div class="para-col sim spot" data-revelar>
-        <h3>É para você se…</h3>
-        <ul>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>É profissional da educação e quer usar tecnologias digitais e IA para criar e personalizar conteúdos, atividades e avaliações.</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Quer produzir material autoral em todas as mídias: texto, imagem, vídeo e áudio.</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Quer aplicar metodologias ativas, como o Ensino Híbrido e a Sala de Aula Invertida.</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Atua na educação básica. Os exemplos das aulas dão destaque à Educação Infantil e aos Anos Iniciais.</li>
-        </ul>
-      </div>
-      <div class="para-col nao spot" data-revelar style="--d:1">
-        <h3>Não é para você se…</h3>
-        <ul>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Procura uma IA que trabalhe sozinha. No curso, a validação pedagógica é sempre do educador.</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Quer aprender uma única ferramenta. A formação passa por Gemini, Adobe Express, CapCut, Suno AI e Flow Music.</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg>Espera fazer tudo sem nenhum gasto extra. As ferramentas têm versão gratuita, com limites, e o curso apresenta as versões pagas como investimento.</li>
-        </ul>
-      </div>
-    </div>
   </div>
 </section>
 
