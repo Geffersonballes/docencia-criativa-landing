@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: opiniao-antes-de-mexer
+expected_outcome: |
+  Dá uma opinião com recomendação clara, apoiada no conteúdo da seção e no histórico da
+  página (preocupação com o tamanho), e não altera nem publica nada: espera o "sim".

@@ -108,6 +108,10 @@ O que os testes conferem:
 - Versão sem movimento (quem ativa "reduzir movimento" vê tudo pronto e parado).
 - Desempenho ao rolar.
 
+## Para o Claude
+
+As instruções de manutenção desta página (regras de conteúdo, mapa do código, testes, publicação e histórico de decisões) estão na skill `.claude/skills/landing-ia-para-professores/`. Em sessões do Claude Code neste repositório, ela é carregada sozinha.
+
 ## Acessibilidade e desempenho
 
 - Contraste AA, inclusive sobre o fundo animado.
