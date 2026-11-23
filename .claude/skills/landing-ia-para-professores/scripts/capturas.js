@@ -1,8 +1,9 @@
-// Capturas para revisão visual: iPhone 11 e desktop (1280 x 800), no topo e em cada seletor pedido.
+// Conferência visual: Playwright em 375 px (celular) e 1280 px (desktop).
+// Para cada tela: zero erros no console, scrollWidth igual à largura e prints do topo e de cada seletor pedido.
 // Uso: node capturas.js <index.html ou https://…> <pasta-de-saída> [seletor ...]
 // Precisa do Playwright. Dentro do repositório: NODE_PATH=node_modules node <caminho>/capturas.js …
-// Sai com código 1 se houver erro no console da página.
-const { chromium, devices } = require('playwright');
+// Sai com código 1 se houver erro no console ou conteúdo vazando na lateral.
+const { chromium } = require('playwright');
 const path = require('path');
 const fs = require('fs');
 
@@ -16,17 +17,24 @@ fs.mkdirSync(saida, { recursive: true });
 
 (async () => {
   const navegador = await chromium.launch();
-  const erros = [];
-  const telas = [['iphone', devices['iPhone 11']], ['desktop', { viewport: { width: 1280, height: 800 } }]];
+  const problemas = [];
+  const telas = [
+    ['celular', { viewport: { width: 375, height: 812 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true }],
+    ['desktop', { viewport: { width: 1280, height: 800 } }],
+  ];
   for (const [nome, opcoes] of telas) {
     const pagina = await (await navegador.newContext(opcoes)).newPage();
-    pagina.on('pageerror', e => erros.push(nome + ': ' + e.message));
-    pagina.on('console', m => { if (m.type() === 'error') erros.push(nome + ': ' + m.text()); });
+    pagina.on('pageerror', e => problemas.push(`${nome}: erro na página: ${e.message}`));
+    pagina.on('console', m => { if (m.type() === 'error') problemas.push(`${nome}: erro no console: ${m.text()}`); });
     await pagina.goto(url);
     // a página rola de forma suave; aqui a rolagem precisa ser instantânea para a captura cair no lugar certo
     await pagina.addStyleTag({ content: 'html{scroll-behavior:auto!important}' });
     await pagina.waitForTimeout(1800);
-    const alvos = seletores.length ? ['(topo)'].concat(seletores) : ['(topo)'];
+    const larguras = await pagina.evaluate(() => ({ conteudo: document.documentElement.scrollWidth, tela: document.documentElement.clientWidth }));
+    const ok = larguras.conteudo <= larguras.tela;
+    console.log(`${nome}: scrollWidth ${larguras.conteudo} / largura ${larguras.tela} ${ok ? 'ok' : 'VAZANDO NA LATERAL'}`);
+    if (!ok) problemas.push(`${nome}: conteúdo vazando na lateral (${larguras.conteudo} > ${larguras.tela})`);
+    const alvos = ['(topo)'].concat(seletores);
     for (const [i, seletor] of alvos.entries()) {
       if (seletor !== '(topo)') {
         const achou = await pagina.evaluate(s => {
@@ -44,8 +52,10 @@ fs.mkdirSync(saida, { recursive: true });
     }
   }
   await navegador.close();
-  if (erros.length) {
-    console.log('Erros no console:\n' + erros.join('\n'));
+  if (problemas.length) {
+    console.log('PROBLEMAS:\n' + problemas.join('\n'));
     process.exitCode = 1;
+  } else {
+    console.log('sem erros no console e nada vazando na lateral');
   }
 })();

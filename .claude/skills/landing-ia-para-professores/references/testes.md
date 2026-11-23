@@ -90,7 +90,7 @@ Como funciona `testes/contraste-captura.js`:
 NODE_PATH=node_modules node .claude/skills/landing-ia-para-professores/scripts/capturas.js index.html testes/saida/capturas '#mapa' '#quem-ensina' '#oferta'
 ```
 
-O script gera `iphone-01.png`, `desktop-01.png`… e lista os erros de console. Ele também aceita uma URL (`https://docenciacriativa.ballestech.com.br/`) para conferir o site publicado. Abra as imagens: o dono olha no iPhone, e os problemas visuais mais comuns até aqui foram:
+O script usa Playwright em 375 px e 1280 px, gera `celular-01.png`, `desktop-01.png`… e mostra os erros de console e se o `scrollWidth` passa da largura da tela (nesses casos, sai com código 1). Ele também aceita uma URL (`https://docenciacriativa.ballestech.com.br/`) para conferir o site publicado. Abra as imagens: o dono olha no iPhone, e os problemas visuais mais comuns até aqui foram:
 - palavra quebrando no meio;
 - grupo curto partido em duas linhas;
 - texto em degradê apagado;
